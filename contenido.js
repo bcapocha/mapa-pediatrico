@@ -1,6 +1,6 @@
 /*
   El Gran Mapa Pediátrico — contenido del prototipo
-  Área: Neumonología › Sibilancias del lactante al escolar
+  Áreas: Neumonología › Sibilancias del lactante al escolar; Dermatología › Exantemas
 
   Cómo está organizado:
   - REFS: bibliografía verificada en PubMed (PMID y, cuando lo tenemos, DOI). Cada nodo la cita por su clave.
@@ -11,6 +11,8 @@
       evidencia: claves de REFS
       pico: preguntas { p, i, c, o, respuesta, certeza, refs }
       ateneos: { titulo, fecha, presenta, url }
+      causa: "infecciosa" | "alergica" | "inflamatoria" (o una lista) — colorea el punto en mapas con leyenda de causas
+      color: color del nodo tema (variable CSS)
       conexiones: ids de otros nodos
       revision: { estado: "borrador" | "revisado", revisor, fecha }
 
@@ -263,6 +265,152 @@ window.REFS = {
     tipo: "Guía / estrategia (GINA)",
     hallazgo: "Diagnóstico de asma en menores de 6 años con tres elementos: patrón compatible, sin causa alternativa probable y respuesta documentada al tratamiento. Con uno o dos, asma sospechada.",
     url: "https://ginasthma.org/2026-gina-strategy-report/"
+  },
+
+  /* ───── Dermatología › Exantemas ───── */
+  moss2017: {
+    cita: "Moss WJ. Measles. Lancet. 2017;390:2490-2502.",
+    tipo: "Revisión (seminario)",
+    hallazgo: "Fiebre, tos, coriza y conjuntivitis seguidas del exantema característico. La neumonía explica la mayor parte de la morbimortalidad. El manejo incluye vitamina A; la prevención es la vacuna en dos dosis.",
+    pmid: "28673424", doi: "10.1016/S0140-6736(17)31463-0"
+  },
+  huiming2005: {
+    cita: "Huiming Y, Chaomin W, Meng M. Vitamin A for treating measles in children. Cochrane Database Syst Rev. 2005;(4):CD001479.",
+    tipo: "Revisión sistemática (Cochrane)",
+    hallazgo: "En conjunto, sin reducción significativa de mortalidad (RR 0,70; IC 0,42–1,15). Dos dosis de 200.000 UI en días consecutivos redujeron la mortalidad en menores de 2 años (RR 0,18) y la mortalidad por neumonía (RR 0,33). Una sola dosis no mostró beneficio.",
+    pmid: "16235283", doi: "10.1002/14651858.CD001479.pub3"
+  },
+  zerr2005: {
+    cita: "Zerr DM, et al. A population-based study of primary human herpesvirus 6 infection. N Engl J Med. 2005;352:768-76.",
+    tipo: "Cohorte prospectiva",
+    hallazgo: "277 niños seguidos desde el nacimiento: 40 % se infectó con HHV-6 al año y 77 % a los 2 años (pico entre 9 y 21 meses). El 93 % tuvo síntomas; la roséola típica apareció solo en una minoría y no hubo convulsiones.",
+    pmid: "15728809", doi: "10.1056/NEJMoa042207"
+  },
+  young2004: {
+    cita: "Young NS, Brown KE. Parvovirus B19. N Engl J Med. 2004;350:586-97.",
+    tipo: "Revisión",
+    hallazgo: "Revisión clásica del parvovirus B19: eritema infeccioso, artropatía, crisis aplásica transitoria en anemias hemolíticas, anemia crónica en inmunocomprometidos e hidrops fetal.",
+    pmid: "14762186", doi: "10.1056/NEJMra030840"
+  },
+  pazbailey2024: {
+    cita: "Paz-Bailey G, Adams LE, Deen J, Anderson KB, Katzelnick LC. Dengue. Lancet. 2024;403:667-682.",
+    tipo: "Revisión (seminario)",
+    hallazgo: "Actualización sobre virus, respuesta inmune, progresión clínica, vacunas y control del vector en un contexto de expansión geográfica del dengue.",
+    pmid: "38280388", doi: "10.1016/S0140-6736(23)02576-X"
+  },
+  chovel2013: {
+    cita: "Chovel-Sella A, et al. Incidence of rash after amoxicillin treatment in children with infectious mononucleosis. Pediatrics. 2013;131:e1424-7.",
+    tipo: "Estudio retrospectivo multicéntrico",
+    hallazgo: "Con amoxicilina, el exantema apareció en 29,5 % (IC 18,5–42,6 %), muy lejos del 90 % descrito con ampicilina. Con cualquier antibiótico 32,9 % vs 23,1 % sin antibiótico (diferencia no significativa).",
+    pmid: "23589810", doi: "10.1542/peds.2012-1575"
+  },
+  mill2016: {
+    cita: "Mill C, et al. Assessing the diagnostic properties of a graded oral provocation challenge for the diagnosis of immediate and nonimmediate reactions to amoxicillin in children. JAMA Pediatr. 2016;170:e160033.",
+    tipo: "Cohorte prospectiva",
+    hallazgo: "818 niños derivados por sospecha de alergia a amoxicilina: 94,1 % toleró la provocación oral; 2,1 % tuvo reacciones inmediatas leves y 3,8 % no inmediatas. Valor predictivo negativo 89,1 %.",
+    pmid: "27043788", doi: "10.1001/jamapediatrics.2016.0033"
+  },
+  shulman2012: {
+    cita: "Shulman ST, et al. Clinical practice guideline for the diagnosis and management of group A streptococcal pharyngitis: 2012 update by the IDSA. Clin Infect Dis. 2012;55:e86-102.",
+    tipo: "Guía de práctica clínica (IDSA)",
+    hallazgo: "Penicilina o amoxicilina siguen siendo de elección; en alérgicos se suman opciones como cefalosporinas de primera generación (si no fue anafilaxia), clindamicina o macrólidos.",
+    pmid: "22965026", doi: "10.1093/cid/cis629"
+  },
+  mccrindle2017: {
+    cita: "McCrindle BW, et al. Diagnosis, treatment, and long-term management of Kawasaki disease: a scientific statement from the American Heart Association. Circulation. 2017;135:e927-e999.",
+    tipo: "Guía de práctica clínica (AHA)",
+    hallazgo: "Criterios clásicos, algoritmo para la enfermedad incompleta, IGIV 2 g/kg con AAS, intensificación en pacientes de alto riesgo y seguimiento según el compromiso coronario.",
+    pmid: "28356445", doi: "10.1161/CIR.0000000000000484"
+  },
+  kobayashi2012: {
+    cita: "Kobayashi T, et al. Efficacy of immunoglobulin plus prednisolone for prevention of coronary artery abnormalities in severe Kawasaki disease (RAISE study). Lancet. 2012;379:1613-20.",
+    tipo: "Ensayo clínico aleatorizado",
+    hallazgo: "En pacientes japoneses de alto riesgo, sumar prednisolona a IGIV redujo las anomalías coronarias: 3 % vs 23 % (diferencia de riesgo 0,20).",
+    pmid: "22405251", doi: "10.1016/S0140-6736(11)61930-2"
+  },
+  son2021: {
+    cita: "Son MBF, et al. Multisystem inflammatory syndrome in children — initial therapy and outcomes. N Engl J Med. 2021;385:23-34.",
+    tipo: "Cohorte (vigilancia, emparejamiento por puntaje de propensión)",
+    hallazgo: "IGIV más glucocorticoides se asoció con menos disfunción cardiovascular nueva o persistente que IGIV sola; menos disfunción ventricular (8 % vs 17 %) y menos necesidad de terapia adyuvante (34 % vs 70 %).",
+    pmid: "34133855", doi: "10.1056/NEJMoa2102605"
+  },
+  kardaun2013: {
+    cita: "Kardaun SH, et al. Drug reaction with eosinophilia and systemic symptoms (DRESS): an original multisystem adverse drug reaction. Results from the prospective RegiSCAR study. Br J Dermatol. 2013;169:1071-80.",
+    tipo: "Cohorte prospectiva multicéntrica",
+    hallazgo: "Eosinofilia 95 %, compromiso visceral 91 %, fiebre 90 %, linfocitos atípicos 67 %. Antiepilépticos en 35 % de los casos. Mediana de 22 días entre el inicio del fármaco y la reacción.",
+    pmid: "23855313", doi: "10.1111/bjd.12501"
+  },
+  klassen2005: {
+    cita: "Klassen TP, Hartling L, Wiebe N, Belseck EM. Acyclovir for treating varicella in otherwise healthy children and adolescents. Cochrane Database Syst Rev. 2005;(4):CD002980.",
+    tipo: "Revisión sistemática (Cochrane)",
+    hallazgo: "El aciclovir redujo la fiebre en 1,1 días y el número máximo de lesiones, sin diferencias en complicaciones. La importancia clínica en niños sanos sigue siendo incierta.",
+    pmid: "16235308", doi: "10.1002/14651858.CD002980.pub3"
+  },
+  mathes2013: {
+    cita: "Mathes EF, et al. «Eczema coxsackium» and unusual cutaneous findings in an enterovirus outbreak. Pediatrics. 2013;132:e149-57.",
+    tipo: "Serie de casos multicéntrica",
+    hallazgo: "Brote por coxsackie A6: 99 % con erupción vesiculoampollar y erosiva; en 55 % acentuada sobre zonas de dermatitis atópica (eczema coxsackium). Puede confundirse con eccema herpético, impétigo ampollar o vasculitis.",
+    pmid: "23776120", doi: "10.1542/peds.2012-3175"
+  },
+  leung2018: {
+    cita: "Leung AKC, Barankin B, Leong KF. Staphylococcal-scalded skin syndrome: evaluation, diagnosis, and management. World J Pediatr. 2018;14:116-120.",
+    tipo: "Revisión",
+    hallazgo: "Diagnóstico clínico: eritrodermia dolorosa, ampollas, Nikolsky positivo, costras periorificiales y sin compromiso de mucosas. Antibiótico antiestafilocócico IV empírico; vancomicina si no mejora o hay alta prevalencia de SAMR.",
+    pmid: "29508362", doi: "10.1007/s12519-018-0150-x"
+  },
+  ramien2022: {
+    cita: "Ramien ML. Stevens-Johnson syndrome in children. Curr Opin Pediatr. 2022;34:341-348.",
+    tipo: "Revisión",
+    hallazgo: "En niños, el SJS es más a menudo desencadenado por infecciones que por fármacos. Propone distinguir RIME (erupción mucocutánea reactiva a infección) de la necrólisis epidérmica por fármacos.",
+    pmid: "35836393", doi: "10.1097/MOP.0000000000001146"
+  },
+  thompson2006: {
+    cita: "Thompson MJ, et al. Clinical recognition of meningococcal disease in children and adolescents. Lancet. 2006;367:397-403.",
+    tipo: "Estudio observacional",
+    hallazgo: "El exantema hemorrágico, la meningitis y la alteración de conciencia aparecen tarde (mediana 13–22 h). El 72 % tuvo antes signos de sepsis: dolor en piernas, manos y pies fríos, color de piel anormal (mediana 8 h).",
+    pmid: "16458763", doi: "10.1016/S0140-6736(06)67932-4"
+  },
+  brogan2000: {
+    cita: "Brogan PA, Raffles A. The management of fever and petechiae: making sense of rash decisions. Arch Dis Child. 2000;83:506-7.",
+    tipo: "Auditoría retrospectiva y prospectiva",
+    hallazgo: "De 55 niños con fiebre y petequias, 9 % tenía sepsis bacteriana. Propone los criterios ILL: irritabilidad, letargo y relleno capilar lento.",
+    pmid: "11087287", doi: "10.1136/adc.83.6.506"
+  },
+  ozen2019: {
+    cita: "Ozen S, et al. European consensus-based recommendations for diagnosis and treatment of immunoglobulin A vasculitis — the SHARE initiative. Rheumatology (Oxford). 2019;58:1607-1616.",
+    tipo: "Consenso de expertos (SHARE)",
+    hallazgo: "7 recomendaciones diagnósticas y 19 terapéuticas: analgesia, indicaciones no renales de corticoides, seguimiento renal estructurado y tratamiento escalonado de la nefritis.",
+    pmid: "30879080", doi: "10.1093/rheumatology/kez041"
+  },
+  mortureux1998: {
+    cita: "Mortureux P, et al. Acute urticaria in infancy and early childhood: a prospective study. Arch Dermatol. 1998;134:319-23.",
+    tipo: "Estudio prospectivo",
+    hallazgo: "Causa identificada en 91 %: infección (con o sin fármaco) en 81 % y alimentos en 11 %. En general no hace falta laboratorio. El 20–30 % evoluciona a urticaria crónica o recurrente.",
+    pmid: "9521030", doi: "10.1001/archderm.134.3.319"
+  },
+  cardona2020: {
+    cita: "Cardona V, et al. World Allergy Organization anaphylaxis guidance 2020. World Allergy Organ J. 2020;13:100472.",
+    tipo: "Guía (WAO)",
+    hallazgo: "La adrenalina intramuscular es el tratamiento de primera línea. Tras un episodio: derivación al especialista, educación y autoinyector.",
+    pmid: "33204386", doi: "10.1016/j.waojou.2020.100472"
+  },
+  stricker1992: {
+    cita: "Stricker BH, et al. Serum sickness-like reactions to cefaclor. J Clin Epidemiol. 1992;45:1177-84.",
+    tipo: "Análisis de notificaciones de farmacovigilancia",
+    hallazgo: "En menores de 15 años, el riesgo de reacción tipo enfermedad del suero con cefaclor fue unas 14 veces mayor que con amoxicilina.",
+    pmid: "1474414", doi: "10.1016/0895-4356(92)90158-j"
+  },
+  lerch2018: {
+    cita: "Lerch M, Mainetti C, Terziroli Beretta-Piccoli B, Harr T. Current perspectives on erythema multiforme. Clin Rev Allergy Immunol. 2018;54:177-184.",
+    tipo: "Revisión",
+    hallazgo: "Lesiones en diana de predominio acral, curso autolimitado. El herpes simple es la causa más frecuente; en niños también Mycoplasma pneumoniae. Los fármacos son la segunda causa identificada.",
+    pmid: "29352387", doi: "10.1007/s12016-017-8667-7"
+  },
+  canavan2015: {
+    cita: "Canavan TN, et al. Mycoplasma pneumoniae-induced rash and mucositis as a syndrome distinct from Stevens-Johnson syndrome and erythema multiforme: a systematic review. J Am Acad Dermatol. 2015;72:239-45.",
+    tipo: "Revisión sistemática",
+    hallazgo: "Mucositis oral 94 %, ocular 82 % y urogenital 63 %; piel ausente (34 %) o escasa (47 %). Edad media 11,9 años. Recurrencia 8 %, mortalidad 3 %. Propone el nombre MIRM.",
+    pmid: "25592340", doi: "10.1016/j.jaad.2014.06.026"
   }
 };
 
@@ -270,6 +418,7 @@ window.REFS = {
 window.MAPAS = {
   raiz: {
     titulo: "Sibilancias, del lactante al escolar",
+    padre: "inicio",
     ruta: ["Pediatría", "Neumonología", "Sibilancias"],
     bajada: "Tres cuadros que suelen verse como uno solo a lo largo de la infancia. El mapa se lee de izquierda a derecha como la edad del niño: tocá cualquier nodo para abrir su teoría, la evidencia, las preguntas PICO, los casos y los ateneos.",
     disposicion: "edad"
@@ -358,6 +507,76 @@ window.MAPAS = {
       { x: 450, titulo: "Control", pregunta: "¿Cómo está hoy y qué riesgo tiene?" },
       { x: 750, titulo: "Tratamiento", pregunta: "¿Qué escalón le corresponde?" },
       { x: 1050, titulo: "Crisis", pregunta: "¿Qué hago en la guardia?" }
+    ]
+  },
+  inicio: {
+    titulo: "El Gran Mapa Pediátrico",
+    ruta: ["Pediatría"],
+    bajada: "Elegí una materia para empezar. Cada mapa reúne teoría, evidencia, preguntas PICO, casos y ateneos.",
+    disposicion: "zonas",
+    directo: true,
+    indice: "Materias y temas",
+    pista: "Tocá un tema para entrar en su mapa.",
+    buscar: "Buscar un tema…",
+    zonas: [
+      { x: 80, y: 70, w: 500, h: 520, titulo: "Neumonología" },
+      { x: 620, y: 70, w: 500, h: 520, titulo: "Dermatología" }
+    ]
+  },
+  exantemas: {
+    titulo: "Exantemas",
+    padre: "inicio",
+    ruta: ["Pediatría", "Dermatología", "Exantemas"],
+    bajada: "Los exantemas agrupados por cómo se ven (la lesión que domina) y coloreados por su causa: infecciosa, alérgica o por fármacos, o inflamatoria. Un mismo aspecto puede tener causas muy distintas; las líneas unen los diagnósticos que conviene diferenciar.",
+    disposicion: "zonas",
+    indice: "Exantemas por tipo de lesión",
+    buscar: "Buscar: Koplik, Nikolsky, amoxicilina…",
+    pista: "Cada zona agrupa un tipo de lesión. El color del punto indica la causa; un segundo punto chico, que puede tener más de una. Elegí un recorrido para seguir a un paciente.",
+    causas: ["infecciosa", "alergica", "inflamatoria"],
+    zonas: [
+      { x: 30, y: 60, w: 400, h: 300, titulo: "Maculopapular" },
+      { x: 30, y: 380, w: 400, h: 240, titulo: "Eritema difuso" },
+      { x: 450, y: 60, w: 300, h: 270, titulo: "Cómo abordarlo" },
+      { x: 450, y: 350, w: 300, h: 270, titulo: "Vesículas y ampollas" },
+      { x: 770, y: 60, w: 400, h: 240, titulo: "Petequias y púrpura" },
+      { x: 770, y: 320, w: 400, h: 300, titulo: "Habones y dianas" }
+    ],
+    recorridos: [
+      { id: "fiebre-petequias", titulo: "Fiebre y petequias en la guardia", descripcion: "3 años, fiebre desde hace 12 horas y petequias en el tronco.", pasos: [
+        { nodo: "ex-alarma", nota: "Mirar primero cómo está: irritabilidad, letargo, relleno capilar, frecuencia cardíaca, presión, manos y pies fríos." },
+        { nodo: "ex-meningococo", nota: "Con signos de sepsis o petequias que se extienden: hemocultivo y ceftriaxona sin esperar estudios." },
+        { nodo: "ex-petvir", nota: "Si está bien, las petequias quedan por encima de las mamilas tras tos o vómitos y el laboratorio es normal: observar unas horas." },
+        { nodo: "ex-dengue", nota: "En época de brote, pensar en dengue: prueba del lazo, plaquetas y hematocrito." },
+        { nodo: "ex-iga", nota: "Púrpura palpable en piernas y glúteos, con buen estado general y plaquetas normales: otro diagnóstico." }
+      ] },
+      { id: "amoxicilina", titulo: "Exantema mientras toma amoxicilina", descripcion: "2 años, quinto día de amoxicilina por otitis; aparece un exantema maculopapular.", pasos: [
+        { nodo: "ex-alarma", nota: "Descartar lo grave: mucosas, ampollas, dolor de piel, edema facial, fiebre alta persistente." },
+        { nodo: "ex-viral", nota: "La causa más frecuente es el virus que causó la consulta, no el antibiótico." },
+        { nodo: "ex-farmaco", nota: "Exantema tardío y benigno: se puede suspender, pero no rotular como alérgico sin estudiar." },
+        { nodo: "ex-urticaria", nota: "Si fueron habones en minutos u horas tras la dosis, contar como posible reacción inmediata." },
+        { nodo: "ex-suero", nota: "Si a la semana o dos suma artralgias y edema: reacción tipo enfermedad del suero." },
+        { nodo: "ex-mono", nota: "Si tenía faringitis con adenopatías y hepatoesplenomegalia, pensar en mononucleosis." },
+        { nodo: "ex-farmaco", nota: "Derivar a alergia para provocación oral: la gran mayoría tolera la amoxicilina." }
+      ] },
+      { id: "fiebre-5-dias", titulo: "Fiebre de 5 días y exantema", descripcion: "4 años, fiebre de 5 días, ojos rojos y exantema en el tronco.", pasos: [
+        { nodo: "ex-kawasaki", nota: "Buscar los cinco criterios; si no están todos, seguir el algoritmo de Kawasaki incompleto." },
+        { nodo: "ex-sarampion", nota: "¿Pródromo catarral, Koplik, vacunas incompletas, contacto o viaje? Aislar y notificar." },
+        { nodo: "ex-escarlatina", nota: "Exantema áspero con faringitis: test rápido para estreptococo." },
+        { nodo: "ex-viral", nota: "El adenovirus puede imitar a Kawasaki: conjuntivitis, faringitis y fiebre alta." },
+        { nodo: "ex-misc", nota: "Con dolor abdominal, hipotensión o compromiso cardíaco y antecedente de COVID-19: MIS-C." },
+        { nodo: "ex-shock", nota: "Eritrodermia con hipotensión: shock tóxico." }
+      ] },
+      { id: "lactante-fiebre", titulo: "Lactante: fiebre alta y después exantema", descripcion: "10 meses, tres días de fiebre de 39,5 °C; al ceder aparece un exantema rosado.", pasos: [
+        { nodo: "ex-roseola", nota: "Fiebre alta con buen estado y exantema cuando cede: exantema súbito." },
+        { nodo: "ex-farmaco", nota: "Si recibió antibiótico durante la fiebre, el exantema no prueba alergia." },
+        { nodo: "ex-viral", nota: "Otros virus dan cuadros parecidos; el diagnóstico es clínico." }
+      ] },
+      { id: "vesiculas-atopia", titulo: "Vesículas en un chico con dermatitis atópica", descripcion: "3 años con dermatitis atópica, fiebre y vesículas sobre las placas de eccema.", pasos: [
+        { nodo: "ex-eh", nota: "Vesículas iguales, erosiones en sacabocado y fiebre: eccema herpético. Aciclovir sin demora." },
+        { nodo: "ex-mpb", nota: "Coxsackie A6 también se acentúa sobre el eccema; mirar boca, manos, pies y glúteos." },
+        { nodo: "ex-varicela", nota: "Lesiones en distintos estadios y de distribución central." },
+        { nodo: "ex-ssss", nota: "Piel dolorosa, ampollas flácidas y Nikolsky positivo: piel escaldada." }
+      ] }
     ]
   }
 };
@@ -1694,6 +1913,432 @@ window.NODOS = [
     ],
     evidencia: ["gina2026r"], pico: [], ateneos: [],
     conexiones: ["g-cr-alta", "g-ev-riesgo", "g-ad-track1", "sa-alta"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* ───── Inicio: materias ───── */
+  {
+    id: "m-sibilancias", mapa: "inicio", titulo: "Sibilancias", tipo: "tema", edad: "Del lactante al escolar", color: "var(--edad-2)",
+    x: 330, y: 300, submapa: "raiz",
+    resumen: "Bronquiolitis, sibilancias recurrentes y asma: tres cuadros que suelen verse como uno solo a lo largo de la infancia.",
+    teoria: [{ h: "Qué hay en este mapa", html: "<p>Un mapa ordenado por edad con tres temas (bronquiolitis, sibilancias recurrentes y asma), dos submapas y la guía GINA 2026 convertida en grafo.</p>" }],
+    evidencia: [], pico: [], ateneos: [], conexiones: [],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "m-exantemas", mapa: "inicio", titulo: "Exantemas", tipo: "tema", edad: "Subtipos y causas", color: "var(--derm)",
+    x: 870, y: 300, submapa: "exantemas",
+    resumen: "Los exantemas agrupados por el tipo de lesión y coloreados por su causa: infecciosa, alérgica o por fármacos, o inflamatoria.",
+    teoria: [{ h: "Qué hay en este mapa", html: "<p>Seis zonas (maculopapular, eritema difuso, vesículas y ampollas, petequias y púrpura, habones y dianas, y cómo abordarlo), con recorridos para seguir casos frecuentes de la guardia y el consultorio.</p>" }],
+    evidencia: [], pico: [], ateneos: [], conexiones: [],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* ───── Dermatología › Exantemas ───── */
+  {
+    id: "ex-abordaje", mapa: "exantemas", titulo: "Cómo abordar un exantema", corto: "Abordaje", tipo: "tema", edad: "El punto de partida", color: "var(--derm)",
+    x: 600, y: 145,
+    resumen: "Tres preguntas ordenan casi todo: qué lesión domina, cómo está el chico y qué pasó antes (fiebre, fármacos, contactos, vacunas).",
+    teoria: [
+      { h: "1. ¿Cómo está?", html: "<p>Antes de mirar la piel, mirar al paciente: estado general, perfusión, presión, frecuencia cardíaca, mucosas y dolor de piel. Un chico que se ve mal con un exantema es una urgencia hasta que se demuestre lo contrario (ver <a href=\"#ex-alarma\">señales de alarma</a>).</p>" },
+      { h: "2. ¿Qué lesión domina?", html: "<div class=\"tabla\"><table><thead><tr><th>Lesión</th><th>Ejemplos</th></tr></thead><tbody><tr><td>Máculas y pápulas</td><td>Sarampión, rubéola, roséola, parvovirus, dengue, fármacos</td></tr><tr><td>Eritema difuso</td><td>Escarlatina, shock tóxico, Kawasaki, MIS-C, DRESS</td></tr><tr><td>Vesículas y ampollas</td><td>Varicela, mano-pie-boca, eccema herpético, piel escaldada, SJS/NET</td></tr><tr><td>Petequias y púrpura</td><td>Meningococo, virus, vasculitis por IgA, dengue</td></tr><tr><td>Habones y dianas</td><td>Urticaria, anafilaxia, enfermedad del suero, eritema multiforme</td></tr></tbody></table></div><p>Ver si la lesión desaparece con la vitropresión (eritema) o no (petequia o púrpura) es el primer paso.</p>" },
+      { h: "3. ¿Qué pasó antes?", html: "<ul><li><b>Cronología fiebre–exantema:</b> el exantema que aparece cuando cede la fiebre sugiere roséola; el que llega después de 3–4 días de pródromo catarral, sarampión.</li><li><b>Fármacos de las últimas 8 semanas:</b> los exantemas por fármacos aparecen de días (morbiliforme) a semanas (DRESS) después del inicio.</li><li><b>Vacunas, contactos, brotes y viajes:</b> sarampión, rubéola, varicela, dengue.</li><li><b>Enantema:</b> Koplik, lengua aframbuesada, vesículas en el paladar, mucositis.</li><li><b>Distribución y progresión:</b> cefalocaudal (sarampión), centrípeta (varicela), acral (mano-pie-boca, eritema multiforme), pliegues (escarlatina, piel escaldada).</li></ul>" },
+      { h: "Tres familias de causas", html: "<p><b>Infecciosas</b> (la gran mayoría en pediatría: virus, estreptococo, estafilococo, meningococo), <b>alérgicas o por fármacos</b> (urticaria, exantema morbiliforme, enfermedad del suero, DRESS, SJS/NET) e <b>inflamatorias</b> (Kawasaki, MIS-C, vasculitis por IgA). A menudo se superponen: un virus puede desencadenar urticaria o eritema multiforme, y un antibiótico dado durante una infección viral suele cargar con la culpa del exantema.</p>" }
+    ],
+    evidencia: ["mortureux1998", "mill2016"], pico: [], ateneos: [],
+    conexiones: ["ex-alarma", "ex-sarampion", "ex-escarlatina", "ex-varicela", "ex-meningococo", "ex-urticaria", "ex-farmaco"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-alarma", mapa: "exantemas", titulo: "Señales de alarma", tipo: "concepto",
+    x: 600, y: 285,
+    resumen: "Los signos que cambian la conducta en minutos: petequias con fiebre, dolor de piel, ampollas, mucosas, hipotensión.",
+    teoria: [
+      { h: "Qué buscar y en qué pensar", html: "<div class=\"tabla\"><table><thead><tr><th>Signo</th><th>Pensar en</th></tr></thead><tbody><tr><td>Fiebre con petequias o púrpura, mal estado</td><td><a href=\"#ex-meningococo\">Meningococcemia</a>, sepsis</td></tr><tr><td>Eritrodermia con hipotensión</td><td><a href=\"#ex-shock\">Shock tóxico</a></td></tr><tr><td>Piel dolorosa, ampollas, Nikolsky positivo</td><td><a href=\"#ex-ssss\">Piel escaldada</a>, <a href=\"#ex-sjs\">SJS/NET</a></td></tr><tr><td>Dos o más mucosas comprometidas</td><td><a href=\"#ex-sjs\">SJS/NET</a>, <a href=\"#ex-mirm\">MIRM/RIME</a></td></tr><tr><td>Edema facial, adenopatías, eosinofilia, hepatitis semanas después de un fármaco</td><td><a href=\"#ex-dress\">DRESS</a></td></tr><tr><td>Fiebre de 5 días o más</td><td><a href=\"#ex-kawasaki\">Kawasaki</a>, <a href=\"#ex-misc\">MIS-C</a></td></tr><tr><td>Compromiso respiratorio o circulatorio tras una exposición</td><td><a href=\"#ex-anafilaxia\">Anafilaxia</a></td></tr></tbody></table></div>" },
+      { h: "Pacientes de más riesgo", html: "<ul><li>Lactantes pequeños, sobre todo menores de 3 meses con fiebre.</li><li>Inmunocomprometidos (varicela, herpes, sarampión graves).</li><li>Dermatitis atópica extensa (eccema herpético, sobreinfección).</li><li>Sin vacunas o con esquema incompleto.</li></ul>" }
+    ],
+    evidencia: ["thompson2006", "brogan2000"], pico: [], ateneos: [],
+    conexiones: ["ex-meningococo", "ex-sjs", "ex-ssss", "ex-shock", "ex-kawasaki", "ex-anafilaxia", "ex-dress"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Maculopapular */
+  {
+    id: "ex-sarampion", mapa: "exantemas", titulo: "Sarampión", tipo: "concepto", causa: "infecciosa",
+    x: 100, y: 125,
+    resumen: "Pródromo de fiebre, tos, coriza y conjuntivitis; Koplik; exantema que empieza detrás de las orejas y baja.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Incubación de 10 a 12 días.</li><li>Pródromo de 3 a 4 días: fiebre alta, tos, coriza y conjuntivitis.</li><li>Manchas de Koplik (puntos blanquecinos en la mucosa yugal) uno o dos días antes del exantema.</li><li>Exantema maculopapular que empieza en la línea del pelo y detrás de las orejas, baja hacia el tronco y las extremidades y tiende a confluir; deja descamación fina.</li><li>Contagia desde 4 días antes hasta 4 días después del exantema.</li></ul>" },
+      { h: "Complicaciones", html: "<p>Otitis, diarrea, laringitis, neumonía (la principal causa de muerte), encefalitis aguda y, años después, panencefalitis esclerosante subaguda. Más graves en lactantes, desnutridos e inmunocomprometidos.</p>" },
+      { h: "Qué hacer", html: "<ul><li><b>Aislamiento respiratorio</b> y <b>notificación inmediata</b> ante la sospecha, sin esperar la confirmación.</li><li>Laboratorio según normas del Ministerio de Salud (serología IgM, PCR en hisopado y orina).</li><li><b>Vitamina A</b> en dos dosis separadas por 24 horas: 50.000 UI en menores de 6 meses, 100.000 UI de 6 a 11 meses y 200.000 UI desde los 12 meses.</li><li>Control de contactos: vacuna dentro de las 72 horas o gammaglobulina en los que no pueden vacunarse, dentro de los 6 días.</li></ul>" }
+    ],
+    evidencia: ["moss2017", "huiming2005"],
+    pico: [
+      { p: "Niños con sarampión", i: "Vitamina A (dos dosis)", c: "Placebo", o: "Mortalidad y neumonía",
+        respuesta: "En el conjunto de los ensayos la mortalidad no bajó de forma significativa, pero dos dosis de 200.000 UI redujeron la mortalidad en menores de 2 años y la mortalidad por neumonía. Una dosis única no mostró beneficio. Por eso se indican dos dosis.",
+        certeza: "Moderada", refs: ["huiming2005"] }
+    ],
+    ateneos: [],
+    conexiones: ["ex-rubeola", "ex-kawasaki", "ex-farmaco", "ex-dengue"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-rubeola", mapa: "exantemas", titulo: "Rubéola", tipo: "concepto", causa: "infecciosa",
+    x: 230, y: 125,
+    resumen: "Exantema leve y fugaz con adenopatías retroauriculares y occipitales. Lo grave es el contagio a embarazadas.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Pródromo leve o ausente en niños.</li><li>Adenopatías retroauriculares, occipitales y cervicales posteriores, a veces antes del exantema.</li><li>Exantema maculopapular rosado, cefalocaudal, que dura unos 3 días y no confluye tanto como el del sarampión.</li><li>En adolescentes, artralgias.</li></ul>" },
+      { h: "Por qué importa", html: "<p>La infección en el primer trimestre del embarazo puede causar el síndrome de rubéola congénita (cataratas, sordera, cardiopatía). Ante la sospecha: aislamiento, notificación y preguntar por embarazadas entre los contactos.</p>" }
+    ],
+    evidencia: ["moss2017"], pico: [], ateneos: [],
+    conexiones: ["ex-parvo"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-roseola", mapa: "exantemas", titulo: "Exantema súbito (roséola)", corto: "Exantema súbito", tipo: "concepto", causa: "infecciosa",
+    x: 360, y: 125,
+    resumen: "Lactante con 3 a 5 días de fiebre alta y buen estado; cuando la fiebre cede, aparece un exantema rosado.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Herpesvirus humano 6 (y a veces 7), entre los 6 y los 24 meses.</li><li>Fiebre alta de 3 a 5 días con buen estado general; puede haber irritabilidad, diarrea y fontanela tensa.</li><li>Al ceder la fiebre, máculas y pápulas rosadas en tronco y cuello que desaparecen en 1 o 2 días.</li><li>Puede haber pápulas en el paladar blando (manchas de Nagayama).</li></ul>" },
+      { h: "Lo que enseña la cohorte de Zerr", html: "<p>La infección por HHV-6 es casi universal a los 2 años y casi siempre da síntomas, pero la roséola típica aparece en una minoría. Muchas fiebres sin foco del lactante son HHV-6.</p>" },
+      { h: "Trampa frecuente", html: "<p>Si durante la fiebre recibió un antibiótico, el exantema que aparece al ceder la fiebre suele interpretarse como alergia. Antes de rotular, ver <a href=\"#ex-farmaco\">exantema por fármacos</a>.</p>" }
+    ],
+    evidencia: ["zerr2005"], pico: [], ateneos: [],
+    conexiones: ["ex-farmaco", "ex-viral"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-parvo", mapa: "exantemas", titulo: "Eritema infeccioso (parvovirus B19)", corto: "Eritema infeccioso", tipo: "concepto", causa: "infecciosa",
+    x: 100, y: 210,
+    resumen: "Mejillas abofeteadas y luego un exantema en encaje en los miembros. Cuando aparece el exantema ya no contagia.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Escolares, en brotes de fin de invierno y primavera.</li><li>Primero, eritema intenso de las mejillas con palidez peribucal.</li><li>Días después, exantema reticulado (en encaje) en brazos, piernas y tronco, que puede reaparecer durante semanas con el calor o el ejercicio.</li><li>Variante: síndrome papular-purpúrico en guantes y calcetines.</li></ul>" },
+      { h: "A quién afecta más", html: "<ul><li><b>Anemias hemolíticas</b> (esferocitosis, drepanocitosis): crisis aplásica transitoria.</li><li><b>Inmunocomprometidos:</b> anemia crónica.</li><li><b>Embarazadas:</b> anemia fetal e hidrops.</li></ul><p>Cuando aparece el exantema el chico ya no contagia y puede ir a la escuela.</p>" }
+    ],
+    evidencia: ["young2004"], pico: [], ateneos: [],
+    conexiones: ["ex-petvir", "ex-rubeola"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-viral", mapa: "exantemas", titulo: "Exantemas virales inespecíficos", corto: "Viral inespecífico", tipo: "concepto", causa: "infecciosa",
+    x: 230, y: 210,
+    resumen: "La causa más frecuente de exantema en la infancia: enterovirus, adenovirus y otros virus respiratorios.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<p>Exantema maculopapular, a veces petequial o urticariano, con fiebre y síntomas respiratorios o digestivos. Se autolimita en días. El diagnóstico es clínico y por exclusión de lo grave.</p>" },
+      { h: "Imitadores", html: "<ul><li><b>Adenovirus:</b> fiebre alta, conjuntivitis y faringitis; puede imitar a <a href=\"#ex-kawasaki\">Kawasaki</a>.</li><li><b>Enterovirus:</b> en verano y otoño; puede dar petequias o <a href=\"#ex-mpb\">mano-pie-boca</a>.</li><li><b>Gianotti-Crosti:</b> pápulas en cara, glúteos y extremidades que respetan el tronco, tras distintos virus.</li></ul>" },
+      { h: "El problema del antibiótico", html: "<p>Muchos chicos con un exantema viral están tomando un antibiótico, y el exantema termina rotulado como alergia. La mayoría de esas etiquetas son falsas (ver <a href=\"#ex-farmaco\">exantema por fármacos</a>).</p>" }
+    ],
+    evidencia: ["mortureux1998", "mill2016"], pico: [], ateneos: [],
+    conexiones: ["ex-urticaria", "ex-farmaco", "ex-mpb", "ex-kawasaki"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-dengue", mapa: "exantemas", titulo: "Dengue", tipo: "concepto", causa: "infecciosa",
+    x: 360, y: 210,
+    resumen: "Fiebre alta con dolor retroocular y muscular; el exantema llega al bajar la fiebre, que es también cuando aparecen las complicaciones.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Fase febril de 2 a 7 días: fiebre alta, cefalea, dolor retroocular, mialgias, náuseas.</li><li>Exantema maculopapular o eritema difuso con «islas blancas en un mar rojo», a menudo en la defervescencia o la convalecencia; puede picar.</li><li>Petequias y prueba del lazo positiva.</li></ul>" },
+      { h: "Señales de alarma", html: "<p>Dolor abdominal intenso, vómitos persistentes, acumulación de líquidos, sangrado de mucosas, letargo o irritabilidad, hepatomegalia y aumento del hematocrito con caída rápida de las plaquetas. Aparecen sobre todo cuando baja la fiebre (fase crítica).</p>" },
+      { h: "Qué hacer", html: "<ul><li>Notificar. Antígeno NS1 o PCR en los primeros días; serología después.</li><li>Paracetamol para la fiebre; <b>evitar AINE y aspirina</b>.</li><li>Hidratación oral y control diario de hematocrito y plaquetas en la fase crítica.</li></ul>" }
+    ],
+    evidencia: ["pazbailey2024"], pico: [], ateneos: [],
+    conexiones: ["ex-petvir", "ex-meningococo"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-mono", mapa: "exantemas", titulo: "Mononucleosis y amoxicilina", corto: "Mononucleosis + amoxicilina", tipo: "concepto", causa: ["infecciosa", "alergica"],
+    x: 105, y: 300,
+    resumen: "El virus de Epstein-Barr puede dar exantema por sí solo, y más si se da amoxicilina; casi nunca es una alergia verdadera.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<p>Fiebre, faringitis exudativa, adenopatías cervicales posteriores, hepatoesplenomegalia y edema palpebral. Si recibe amoxicilina (a menudo porque se pensó en estreptococo), puede aparecer un exantema maculopapular intenso y pruriginoso a los 7–10 días.</p>" },
+      { h: "Cuánto ocurre hoy", html: "<p>Con ampicilina se describía hasta un 90 %. Con amoxicilina, en una serie pediátrica fue del 29,5 %, y sin antibiótico del 23 %.</p>" },
+      { h: "Qué hacer", html: "<p>Suspender el antibiótico si no hacía falta. No rotular como alérgico a la penicilina sin una evaluación: la reacción suele deberse a la infección y no se repite.</p>" }
+    ],
+    evidencia: ["chovel2013", "shulman2012"],
+    pico: [
+      { p: "Niños con mononucleosis", i: "Amoxicilina", c: "Sin antibiótico", o: "Exantema",
+        respuesta: "El exantema con amoxicilina (29,5 %) es mucho menos frecuente que lo descrito con ampicilina (90 %), y no fue significativamente distinto del observado sin antibióticos (23 %). La mononucleosis por sí sola explica buena parte de los exantemas.",
+        certeza: "Baja", refs: ["chovel2013"] }
+    ],
+    ateneos: [],
+    conexiones: ["ex-farmaco", "ex-escarlatina"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-farmaco", mapa: "exantemas", titulo: "Exantema morbiliforme por fármacos", corto: "Morbiliforme por fármacos", tipo: "concepto", causa: "alergica",
+    x: 335, y: 300,
+    resumen: "La reacción a fármacos más común: máculas y pápulas que aparecen días después de empezar. Casi siempre benigna, y muchas veces ni siquiera es por el fármaco.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Aparece entre 4 y 14 días después de iniciar el fármaco (antes si ya lo había recibido).</li><li>Máculas y pápulas pruriginosas que empiezan en el tronco y se extienden.</li><li>Sin mucosas, sin ampollas, sin compromiso sistémico.</li><li>En niños, los betalactámicos son los más involucrados.</li></ul>" },
+      { h: "¿Es alergia o es el virus?", html: "<p>La mayoría de los niños con exantema durante un antibiótico tiene una infección viral. En una cohorte de 818 niños derivados por sospecha de alergia a la amoxicilina, el 94 % toleró la provocación oral.</p>" },
+      { h: "Qué hacer", html: "<ul><li>Descartar <a href=\"#ex-alarma\">señales de reacción grave</a>: mucosas, ampollas, dolor de piel, edema facial, fiebre alta, eosinofilia o hepatitis.</li><li>Suspender o cambiar el fármaco si sigue siendo necesario tratar; antihistamínico para el prurito.</li><li>Registrar lo que pasó (fecha, dosis, tiempo hasta la reacción, foto) y <b>derivar a alergia</b> para provocación oral en lugar de rotular para siempre.</li></ul>" }
+    ],
+    evidencia: ["mill2016", "mortureux1998"],
+    pico: [
+      { p: "Niños con exantema benigno durante un tratamiento con amoxicilina", i: "Provocación oral graduada", c: "Evitar la amoxicilina de por vida", o: "Confirmar o descartar la alergia",
+        respuesta: "El 94 % de los niños toleró la provocación; las reacciones fueron leves. La provocación oral es segura y permite retirar la etiqueta en la gran mayoría.",
+        certeza: "Moderada", refs: ["mill2016"] }
+    ],
+    casos: [
+      { titulo: "La etiqueta que no era", html: "<p>Niño de 2 años, quinto día de amoxicilina por otitis media. Aparecen máculas y pápulas en el tronco, sin fiebre, sin mucosas, con buen estado general. Se suspende el antibiótico y la familia se va con la indicación de consultar a alergia. Meses después, la provocación oral es negativa y la etiqueta se retira.</p><p><b>Para discutir:</b> ¿qué datos hubieran cambiado la conducta? ¿Cómo se registra la reacción para que sirva después?</p>", nodos: ["ex-viral", "ex-urticaria"] }
+    ],
+    ateneos: [],
+    conexiones: ["ex-dress", "ex-sjs", "ex-urticaria", "ex-suero"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Eritema difuso */
+  {
+    id: "ex-escarlatina", mapa: "exantemas", titulo: "Escarlatina", tipo: "concepto", causa: "infecciosa",
+    x: 100, y: 450,
+    resumen: "Estreptococo del grupo A: exantema áspero como papel de lija, lengua aframbuesada y descamación de manos y pies después.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Entre los 3 y los 15 años, con faringitis y fiebre.</li><li>Exantema eritematoso de pápulas finas, áspero al tacto, que empieza en el cuello y los pliegues.</li><li>Líneas de Pastia en los pliegues, palidez alrededor de la boca, lengua aframbuesada.</li><li>Descamación de manos y pies a los 7 a 10 días.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>Confirmar con test rápido o cultivo de fauces.</li><li>Amoxicilina por 10 días (o penicilina). En alérgicos: cefalosporina de primera generación si no fue anafilaxia, o clindamicina; macrólido según resistencia local.</li><li>Vuelve a la escuela tras 12 a 24 horas de antibiótico.</li></ul>" }
+    ],
+    evidencia: ["shulman2012"], pico: [], ateneos: [],
+    conexiones: ["ex-kawasaki", "ex-shock", "ex-ssss"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-shock", mapa: "exantemas", titulo: "Síndrome de shock tóxico", corto: "Shock tóxico", tipo: "concepto", causa: "infecciosa",
+    x: 235, y: 450,
+    resumen: "Fiebre, hipotensión y eritrodermia como quemadura de sol por toxinas de estafilococo o estreptococo. Una urgencia.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Fiebre alta, hipotensión y compromiso de varios órganos (renal, hepático, plaquetas, sensorio).</li><li>Eritrodermia difusa, hiperemia conjuntival y de mucosas.</li><li>Descamación de palmas y plantas 1 a 2 semanas después.</li></ul>" },
+      { h: "Focos a buscar", html: "<p><b>Estafilococo:</b> heridas, quemaduras, tapones nasales, tampones. <b>Estreptococo:</b> varicela sobreinfectada, fascitis, infecciones de partes blandas; suele tener dolor desproporcionado.</p>" },
+      { h: "Qué hacer", html: "<ul><li>Reanimación con fluidos y cuidados intensivos.</li><li>Remover o drenar el foco.</li><li>Antibiótico antiestafilocócico (vancomicina si hay riesgo de SAMR) más <b>clindamicina</b> para frenar la producción de toxinas; considerar IGIV en los casos graves.</li></ul>" }
+    ],
+    evidencia: [], pico: [], ateneos: [],
+    conexiones: ["ex-ssss", "ex-misc", "ex-varicela"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-kawasaki", mapa: "exantemas", titulo: "Enfermedad de Kawasaki", corto: "Kawasaki", tipo: "concepto", causa: "inflamatoria",
+    x: 365, y: 450,
+    resumen: "Vasculitis de vasos medianos: fiebre de 5 días o más con conjuntivitis, labios rojos, exantema, cambios en manos y pies y adenopatía. Riesgo de aneurismas coronarios.",
+    teoria: [
+      { h: "Criterios clásicos", html: "<p>Fiebre de 5 días o más y al menos 4 de estos 5:</p><ol><li>Conjuntivitis bilateral sin secreción.</li><li>Labios rojos y agrietados, lengua aframbuesada, eritema faríngeo.</li><li>Exantema polimorfo (nunca vesicular).</li><li>Eritema y edema de manos y pies; descamación periungueal en la fase subaguda.</li><li>Adenopatía cervical, en general unilateral, de 1,5 cm o más.</li></ol><p>En la Argentina, el eritema o la costra sobre la cicatriz de la BCG es una pista útil.</p>" },
+      { h: "Kawasaki incompleto", html: "<p>Fiebre de 5 días o más con 2 o 3 criterios (o lactantes con fiebre de 7 días o más sin explicación): si la PCR es de 3 mg/dL o más o la eritrosedimentación de 40 mm/h o más, buscar los criterios de laboratorio complementarios (anemia, plaquetas altas después del día 7, albúmina baja, transaminasas altas, leucocitosis, piuria). Con 3 o más, o con un ecocardiograma alterado, se trata.</p>" },
+      { h: "Tratamiento", html: "<ul><li><b>IGIV 2 g/kg</b> en una infusión, idealmente dentro de los 10 primeros días de fiebre.</li><li><b>Aspirina</b> en dosis moderada o alta hasta que esté afebril, después dosis baja hasta el control ecocardiográfico.</li><li>En pacientes de alto riesgo de compromiso coronario, considerar sumar corticoides desde el inicio.</li><li>Ecocardiograma al diagnóstico, a la 1–2 semanas y a las 4–6 semanas.</li></ul>" }
+    ],
+    evidencia: ["mccrindle2017", "kobayashi2012"],
+    pico: [
+      { p: "Niños con Kawasaki de alto riesgo", i: "IGIV más prednisolona", c: "IGIV sola", o: "Anomalías coronarias",
+        respuesta: "En el ensayo RAISE (pacientes japoneses con puntaje de Kobayashi alto), sumar prednisolona redujo las anomalías coronarias del 23 % al 3 %. No está claro que los puntajes de riesgo japoneses funcionen igual en otras poblaciones.",
+        certeza: "Moderada", refs: ["kobayashi2012", "mccrindle2017"] }
+    ],
+    casos: [
+      { titulo: "Fiebre de cinco días", html: "<p>Niña de 3 años con 5 días de fiebre, conjuntivas rojas sin secreción, labios fisurados y un exantema en el tronco. Tiene una adenopatía cervical de 2 cm y la cicatriz de la BCG enrojecida. PCR 9 mg/dL.</p><p><b>Para discutir:</b> ¿cumple criterios clásicos? ¿Qué diagnósticos diferenciales hay que descartar antes de la IGIV?</p>", nodos: ["ex-sarampion", "ex-escarlatina", "ex-viral"] }
+    ],
+    ateneos: [],
+    conexiones: ["ex-misc", "ex-viral", "ex-sarampion"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-misc", mapa: "exantemas", titulo: "Síndrome inflamatorio multisistémico (MIS-C)", corto: "MIS-C", tipo: "concepto", causa: "inflamatoria",
+    x: 150, y: 560,
+    resumen: "De 2 a 6 semanas después de una infección por SARS-CoV-2: fiebre, compromiso digestivo, shock y disfunción cardíaca. Se parece a Kawasaki, pero en chicos más grandes.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Escolares y adolescentes, con antecedente o serología de COVID-19.</li><li>Fiebre persistente, dolor abdominal, vómitos, diarrea.</li><li>Exantema, conjuntivitis y cambios mucosos parecidos a Kawasaki.</li><li>Hipotensión, disfunción ventricular, aneurismas coronarios.</li><li>Inflamación muy alta, linfopenia, plaquetas bajas, troponina y BNP elevados.</li></ul>" },
+      { h: "Tratamiento", html: "<p>IGIV más glucocorticoides desde el inicio, aspirina en dosis baja y anticoagulación según el riesgo. Hoy es mucho menos frecuente que en 2020–2021.</p>" }
+    ],
+    evidencia: ["son2021"],
+    pico: [
+      { p: "Niños con MIS-C", i: "IGIV más glucocorticoides", c: "IGIV sola", o: "Disfunción cardiovascular nueva o persistente",
+        respuesta: "En un estudio observacional grande con emparejamiento, el tratamiento combinado se asoció con menos disfunción cardiovascular y menos necesidad de terapia adyuvante.",
+        certeza: "Baja", refs: ["son2021"] }
+    ],
+    ateneos: [],
+    conexiones: ["ex-kawasaki", "ex-shock"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-dress", mapa: "exantemas", titulo: "DRESS", tipo: "concepto", causa: "alergica",
+    x: 330, y: 560,
+    resumen: "Reacción grave a fármacos semanas después de empezar: exantema extenso, edema facial, fiebre, adenopatías, eosinofilia y compromiso de órganos.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Entre 2 y 8 semanas después de iniciar el fármaco (mediana de 22 días en RegiSCAR).</li><li>Exantema morbiliforme que progresa a eritrodermia, con edema facial.</li><li>Fiebre alta y adenopatías.</li><li>Eosinofilia, linfocitos atípicos, hepatitis; a veces compromiso renal, pulmonar o cardíaco.</li></ul>" },
+      { h: "Fármacos más involucrados", html: "<p>Antiepilépticos aromáticos (carbamazepina, fenitoína, fenobarbital, lamotrigina), sulfonamidas, vancomicina y otros antibióticos. En niños puede asociarse a la reactivación de HHV-6.</p>" },
+      { h: "Qué hacer", html: "<ul><li>Suspender el fármaco sospechoso; no reintroducirlo.</li><li>Corticoides sistémicos si hay compromiso de órganos.</li><li>Seguimiento de meses: recaídas y enfermedades autoinmunes tardías (tiroiditis, diabetes).</li></ul>" }
+    ],
+    evidencia: ["kardaun2013"], pico: [], ateneos: [],
+    conexiones: ["ex-sjs", "ex-farmaco"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Vesículas y ampollas */
+  {
+    id: "ex-varicela", mapa: "exantemas", titulo: "Varicela", tipo: "concepto", causa: "infecciosa",
+    x: 525, y: 420,
+    resumen: "Vesículas como gotas de rocío en distintos estadios, de distribución central y muy pruriginosas.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Incubación de 10 a 21 días.</li><li>Máculas que pasan a pápulas, vesículas y costras; conviven lesiones en distintos estadios.</li><li>Empieza en el tronco y la cara, con lesiones en el cuero cabelludo y las mucosas.</li><li>Contagia desde 1 o 2 días antes del exantema hasta que todas las lesiones estén en costra.</li></ul>" },
+      { h: "Complicaciones", html: "<p>Sobreinfección por estreptococo o estafilococo (celulitis, fascitis, <a href=\"#ex-shock\">shock tóxico</a>), neumonía, ataxia cerebelosa, encefalitis. Fiebre que reaparece o lesión que duele y se extiende: pensar en sobreinfección invasiva.</p>" },
+      { h: "Tratamiento", html: "<ul><li>Sintomático en niños sanos: paracetamol, antihistamínicos, uñas cortas.</li><li><b>Evitar la aspirina</b> (síndrome de Reye) y preferir no usar ibuprofeno.</li><li>Aciclovir oral en mayores de 12 años, enfermedad crónica de piel o pulmón, tratamiento con corticoides o aspirina crónica; aciclovir IV en inmunocomprometidos.</li><li>Prevención: vacuna del Calendario Nacional; profilaxis posexposición en contactos de riesgo.</li></ul>" }
+    ],
+    evidencia: ["klassen2005"],
+    pico: [
+      { p: "Niños sanos con varicela", i: "Aciclovir oral", c: "Placebo", o: "Fiebre, lesiones y complicaciones",
+        respuesta: "Acorta la fiebre en un día y reduce el número de lesiones, sin cambiar las complicaciones. Por eso no se indica de rutina en niños sanos.",
+        certeza: "Moderada", refs: ["klassen2005"] }
+    ],
+    ateneos: [],
+    conexiones: ["ex-eh", "ex-mpb", "ex-shock"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-mpb", mapa: "exantemas", titulo: "Mano-pie-boca", tipo: "concepto", causa: "infecciosa",
+    x: 680, y: 420,
+    resumen: "Enterovirus: aftas en la boca y vesículas ovaladas en manos, pies y glúteos. El coxsackie A6 da formas extensas.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Menores de 5 años, en verano y otoño, en brotes en jardines.</li><li>Fiebre, dolor al tragar, aftas en el paladar y la lengua.</li><li>Vesículas ovaladas con halo rojo en palmas, plantas y glúteos.</li><li>Semanas después pueden caerse las uñas (onicomadesis).</li></ul>" },
+      { h: "Formas atípicas (coxsackie A6)", html: "<p>Lesiones más extensas, ampollares y erosivas, en la cara, los miembros y el tronco. En más de la mitad se acentúan sobre la dermatitis atópica (<i>eczema coxsackium</i>) y pueden confundirse con <a href=\"#ex-eh\">eccema herpético</a>, impétigo o vasculitis.</p>" },
+      { h: "Qué hacer", html: "<p>Analgesia e hidratación; vigilar la ingesta. El enterovirus 71 puede dar complicaciones neurológicas: consultar si hay vómitos, decaimiento, temblor o mioclonías.</p>" }
+    ],
+    evidencia: ["mathes2013"], pico: [], ateneos: [],
+    conexiones: ["ex-eh", "ex-viral"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-eh", mapa: "exantemas", titulo: "Eccema herpético", tipo: "concepto", causa: "infecciosa",
+    x: 525, y: 505,
+    resumen: "Herpes simple sobre la dermatitis atópica: vesículas iguales y erosiones en sacabocado, con fiebre. Necesita aciclovir.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Chico con dermatitis atópica que empeora de golpe, con fiebre y malestar.</li><li>Vesículas umbilicadas, todas en el mismo estadio, que dejan erosiones redondas en sacabocado y costras hemorrágicas.</li><li>Más en cara y cuello, pero puede extenderse.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li><b>Aciclovir</b> sin esperar la confirmación: oral en formas localizadas y con buen estado; IV en lactantes, formas extensas o con compromiso general.</li><li>Oftalmología si hay lesiones cerca del ojo.</li><li>Buscar sobreinfección estafilocócica.</li></ul>" }
+    ],
+    evidencia: ["mathes2013"], pico: [], ateneos: [],
+    conexiones: ["ex-ssss"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-ssss", mapa: "exantemas", titulo: "Síndrome de piel escaldada estafilocócica", corto: "Piel escaldada (SSSS)", tipo: "concepto", causa: "infecciosa",
+    x: 680, y: 505,
+    resumen: "Toxinas exfoliativas del estafilococo: eritema doloroso, ampollas flácidas y Nikolsky positivo, sin compromiso de mucosas.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Sobre todo menores de 5 años.</li><li>Fiebre, irritabilidad y piel muy dolorosa al tacto.</li><li>Eritema que empieza en la cara y los pliegues, con ampollas flácidas y descamación en sábana.</li><li>Costras alrededor de la boca, los ojos y la nariz.</li><li><b>Sin compromiso de mucosas</b>: es lo que lo separa de <a href=\"#ex-sjs\">SJS/NET</a>.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>Internación, analgesia, cuidado de la piel como un quemado y control de líquidos.</li><li>Antibiótico antiestafilocócico IV (por ejemplo, cefalotina); clindamicina para frenar la toxina.</li><li>Vancomicina si no mejora, está grave o el SAMR es frecuente en la comunidad.</li></ul>" }
+    ],
+    evidencia: ["leung2018"], pico: [], ateneos: [],
+    conexiones: ["ex-sjs", "ex-escarlatina"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-sjs", mapa: "exantemas", titulo: "Stevens-Johnson y necrólisis epidérmica tóxica", corto: "SJS / NET", tipo: "concepto", causa: ["alergica", "infecciosa"],
+    x: 600, y: 580,
+    resumen: "Necrosis de la epidermis con compromiso de mucosas. En adultos casi siempre por fármacos; en niños, a menudo por infecciones.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Pródromo de fiebre y malestar; luego máculas oscuras o dianas atípicas que se vuelven ampollas.</li><li>Compromiso de dos o más mucosas: ojos, boca, genitales.</li><li>Nikolsky positivo; dolor de piel.</li><li>SJS si se despega menos del 10 % de la superficie corporal, NET si más del 30 %.</li></ul>" },
+      { h: "Causas", html: "<p><b>Fármacos</b> (de 4 días a 8 semanas después de empezar): anticonvulsivantes (carbamazepina, lamotrigina, fenitoína, fenobarbital), sulfonamidas, AINE, alopurinol. <b>Infecciones</b>, sobre todo <i>Mycoplasma pneumoniae</i>: por eso hoy se propone distinguir la erupción reactiva a infecciones (<a href=\"#ex-mirm\">RIME</a>) de la necrólisis por fármacos.</p>" },
+      { h: "Qué hacer", html: "<ul><li>Suspender todo fármaco no imprescindible.</li><li>Internación en unidad de quemados o terapia intensiva.</li><li><b>Oftalmología desde el primer día</b> para prevenir secuelas.</li><li>Las terapias inmunomoduladoras (ciclosporina, IGIV, etanercept, corticoides) tienen evidencia limitada en niños.</li></ul>" }
+    ],
+    evidencia: ["ramien2022"], pico: [], ateneos: [],
+    conexiones: ["ex-mirm", "ex-em"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Petequias y púrpura */
+  {
+    id: "ex-meningococo", mapa: "exantemas", titulo: "Meningococcemia", tipo: "concepto", causa: "infecciosa",
+    x: 850, y: 150,
+    resumen: "Petequias que no desaparecen con la presión, en un chico que se ve mal. Los signos tempranos son los de sepsis, no el exantema.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Primeras horas: fiebre y síntomas inespecíficos.</li><li>Alrededor de las 8 horas: dolor en las piernas, manos y pies fríos, color de piel anormal.</li><li>Después: petequias y púrpura que se extienden, meningismo, alteración de la conciencia.</li></ul><p>El exantema puede empezar maculopapular y en algunos casos no aparece.</p>" },
+      { h: "Qué hacer", html: "<ul><li>Ante la sospecha: hemocultivo y <b>ceftriaxona inmediata</b>, sin esperar la punción lumbar ni los resultados.</li><li>Reanimación con fluidos y manejo del shock.</li><li>Notificación y quimioprofilaxis de contactos cercanos.</li><li>Prevención: vacuna antimeningocócica del Calendario Nacional.</li></ul>" }
+    ],
+    evidencia: ["thompson2006", "brogan2000"], pico: [], ateneos: [],
+    conexiones: ["ex-petvir", "ex-iga"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-petvir", mapa: "exantemas", titulo: "Petequias en contexto viral", corto: "Petequias virales", tipo: "concepto", causa: "infecciosa",
+    x: 1090, y: 150,
+    resumen: "La mayoría de los niños con fiebre y petequias tiene un virus. El desafío es reconocer al que no.",
+    teoria: [
+      { h: "Cuándo tranquiliza", html: "<ul><li>Buen estado general, sin criterios ILL (irritabilidad, letargo, relleno capilar lento).</li><li>Petequias solo en el territorio de la vena cava superior, tras tos o vómitos.</li><li>No se extienden durante la observación.</li><li>Leucocitos y PCR normales.</li></ul>" },
+      { h: "Causas frecuentes", html: "<p>Enterovirus, adenovirus, virus respiratorios, Epstein-Barr; el parvovirus B19 da el síndrome papular-purpúrico en guantes y calcetines.</p>" },
+      { h: "Qué hacer", html: "<p>Observar de 4 a 6 horas con controles; si hay cualquier duda o el laboratorio es anormal, tratar como <a href=\"#ex-meningococo\">enfermedad meningocócica</a>. En una auditoría, el 9 % de los niños con fiebre y petequias tenía sepsis bacteriana.</p>" }
+    ],
+    evidencia: ["brogan2000"], pico: [], ateneos: [],
+    conexiones: ["ex-parvo", "ex-dengue"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-iga", mapa: "exantemas", titulo: "Vasculitis por IgA (Schönlein-Henoch)", corto: "Vasculitis por IgA", tipo: "concepto", causa: "inflamatoria",
+    x: 970, y: 235,
+    resumen: "La vasculitis más frecuente en la infancia: púrpura palpable en piernas y glúteos con plaquetas normales, dolor abdominal, artritis y a veces nefritis.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Entre los 3 y los 10 años, a menudo después de una infección respiratoria.</li><li>Púrpura palpable en piernas y glúteos, con plaquetas y coagulación normales.</li><li>Dolor abdominal (cuidado con la invaginación), artralgias o artritis de tobillos y rodillas.</li><li>Hematuria o proteinuria en un tercio a la mitad de los casos.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>Analgesia; reposo relativo.</li><li>Corticoides para el dolor abdominal intenso, la orquitis y otras complicaciones no renales; no previenen la nefritis.</li><li>Control de orina y presión arterial durante al menos 6 meses; derivar a nefrología si hay proteinuria significativa, hipertensión o caída del filtrado.</li></ul>" }
+    ],
+    evidencia: ["ozen2019"], pico: [], ateneos: [],
+    conexiones: ["ex-urticaria", "ex-suero"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Habones y dianas */
+  {
+    id: "ex-urticaria", mapa: "exantemas", titulo: "Urticaria aguda", tipo: "concepto", causa: ["infecciosa", "alergica"],
+    x: 860, y: 395,
+    resumen: "Habones que aparecen y desaparecen en menos de 24 horas. En niños, la causa más común es una infección viral, no un alimento.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Habones pruriginosos que cambian de forma y lugar; cada uno dura menos de 24 horas.</li><li>Puede haber angioedema.</li><li><b>Urticaria multiforme:</b> habones anulares con centro violáceo, edema de manos y pies; parece eritema multiforme, pero las lesiones son migratorias.</li></ul>" },
+      { h: "Causas", html: "<p>En un estudio prospectivo en niños pequeños, la infección (con o sin fármaco) explicó el 81 % y los alimentos el 11 %. Si los habones aparecen en minutos a 2 horas tras un alimento o un fármaco, pensar en reacción inmediata.</p>" },
+      { h: "Qué hacer", html: "<ul><li>Antihistamínicos H1 de segunda generación (cetirizina, levocetirizina, desloratadina).</li><li>Corticoides orales cortos solo en casos intensos.</li><li>Sin laboratorio de rutina.</li><li>Buscar compromiso respiratorio, circulatorio o digestivo: si lo hay, es <a href=\"#ex-anafilaxia\">anafilaxia</a>.</li></ul>" }
+    ],
+    evidencia: ["mortureux1998"], pico: [], ateneos: [],
+    conexiones: ["ex-anafilaxia", "ex-suero", "ex-em"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-anafilaxia", mapa: "exantemas", titulo: "Anafilaxia", tipo: "concepto", causa: "alergica",
+    x: 1090, y: 395,
+    resumen: "Reacción alérgica sistémica grave. La piel suele avisar, pero lo que define es el compromiso respiratorio o circulatorio. Adrenalina intramuscular primero.",
+    teoria: [
+      { h: "Cuándo es anafilaxia", html: "<ul><li>Inicio agudo con piel o mucosas (habones, prurito, angioedema) <b>y</b> compromiso respiratorio, hipotensión o síntomas digestivos graves.</li><li>O hipotensión, broncoespasmo o compromiso laríngeo después de exponerse a un alérgeno conocido o muy probable, aun sin piel.</li></ul>" },
+      { h: "Qué hacer", html: "<ol><li><b>Adrenalina 1 mg/mL intramuscular, 0,01 mg/kg</b> en la cara anterolateral del muslo (máximo 0,5 mg); repetir a los 5–15 minutos si hace falta.</li><li>Posición acostado con piernas elevadas (sentado si tiene dificultad respiratoria).</li><li>Oxígeno, acceso venoso y fluidos.</li><li>Antihistamínicos y corticoides son complementarios: no reemplazan a la adrenalina.</li></ol><p>Al alta: indicación de autoinyector, plan escrito y derivación a alergia.</p>" }
+    ],
+    evidencia: ["cardona2020"], pico: [], ateneos: [],
+    conexiones: ["ex-urticaria"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-suero", mapa: "exantemas", titulo: "Reacción tipo enfermedad del suero", corto: "Tipo enfermedad del suero", tipo: "concepto", causa: "alergica",
+    x: 975, y: 470,
+    resumen: "1 a 3 semanas después de un antibiótico: fiebre, habones o lesiones anulares violáceas y artralgias con edema.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Entre 1 y 3 semanas después de empezar el fármaco.</li><li>Lesiones urticarianas o anulares con centro violáceo; edema de manos, pies y cara.</li><li>Artralgias o artritis que pueden impedir caminar; fiebre.</li><li>A diferencia de la enfermedad del suero verdadera, sin complemento bajo ni compromiso renal.</li></ul>" },
+      { h: "Causas", html: "<p>Cefaclor sobre todo (unas 14 veces más riesgo que con amoxicilina en niños), amoxicilina y otros betalactámicos, TMP-SMX.</p>" },
+      { h: "Qué hacer", html: "<p>Suspender el fármaco; antihistamínicos y AINE; corticoides cortos si es intenso. Evitar ese fármaco y derivar a alergia.</p>" }
+    ],
+    evidencia: ["stricker1992"], pico: [], ateneos: [],
+    conexiones: ["ex-em", "ex-farmaco"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-em", mapa: "exantemas", titulo: "Eritema multiforme", tipo: "concepto", causa: "infecciosa",
+    x: 870, y: 560,
+    resumen: "Lesiones en diana fijas, acrales, casi siempre tras un herpes simple. No es una forma leve de Stevens-Johnson.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Dianas típicas de tres zonas (centro oscuro o con ampolla, anillo pálido, halo rojo), en manos, pies y extremidades.</li><li>Las lesiones quedan fijas 7 días o más (a diferencia de la urticaria multiforme).</li><li>Menor: sin mucosas o con poca afectación oral. Mayor: con compromiso de mucosas.</li></ul>" },
+      { h: "Causas", html: "<p>Herpes simple en la mayoría; en niños también <i>Mycoplasma pneumoniae</i>. Los fármacos son menos frecuentes.</p>" },
+      { h: "Qué hacer", html: "<p>Sintomático: antihistamínicos, cuidado de la boca. En formas recurrentes por herpes, profilaxis oral con aciclovir.</p>" }
+    ],
+    evidencia: ["lerch2018"], pico: [], ateneos: [],
+    conexiones: ["ex-mirm", "ex-sjs"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ex-mirm", mapa: "exantemas", titulo: "Mucositis por Mycoplasma (MIRM / RIME)", corto: "MIRM / RIME", tipo: "concepto", causa: "infecciosa",
+    x: 1080, y: 560,
+    resumen: "Mucositis intensa con poca o ninguna lesión de piel, en escolares con neumonía o tos por Mycoplasma.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Escolares y adolescentes, a menudo varones, con tos, fiebre o neumonía.</li><li>Mucositis oral (94 %), ocular (82 %) y urogenital (63 %).</li><li>Piel ausente o escasa en la mayoría.</li><li>Hoy se usa también RIME (erupción mucocutánea reactiva a infecciones), porque otros gérmenes dan el mismo cuadro.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>Analgesia, hidratación y nutrición (a veces por sonda).</li><li>Oftalmología temprana.</li><li>Macrólido para el Mycoplasma; corticoides o IGIV en casos graves, con evidencia limitada.</li><li>No rotularlo como alergia a fármacos.</li></ul>" }
+    ],
+    evidencia: ["canavan2015", "ramien2022"], pico: [], ateneos: [],
+    conexiones: ["ex-sjs"],
     revision: { estado: "borrador", revisor: null, fecha: null }
   }
 ];

@@ -31,6 +31,7 @@ img{max-width:100%}
   --edad-2: #3A6F9C;
   --edad-3: #1C3F69;
   --accent: var(--edad-2);
+  --c-inf: #B9502C; --c-ale: #7A4DA3; --c-infl: #1F7D74; --derm: #A85A2E;
   --draft: #9A6514;
   --draft-bg: #F8EEDC;
   --ok: #2F7A55;
@@ -46,6 +47,7 @@ img{max-width:100%}
     --line: #2B3843; --line-soft: #212C35;
     --edad-1: #5F93B6; --edad-2: #86B3DC; --edad-3: #C3D9F4;
     --draft: #E3B266; --draft-bg: #33281A; --ok: #7CC6A0; --ok-bg: #18301F; --danger: #F08C7C;
+    --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076;
     color-scheme: dark;
   }
 }
@@ -54,6 +56,7 @@ img{max-width:100%}
   --line: #2B3843; --line-soft: #212C35;
   --edad-1: #5F93B6; --edad-2: #86B3DC; --edad-3: #C3D9F4;
   --draft: #E3B266; --draft-bg: #33281A; --ok: #7CC6A0; --ok-bg: #18301F; --danger: #F08C7C;
+  --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076;
   color-scheme: dark;
 }
 
@@ -113,6 +116,18 @@ h1 { font-size: clamp(26px, 4vw, 40px); line-height: 1.1; font-weight: 600; lett
 svg.columnas .nodo.concepto .punto { fill: var(--accent); }
 svg.columnas .nodo.concepto text.t { fill: var(--ink); font-size: 14px; }
 .nodo:hover .punto, .nodo:focus-visible .punto, .nodo.activo .punto { fill: var(--accent); }
+svg .nodo.concepto .punto.c-infecciosa, .leyenda .c-infecciosa { fill: var(--c-inf); background: var(--c-inf); }
+svg .nodo.concepto .punto.c-alergica, .leyenda .c-alergica { fill: var(--c-ale); background: var(--c-ale); }
+svg .nodo.concepto .punto.c-inflamatoria, .leyenda .c-inflamatoria { fill: var(--c-infl); background: var(--c-infl); }
+.nodo .punto2 { stroke: var(--surface); stroke-width: 1.5; }
+.nodo .punto2.c-infecciosa { fill: var(--c-inf); } .nodo .punto2.c-alergica { fill: var(--c-ale); } .nodo .punto2.c-inflamatoria { fill: var(--c-infl); }
+#ley-causas { display: inline-flex; flex-wrap: wrap; gap: 6px 16px; }
+.leyenda .causa-i { width: 9px; height: 9px; border-radius: 50%; }
+.p-causas { display: inline-flex; gap: 6px; margin-left: 8px; }
+.p-causas span { font-size: 11px; padding: 1px 7px; border-radius: 10px; color: #fff; }
+.p-causas .c-infecciosa { background: var(--c-inf); } .p-causas .c-alergica { background: var(--c-ale); } .p-causas .c-inflamatoria { background: var(--c-infl); }
+:root[data-theme="dark"] .p-causas span { color: #111; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .p-causas span { color: #111; } }
 .nodo.concepto:hover text.t, .nodo.concepto.activo text.t { fill: var(--ink); }
 .nodo:focus { outline: none; }
 .nodo:focus-visible .aro, .nodo:focus-visible .halo { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 3 3; }
@@ -320,7 +335,8 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
       </label>
       <div class="leyenda">
         <span id="ley-tema"><i class="tema-i"></i>Tema</span>
-        <span><i class="con-i"></i>Concepto</span>
+        <span id="ley-con"><i class="con-i"></i>Concepto</span>
+        <span id="ley-causas" hidden></span>
         <span class="chip-estado neutro" id="estado-datos">Conectando…</span>
       </div>
     </div>
@@ -353,6 +369,8 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   const BASE_N = window.NODOS || [];
   const BASE_R = window.REFS || {};
   const MAPAS = window.MAPAS || { raiz: { titulo: "Mapa", ruta: [], bajada: "", disposicion: "edad" } };
+  const INICIO = MAPAS.inicio ? "inicio" : "raiz";
+  const CAUSAS = { infecciosa: "Infecciosa", alergica: "Alérgica o por fármacos", inflamatoria: "Inflamatoria" };
   const NS = "http://www.w3.org/2000/svg";
   const $ = id => document.getElementById(id);
   const svg = $("svg");
@@ -427,32 +445,38 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   }
 
   /* ───── Estado de la vista ───── */
-  let mapaActual = "raiz", actual = null, pestana = "teoria", edicion = null, recorrido = null;
+  let mapaActual = INICIO, actual = null, pestana = "teoria", edicion = null, recorrido = null;
   const recorridoActivo = () => recorrido && ((MAPAS[mapaActual] || {}).recorridos || []).find(r => r.id === recorrido);
 
   /* ───── Encabezado ───── */
   function pintarEncabezado() {
-    const m = MAPAS[mapaActual] || MAPAS.raiz;
+    const m = MAPAS[mapaActual] || MAPAS[INICIO];
     const ruta = m.ruta || [];
     $("ruta").innerHTML = ruta.map((r, i) => {
       const ultimo = i === ruta.length - 1;
       const linkRaiz = m.padre && i === ruta.length - 2;
-      const t = ultimo ? `<b>${esc(r)}</b>` : linkRaiz ? `<button type="button" data-mapa="${esc(m.padre)}">${esc(r)}</button>` : `<span>${esc(r)}</span>`;
+      const linkInicio = !ultimo && i === 0 && mapaActual !== INICIO && MAPAS[INICIO] && m.padre !== undefined;
+      const t = ultimo ? `<b>${esc(r)}</b>` : linkRaiz ? `<button type="button" data-mapa="${esc(m.padre)}">${esc(r)}</button>` : linkInicio ? `<button type="button" data-mapa="${INICIO}">${esc(r)}</button>` : `<span>${esc(r)}</span>`;
       return (i ? '<span class="sep">›</span>' : "") + t;
     }).join("");
     $("titulo-mapa").textContent = m.titulo;
     $("bajada").textContent = m.bajada || "";
     $("volver").hidden = !m.padre;
-    if (m.padre) $("volver").textContent = "← Volver a " + (m.padre === "raiz" ? "el mapa general" : (MAPAS[m.padre] || {}).titulo || "el mapa anterior");
+    if (m.padre) $("volver").textContent = m.padre === INICIO ? "← Volver al inicio" : "← Volver a " + ((MAPAS[m.padre] || {}).titulo || "el mapa anterior");
     $("ley-tema").hidden = m.disposicion === "columnas";
-    $("pista").textContent = m.disposicion === "columnas"
+    const causas = m.causas || [];
+    $("ley-con").hidden = !!causas.length;
+    $("ley-causas").hidden = !causas.length;
+    $("ley-causas").innerHTML = causas.map(c => `<span><i class="causa-i c-${esc(c)}"></i>${esc(CAUSAS[c] || c)}</span>`).join(" ");
+    $("q").placeholder = m.buscar || "Buscar: VSR, IPA, magnesio…";
+    $("pista").textContent = m.pista || (m.disposicion === "columnas"
       ? "Cada columna responde una pregunta de la familia. Las líneas unen conceptos que conviene leer juntos."
       : m.disposicion === "zonas"
         ? "Cada zona es una parte de la guía. Las líneas muestran cómo una decisión lleva a otra. En el celular, deslizá el mapa hacia los costados."
-        : "Pasá el cursor por un nodo para ver sus conexiones. En el celular, deslizá el mapa hacia los costados.";
+        : "Pasá el cursor por un nodo para ver sus conexiones. En el celular, deslizá el mapa hacia los costados.");
     const hijos = Object.entries(MAPAS).filter(([, x]) => x.padre === mapaActual);
     $("submapas").hidden = !hijos.length;
-    $("submapas").innerHTML = hijos.length ? `<span>${m.padre ? "Más en este tema:" : "Submapas:"}</span>` + hijos.map(([id, x]) => `<button type="button" class="btn" data-mapa="${esc(id)}">${esc(x.titulo)} →</button>`).join("") : "";
+    $("submapas").innerHTML = hijos.length ? `<span>${mapaActual === INICIO ? "Ir a:" : m.padre ? "Más en este tema:" : "Submapas:"}</span>` + hijos.map(([id, x]) => `<button type="button" class="btn" data-mapa="${esc(id)}">${esc(x.titulo)} →</button>`).join("") : "";
     const recs = m.recorridos || [];
     $("recorridos").hidden = !recs.length;
     $("recorridos").innerHTML = recs.length ? `<div class="fila"><span class="etq">Recorridos</span>${recs.map(r => `<button type="button" class="chip" data-rec="${esc(r.id)}" aria-pressed="${r.id === recorrido}">${esc(r.titulo)}</button>`).join("")}${recorrido ? '<button type="button" class="btn-texto" data-rec="">Quitar recorrido</button>' : ""}</div>` : "";
@@ -479,7 +503,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   };
 
   function pintarMapa() {
-    const m = MAPAS[mapaActual] || MAPAS.raiz;
+    const m = MAPAS[mapaActual] || MAPAS[INICIO];
     svg.innerHTML = "";
     svg.classList.toggle("columnas", m.disposicion !== "edad");
     svg.classList.toggle("recorrido", !!recorridoActivo());
@@ -538,7 +562,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
       const g = el("g", { class: "nodo " + (n.tipo || "concepto"), tabindex: 0, role: "button", "aria-label": n.titulo, transform: `translate(${n.x || 600},${n.y || 300})` }, gN);
       g.dataset.id = n.id;
       if (n.tipo === "tema") {
-        const c = colorTema[n.id] || "var(--accent)";
+        const c = colorTema[n.id] || n.color || "var(--accent)";
         if (n.submapa) el("circle", { class: "anillo", r: 44, stroke: c }, g);
         el("circle", { class: "halo", r: 34, stroke: c }, g);
         el("circle", { r: 9, fill: c }, g);
@@ -547,7 +571,9 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
         if (n.submapa) el("text", { class: "sub acc", y: 101, "text-anchor": "middle" }, g).textContent = "+ SUBMAPA";
       } else {
         el("circle", { class: "aro", r: 16 }, g);
-        el("circle", { class: "punto", r: mapaActual === "raiz" ? 5.5 : 6.5 }, g);
+        const cs = [].concat(n.causa || []);
+        el("circle", { class: "punto" + (cs[0] ? " c-" + cs[0] : ""), r: mapaActual === "raiz" ? 5.5 : 6.5 }, g);
+        cs.slice(1).forEach((c2, k) => el("circle", { class: "punto2 c-" + c2, cx: 8 + k * 7, cy: -8, r: 4 }, g));
         el("text", { class: "t", y: 24, "text-anchor": "middle" }, g).textContent = n.corto || n.titulo;
       }
       nodoEls[n.id] = g;
@@ -555,8 +581,8 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
       g.addEventListener("mouseleave", () => enfocar(actual));
       g.addEventListener("focus", () => enfocar(n.id));
       g.addEventListener("blur", () => enfocar(actual));
-      g.addEventListener("click", () => abrir(n.id));
-      g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); abrir(n.id); } });
+      g.addEventListener("click", () => { if (m.directo && n.submapa && MAPAS[n.submapa]) irAMapa(n.submapa); else abrir(n.id); });
+      g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); if (m.directo && n.submapa && MAPAS[n.submapa]) irAMapa(n.submapa); else abrir(n.id); } });
     });
 
     // Recorrido: línea punteada entre los pasos y números sobre cada nodo
@@ -629,13 +655,13 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   /* ───── Índice bajo el mapa ───── */
   const cuenta = n => `<span class="cuentas"><span><b>${(n.teoria || []).length}</b> secciones</span><span><b>${(n.evidencia || []).length}</b> artículos</span><span><b>${(n.pico || []).length}</b> PICO</span><span><b>${(n.casos || []).length}</b> casos</span><span><b>${(n.ateneos || []).length}</b> ateneos</span></span>`;
   function pintarIndice() {
-    const m = MAPAS[mapaActual] || MAPAS.raiz;
+    const m = MAPAS[mapaActual] || MAPAS[INICIO];
     const visibles = N.filter(n => n.mapa === mapaActual);
     let html = "";
     if (m.disposicion === "zonas") {
       const zs = m.zonas || [];
       const zonaDe = n => zs.findIndex(z => n.x >= z.x && n.x <= z.x + z.w && n.y >= z.y && n.y <= z.y + z.h);
-      html += `<h2>Conceptos de la guía</h2><div class="columnas-idx">${zs.map((z, i) => `<section><h3>${esc(z.titulo)}</h3><div class="chips">${visibles.filter(n => zonaDe(n) === i).sort((a, b) => a.y - b.y || a.x - b.x).map(n => `<button type="button" class="chip" data-ir="${esc(n.id)}">${esc(n.titulo)}</button>`).join("")}</div></section>`).join("")}</div>`;
+      html += `<h2>${esc(m.indice || "Conceptos de la guía")}</h2><div class="columnas-idx">${zs.map((z, i) => `<section><h3>${esc(z.titulo)}</h3><div class="chips">${visibles.filter(n => zonaDe(n) === i).sort((a, b) => a.y - b.y || a.x - b.x).map(n => `<button type="button" class="chip" data-ir="${esc(n.id)}">${esc(n.titulo)}</button>`).join("")}</div></section>`).join("")}</div>`;
     } else if (m.disposicion === "columnas") {
       const cols = m.columnas || [];
       const colDe = n => cols.reduce((best, c, i) => Math.abs(c.x - n.x) < Math.abs(cols[best].x - n.x) ? i : best, 0);
@@ -710,7 +736,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     const puede = db && puedeEscribir !== false;
     $("p-cab").innerHTML = `
       <div class="p-fila">
-        <span class="p-tipo">${n.tipo === "tema" ? "Tema" + (n.edad ? " · " + esc(n.edad) : "") : "Concepto"}${n.mapa !== "raiz" && MAPAS[n.mapa] ? " · " + esc(MAPAS[n.mapa].titulo) : ""}</span>
+        <span class="p-tipo">${n.tipo === "tema" ? "Tema" + (n.edad ? " · " + esc(n.edad) : "") : "Concepto"}${n.mapa !== "raiz" && MAPAS[n.mapa] ? " · " + esc(MAPAS[n.mapa].titulo) : ""}${[].concat(n.causa || []).length ? `<span class="p-causas">${[].concat(n.causa).map(c => `<span class="c-${esc(c)}">${esc(CAUSAS[c] || c)}</span>`).join("")}</span>` : ""}</span>
         <span class="p-acciones">${!enEdicion && puede ? '<button type="button" class="btn" id="b-editar">Editar</button>' : ""}<button type="button" class="btn" id="b-cerrar">${enEdicion ? "Salir" : "Cerrar"}</button></span>
       </div>
       ${enEdicion
@@ -758,7 +784,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     if (edicion) { pedirDescartar(() => { edicion = null; cerrar(); }); return; }
     actual = null;
     panel.classList.remove("abierto"); velo.classList.remove("abierto"); panel.setAttribute("aria-hidden", "true");
-    history.replaceState(null, "", mapaActual === "raiz" ? location.pathname + location.search : "#mapa-" + mapaActual);
+    history.replaceState(null, "", mapaActual === INICIO ? location.pathname + location.search : "#mapa-" + mapaActual);
     enfocar(null);
   }
 
@@ -968,11 +994,11 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
 
   /* ───── Navegación ───── */
   function irAMapa(id) {
-    if (!MAPAS[id]) id = "raiz";
+    if (!MAPAS[id]) id = INICIO;
     const seguir = () => {
       actual = null; mapaActual = id; busqueda = ""; $("q").value = ""; recorrido = null;
       panel.classList.remove("abierto"); velo.classList.remove("abierto"); panel.setAttribute("aria-hidden", "true");
-      history.replaceState(null, "", id === "raiz" ? location.pathname + location.search : "#mapa-" + id);
+      history.replaceState(null, "", id === INICIO ? location.pathname + location.search : "#mapa-" + id);
       pintarTodo(); window.scrollTo({ top: 0 });
     };
     if (edicion) pedirDescartar(seguir); else seguir();
@@ -997,7 +1023,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     const a = t.closest('#p-cuerpo a[href^="#"]');
     if (a && !edicion && porId[a.getAttribute("href").slice(1)]) { e.preventDefault(); pestana = "teoria"; abrir(a.getAttribute("href").slice(1)); }
   });
-  $("volver").addEventListener("click", () => irAMapa((MAPAS[mapaActual] || {}).padre || "raiz"));
+  $("volver").addEventListener("click", () => irAMapa((MAPAS[mapaActual] || {}).padre || INICIO));
   velo.addEventListener("click", cerrar);
   document.addEventListener("keydown", e => { if (e.key === "Escape" && actual && !edicion) cerrar(); });
   window.addEventListener("hashchange", desdeHash);
