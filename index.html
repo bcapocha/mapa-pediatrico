@@ -1,0 +1,1041 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<title>El Gran Mapa Pediátrico</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Concepto: un atlas. El mapa general se lee como la edad del niño (el azul se oscurece del lactante al escolar);
+   los submapas se leen como las preguntas de la familia, en columnas. */
+:root {
+  --bg: #F3F5F6;
+  --surface: #FFFFFF;
+  --ink: #14202A;
+  --muted: #5B6873;
+  --line: #D3DAE0;
+  --line-soft: #E3E8EC;
+  --edad-1: #6E9FC0;
+  --edad-2: #3A6F9C;
+  --edad-3: #1C3F69;
+  --accent: var(--edad-2);
+  --draft: #9A6514;
+  --draft-bg: #F8EEDC;
+  --ok: #2F7A55;
+  --ok-bg: #E2F1E8;
+  --danger: #A33A2C;
+  --f-ui: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-read: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1519; --surface: #172028; --ink: #E2E8EC; --muted: #93A2AD;
+    --line: #2B3843; --line-soft: #212C35;
+    --edad-1: #5F93B6; --edad-2: #86B3DC; --edad-3: #C3D9F4;
+    --draft: #E3B266; --draft-bg: #33281A; --ok: #7CC6A0; --ok-bg: #18301F; --danger: #F08C7C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1519; --surface: #172028; --ink: #E2E8EC; --muted: #93A2AD;
+  --line: #2B3843; --line-soft: #212C35;
+  --edad-1: #5F93B6; --edad-2: #86B3DC; --edad-3: #C3D9F4;
+  --draft: #E3B266; --draft-bg: #33281A; --ok: #7CC6A0; --ok-bg: #18301F; --danger: #F08C7C;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-ui); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button { font: inherit; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding-block: 28px 64px; display: grid; gap: 28px; }
+
+/* Encabezado */
+header { display: grid; gap: 14px; }
+.ruta { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.ruta .sep { opacity: .5; }
+.ruta b { color: var(--ink); font-weight: 600; }
+.ruta button { background: none; border: 0; padding: 0; color: var(--accent); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+h1 { font-size: clamp(26px, 4vw, 40px); line-height: 1.1; font-weight: 600; letter-spacing: -.02em; margin: 0; text-wrap: balance; }
+.bajada { margin: 0; color: var(--muted); max-width: 66ch; font-size: 16px; }
+.barra { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; }
+.buscar { position: relative; flex: 1 1 260px; max-width: 380px; }
+.buscar input {
+  width: 100%; font: inherit; color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px 9px 34px;
+}
+.buscar svg { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+.leyenda { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; color: var(--muted); align-items: center; }
+.leyenda i { display: inline-block; vertical-align: middle; margin-right: 6px; }
+.leyenda .tema-i { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--edad-2); }
+.leyenda .con-i { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
+.chip-estado { font-size: 12px; font-family: var(--f-mono); padding: 3px 8px; border-radius: 4px; white-space: nowrap; color: var(--draft); background: var(--draft-bg); }
+.chip-estado.ok { color: var(--ok); background: var(--ok-bg); }
+.chip-estado.neutro { color: var(--muted); background: var(--line-soft); }
+.volver { background: var(--surface); border: 1px solid var(--line); color: var(--ink); border-radius: 8px; padding: 7px 12px; cursor: pointer; justify-self: start; }
+.volver:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Mapa */
+.mapa { background: var(--surface); border: 1px solid var(--line-soft); border-radius: 14px; overflow-x: auto; }
+.mapa svg { display: block; width: 100%; min-width: 880px; height: auto; }
+.arista { fill: none; stroke: var(--line); stroke-width: 1.2; transition: stroke .2s, opacity .2s; }
+.nodo { cursor: pointer; transition: opacity .2s; }
+.nodo text { fill: var(--ink); font-family: var(--f-ui); }
+.nodo .sub { fill: var(--muted); font-family: var(--f-mono); font-size: 11px; letter-spacing: .04em; }
+.nodo .sub.acc { fill: var(--accent); }
+.nodo.tema .halo { fill: var(--surface); stroke-width: 2; }
+.nodo.tema .anillo { fill: none; stroke-width: 1; stroke-dasharray: 3 4; }
+.nodo.tema text.t { font-size: 21px; font-weight: 600; letter-spacing: -.01em; }
+.nodo.concepto .punto { fill: var(--muted); transition: r .2s, fill .2s; }
+.nodo.concepto .aro { fill: transparent; }
+.nodo.concepto text.t { font-size: 13px; fill: var(--muted); }
+svg.columnas .nodo.concepto .punto { fill: var(--accent); }
+svg.columnas .nodo.concepto text.t { fill: var(--ink); font-size: 14px; }
+.nodo:hover .punto, .nodo:focus-visible .punto, .nodo.activo .punto { fill: var(--accent); }
+.nodo.concepto:hover text.t, .nodo.concepto.activo text.t { fill: var(--ink); }
+.nodo:focus { outline: none; }
+.nodo:focus-visible .aro, .nodo:focus-visible .halo { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 3 3; }
+svg.enfoque .nodo:not(.vecino) { opacity: .22; }
+svg.enfoque .arista { opacity: .25; }
+svg.enfoque .arista.vecina { opacity: 1; stroke: var(--accent); stroke-width: 1.6; }
+.eje line { stroke: var(--line); }
+.eje text { fill: var(--muted); font-family: var(--f-mono); font-size: 11px; }
+.eje .titulo-eje { letter-spacing: .1em; text-transform: uppercase; font-size: 10px; }
+.carril { stroke-linecap: round; stroke-width: 5; opacity: .85; }
+.eje text.col-t { fill: var(--ink); font-family: var(--f-ui); font-size: 16px; font-weight: 600; }
+.eje text.col-p { fill: var(--muted); font-family: var(--f-mono); font-size: 11.5px; }
+.col-div { stroke: var(--line-soft); stroke-dasharray: 2 5; }
+.pista { font-size: 13px; color: var(--muted); margin: 0; padding: 10px 16px 14px; border-top: 1px solid var(--line-soft); }
+.zona { fill: var(--bg); stroke: var(--line-soft); }
+.eje text.zona-t { fill: var(--muted); font-family: var(--f-ui); font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.eje text.zona-s { fill: var(--muted); font-family: var(--f-mono); font-size: 11px; }
+.ruta-rec { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 7 6; opacity: .9; }
+.num-rec circle { fill: var(--accent); }
+.num-rec text { fill: var(--surface); font-family: var(--f-mono); font-size: 11px; font-weight: 500; }
+svg.recorrido .arista { opacity: .15; }
+
+/* Submapas y recorridos */
+.submapas { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); }
+.submapas .btn { font-size: 13px; }
+.recorridos { display: grid; gap: 10px; }
+.recorridos .fila { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.recorridos .etq { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-right: 4px; }
+.chip[aria-pressed="true"], .chip[aria-pressed="true"]:hover { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.pasos-rec { background: var(--surface); border: 1px solid var(--line-soft); border-radius: 14px; padding: 18px 20px; display: grid; gap: 12px; }
+.pasos-rec h2 { margin: 0; font-size: 17px; font-weight: 600; }
+.pasos-rec > p { margin: 0; color: var(--muted); font-size: 14px; }
+.pasos-rec ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: paso; }
+.pasos-rec li { counter-increment: paso; }
+.pasos-rec li button { width: 100%; text-align: left; background: none; border: 0; border-radius: 8px; padding: 8px 10px; cursor: pointer; display: grid; grid-template-columns: 28px 1fr; gap: 2px 10px; color: var(--ink); }
+.pasos-rec li button:hover { background: var(--bg); }
+.pasos-rec li button::before { content: counter(paso); grid-row: span 2; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: var(--surface); font-family: var(--f-mono); font-size: 11px; display: grid; place-items: center; margin-top: 1px; }
+.pasos-rec li b { font-weight: 600; font-size: 14px; }
+.pasos-rec li span { color: var(--muted); font-size: 13.5px; }
+
+/* Índice */
+.indice { display: grid; gap: 18px; }
+.indice h2 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0; }
+.temas { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.tarjeta {
+  text-align: left; color: inherit; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line-soft); border-radius: 12px;
+  padding: 18px; display: grid; gap: 10px; align-content: start; min-width: 0;
+}
+.tarjeta:hover { border-color: var(--line); }
+.tarjeta .edad { font-family: var(--f-mono); font-size: 11px; letter-spacing: .05em; }
+.tarjeta h3 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+.tarjeta p { margin: 0; color: var(--muted); font-size: 14px; }
+.cuentas { display: flex; flex-wrap: wrap; gap: 6px 14px; font-family: var(--f-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.cuentas b { color: var(--ink); font-weight: 500; }
+.columnas-idx { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+.columnas-idx section { display: grid; gap: 10px; align-content: start; }
+.columnas-idx h3 { margin: 0; font-size: 16px; font-weight: 600; }
+.columnas-idx p { margin: 0; font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-size: 13px; color: var(--ink); background: var(--surface); cursor: pointer;
+  border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; text-align: left;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.nota-pie { font-size: 13px; color: var(--muted); max-width: 76ch; margin: 0; }
+
+/* Panel lateral */
+.velo { position: fixed; inset: 0; background: rgba(10, 18, 24, .28); opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 20; }
+.velo.abierto { opacity: 1; pointer-events: auto; }
+aside.panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 30;
+  width: min(560px, 100%); background: var(--surface); border-left: 1px solid var(--line);
+  transform: translateX(102%); transition: transform .3s cubic-bezier(.2,.7,.2,1);
+  display: flex; flex-direction: column;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24, .12); }
+.p-cab { padding: 22px 24px 0; display: grid; gap: 8px; }
+.p-fila { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.p-acciones { display: flex; gap: 8px; }
+.p-tipo { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.btn { background: var(--surface); border: 1px solid var(--line); color: var(--ink); border-radius: 8px; padding: 5px 11px; cursor: pointer; font-size: 14px; }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.prim { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.btn.prim:hover { color: var(--surface); filter: brightness(1.08); }
+.btn.peligro { color: var(--danger); }
+.btn:disabled { opacity: .5; cursor: default; }
+.btn-texto { background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+.btn-texto.peligro { color: var(--danger); }
+.p-cab h2 { margin: 0; font-size: 28px; line-height: 1.15; font-weight: 600; letter-spacing: -.02em; text-wrap: balance; }
+.p-resumen { margin: 0; color: var(--muted); font-size: 15px; }
+.p-meta { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-size: 12px; color: var(--muted); }
+.submapa-btn { justify-self: start; margin-top: 4px; }
+.pestanas { display: flex; gap: 2px; margin-top: 10px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+.pestanas button {
+  font-size: 14px; background: none; border: 0; color: var(--muted); cursor: pointer;
+  padding: 10px 11px; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap;
+}
+.pestanas button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
+.pestanas .n { font-family: var(--f-mono); font-size: 11px; margin-left: 5px; color: var(--muted); font-weight: 400; }
+.p-cuerpo { overflow-y: auto; padding: 22px 24px 28px; flex: 1; min-height: 0; display: grid; grid-auto-rows: max-content; gap: 22px; align-content: start; }
+.p-pie { border-top: 1px solid var(--line); padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; background: var(--surface); }
+.p-pie .msg { font-size: 13px; color: var(--muted); }
+.p-pie .msg.error { color: var(--danger); }
+
+/* Teoría */
+.lectura { font-family: var(--f-read); font-size: 16px; line-height: 1.6; display: grid; gap: 20px; }
+.lectura section { display: grid; gap: 6px; min-width: 0; }
+.lectura h3 { font-family: var(--f-ui); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin: 0; font-weight: 600; }
+.lectura p, .lectura ul, .lectura ol { margin: 0; }
+.rico { display: grid; gap: 8px; }
+.rico ul, .rico ol { padding-left: 20px; display: grid; gap: 4px; margin: 0; }
+.rico p { margin: 0; }
+.rico .nota { font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.rico ol.pasos { list-style: none; padding: 0; border-left: 2px solid var(--line); }
+.rico ol.pasos li { padding: 4px 0 4px 14px; }
+.tabla { overflow-x: auto; }
+.tabla table { border-collapse: collapse; font-family: var(--f-ui); font-size: 12.5px; width: 100%; min-width: 400px; }
+.tabla th, .tabla td { border-bottom: 1px solid var(--line-soft); padding: 6px 8px; text-align: left; vertical-align: top; }
+.tabla th { color: var(--muted); font-weight: 500; }
+
+/* Evidencia */
+.refs { display: grid; gap: 14px; }
+.ref { display: grid; gap: 6px; padding-bottom: 14px; border-bottom: 1px solid var(--line-soft); min-width: 0; }
+.ref:last-child { border-bottom: 0; }
+.ref .tipo { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.ref .hallazgo { font-family: var(--f-read); font-size: 15.5px; margin: 0; }
+.ref .cita { font-size: 13px; color: var(--muted); margin: 0; overflow-wrap: anywhere; }
+.ref .links { display: flex; flex-wrap: wrap; gap: 14px; font-family: var(--f-mono); font-size: 12px; }
+
+/* PICO */
+.pico { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.pico dl { margin: 0; display: grid; grid-template-columns: 34px 1fr; }
+.pico dt { font-family: var(--f-mono); font-weight: 500; font-size: 13px; color: var(--accent); padding: 9px 0 9px 14px; border-bottom: 1px solid var(--line-soft); }
+.pico dd { margin: 0; padding: 9px 14px 9px 4px; border-bottom: 1px solid var(--line-soft); font-size: 14px; min-width: 0; }
+.pico .resp { padding: 14px; display: grid; gap: 8px; background: var(--bg); }
+.pico .resp p { margin: 0; font-family: var(--f-read); font-size: 15.5px; line-height: 1.55; }
+.pico .pie { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 12px; color: var(--muted); }
+.certeza { font-family: var(--f-mono); font-size: 11px; padding: 2px 7px; border-radius: 4px; border: 1px solid currentColor; }
+.certeza.alta { color: var(--ok); }
+.certeza.moderada { color: var(--accent); }
+.certeza.baja, .certeza.muy { color: var(--draft); }
+.pie a { font-family: var(--f-mono); }
+
+/* Casos */
+.caso { border-left: 2px solid var(--accent); padding: 2px 0 2px 16px; display: grid; gap: 8px; }
+.caso h3 { margin: 0; font-size: 16px; font-weight: 600; }
+.caso .rico { font-family: var(--f-read); font-size: 15.5px; line-height: 1.55; }
+
+/* Vacíos */
+.vacio { border: 1px dashed var(--line); border-radius: 12px; padding: 18px; display: grid; gap: 10px; color: var(--muted); font-size: 14px; }
+.vacio p { margin: 0; }
+.conexiones { display: grid; gap: 10px; padding-top: 18px; border-top: 1px solid var(--line); }
+.conexiones h4 { margin: 0; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+
+/* Edición */
+.ed-bloque { border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: grid; gap: 10px; background: var(--surface); min-width: 0; }
+.ed-bloque .ed-fila { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.campo { display: grid; gap: 4px; min-width: 0; }
+.campo > span { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.campo input, .campo textarea, .campo select {
+  width: 100%; font: inherit; font-size: 14px; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px;
+}
+.campo textarea { min-height: 70px; resize: vertical; line-height: 1.45; }
+.campo input.titulo-ed { font-size: 22px; font-weight: 600; padding: 6px 10px; }
+.campos-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+.editable {
+  min-height: 90px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg);
+  font-family: var(--f-read); font-size: 15px; line-height: 1.55; overflow-wrap: anywhere;
+}
+.editable:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.herr { display: flex; gap: 6px; flex-wrap: wrap; }
+.herr button { background: var(--surface); border: 1px solid var(--line); color: var(--ink); border-radius: 6px; padding: 2px 9px; font-size: 13px; cursor: pointer; }
+.herr button:hover { border-color: var(--accent); }
+.checks { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; }
+.checks label { display: flex; gap: 6px; align-items: center; }
+.agregar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.agregar select { font: inherit; font-size: 13px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 5px 8px; max-width: 100%; }
+.aviso { font-size: 13px; color: var(--muted); background: var(--bg); border-radius: 8px; padding: 10px 12px; margin: 0; }
+
+@media (max-width: 600px) {
+  .p-cab { padding: 18px 18px 0; }
+  .p-cuerpo { padding: 18px 18px 24px; }
+  .p-pie { padding: 12px 18px; }
+  .p-cab h2 { font-size: 24px; }
+  aside.panel { border-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="ruta" id="ruta"></div>
+    <h1 id="titulo-mapa"></h1>
+    <p class="bajada" id="bajada"></p>
+    <button type="button" class="volver" id="volver" hidden>← Volver al mapa general</button>
+    <div class="submapas" id="submapas" hidden></div>
+    <div class="barra">
+      <label class="buscar" for="q">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Buscar: VSR, IPA, magnesio…" autocomplete="off" aria-label="Buscar en el mapa">
+      </label>
+      <div class="leyenda">
+        <span id="ley-tema"><i class="tema-i"></i>Tema</span>
+        <span><i class="con-i"></i>Concepto</span>
+        <span class="chip-estado neutro" id="estado-datos">Conectando…</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="recorridos" id="recorridos" hidden></section>
+
+  <section class="mapa" aria-label="Mapa conceptual">
+    <svg id="svg" viewBox="0 0 1200 650" role="group" aria-label="Mapa conceptual"></svg>
+    <p class="pista" id="pista"></p>
+  </section>
+
+  <section class="pasos-rec" id="pasos-rec" hidden></section>
+
+  <section class="indice" id="indice"></section>
+</div>
+
+<div class="velo" id="velo"></div>
+<aside class="panel" id="panel" aria-hidden="true" aria-labelledby="p-titulo">
+  <div class="p-cab" id="p-cab"></div>
+  <div class="p-cuerpo" id="p-cuerpo" role="tabpanel"></div>
+  <div class="p-pie" id="p-pie" hidden></div>
+</aside>
+
+<script>window.VERSION_PUBLICA = {"fecha": "2026-11-20", "nodos": {}, "refs": {}};</script>
+<script src="contenido.js"></script>
+<script>
+(function () {
+  "use strict";
+  const BASE_N = window.NODOS || [];
+  const BASE_R = window.REFS || {};
+  const MAPAS = window.MAPAS || { raiz: { titulo: "Mapa", ruta: [], bajada: "", disposicion: "edad" } };
+  const NS = "http://www.w3.org/2000/svg";
+  const $ = id => document.getElementById(id);
+  const svg = $("svg");
+  const colorTema = { bronquiolitis: "var(--edad-1)", sibilancias: "var(--edad-2)", asma: "var(--edad-3)" };
+  const PESTANAS = [["teoria", "Teoría"], ["evidencia", "Evidencia"], ["pico", "PICO"], ["casos", "Casos"], ["ateneos", "Ateneos"]];
+  const CERTEZAS = ["Alta", "Moderada", "Baja a moderada", "Baja", "Muy baja"];
+
+  /* ───── Datos: contenido base + cambios guardados en la base compartida ───── */
+  // En la versión pública, los cambios del equipo vienen incorporados por el script de publicación.
+  const PUBLICA = window.VERSION_PUBLICA || null;
+  let dbN = (PUBLICA && PUBLICA.nodos) || {}, dbR = (PUBLICA && PUBLICA.refs) || {};
+  let db = null, user = null, uid = null, puedeEscribir = null, conectado = false;
+  let N = [], porId = {}, R = {}, vecinos = {};
+
+  function recomponer() {
+    const ids = new Set(BASE_N.map(n => n.id));
+    N = BASE_N.map(n => dbN[n.id] ? Object.assign({}, dbN[n.id], { id: n.id }) : n)
+      .concat(Object.keys(dbN).filter(id => !ids.has(id)).map(id => Object.assign({}, dbN[id], { id })));
+    N.forEach(n => { n.mapa = n.mapa || "raiz"; });
+    porId = Object.fromEntries(N.map(n => [n.id, n]));
+    R = Object.assign({}, BASE_R, dbR);
+    vecinos = {};
+    N.forEach(n => { vecinos[n.id] = vecinos[n.id] || new Set(); });
+    N.forEach(n => (n.conexiones || []).forEach(m => {
+      if (!porId[m]) return;
+      vecinos[n.id].add(m); vecinos[m].add(n.id);
+    }));
+  }
+
+  /* ───── Utilidades ───── */
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const normal = s => String(s || "").normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+  const clon = o => JSON.parse(JSON.stringify(o));
+  const hoy = () => new Date().toISOString().slice(0, 10);
+  const fechaLinda = iso => { if (!iso) return ""; const d = new Date(iso.length === 10 ? iso + "T12:00:00" : iso); return isNaN(d) ? iso : d.toLocaleDateString("es-AR", { day: "numeric", month: "short", year: "numeric" }); };
+  const urlSegura = u => /^https?:\/\//i.test(String(u || "").trim()) ? String(u).trim() : "";
+  const el = (tag, attrs, parent) => {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  };
+
+  // Limpia el HTML que escriben los editores: solo formato de texto, listas, tablas y enlaces.
+  const TAGS = { P: [], B: [], STRONG: [], I: [], EM: [], U: [], UL: [], OL: ["class"], LI: [], BR: [], A: ["href"], TABLE: [], THEAD: [], TBODY: [], TR: [], TH: [], TD: [], DIV: ["class"], SPAN: ["class"], SUB: [], SUP: [] };
+  const CLASES = new Set(["tabla", "nota", "pasos"]);
+  const DESCARTAR = new Set(["SCRIPT", "STYLE", "IFRAME", "OBJECT", "EMBED", "LINK", "META", "SVG", "MATH", "TEMPLATE", "FORM", "INPUT", "BUTTON", "TEXTAREA", "SELECT"]);
+  function limpiar(html) {
+    const doc = new DOMParser().parseFromString("<body>" + String(html || "") + "</body>", "text/html");
+    const out = document.createElement("div");
+    (function copiar(origen, destino) {
+      origen.childNodes.forEach(nodo => {
+        if (nodo.nodeType === 3) { destino.appendChild(document.createTextNode(nodo.textContent)); return; }
+        if (nodo.nodeType !== 1) return;
+        const t = nodo.tagName.toUpperCase();
+        if (DESCARTAR.has(t)) return;
+        if (!TAGS[t]) { copiar(nodo, destino); return; }
+        const nuevo = document.createElement(t.toLowerCase());
+        TAGS[t].forEach(a => {
+          const v = nodo.getAttribute(a); if (v == null) return;
+          if (a === "class") { const c = v.split(/\s+/).filter(x => CLASES.has(x)); if (c.length) nuevo.setAttribute("class", c.join(" ")); }
+          if (a === "href") {
+            if (/^#[\w-]+$/.test(v)) nuevo.setAttribute("href", v);
+            else if (urlSegura(v)) { nuevo.setAttribute("href", urlSegura(v)); nuevo.setAttribute("target", "_blank"); nuevo.setAttribute("rel", "noopener"); }
+          }
+        });
+        copiar(nodo, nuevo);
+        destino.appendChild(nuevo);
+      });
+    })(doc.body, out);
+    return out.innerHTML;
+  }
+
+  /* ───── Estado de la vista ───── */
+  let mapaActual = "raiz", actual = null, pestana = "teoria", edicion = null, recorrido = null;
+  const recorridoActivo = () => recorrido && ((MAPAS[mapaActual] || {}).recorridos || []).find(r => r.id === recorrido);
+
+  /* ───── Encabezado ───── */
+  function pintarEncabezado() {
+    const m = MAPAS[mapaActual] || MAPAS.raiz;
+    const ruta = m.ruta || [];
+    $("ruta").innerHTML = ruta.map((r, i) => {
+      const ultimo = i === ruta.length - 1;
+      const linkRaiz = m.padre && i === ruta.length - 2;
+      const t = ultimo ? `<b>${esc(r)}</b>` : linkRaiz ? `<button type="button" data-mapa="${esc(m.padre)}">${esc(r)}</button>` : `<span>${esc(r)}</span>`;
+      return (i ? '<span class="sep">›</span>' : "") + t;
+    }).join("");
+    $("titulo-mapa").textContent = m.titulo;
+    $("bajada").textContent = m.bajada || "";
+    $("volver").hidden = !m.padre;
+    if (m.padre) $("volver").textContent = "← Volver a " + (m.padre === "raiz" ? "el mapa general" : (MAPAS[m.padre] || {}).titulo || "el mapa anterior");
+    $("ley-tema").hidden = m.disposicion === "columnas";
+    $("pista").textContent = m.disposicion === "columnas"
+      ? "Cada columna responde una pregunta de la familia. Las líneas unen conceptos que conviene leer juntos."
+      : m.disposicion === "zonas"
+        ? "Cada zona es una parte de la guía. Las líneas muestran cómo una decisión lleva a otra. En el celular, deslizá el mapa hacia los costados."
+        : "Pasá el cursor por un nodo para ver sus conexiones. En el celular, deslizá el mapa hacia los costados.";
+    const hijos = Object.entries(MAPAS).filter(([, x]) => x.padre === mapaActual);
+    $("submapas").hidden = !hijos.length;
+    $("submapas").innerHTML = hijos.length ? `<span>${m.padre ? "Más en este tema:" : "Submapas:"}</span>` + hijos.map(([id, x]) => `<button type="button" class="btn" data-mapa="${esc(id)}">${esc(x.titulo)} →</button>`).join("") : "";
+    const recs = m.recorridos || [];
+    $("recorridos").hidden = !recs.length;
+    $("recorridos").innerHTML = recs.length ? `<div class="fila"><span class="etq">Recorridos</span>${recs.map(r => `<button type="button" class="chip" data-rec="${esc(r.id)}" aria-pressed="${r.id === recorrido}">${esc(r.titulo)}</button>`).join("")}${recorrido ? '<button type="button" class="btn-texto" data-rec="">Quitar recorrido</button>' : ""}</div>` : "";
+    pintarPasos();
+    svg.setAttribute("aria-label", "Mapa: " + m.titulo);
+  }
+  function pintarEstadoDatos() {
+    const e = $("estado-datos");
+    if (!db && PUBLICA) { e.className = "chip-estado neutro"; e.textContent = "Versión de consulta · actualizada el " + fechaLinda(PUBLICA.fecha); return; }
+    if (!db) { e.className = "chip-estado neutro"; e.textContent = conectado === "sin" ? "Solo lectura · versión base" : "Conectando…"; return; }
+    if (puedeEscribir === false) { e.className = "chip-estado neutro"; e.textContent = "Solo lectura"; return; }
+    e.className = "chip-estado ok"; e.textContent = "Editable · los cambios se comparten";
+  }
+
+  /* ───── Mapa ───── */
+  let nodoEls = {}, aristaEls = [];
+  const edadX = [[0, 60], [1, 250], [2, 390], [3, 490], [5, 700], [6, 800], [12, 1050], [18, 1150]];
+  const xEdad = a => {
+    for (let i = 1; i < edadX.length; i++) {
+      const [a0, x0] = edadX[i - 1], [a1, x1] = edadX[i];
+      if (a <= a1) return x0 + (a - a0) / (a1 - a0) * (x1 - x0);
+    }
+    return 1150;
+  };
+
+  function pintarMapa() {
+    const m = MAPAS[mapaActual] || MAPAS.raiz;
+    svg.innerHTML = "";
+    svg.classList.toggle("columnas", m.disposicion !== "edad");
+    svg.classList.toggle("recorrido", !!recorridoActivo());
+    const visibles = N.filter(n => n.mapa === mapaActual);
+    const enMapa = new Set(visibles.map(n => n.id));
+
+    if (m.disposicion === "zonas") {
+      const g = el("g", { class: "eje" }, svg);
+      (m.zonas || []).forEach(z => {
+        el("rect", { class: "zona", x: z.x, y: z.y, width: z.w, height: z.h, rx: 14 }, g);
+        el("text", { class: "zona-t", x: z.x + 16, y: z.y + 26 }, g).textContent = z.titulo;
+        (z.sub || []).forEach(s => { el("text", { class: "zona-s", x: s.x, y: s.y, "text-anchor": "middle" }, g).textContent = s.t; });
+      });
+    } else if (m.disposicion === "columnas") {
+      const g = el("g", { class: "eje" }, svg);
+      (m.columnas || []).forEach((c, i) => {
+        el("text", { class: "col-t", x: c.x, y: 40, "text-anchor": "middle" }, g).textContent = c.titulo;
+        el("text", { class: "col-p", x: c.x, y: 60, "text-anchor": "middle" }, g).textContent = c.pregunta;
+        if (i) el("line", { class: "col-div", x1: c.x - 150, x2: c.x - 150, y1: 80, y2: 610 }, g);
+      });
+    } else {
+      const eje = el("g", { class: "eje" }, svg);
+      const yEje = 612;
+      el("line", { x1: 60, x2: 1150, y1: yEje, y2: yEje }, eje);
+      [[0, "0"], [0.5, "6 m"], [1, "1 a"], [2, "2 a"], [3, "3 a"], [5, "5 a"], [6, "6 a"], [12, "12 a"], [18, "18 a"]].forEach(([a, t]) => {
+        const x = xEdad(a);
+        el("line", { x1: x, x2: x, y1: yEje - 4, y2: yEje + 4 }, eje);
+        el("text", { x, y: yEje + 20, "text-anchor": "middle" }, eje).textContent = t;
+      });
+      el("text", { x: 1150, y: yEje - 10, "text-anchor": "end", class: "titulo-eje" }, eje).textContent = "Edad →";
+      [["bronquiolitis", 0, 2, 568], ["sibilancias", 0.5, 5.9, 581], ["asma", 6, 18, 594]].forEach(([id, a, b, y]) => {
+        if (enMapa.has(id)) el("line", { class: "carril", x1: xEdad(a), x2: xEdad(b), y1: y, y2: y, stroke: colorTema[id] }, eje);
+      });
+    }
+
+    const gA = el("g", {}, svg);
+    const vistas = new Set();
+    aristaEls = [];
+    visibles.forEach(n => (n.conexiones || []).forEach(mid => {
+      const B = porId[mid];
+      if (!B || !enMapa.has(mid)) return;
+      const k = [n.id, mid].sort().join("|");
+      if (vistas.has(k)) return; vistas.add(k);
+      const A = n;
+      const mx = (A.x + B.x) / 2, my = (A.y + B.y) / 2;
+      const dx = B.x - A.x, dy = B.y - A.y, len = Math.hypot(dx, dy) || 1;
+      const curva = Math.min(40, len * 0.12);
+      const p = el("path", { class: "arista", d: `M${A.x},${A.y} Q${mx - dy / len * curva},${my + dx / len * curva} ${B.x},${B.y}` }, gA);
+      p.dataset.a = A.id; p.dataset.b = mid;
+      aristaEls.push(p);
+    }));
+
+    const gN = el("g", {}, svg);
+    nodoEls = {};
+    visibles.forEach(n => {
+      const g = el("g", { class: "nodo " + (n.tipo || "concepto"), tabindex: 0, role: "button", "aria-label": n.titulo, transform: `translate(${n.x || 600},${n.y || 300})` }, gN);
+      g.dataset.id = n.id;
+      if (n.tipo === "tema") {
+        const c = colorTema[n.id] || "var(--accent)";
+        if (n.submapa) el("circle", { class: "anillo", r: 44, stroke: c }, g);
+        el("circle", { class: "halo", r: 34, stroke: c }, g);
+        el("circle", { r: 9, fill: c }, g);
+        el("text", { class: "t", y: 66, "text-anchor": "middle" }, g).textContent = n.titulo;
+        el("text", { class: "sub", y: 84, "text-anchor": "middle" }, g).textContent = (n.edad || "").toUpperCase();
+        if (n.submapa) el("text", { class: "sub acc", y: 101, "text-anchor": "middle" }, g).textContent = "+ SUBMAPA";
+      } else {
+        el("circle", { class: "aro", r: 16 }, g);
+        el("circle", { class: "punto", r: mapaActual === "raiz" ? 5.5 : 6.5 }, g);
+        el("text", { class: "t", y: 24, "text-anchor": "middle" }, g).textContent = n.corto || n.titulo;
+      }
+      nodoEls[n.id] = g;
+      g.addEventListener("mouseenter", () => enfocar(n.id));
+      g.addEventListener("mouseleave", () => enfocar(actual));
+      g.addEventListener("focus", () => enfocar(n.id));
+      g.addEventListener("blur", () => enfocar(actual));
+      g.addEventListener("click", () => abrir(n.id));
+      g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); abrir(n.id); } });
+    });
+
+    // Recorrido: línea punteada entre los pasos y números sobre cada nodo
+    const rec = recorridoActivo();
+    if (rec) {
+      const pts = rec.pasos.map(p => porId[p.nodo]).filter(n => n && enMapa.has(n.id));
+      if (pts.length > 1) {
+        let d = `M${pts[0].x},${pts[0].y}`;
+        for (let i = 1; i < pts.length; i++) {
+          const A = pts[i - 1], B = pts[i];
+          const dx = B.x - A.x, dy = B.y - A.y, len = Math.hypot(dx, dy) || 1, c = Math.min(50, len * 0.18);
+          d += ` Q${(A.x + B.x) / 2 - dy / len * c},${(A.y + B.y) / 2 + dx / len * c} ${B.x},${B.y}`;
+        }
+        gA.appendChild(el("path", { class: "ruta-rec", d }));
+      }
+      const usados = {};
+      const gR = el("g", { "aria-hidden": "true" }, svg);
+      rec.pasos.forEach((p, i) => {
+        const n = porId[p.nodo]; if (!n || !enMapa.has(n.id)) return;
+        const k = usados[n.id] = (usados[n.id] || 0) + 1;
+        const r = n.tipo === "tema" ? 40 : 15;
+        const gx = el("g", { class: "num-rec", transform: `translate(${n.x + r * 0.75 + (k - 1) * 20},${n.y - r * 0.75})` }, gR);
+        el("circle", { r: 10 }, gx);
+        el("text", { "text-anchor": "middle", y: 4 }, gx).textContent = i + 1;
+      });
+    }
+    if (busqueda) aplicarBusqueda(); else enfocar(actual);
+  }
+
+  function pintarPasos() {
+    const rec = recorridoActivo();
+    const caja = $("pasos-rec");
+    caja.hidden = !rec;
+    if (!rec) { caja.innerHTML = ""; return; }
+    caja.innerHTML = `<h2>${esc(rec.titulo)}</h2>${rec.descripcion ? `<p>${esc(rec.descripcion)}</p>` : ""}<ol>${rec.pasos.filter(p => porId[p.nodo]).map(p => `<li><button type="button" data-ir="${esc(p.nodo)}"><b>${esc(porId[p.nodo].titulo)}</b><span>${esc(p.nota)}</span></button></li>`).join("")}</ol>`;
+  }
+  function elegirRecorrido(id) {
+    recorrido = id || null;
+    pintarEncabezado(); pintarMapa();
+  }
+
+  function enfocar(id, conjunto) {
+    const rec = recorridoActivo();
+    if (!id && !conjunto && rec) conjunto = new Set(rec.pasos.map(p => p.nodo));
+    if (!id && !conjunto) {
+      svg.classList.remove("enfoque");
+      Object.values(nodoEls).forEach(g => g.classList.remove("vecino", "activo"));
+      aristaEls.forEach(p => p.classList.remove("vecina"));
+      return;
+    }
+    if (id && !nodoEls[id]) { enfocar(null); return; }
+    const set = conjunto || new Set([id, ...(vecinos[id] || [])]);
+    svg.classList.add("enfoque");
+    Object.entries(nodoEls).forEach(([k, g]) => { g.classList.toggle("vecino", set.has(k)); g.classList.toggle("activo", k === id); });
+    aristaEls.forEach(p => p.classList.toggle("vecina", !!id && (p.dataset.a === id || p.dataset.b === id)));
+  }
+
+  /* ───── Búsqueda (en el mapa visible) ───── */
+  let busqueda = "", coincidencias = [];
+  const textoNodo = n => normal([n.titulo, n.corto, n.resumen, ...(n.teoria || []).map(t => t.h + " " + String(t.html).replace(/<[^>]+>/g, " "))].join(" "));
+  function aplicarBusqueda() {
+    const t = normal(busqueda.trim());
+    if (!t) { coincidencias = []; enfocar(actual); return; }
+    coincidencias = N.filter(n => n.mapa === mapaActual && textoNodo(n).includes(t)).map(n => n.id);
+    enfocar(null, new Set(coincidencias.length ? coincidencias : ["__ninguno"]));
+  }
+  $("q").addEventListener("input", e => { busqueda = e.target.value; aplicarBusqueda(); });
+  $("q").addEventListener("keydown", e => { if (e.key === "Enter" && coincidencias[0]) abrir(coincidencias[0]); });
+
+  /* ───── Índice bajo el mapa ───── */
+  const cuenta = n => `<span class="cuentas"><span><b>${(n.teoria || []).length}</b> secciones</span><span><b>${(n.evidencia || []).length}</b> artículos</span><span><b>${(n.pico || []).length}</b> PICO</span><span><b>${(n.casos || []).length}</b> casos</span><span><b>${(n.ateneos || []).length}</b> ateneos</span></span>`;
+  function pintarIndice() {
+    const m = MAPAS[mapaActual] || MAPAS.raiz;
+    const visibles = N.filter(n => n.mapa === mapaActual);
+    let html = "";
+    if (m.disposicion === "zonas") {
+      const zs = m.zonas || [];
+      const zonaDe = n => zs.findIndex(z => n.x >= z.x && n.x <= z.x + z.w && n.y >= z.y && n.y <= z.y + z.h);
+      html += `<h2>Conceptos de la guía</h2><div class="columnas-idx">${zs.map((z, i) => `<section><h3>${esc(z.titulo)}</h3><div class="chips">${visibles.filter(n => zonaDe(n) === i).sort((a, b) => a.y - b.y || a.x - b.x).map(n => `<button type="button" class="chip" data-ir="${esc(n.id)}">${esc(n.titulo)}</button>`).join("")}</div></section>`).join("")}</div>`;
+    } else if (m.disposicion === "columnas") {
+      const cols = m.columnas || [];
+      const colDe = n => cols.reduce((best, c, i) => Math.abs(c.x - n.x) < Math.abs(cols[best].x - n.x) ? i : best, 0);
+      html += `<h2>Conceptos del submapa</h2><div class="columnas-idx">${cols.map((c, i) => `<section><h3>${esc(c.titulo)}</h3><p>${esc(c.pregunta)}</p><div class="chips">${visibles.filter(n => colDe(n) === i).sort((a, b) => a.y - b.y).map(n => `<button type="button" class="chip" data-ir="${esc(n.id)}">${esc(n.titulo)}</button>`).join("")}</div></section>`).join("")}</div>`;
+    } else {
+      html += `<h2>Temas</h2><div class="temas">${visibles.filter(n => n.tipo === "tema").map(n => `
+        <button type="button" class="tarjeta" data-ir="${esc(n.id)}">
+          <span class="edad" style="color:${colorTema[n.id] || "var(--accent)"}">${esc((n.edad || "").toUpperCase())}</span>
+          <h3>${esc(n.titulo)}</h3><p>${esc(n.resumen)}</p>${cuenta(n)}
+        </button>`).join("")}</div>
+        <h2>Conceptos</h2><div class="chips">${visibles.filter(n => n.tipo !== "tema").map(n => `<button type="button" class="chip" data-ir="${esc(n.id)}">${esc(n.titulo)}</button>`).join("")}</div>`;
+    }
+    const nPico = N.reduce((s, n) => s + (n.pico || []).length, 0);
+    const nCasos = N.reduce((s, n) => s + (n.casos || []).length, 0);
+    const nAt = N.reduce((s, n) => s + (n.ateneos || []).length, 0);
+    const nRev = N.filter(n => n.revision && n.revision.estado === "revisado").length;
+    html += `<p class="nota-pie">Todo el mapa: ${N.length} nodos · ${Object.keys(R).length} referencias · ${nPico} preguntas PICO · ${nCasos} casos · ${nAt} ateneos · ${nRev} nodos revisados. El contenido marcado como borrador fue redactado con asistencia de IA y necesita revisión médica antes de usarse en la práctica. Verificar dosis con el vademécum institucional.</p>`;
+    $("indice").innerHTML = html;
+  }
+
+  /* ───── Panel: lectura ───── */
+  const panel = $("panel"), velo = $("velo");
+  const autorAnio = k => { const r = R[k]; if (!r) return k; const m = String(r.cita || "").match(/^([^,]+?)\s+[A-Z]{1,3}[,.]/); const a = String(r.cita || "").match(/(\d{4})[;.]/); return (m ? m[1] : (r.cita || k).split(/[.,]/)[0]) + (a ? " " + a[1] : ""); };
+  const linkRef = r => {
+    const out = [];
+    if (r.pmid && /^\d+$/.test(String(r.pmid))) out.push(`<a href="https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/" target="_blank" rel="noopener">PubMed ${esc(r.pmid)}</a>`);
+    if (r.doi && /^10\.\S+$/.test(String(r.doi))) out.push(`<a href="https://doi.org/${encodeURI(r.doi)}" target="_blank" rel="noopener">DOI</a>`);
+    if (urlSegura(r.url)) out.push(`<a href="${esc(urlSegura(r.url))}" target="_blank" rel="noopener">Abrir</a>`);
+    return out.join("");
+  };
+  const hrefRef = k => { const r = R[k]; if (!r) return ""; if (r.pmid && /^\d+$/.test(String(r.pmid))) return `https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/`; if (r.doi) return "https://doi.org/" + encodeURI(r.doi); return urlSegura(r.url); };
+  const vacio = (t, d) => `<div class="vacio"><p>${t}</p>${d ? `<p>${d}</p>` : ""}</div>`;
+  const invitacion = () => db && puedeEscribir !== false ? " Tocá <b>Editar</b> para agregar." : "";
+
+  const lectura = {
+    teoria: n => (n.teoria || []).length
+      ? `<div class="lectura">${n.teoria.map(s => `<section><h3>${esc(s.h)}</h3><div class="rico">${limpiar(s.html)}</div></section>`).join("")}</div>`
+      : vacio("Todavía no hay teoría para este concepto." + invitacion()),
+    evidencia: n => (n.evidencia || []).filter(k => R[k]).length
+      ? `<div class="refs">${n.evidencia.filter(k => R[k]).map(k => { const r = R[k]; return `<article class="ref"><span class="tipo">${esc(r.tipo)}</span><p class="hallazgo">${esc(r.hallazgo)}</p><p class="cita">${esc(r.cita)}</p><div class="links">${linkRef(r)}</div></article>`; }).join("")}</div>`
+      : vacio("Todavía no hay artículos asociados." + invitacion()),
+    pico: n => (n.pico || []).length
+      ? n.pico.map(p => `<article class="pico"><dl>
+          <dt>P</dt><dd>${esc(p.p)}</dd><dt>I</dt><dd>${esc(p.i)}</dd><dt>C</dt><dd>${esc(p.c)}</dd><dt>O</dt><dd>${esc(p.o)}</dd></dl>
+          <div class="resp"><p>${esc(p.respuesta)}</p><div class="pie">${p.certeza ? `<span class="certeza ${normal(p.certeza).split(" ")[0]}">Certeza ${esc(String(p.certeza).toLowerCase())}</span>` : ""}
+          ${(p.refs || []).filter(k => R[k]).map(k => `<a href="${esc(hrefRef(k))}" target="_blank" rel="noopener">${esc(autorAnio(k))}</a>`).join("")}</div></div></article>`).join("")
+      : vacio("Todavía no hay preguntas PICO." + invitacion(), "Cada pregunta lleva Paciente, Intervención, Comparación, Resultado, una respuesta breve, la certeza y sus referencias."),
+    casos: n => (n.casos || []).length
+      ? n.casos.map(c => `<article class="caso"><h3>${esc(c.titulo)}</h3><div class="rico">${limpiar(c.html)}</div>${(c.nodos || []).filter(id => porId[id]).length ? `<div class="chips">${c.nodos.filter(id => porId[id]).map(id => `<button type="button" class="chip" data-ir="${esc(id)}">${esc(porId[id].titulo)}</button>`).join("")}</div>` : ""}</article>`).join("")
+      : vacio("Todavía no hay casos para este concepto." + invitacion(), "Casos ilustrativos, sin datos que permitan identificar a un paciente."),
+    ateneos: n => (n.ateneos || []).length
+      ? `<div class="refs">${n.ateneos.map(a => `<article class="ref"><span class="tipo">${esc([a.fecha, a.presenta].filter(Boolean).join(" · "))}</span><p class="hallazgo">${esc(a.titulo)}</p>${urlSegura(a.url) ? `<div class="links"><a href="${esc(urlSegura(a.url))}" target="_blank" rel="noopener">Abrir material</a></div>` : ""}</article>`).join("")}</div><p class="aviso">Quien abra el enlace necesita permiso en el sitio donde está guardado el material.</p>`
+      : vacio("Todavía no hay ateneos ni clases cargados." + invitacion(), "Por cada uno: título, fecha, quién lo presentó y el enlace (Drive, YouTube privado, campus).")
+  };
+
+  function abrir(id, sinHash) {
+    const n = porId[id]; if (!n) return;
+    if (edicion && edicion.id !== id) { pedirDescartar(() => { edicion = null; abrir(id, sinHash); }); return; }
+    if (n.mapa !== mapaActual) { mapaActual = n.mapa; busqueda = ""; $("q").value = ""; pintarTodo(); }
+    actual = id;
+    if (!sinHash) history.replaceState(null, "", "#" + id);
+    pintarPanel();
+    panel.classList.add("abierto"); velo.classList.add("abierto"); panel.setAttribute("aria-hidden", "false");
+    enfocar(id);
+  }
+
+  function pintarPanel() {
+    const n = edicion ? edicion.n : porId[actual];
+    if (!n) return;
+    const enEdicion = !!edicion;
+    const rev = n.revision || {};
+    const puede = db && puedeEscribir !== false;
+    $("p-cab").innerHTML = `
+      <div class="p-fila">
+        <span class="p-tipo">${n.tipo === "tema" ? "Tema" + (n.edad ? " · " + esc(n.edad) : "") : "Concepto"}${n.mapa !== "raiz" && MAPAS[n.mapa] ? " · " + esc(MAPAS[n.mapa].titulo) : ""}</span>
+        <span class="p-acciones">${!enEdicion && puede ? '<button type="button" class="btn" id="b-editar">Editar</button>' : ""}<button type="button" class="btn" id="b-cerrar">${enEdicion ? "Salir" : "Cerrar"}</button></span>
+      </div>
+      ${enEdicion
+        ? `<label class="campo"><span>Título</span><input class="titulo-ed" id="ed-titulo" value="${esc(n.titulo)}"></label>
+           <label class="campo"><span>Resumen en una línea</span><textarea id="ed-resumen" rows="2">${esc(n.resumen)}</textarea></label>`
+        : `<h2 id="p-titulo">${esc(n.titulo)}</h2><p class="p-resumen">${esc(n.resumen)}</p>`}
+      <div class="p-meta" id="p-meta">
+        ${rev.estado === "revisado" ? `<span class="chip-estado ok">Revisado<span data-persona="${esc(rev.revisor || "")}" data-pre=" por "></span>${rev.fecha ? " · " + esc(fechaLinda(rev.fecha)) : ""}</span>` : `<span class="chip-estado">Borrador · sin revisar</span>`}
+        ${n.fuente ? `<span>Fuente: ${esc(n.fuente)}</span>` : ""}
+        ${n.editado && n.editado.fecha ? `<span>Última edición<span data-persona="${esc(n.editado.por || "")}" data-pre=": "></span> · ${esc(fechaLinda(n.editado.fecha))}</span>` : ""}
+        ${!enEdicion && puede && uid ? (rev.estado === "revisado" ? '<button type="button" class="btn-texto" id="b-desrevisar">Volver a borrador</button>' : '<button type="button" class="btn-texto" id="b-revisar">Marcar como revisado</button>') : ""}
+      </div>
+      ${n.submapa && MAPAS[n.submapa] && !enEdicion ? `<button type="button" class="btn submapa-btn" data-mapa="${esc(n.submapa)}">Explorar el submapa: ${N.filter(x => x.mapa === n.submapa).length} conceptos →</button>` : ""}
+      <div class="pestanas" role="tablist">${PESTANAS.map(([k, t]) => `<button type="button" role="tab" aria-selected="${k === pestana}" data-tab="${k}">${t}<span class="n">${(n[k] || []).length}</span></button>`).join("")}</div>`;
+    nombrarPersonas($("p-meta"));
+    if (enEdicion) {
+      $("ed-titulo").addEventListener("input", e => { edicion.n.titulo = e.target.value; marcarCambio(); });
+      $("ed-resumen").addEventListener("input", e => { edicion.n.resumen = e.target.value; marcarCambio(); });
+    }
+    pintarCuerpo();
+    pintarPie();
+  }
+
+  function pintarCuerpo() {
+    const n = edicion ? edicion.n : porId[actual];
+    if (!n) return;
+    $("p-cab").querySelectorAll("[data-tab]").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === pestana));
+    if (edicion) { $("p-cuerpo").innerHTML = ""; editores[pestana]($("p-cuerpo"), n); return; }
+    const con = [...(vecinos[n.id] || [])].map(id => porId[id]).filter(Boolean)
+      .sort((a, b) => (a.mapa === b.mapa ? 0 : a.mapa === n.mapa ? -1 : 1));
+    $("p-cuerpo").innerHTML = lectura[pestana](n) +
+      (con.length ? `<div class="conexiones"><h4>Conectado con</h4><div class="chips">${con.map(c => `<button type="button" class="chip" data-ir="${esc(c.id)}">${esc(c.titulo)}${c.mapa !== n.mapa ? " ↗" : ""}</button>`).join("")}</div></div>` : "");
+    $("p-cuerpo").scrollTop = 0;
+  }
+
+  async function nombrarPersonas(raiz) {
+    if (!user) return;
+    const spans = [...raiz.querySelectorAll("[data-persona]")].filter(s => s.dataset.persona);
+    if (!spans.length) return;
+    const ps = await user.profiles([...new Set(spans.map(s => s.dataset.persona))]);
+    spans.forEach(s => { const p = ps[s.dataset.persona]; s.textContent = s.dataset.pre + ((p && p.name) || "alguien del equipo"); });
+  }
+
+  function cerrar() {
+    if (edicion) { pedirDescartar(() => { edicion = null; cerrar(); }); return; }
+    actual = null;
+    panel.classList.remove("abierto"); velo.classList.remove("abierto"); panel.setAttribute("aria-hidden", "true");
+    history.replaceState(null, "", mapaActual === "raiz" ? location.pathname + location.search : "#mapa-" + mapaActual);
+    enfocar(null);
+  }
+
+  /* ───── Panel: edición ───── */
+  function empezarEdicion() {
+    const n = porId[actual]; if (!n) return;
+    const b = clon(n);
+    ["teoria", "evidencia", "pico", "casos", "ateneos", "conexiones"].forEach(k => { b[k] = b[k] || []; });
+    edicion = { id: n.id, n: b, refs: {}, cambios: false, msg: "", error: false, guardando: false, confirmar: null };
+    pintarPanel();
+  }
+  function marcarCambio() { if (!edicion.cambios) { edicion.cambios = true; pintarPie(); } }
+
+  function pintarPie() {
+    const pie = $("p-pie");
+    if (!edicion) { pie.hidden = true; return; }
+    pie.hidden = false;
+    if (edicion.confirmar) {
+      pie.innerHTML = `<span class="msg">Hay cambios sin guardar. ¿Descartarlos?</span><span class="p-acciones"><button type="button" class="btn" id="b-seguir">Seguir editando</button><button type="button" class="btn peligro" id="b-descartar">Descartar</button></span>`;
+      $("b-seguir").onclick = () => { edicion.confirmar = null; pintarPie(); };
+      $("b-descartar").onclick = () => { const f = edicion.confirmar; edicion = null; pintarPanel(); f && f(); };
+      return;
+    }
+    pie.innerHTML = `<span class="msg${edicion.error ? " error" : ""}">${esc(edicion.msg || (edicion.cambios ? "Cambios sin guardar" : "Editando. Los cambios se ven para todo el equipo al guardar."))}</span>
+      <span class="p-acciones"><button type="button" class="btn" id="b-cancelar">Cancelar</button><button type="button" class="btn prim" id="b-guardar" ${edicion.guardando ? "disabled" : ""}>${edicion.guardando ? "Guardando…" : "Guardar"}</button></span>`;
+    $("b-cancelar").onclick = () => { if (edicion.cambios) pedirDescartar(() => {}); else { edicion = null; pintarPanel(); } };
+    $("b-guardar").onclick = guardar;
+  }
+  function pedirDescartar(despues) {
+    if (!edicion || !edicion.cambios) { edicion = null; pintarPanel(); despues(); return; }
+    edicion.confirmar = despues; pintarPie();
+  }
+
+  // Campo de texto ligado a un objeto
+  function campo(padre, etiqueta, obj, clave, opts = {}) {
+    const l = document.createElement("label"); l.className = "campo";
+    const s = document.createElement("span"); s.textContent = etiqueta; l.appendChild(s);
+    let inp;
+    if (opts.opciones) {
+      inp = document.createElement("select");
+      const ops = opts.opciones.includes(obj[clave]) || !obj[clave] ? opts.opciones : [obj[clave], ...opts.opciones];
+      inp.innerHTML = `<option value="">—</option>` + ops.map(o => `<option${o === obj[clave] ? " selected" : ""}>${esc(o)}</option>`).join("");
+    } else if (opts.largo) { inp = document.createElement("textarea"); inp.rows = opts.filas || 3; }
+    else { inp = document.createElement("input"); if (opts.tipo) inp.type = opts.tipo; }
+    if (!opts.opciones) inp.value = obj[clave] || "";
+    if (opts.ph) inp.placeholder = opts.ph;
+    inp.addEventListener("input", () => { obj[clave] = inp.value; marcarCambio(); if (opts.alCambiar) opts.alCambiar(); });
+    inp.addEventListener("change", () => { obj[clave] = inp.value; marcarCambio(); });
+    l.appendChild(inp); padre.appendChild(l);
+    return inp;
+  }
+  // Texto con formato (negrita, listas) ligado a obj.html
+  function editorRico(padre, obj, clave) {
+    const herr = document.createElement("div"); herr.className = "herr";
+    herr.innerHTML = '<button type="button" data-c="bold"><b>N</b></button><button type="button" data-c="italic"><i>C</i></button><button type="button" data-c="insertUnorderedList">• Lista</button><button type="button" data-c="insertOrderedList">1. Lista</button><button type="button" data-c="removeFormat">Quitar formato</button>';
+    const ed = document.createElement("div"); ed.className = "editable"; ed.contentEditable = "true";
+    ed.innerHTML = limpiar(obj[clave]);
+    herr.querySelectorAll("button").forEach(b => b.addEventListener("mousedown", e => { e.preventDefault(); document.execCommand(b.dataset.c); obj[clave] = ed.innerHTML; marcarCambio(); }));
+    ed.addEventListener("input", () => { obj[clave] = ed.innerHTML; marcarCambio(); });
+    ed.addEventListener("paste", e => { e.preventDefault(); document.execCommand("insertText", false, (e.clipboardData || window.clipboardData).getData("text/plain")); });
+    padre.appendChild(herr); padre.appendChild(ed);
+  }
+  function bloque(padre, titulo, alBorrar, mover) {
+    const b = document.createElement("div"); b.className = "ed-bloque";
+    const f = document.createElement("div"); f.className = "ed-fila";
+    const t = document.createElement("span"); t.className = "p-tipo"; t.textContent = titulo; f.appendChild(t);
+    const acc = document.createElement("span"); acc.className = "p-acciones";
+    if (mover) {
+      [["↑", -1], ["↓", 1]].forEach(([s, d]) => { const x = document.createElement("button"); x.type = "button"; x.className = "btn-texto"; x.textContent = s; x.setAttribute("aria-label", d < 0 ? "Subir" : "Bajar"); x.onclick = () => mover(d); acc.appendChild(x); });
+    }
+    const del = document.createElement("button"); del.type = "button"; del.className = "btn-texto peligro"; del.textContent = "Quitar"; del.onclick = alBorrar; acc.appendChild(del);
+    f.appendChild(acc); b.appendChild(f); padre.appendChild(b);
+    return b;
+  }
+  function botonAgregar(padre, texto, fn) {
+    const d = document.createElement("div"); d.className = "agregar";
+    const b = document.createElement("button"); b.type = "button"; b.className = "btn"; b.textContent = texto; b.onclick = fn;
+    d.appendChild(b); padre.appendChild(d); return d;
+  }
+  const repintar = () => { const y = $("p-cuerpo").scrollTop; pintarCuerpo(); $("p-cab").querySelectorAll("[data-tab] .n").forEach((s, i) => { s.textContent = (edicion.n[PESTANAS[i][0]] || []).length; }); $("p-cuerpo").scrollTop = y; };
+  const mover = (arr, i, d) => { const j = i + d; if (j < 0 || j >= arr.length) return; [arr[i], arr[j]] = [arr[j], arr[i]]; marcarCambio(); repintar(); };
+  const quitar = (arr, i) => { arr.splice(i, 1); marcarCambio(); repintar(); };
+  const refEditable = k => { if (!edicion.refs[k]) edicion.refs[k] = clon(R[k] || { cita: "", tipo: "", hallazgo: "", pmid: "", doi: "", url: "" }); return edicion.refs[k]; };
+
+  const editores = {
+    teoria(c, n) {
+      n.teoria.forEach((s, i) => {
+        const b = bloque(c, "Sección " + (i + 1), () => quitar(n.teoria, i), d => mover(n.teoria, i, d));
+        campo(b, "Título de la sección", s, "h");
+        editorRico(b, s, "html");
+      });
+      botonAgregar(c, "+ Agregar sección", () => { n.teoria.push({ h: "", html: "" }); marcarCambio(); repintar(); });
+    },
+    evidencia(c, n) {
+      const p = document.createElement("p"); p.className = "aviso";
+      p.textContent = "Los artículos son comunes a todo el mapa: si corregís uno, el cambio se ve en todos los nodos que lo citan.";
+      c.appendChild(p);
+      n.evidencia.forEach((k, i) => {
+        const r = refEditable(k);
+        const b = bloque(c, R[k] ? autorAnio(k) : "Artículo nuevo", () => quitar(n.evidencia, i), d => mover(n.evidencia, i, d));
+        campo(b, "Hallazgo principal (una o dos frases)", r, "hallazgo", { largo: true });
+        campo(b, "Tipo de estudio", r, "tipo", { ph: "Ensayo clínico aleatorizado (n = …)" });
+        campo(b, "Cita", r, "cita", { largo: true, filas: 2 });
+        const dos = document.createElement("div"); dos.className = "campos-2"; b.appendChild(dos);
+        campo(dos, "PMID", r, "pmid", { ph: "12345678" });
+        campo(dos, "DOI", r, "doi", { ph: "10.xxxx/…" });
+        campo(b, "Otro enlace (opcional)", r, "url", { ph: "https://…" });
+      });
+      const ag = botonAgregar(c, "+ Artículo nuevo", () => { const k = "r" + Date.now().toString(36); refEditable(k); n.evidencia.push(k); marcarCambio(); repintar(); });
+      const libres = Object.keys(R).filter(k => !n.evidencia.includes(k)).sort((a, b) => autorAnio(a).localeCompare(autorAnio(b)));
+      if (libres.length) {
+        const sel = document.createElement("select"); sel.setAttribute("aria-label", "Agregar un artículo que ya está en el mapa");
+        sel.innerHTML = `<option value="">Agregar uno que ya está en el mapa…</option>` + libres.map(k => `<option value="${esc(k)}">${esc(autorAnio(k))} · ${esc(String(R[k].tipo || "").slice(0, 40))}</option>`).join("");
+        sel.onchange = () => { if (sel.value) { n.evidencia.push(sel.value); marcarCambio(); repintar(); } };
+        ag.appendChild(sel);
+      }
+    },
+    pico(c, n) {
+      n.pico.forEach((q, i) => {
+        const b = bloque(c, "Pregunta " + (i + 1), () => quitar(n.pico, i), d => mover(n.pico, i, d));
+        campo(b, "P · Paciente", q, "p", { largo: true, filas: 2 });
+        campo(b, "I · Intervención (o exposición)", q, "i", { largo: true, filas: 2 });
+        campo(b, "C · Comparación", q, "c", { largo: true, filas: 2 });
+        campo(b, "O · Resultado", q, "o", { largo: true, filas: 2 });
+        campo(b, "Respuesta breve", q, "respuesta", { largo: true, filas: 4 });
+        campo(b, "Certeza de la evidencia", q, "certeza", { opciones: CERTEZAS });
+        q.refs = q.refs || [];
+        const ks = n.evidencia.filter(k => R[k] || edicion.refs[k]);
+        const l = document.createElement("div"); l.className = "campo";
+        l.innerHTML = `<span>Referencias que la responden</span>`;
+        const ch = document.createElement("div"); ch.className = "checks";
+        if (!ks.length) ch.textContent = "Primero agregá artículos en la pestaña Evidencia.";
+        ks.forEach(k => {
+          const lab = document.createElement("label");
+          const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = q.refs.includes(k);
+          cb.onchange = () => { q.refs = cb.checked ? [...q.refs, k] : q.refs.filter(x => x !== k); marcarCambio(); };
+          lab.appendChild(cb); lab.appendChild(document.createTextNode(R[k] ? autorAnio(k) : "Artículo nuevo"));
+          ch.appendChild(lab);
+        });
+        l.appendChild(ch); b.appendChild(l);
+      });
+      botonAgregar(c, "+ Agregar pregunta PICO", () => { n.pico.push({ p: "", i: "", c: "", o: "", respuesta: "", certeza: "", refs: [] }); marcarCambio(); repintar(); });
+    },
+    casos(c, n) {
+      const p = document.createElement("p"); p.className = "aviso";
+      p.textContent = "Casos ilustrativos: sin nombres, iniciales, número de historia clínica ni fechas de nacimiento.";
+      c.appendChild(p);
+      n.casos.forEach((cs, i) => {
+        const b = bloque(c, "Caso " + (i + 1), () => quitar(n.casos, i), d => mover(n.casos, i, d));
+        campo(b, "Título", cs, "titulo", { ph: "18 meses, cuarto episodio" });
+        editorRico(b, cs, "html");
+      });
+      botonAgregar(c, "+ Agregar caso", () => { n.casos.push({ titulo: "", html: "", nodos: [] }); marcarCambio(); repintar(); });
+    },
+    ateneos(c, n) {
+      n.ateneos.forEach((a, i) => {
+        const b = bloque(c, "Ateneo " + (i + 1), () => quitar(n.ateneos, i), d => mover(n.ateneos, i, d));
+        campo(b, "Título", a, "titulo");
+        const dos = document.createElement("div"); dos.className = "campos-2"; b.appendChild(dos);
+        campo(dos, "Fecha", a, "fecha", { ph: "Noviembre 2026" });
+        campo(dos, "Quién lo presentó", a, "presenta");
+        campo(b, "Enlace", a, "url", { ph: "https://drive.google.com/…" });
+      });
+      botonAgregar(c, "+ Agregar ateneo o clase", () => { n.ateneos.push({ titulo: "", fecha: "", presenta: "", url: "" }); marcarCambio(); repintar(); });
+    }
+  };
+
+  async function guardar() {
+    if (!edicion || edicion.guardando) return;
+    const e = edicion, n = e.n;
+    if (!String(n.titulo || "").trim()) { e.msg = "El título no puede quedar vacío."; e.error = true; pintarPie(); return; }
+    n.teoria = n.teoria.filter(s => String(s.h || "").trim() || String(s.html || "").replace(/<[^>]+>/g, "").trim()).map(s => ({ h: String(s.h || "").trim(), html: limpiar(s.html) }));
+    n.casos = n.casos.filter(c => String(c.titulo || "").trim() || String(c.html || "").replace(/<[^>]+>/g, "").trim()).map(c => Object.assign({}, c, { html: limpiar(c.html) }));
+    n.ateneos = n.ateneos.filter(a => String(a.titulo || "").trim() || String(a.url || "").trim());
+    n.pico = n.pico.filter(q => ["p", "i", "c", "o", "respuesta"].some(k => String(q[k] || "").trim()));
+    // Artículos nuevos o corregidos
+    const refsAGuardar = Object.entries(e.refs).filter(([k, r]) => n.evidencia.includes(k) && JSON.stringify(r) !== JSON.stringify(R[k] || null) && (String(r.cita || "").trim() || String(r.pmid || "").trim() || String(r.hallazgo || "").trim()));
+    n.evidencia = n.evidencia.filter(k => R[k] || refsAGuardar.some(([x]) => x === k));
+    const previo = porId[n.id];
+    const doc = clon(n); delete doc.id;
+    if (previo && previo.revision && previo.revision.estado === "revisado") {
+      doc.revision = { estado: "borrador", revisor: null, fecha: null, ultimaRevision: { revisor: previo.revision.revisor || null, fecha: previo.revision.fecha || null } };
+    }
+    doc.editado = { por: uid, fecha: new Date().toISOString() };
+    e.guardando = true; e.msg = "Guardando…"; e.error = false; pintarPie();
+    try {
+      for (const [k, r] of refsAGuardar) await db.collection("refs").doc(k).set(clon(r));
+      await db.collection("nodos").doc(n.id).set(doc);
+      dbN[n.id] = doc; refsAGuardar.forEach(([k, r]) => { dbR[k] = r; });
+      edicion = null; recomponer(); pintarTodo(); pintarPanel();
+    } catch (err) {
+      e.guardando = false; e.error = true;
+      if (err && err.code === "invalid_argument") { e.msg = "No se pudo guardar: tu acceso a este mapa es de solo lectura, o el contenido es demasiado grande."; }
+      else if (err && err.code === "quota_exceeded") { e.msg = "No se pudo guardar: el mapa llegó al límite de espacio."; }
+      else { e.msg = "No se pudo guardar. Revisá la conexión y probá de nuevo."; }
+      pintarPie();
+    }
+  }
+
+  async function marcarRevision(revisado) {
+    const n = porId[actual]; if (!n || !db) return;
+    const doc = clon(n); delete doc.id;
+    doc.revision = revisado ? { estado: "revisado", revisor: uid, fecha: hoy() } : { estado: "borrador", revisor: null, fecha: null, ultimaRevision: n.revision ? { revisor: n.revision.revisor || null, fecha: n.revision.fecha || null } : null };
+    try { await db.collection("nodos").doc(n.id).set(doc); dbN[n.id] = doc; recomponer(); pintarTodo(); pintarPanel(); }
+    catch (err) { const m = $("p-meta"); const s = document.createElement("span"); s.style.color = "var(--danger)"; s.textContent = "No se pudo guardar la revisión."; m.appendChild(s); }
+  }
+
+  /* ───── Navegación ───── */
+  function irAMapa(id) {
+    if (!MAPAS[id]) id = "raiz";
+    const seguir = () => {
+      actual = null; mapaActual = id; busqueda = ""; $("q").value = ""; recorrido = null;
+      panel.classList.remove("abierto"); velo.classList.remove("abierto"); panel.setAttribute("aria-hidden", "true");
+      history.replaceState(null, "", id === "raiz" ? location.pathname + location.search : "#mapa-" + id);
+      pintarTodo(); window.scrollTo({ top: 0 });
+    };
+    if (edicion) pedirDescartar(seguir); else seguir();
+  }
+  function desdeHash() {
+    const h = location.hash.slice(1);
+    if (h.startsWith("mapa-")) { irAMapa(h.slice(5)); return; }
+    if (porId[h]) { abrir(h, true); return; }
+  }
+  function pintarTodo() { pintarEncabezado(); pintarMapa(); pintarIndice(); pintarEstadoDatos(); }
+
+  document.addEventListener("click", e => {
+    const t = e.target;
+    const mapaBtn = t.closest("[data-mapa]"); if (mapaBtn) { irAMapa(mapaBtn.dataset.mapa); return; }
+    const recBtn = t.closest("[data-rec]"); if (recBtn) { elegirRecorrido(recBtn.dataset.rec === recorrido ? null : recBtn.dataset.rec); return; }
+    const ir = t.closest("[data-ir]"); if (ir) { if (!edicion) pestana = pestana || "teoria"; abrir(ir.dataset.ir); return; }
+    const tab = t.closest("[data-tab]"); if (tab) { pestana = tab.dataset.tab; pintarCuerpo(); return; }
+    if (t.closest("#b-cerrar")) { cerrar(); return; }
+    if (t.closest("#b-editar")) { empezarEdicion(); return; }
+    if (t.closest("#b-revisar")) { marcarRevision(true); return; }
+    if (t.closest("#b-desrevisar")) { marcarRevision(false); return; }
+    const a = t.closest('#p-cuerpo a[href^="#"]');
+    if (a && !edicion && porId[a.getAttribute("href").slice(1)]) { e.preventDefault(); pestana = "teoria"; abrir(a.getAttribute("href").slice(1)); }
+  });
+  $("volver").addEventListener("click", () => irAMapa((MAPAS[mapaActual] || {}).padre || "raiz"));
+  velo.addEventListener("click", cerrar);
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && actual && !edicion) cerrar(); });
+  window.addEventListener("hashchange", desdeHash);
+  window.addEventListener("beforeunload", e => { if (edicion && edicion.cambios) { e.preventDefault(); e.returnValue = ""; } });
+
+  /* ───── Arranque ───── */
+  recomponer();
+  pintarTodo();
+  desdeHash();
+
+  (async function conectar() {
+    const c = window.claude;
+    if (!c || !c.use) { conectado = "sin"; pintarEstadoDatos(); return; }
+    const [d, u] = await Promise.all([c.use("db").catch(() => null), c.use("user").catch(() => null)]);
+    user = u;
+    if (!d) { conectado = "sin"; pintarEstadoDatos(); return; }
+    db = d;
+    if (user) {
+      uid = await user.id();
+      puedeEscribir = await user.can("data.write");
+    }
+    pintarEstadoDatos();
+    if (actual && !edicion) pintarPanel();
+    const aviso = setTimeout(() => { const e = $("estado-datos"); e.className = "chip-estado"; e.textContent = "Sin conexión con la base · puede estar desactualizado"; }, 10000);
+    let listos = 0;
+    const alLlegar = (snap, destino) => {
+      if (!snap.metadata.fromCache && ++listos >= 2) { clearTimeout(aviso); pintarEstadoDatos(); }
+      const o = {}; snap.docs.forEach(d => { if (d.exists) o[d.id] = d.data(); });
+      if (destino === "n") dbN = o; else dbR = o;
+      recomponer(); pintarEncabezado(); pintarMapa(); pintarIndice();
+      if (actual && !edicion) pintarPanel();
+    };
+    const alFallar = () => { clearTimeout(aviso); const e = $("estado-datos"); e.className = "chip-estado"; e.textContent = "Sin conexión con la base · versión base"; };
+    db.collection("nodos").onSnapshot(s => alLlegar(s, "n"), alFallar);
+    db.collection("refs").onSnapshot(s => alLlegar(s, "r"), alFallar);
+  })();
+})();
+</script>
+
+</body>
+</html>
