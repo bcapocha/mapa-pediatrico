@@ -32,6 +32,7 @@ img{max-width:100%}
   --edad-3: #1C3F69;
   --accent: var(--edad-2);
   --c-inf: #B9502C; --c-ale: #7A4DA3; --c-infl: #1F7D74; --derm: #A85A2E;
+  --cuerpo: #E6ECF1; --cuerpo-borde: #C3CFD9; --organo: #D5DDE4; --organo-borde: #B7C3CD;
   --draft: #9A6514;
   --draft-bg: #F8EEDC;
   --ok: #2F7A55;
@@ -48,6 +49,7 @@ img{max-width:100%}
     --edad-1: #5F93B6; --edad-2: #86B3DC; --edad-3: #C3D9F4;
     --draft: #E3B266; --draft-bg: #33281A; --ok: #7CC6A0; --ok-bg: #18301F; --danger: #F08C7C;
     --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076;
+    --cuerpo: #1D2932; --cuerpo-borde: #34444F; --organo: #2A3843; --organo-borde: #3E505C;
     color-scheme: dark;
   }
 }
@@ -57,6 +59,7 @@ img{max-width:100%}
   --edad-1: #5F93B6; --edad-2: #86B3DC; --edad-3: #C3D9F4;
   --draft: #E3B266; --draft-bg: #33281A; --ok: #7CC6A0; --ok-bg: #18301F; --danger: #F08C7C;
   --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076;
+  --cuerpo: #1D2932; --cuerpo-borde: #34444F; --organo: #2A3843; --organo-borde: #3E505C;
   color-scheme: dark;
 }
 
@@ -154,6 +157,63 @@ svg.recorrido .arista { opacity: .15; }
 .submapas { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); }
 .submapas .btn { font-size: 13px; }
 .recorridos { display: grid; gap: 10px; }
+.capas { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.capas .etq { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-right: 4px; }
+.capas .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--surface); gap: 2px; flex-wrap: wrap; }
+.capa-btn { border: 0; background: none; color: var(--muted); font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 999px; cursor: pointer; display: inline-flex; gap: 7px; align-items: center; }
+.capa-btn b { font-family: var(--f-mono); font-size: 11px; width: 18px; height: 18px; border-radius: 50%; display: inline-grid; place-items: center; border: 1px solid currentColor; font-weight: 500; }
+.capa-btn .n { font-family: var(--f-mono); font-size: 11px; opacity: .75; }
+.capa-btn:hover { color: var(--ink); }
+.capa-btn[aria-pressed="true"] { background: var(--accent); color: var(--surface); }
+.capa-btn[aria-pressed="true"] b { border-color: transparent; background: var(--surface); color: var(--accent); }
+.capas .ayuda { font-size: 12.5px; color: var(--muted); }
+.mas-ocultos { font-family: var(--f-mono); font-size: 10px; fill: var(--muted); }
+svg.capa-1 .arista, svg.capa-2 .arista { stroke-width: 1.4; }
+/* Inicio: cuerpo humano */
+svg.cuerpo { min-width: 0; }
+.cuerpo-sombra { fill: var(--line-soft); }
+.cuerpo-silueta { fill: var(--cuerpo); stroke: var(--cuerpo-borde); stroke-width: 2; stroke-linejoin: round; }
+.cuerpo-cabeza { fill: var(--cuerpo); stroke: var(--cuerpo-borde); stroke-width: 2; }
+.cuerpo-cara { fill: none; stroke: var(--cuerpo-borde); stroke-width: 2; stroke-linecap: round; }
+.organo .forma { fill: var(--organo); stroke: var(--organo-borde); stroke-width: 1.5; transition: fill .25s, stroke .25s; }
+.organo .trazo { fill: none; stroke: var(--organo-borde); stroke-width: 1.5; stroke-linecap: round; transition: stroke .25s; }
+.organo.vivo .forma { fill: color-mix(in srgb, var(--sis) 30%, var(--surface)); stroke: var(--sis); }
+.organo.vivo .trazo { stroke: var(--sis); }
+.organo.vivo { cursor: pointer; }
+.organo.vivo.on .forma { fill: color-mix(in srgb, var(--sis) 55%, var(--surface)); }
+.piel-borde { fill: none; stroke: var(--sis); stroke-width: 3; stroke-dasharray: 2 7; stroke-linecap: round; opacity: 0; transition: opacity .25s; pointer-events: none; }
+.organo.on .piel-borde { opacity: 1; }
+.manchita { fill: var(--sis); opacity: .75; }
+.sis-linea { fill: none; stroke: var(--line); stroke-width: 1.3; transition: stroke .25s; }
+.sis-punto { fill: var(--line); transition: fill .25s; }
+.sis.vivo .sis-linea { stroke: color-mix(in srgb, var(--sis) 55%, var(--line)); }
+.sis.vivo .sis-punto { fill: var(--sis); }
+.sis.on .sis-linea { stroke: var(--sis); stroke-width: 2; }
+.sis-caja { fill: var(--surface); stroke: var(--line-soft); stroke-width: 1.2; transition: stroke .25s, fill .25s; }
+.sis.vivo .sis-caja { stroke: color-mix(in srgb, var(--sis) 45%, var(--line)); }
+.sis.vivo { cursor: pointer; }
+.sis.on .sis-caja { stroke: var(--sis); stroke-width: 2; fill: color-mix(in srgb, var(--sis) 7%, var(--surface)); }
+.sis:focus { outline: none; }
+.sis:focus-visible .sis-caja { stroke: var(--sis); stroke-width: 2.5; stroke-dasharray: 4 3; }
+.sis-barra { fill: var(--line); }
+.sis.vivo .sis-barra { fill: var(--sis); }
+.sis-t { font-family: var(--f-ui); font-size: 19px; font-weight: 600; fill: var(--ink); letter-spacing: -.01em; }
+.sis:not(.vivo) .sis-t { fill: var(--muted); }
+.sis-d { font-family: var(--f-ui); font-size: 13px; fill: var(--muted); }
+.sis-e { font-family: var(--f-mono); font-size: 11.5px; fill: var(--muted); letter-spacing: .03em; }
+.sis.vivo .sis-e { fill: var(--sis); font-weight: 500; }
+.sistemas-idx { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+.sistema { text-align: left; font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line-soft); border-left: 4px solid var(--sis); border-radius: 12px; padding: 14px 16px; display: grid; gap: 4px; cursor: pointer; }
+.sistema:hover { border-color: var(--sis); }
+.sistema[disabled] { cursor: default; color: var(--muted); border-left-color: var(--line); }
+.sistema b { font-size: 17px; font-weight: 600; }
+.sistema span { font-size: 13.5px; color: var(--muted); }
+.sistema em { font-style: normal; font-family: var(--f-mono); font-size: 11.5px; color: var(--sis); }
+.sistema[disabled] em { color: var(--muted); }
+.resultados { display: grid; gap: 8px; }
+.resultado { text-align: left; font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line-soft); border-radius: 10px; padding: 10px 14px; cursor: pointer; display: grid; gap: 2px; }
+.resultado:hover { border-color: var(--line); }
+.resultado small { color: var(--muted); font-size: 12px; font-family: var(--f-mono); }
 .recorridos .fila { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .recorridos .etq { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-right: 4px; }
 .chip[aria-pressed="true"], .chip[aria-pressed="true"]:hover { background: var(--accent); border-color: var(--accent); color: var(--surface); }
@@ -317,6 +377,11 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   .p-pie { padding: 12px 18px; }
   .p-cab h2 { font-size: 24px; }
   aside.panel { border-left: 0; }
+  .buscar { flex-basis: 100%; max-width: none; min-width: 0; }
+  .buscar input { width: 100%; min-width: 0; box-sizing: border-box; }
+  .chip-estado { white-space: normal; }
+  .capas .ayuda { flex-basis: 100%; }
+  .capa-btn { padding: 5px 9px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -341,6 +406,8 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
       </div>
     </div>
   </header>
+
+  <section class="capas" id="capas" hidden></section>
 
   <section class="recorridos" id="recorridos" hidden></section>
 
@@ -371,6 +438,10 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   const MAPAS = window.MAPAS || { raiz: { titulo: "Mapa", ruta: [], bajada: "", disposicion: "edad" } };
   const INICIO = MAPAS.inicio ? "inicio" : "raiz";
   const CAUSAS = { infecciosa: "Infecciosa", alergica: "Alérgica o por fármacos", inflamatoria: "Inflamatoria" };
+  const CAPAS = { 1: "Lo esencial", 2: "Para profundizar", 3: "Todo" };
+  const capas = {};
+  const capa = () => capas[mapaActual] || 1;
+  const nivelDe = n => n.nivel || 1;
   const NS = "http://www.w3.org/2000/svg";
   const $ = id => document.getElementById(id);
   const svg = $("svg");
@@ -463,9 +534,9 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     $("bajada").textContent = m.bajada || "";
     $("volver").hidden = !m.padre;
     if (m.padre) $("volver").textContent = m.padre === INICIO ? "← Volver al inicio" : "← Volver a " + ((MAPAS[m.padre] || {}).titulo || "el mapa anterior");
-    $("ley-tema").hidden = m.disposicion === "columnas";
+    $("ley-tema").hidden = m.disposicion === "columnas" || m.disposicion === "cuerpo";
     const causas = m.causas || [];
-    $("ley-con").hidden = !!causas.length;
+    $("ley-con").hidden = !!causas.length || m.disposicion === "cuerpo";
     $("ley-causas").hidden = !causas.length;
     $("ley-causas").innerHTML = causas.map(c => `<span><i class="causa-i c-${esc(c)}"></i>${esc(CAUSAS[c] || c)}</span>`).join(" ");
     $("q").placeholder = m.buscar || "Buscar: VSR, IPA, magnesio…";
@@ -475,8 +546,15 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
         ? "Cada zona es una parte de la guía. Las líneas muestran cómo una decisión lleva a otra. En el celular, deslizá el mapa hacia los costados."
         : "Pasá el cursor por un nodo para ver sus conexiones. En el celular, deslizá el mapa hacia los costados.");
     const hijos = Object.entries(MAPAS).filter(([, x]) => x.padre === mapaActual);
-    $("submapas").hidden = !hijos.length;
+    $("submapas").hidden = !hijos.length || m.disposicion === "cuerpo";
     $("submapas").innerHTML = hijos.length ? `<span>${mapaActual === INICIO ? "Ir a:" : m.padre ? "Más en este tema:" : "Submapas:"}</span>` + hijos.map(([id, x]) => `<button type="button" class="btn" data-mapa="${esc(id)}">${esc(x.titulo)} →</button>`).join("") : "";
+    const delMapa = N.filter(n => n.mapa === mapaActual);
+    const hayCapas = m.disposicion !== "cuerpo" && delMapa.some(n => nivelDe(n) > 1);
+    $("capas").hidden = !hayCapas;
+    if (hayCapas) {
+      const c = capa(), hasta = k => delMapa.filter(n => nivelDe(n) <= k).length;
+      $("capas").innerHTML = `<span class="etq">Capas</span><span class="seg" role="group" aria-label="Capas de lectura">${[1, 2, 3].map(k => `<button type="button" class="capa-btn" data-capa="${k}" aria-pressed="${k === c}"><b>${k}</b>${CAPAS[k]}<span class="n">${hasta(k)}</span></button>`).join("")}</span><span class="ayuda">${c < 3 ? `Mostrando ${hasta(c)} de ${delMapa.length} conceptos. Sumá una capa para ver más.` : "Mostrando todo el mapa."}</span>`;
+    } else $("capas").innerHTML = "";
     const recs = m.recorridos || [];
     $("recorridos").hidden = !recs.length;
     $("recorridos").innerHTML = recs.length ? `<div class="fila"><span class="etq">Recorridos</span>${recs.map(r => `<button type="button" class="chip" data-rec="${esc(r.id)}" aria-pressed="${r.id === recorrido}">${esc(r.titulo)}</button>`).join("")}${recorrido ? '<button type="button" class="btn-texto" data-rec="">Quitar recorrido</button>' : ""}</div>` : "";
@@ -507,8 +585,18 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     svg.innerHTML = "";
     svg.classList.toggle("columnas", m.disposicion !== "edad");
     svg.classList.toggle("recorrido", !!recorridoActivo());
-    const visibles = N.filter(n => n.mapa === mapaActual);
+    svg.classList.toggle("cuerpo", m.disposicion === "cuerpo");
+    ["capa-1", "capa-2", "capa-3"].forEach(k => svg.classList.remove(k));
+    svg.classList.add("capa-" + capa());
+    if (m.disposicion === "cuerpo") { dibujarCuerpo(m); nodoEls = {}; aristaEls = []; return; }
+    const recA = recorridoActivo();
+    const forzados = new Set(recA ? recA.pasos.map(p => p.nodo) : []);
+    if (actual) forzados.add(actual);
+    const delMapa = N.filter(n => n.mapa === mapaActual);
+    const visibles = delMapa.filter(n => nivelDe(n) <= capa() || forzados.has(n.id));
     const enMapa = new Set(visibles.map(n => n.id));
+    const ocultos = {};
+    delMapa.forEach(n => { if (!enMapa.has(n.id)) (n.conexiones || []).concat(vecinos[n.id] || []).forEach(v => { if (enMapa.has(v)) (ocultos[v] = ocultos[v] || new Set()).add(n.id); }); });
 
     if (m.disposicion === "zonas") {
       const g = el("g", { class: "eje" }, svg);
@@ -576,6 +664,11 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
         cs.slice(1).forEach((c2, k) => el("circle", { class: "punto2 c-" + c2, cx: 8 + k * 7, cy: -8, r: 4 }, g));
         el("text", { class: "t", y: 24, "text-anchor": "middle" }, g).textContent = n.corto || n.titulo;
       }
+      if (ocultos[n.id]) {
+        const k = ocultos[n.id].size, t = el("text", { class: "mas-ocultos", x: n.tipo === "tema" ? -40 : -11, y: n.tipo === "tema" ? -30 : -8, "text-anchor": "end" }, g);
+        t.textContent = "+" + k;
+        el("title", {}, t).textContent = k === 1 ? "1 concepto conectado en otra capa" : k + " conceptos conectados en otras capas";
+      }
       nodoEls[n.id] = g;
       g.addEventListener("mouseenter", () => enfocar(n.id));
       g.addEventListener("mouseleave", () => enfocar(actual));
@@ -612,6 +705,79 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     if (busqueda) aplicarBusqueda(); else enfocar(actual);
   }
 
+  /* ───── Inicio: cuerpo humano con los sistemas ───── */
+  const CUERPO = "M600,150 L588,150 C588,160 586,168 580,172 C562,180 540,182 526,192 C512,202 506,218 504,236 C500,270 494,310 490,345 C487,372 482,398 478,420 C474,438 476,456 490,458 C502,460 506,446 506,432 C508,410 512,385 516,360 C520,330 524,300 528,272 C530,262 534,256 538,256 C538,300 536,350 540,395 C542,415 546,430 546,450 C546,500 548,560 550,605 C550,622 548,636 562,640 C578,644 592,642 594,632 C594,600 592,540 594,480 C595,468 598,462 600,460 C602,462 605,468 606,480 C608,540 606,600 606,632 C608,642 622,644 638,640 C652,636 650,622 650,605 C652,560 654,500 654,450 C654,430 658,415 660,395 C664,350 662,300 662,256 C666,256 670,262 672,272 C676,300 680,330 684,360 C688,385 692,410 694,432 C694,446 698,460 710,458 C724,456 726,438 722,420 C718,398 713,372 710,345 C706,310 700,270 696,236 C694,218 688,202 674,192 C660,182 638,180 620,172 C614,168 612,160 612,150 L600,150 Z";
+  const ORGANOS = {
+    cerebro: { ancla: [580, 72], dibujar: g0 => {
+      const g = el("g", { transform: "translate(108,6) scale(0.82)" }, g0);
+      el("path", { class: "forma", d: "M562,98 C548,96 546,74 560,66 C562,52 580,46 592,52 C600,44 618,46 624,56 C640,58 648,74 640,86 C646,98 636,110 622,108 C614,116 596,116 590,108 C578,114 564,108 562,98 Z" }, g);
+      ["M576,64 C582,74 576,84 584,92", "M600,54 C596,66 606,74 600,86", "M620,62 C614,72 624,80 616,92", "M566,86 C576,84 580,96 590,98", "M612,100 C620,94 628,100 636,94"].forEach(d => el("path", { class: "trazo", d }, g));
+    } },
+    pulmones: { ancla: [562, 262], dibujar: g => {
+      el("path", { class: "forma", d: "M592,214 C580,204 560,212 554,238 C548,266 548,296 556,318 C566,330 584,326 592,316 C596,290 596,240 592,214 Z" }, g);
+      el("path", { class: "forma", d: "M608,214 C620,204 640,212 646,238 C652,266 652,296 644,318 C636,328 622,328 616,318 C612,306 626,290 622,280 C614,270 608,260 608,214 Z" }, g);
+      ["M600,168 L600,206", "M600,206 C596,214 590,220 584,228", "M600,206 C604,214 610,220 616,228", "M584,228 C578,240 572,250 568,262", "M584,228 C586,244 584,262 580,280", "M616,228 C622,240 628,250 632,262", "M616,228 C616,240 618,252 624,262"].forEach(d => el("path", { class: "trazo", d }, g));
+    } },
+    corazon: { ancla: [632, 286], dibujar: g0 => {
+      const g = el("g", { transform: "translate(0,18)" }, g0);
+      el("path", { class: "forma", d: "M614,262 C612,250 596,250 596,262 C596,274 608,282 616,290 C626,282 638,274 638,262 C638,250 618,248 614,262 Z" }, g);
+      el("path", { class: "trazo", d: "M614,262 C612,270 616,278 616,290" }, g);
+    } },
+    digestivo: { ancla: [574, 392], dibujar: g => {
+      el("path", { class: "forma", d: "M616,322 C634,322 642,336 636,350 C630,364 610,366 596,360 C586,356 580,346 588,340 C596,334 604,340 610,338 C616,336 608,322 616,322 Z" }, g);
+      el("path", { class: "forma", d: "M572,372 C572,362 628,362 628,372 L628,420 C628,430 572,430 572,420 Z" }, g);
+      ["M582,380 C596,374 604,386 618,380", "M582,394 C596,388 604,400 618,394", "M582,408 C596,402 604,414 618,408"].forEach(d => el("path", { class: "trazo", d }, g));
+    } },
+    rinones: { ancla: [646, 350], dibujar: g => {
+      el("path", { class: "forma", d: "M560,332 C550,332 546,346 548,356 C550,368 562,372 566,362 C562,354 570,346 566,338 C565,334 563,332 560,332 Z" }, g);
+      el("path", { class: "forma", d: "M640,332 C650,332 654,346 652,356 C650,368 638,372 634,362 C638,354 630,346 634,338 C635,334 637,332 640,332 Z" }, g);
+    } },
+    piel: { ancla: [714, 404], dibujar: g => {
+      el("path", { class: "piel-borde", d: CUERPO }, g);
+      [[706, 384], [714, 396], [704, 404], [716, 414], [708, 424], [712, 376], [700, 394]].forEach(([cx, cy], i) => el("circle", { class: "manchita", cx, cy, r: i % 3 ? 2.6 : 3.4 }, g));
+      el("path", { d: "M694,368 L724,368 L728,436 L696,440 Z", fill: "transparent" }, g);
+    } }
+  };
+  const conceptosDe = mapa => { const ids = new Set([mapa]); let crece = true; while (crece) { crece = false; Object.entries(MAPAS).forEach(([id, x]) => { if (ids.has(x.padre) && !ids.has(id)) { ids.add(id); crece = true; } }); } return N.filter(n => ids.has(n.mapa)).length; };
+  function dibujarCuerpo(m) {
+    const fondo = el("g", {}, svg);
+    el("ellipse", { class: "cuerpo-sombra", cx: 600, cy: 640, rx: 92, ry: 9 }, fondo);
+    el("path", { class: "cuerpo-silueta", d: CUERPO }, fondo);
+    el("ellipse", { class: "cuerpo-cabeza", cx: 600, cy: 92, rx: 54, ry: 60 }, fondo);
+    el("path", { class: "cuerpo-cara", d: "M588,128 C594,134 606,134 612,128" }, fondo);
+    [580, 620].forEach(cx => el("circle", { cx, cy: 114, r: 3.6, fill: "var(--cuerpo-borde)" }, fondo));
+    [572, 628].forEach(cx => el("ellipse", { cx, cy: 126, rx: 7, ry: 4, fill: "var(--derm)", opacity: .14 }, fondo));
+    const gO = el("g", {}, svg), gS = el("g", {}, svg);
+    const pares = {};
+    const marcar = (id, on) => (pares[id] || []).forEach(x => x.classList.toggle("on", on));
+    (m.sistemas || []).forEach(sis => {
+      const org = ORGANOS[sis.organo]; if (!org) return;
+      const vivo = !!(sis.mapa && MAPAS[sis.mapa]);
+      const color = sis.color || "var(--accent)";
+      const go = el("g", { class: "organo" + (vivo ? " vivo" : ""), style: "--sis:" + color }, sis.organo === "piel" ? fondo : gO);
+      org.dibujar(go);
+      const izq = sis.lado === "izq", W = 270, H = 92, x = izq ? 120 : 1200 - 120 - W, y = sis.y;
+      const [ax, ay] = org.ancla, bx = izq ? x + W : x, by = y + H / 2, mx = izq ? bx + 40 : bx - 40;
+      const gs = el("g", { class: "sis" + (vivo ? " vivo" : ""), style: "--sis:" + color, tabindex: vivo ? 0 : -1, role: vivo ? "link" : "img", "aria-label": sis.titulo + (vivo ? "" : ", próximamente") }, gS);
+      el("path", { class: "sis-linea", d: `M${bx},${by} L${mx},${by} L${ax},${ay}` }, gs);
+      el("circle", { class: "sis-punto", cx: ax, cy: ay, r: 4.5 }, gs);
+      el("rect", { class: "sis-caja", x, y, width: W, height: H, rx: 14 }, gs);
+      el("rect", { class: "sis-barra", x: x + 14, y: y + 18, width: 4, height: H - 36, rx: 2 }, gs);
+      el("text", { class: "sis-t", x: x + 30, y: y + 32 }, gs).textContent = sis.titulo;
+      el("text", { class: "sis-d", x: x + 30, y: y + 53 }, gs).textContent = sis.detalle || "";
+      el("text", { class: "sis-e", x: x + 30, y: y + 74 }, gs).textContent = vivo ? conceptosDe(sis.mapa) + " conceptos · Entrar →" : "Próximamente";
+      pares[sis.id] = [go, gs];
+      [go, gs].forEach(t => {
+        t.addEventListener("mouseenter", () => marcar(sis.id, true));
+        t.addEventListener("mouseleave", () => marcar(sis.id, false));
+        if (vivo) t.addEventListener("click", () => irAMapa(sis.mapa));
+      });
+      gs.addEventListener("focus", () => marcar(sis.id, true));
+      gs.addEventListener("blur", () => marcar(sis.id, false));
+      if (vivo) gs.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); irAMapa(sis.mapa); } });
+    });
+  }
+
   function pintarPasos() {
     const rec = recorridoActivo();
     const caja = $("pasos-rec");
@@ -645,8 +811,10 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   const textoNodo = n => normal([n.titulo, n.corto, n.resumen, ...(n.teoria || []).map(t => t.h + " " + String(t.html).replace(/<[^>]+>/g, " "))].join(" "));
   function aplicarBusqueda() {
     const t = normal(busqueda.trim());
+    if ((MAPAS[mapaActual] || {}).disposicion === "cuerpo") { coincidencias = t ? N.filter(n => textoNodo(n).includes(t)).map(n => n.id) : []; pintarIndice(); return; }
     if (!t) { coincidencias = []; enfocar(actual); return; }
     coincidencias = N.filter(n => n.mapa === mapaActual && textoNodo(n).includes(t)).map(n => n.id);
+    if (coincidencias.some(id => !nodoEls[id]) && capa() < 3) { capas[mapaActual] = 3; pintarEncabezado(); pintarMapa(); return; }
     enfocar(null, new Set(coincidencias.length ? coincidencias : ["__ninguno"]));
   }
   $("q").addEventListener("input", e => { busqueda = e.target.value; aplicarBusqueda(); });
@@ -658,7 +826,14 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     const m = MAPAS[mapaActual] || MAPAS[INICIO];
     const visibles = N.filter(n => n.mapa === mapaActual);
     let html = "";
-    if (m.disposicion === "zonas") {
+    if (m.disposicion === "cuerpo") {
+      if (busqueda.trim()) {
+        const res = coincidencias.slice(0, 40).map(id => porId[id]);
+        html += `<h2>${res.length ? "Resultados en todo el mapa" : "Sin resultados"}</h2><div class="resultados">${res.map(n => `<button type="button" class="resultado" data-ir="${esc(n.id)}"><b>${esc(n.titulo)}</b><small>${esc((MAPAS[n.mapa] || {}).ruta ? MAPAS[n.mapa].ruta.slice(1).join(" › ") : "")}</small></button>`).join("")}</div>`;
+      } else {
+        html += `<h2>Sistemas</h2><div class="sistemas-idx">${(m.sistemas || []).map(sis => { const vivo = !!(sis.mapa && MAPAS[sis.mapa]); return `<button type="button" class="sistema" style="--sis:${esc(sis.color || "var(--accent)")}" ${vivo ? `data-mapa="${esc(sis.mapa)}"` : "disabled"}><b>${esc(sis.titulo)}</b><span>${esc(sis.detalle || "")}</span><em>${vivo ? conceptosDe(sis.mapa) + " conceptos →" : "Próximamente"}</em></button>`; }).join("")}</div>`;
+      }
+    } else if (m.disposicion === "zonas") {
       const zs = m.zonas || [];
       const zonaDe = n => zs.findIndex(z => n.x >= z.x && n.x <= z.x + z.w && n.y >= z.y && n.y <= z.y + z.h);
       html += `<h2>${esc(m.indice || "Conceptos de la guía")}</h2><div class="columnas-idx">${zs.map((z, i) => `<section><h3>${esc(z.titulo)}</h3><div class="chips">${visibles.filter(n => zonaDe(n) === i).sort((a, b) => a.y - b.y || a.x - b.x).map(n => `<button type="button" class="chip" data-ir="${esc(n.id)}">${esc(n.titulo)}</button>`).join("")}</div></section>`).join("")}</div>`;
@@ -722,6 +897,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     if (edicion && edicion.id !== id) { pedirDescartar(() => { edicion = null; abrir(id, sinHash); }); return; }
     if (n.mapa !== mapaActual) { mapaActual = n.mapa; busqueda = ""; $("q").value = ""; pintarTodo(); }
     actual = id;
+    if (!nodoEls[id]) pintarMapa();
     if (!sinHash) history.replaceState(null, "", "#" + id);
     pintarPanel();
     panel.classList.add("abierto"); velo.classList.add("abierto"); panel.setAttribute("aria-hidden", "false");
@@ -1013,6 +1189,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   document.addEventListener("click", e => {
     const t = e.target;
     const mapaBtn = t.closest("[data-mapa]"); if (mapaBtn) { irAMapa(mapaBtn.dataset.mapa); return; }
+    const capaBtn = t.closest("[data-capa]"); if (capaBtn) { capas[mapaActual] = +capaBtn.dataset.capa; pintarEncabezado(); pintarMapa(); return; }
     const recBtn = t.closest("[data-rec]"); if (recBtn) { elegirRecorrido(recBtn.dataset.rec === recorrido ? null : recBtn.dataset.rec); return; }
     const ir = t.closest("[data-ir]"); if (ir) { if (!edicion) pestana = pestana || "teoria"; abrir(ir.dataset.ir); return; }
     const tab = t.closest("[data-tab]"); if (tab) { pestana = tab.dataset.tab; pintarCuerpo(); return; }

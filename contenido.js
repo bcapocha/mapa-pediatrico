@@ -13,6 +13,7 @@
       ateneos: { titulo, fecha, presenta, url }
       causa: "infecciosa" | "alergica" | "inflamatoria" (o una lista) — colorea el punto en mapas con leyenda de causas
       color: color del nodo tema (variable CSS)
+      nivel: capa de lectura (1 lo esencial, 2 para profundizar, 3 todo)
       conexiones: ids de otros nodos
       revision: { estado: "borrador" | "revisado", revisor, fecha }
 
@@ -512,15 +513,17 @@ window.MAPAS = {
   inicio: {
     titulo: "El Gran Mapa Pediátrico",
     ruta: ["Pediatría"],
-    bajada: "Elegí una materia para empezar. Cada mapa reúne teoría, evidencia, preguntas PICO, casos y ateneos.",
-    disposicion: "zonas",
-    directo: true,
-    indice: "Materias y temas",
-    pista: "Tocá un tema para entrar en su mapa.",
-    buscar: "Buscar un tema…",
-    zonas: [
-      { x: 80, y: 70, w: 500, h: 520, titulo: "Neumonología" },
-      { x: 620, y: 70, w: 500, h: 520, titulo: "Dermatología" }
+    bajada: "Elegí un sistema del cuerpo para entrar en su mapa. Cada mapa reúne teoría, evidencia, preguntas PICO, casos y ateneos; los sistemas en gris se van a ir sumando.",
+    disposicion: "cuerpo",
+    buscar: "Buscar en todo el mapa: Koplik, IPA, magnesio…",
+    pista: "Tocá un sistema para entrar en su mapa.",
+    sistemas: [
+      { id: "neuro", titulo: "Neurología", detalle: "Convulsiones, cefalea, desarrollo", organo: "cerebro", lado: "izq", y: 40 },
+      { id: "neumo", titulo: "Neumonología", detalle: "Bronquiolitis, sibilancias y asma", organo: "pulmones", mapa: "raiz", color: "var(--edad-2)", lado: "izq", y: 216 },
+      { id: "gastro", titulo: "Gastroenterología", detalle: "Diarrea, reflujo, dolor abdominal", organo: "digestivo", lado: "izq", y: 392 },
+      { id: "cardio", titulo: "Cardiología", detalle: "Soplos y cardiopatías congénitas", organo: "corazon", lado: "der", y: 128 },
+      { id: "derma", titulo: "Dermatología", detalle: "Exantemas: subtipos y causas", organo: "piel", mapa: "exantemas", color: "var(--derm)", lado: "der", y: 304 },
+      { id: "nefro", titulo: "Nefrología", detalle: "Infección urinaria, hematuria", organo: "rinones", lado: "der", y: 480 }
     ]
   },
   exantemas: {
@@ -584,7 +587,7 @@ window.MAPAS = {
 window.NODOS = [
   /* ───────────── TEMAS PRINCIPALES ───────────── */
   {
-    id: "bronquiolitis",
+    id: "bronquiolitis", nivel: 1,
     titulo: "Bronquiolitis",
     tipo: "tema",
     x: 240, y: 300,
@@ -655,7 +658,7 @@ window.NODOS = [
   },
 
   {
-    id: "sibilancias",
+    id: "sibilancias", nivel: 1,
     titulo: "Sibilancias recurrentes",
     tipo: "tema",
     x: 600, y: 300,
@@ -741,7 +744,7 @@ window.NODOS = [
   },
 
   {
-    id: "asma",
+    id: "asma", nivel: 1,
     titulo: "Asma",
     tipo: "tema",
     x: 965, y: 300,
@@ -804,7 +807,7 @@ window.NODOS = [
 
   /* ───────────── CONCEPTOS ───────────── */
   {
-    id: "vsr", titulo: "Virus sincicial respiratorio", corto: "VSR", tipo: "concepto",
+    id: "vsr", nivel: 1, titulo: "Virus sincicial respiratorio", corto: "VSR", tipo: "concepto",
     x: 240, y: 110,
     resumen: "Principal causa de bronquiolitis y de internación por infección respiratoria en lactantes.",
     teoria: [
@@ -816,7 +819,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "prevencion-vsr", titulo: "Prevención del VSR", tipo: "concepto",
+    id: "prevencion-vsr", nivel: 2, titulo: "Prevención del VSR", tipo: "concepto",
     x: 85, y: 205,
     resumen: "Anticuerpos monoclonales para el lactante y vacuna materna.",
     teoria: [
@@ -828,7 +831,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "prematurez", titulo: "Prematurez y DBP", tipo: "concepto",
+    id: "prematurez", nivel: 3, titulo: "Prematurez y DBP", tipo: "concepto",
     x: 95, y: 420,
     resumen: "Factor de riesgo de bronquiolitis grave y de sibilancias recurrentes.",
     teoria: [
@@ -839,7 +842,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "oxigeno", titulo: "Oxigenoterapia y CNAF", tipo: "concepto",
+    id: "oxigeno", nivel: 2, titulo: "Oxigenoterapia y CNAF", tipo: "concepto",
     x: 345, y: 475,
     resumen: "Cuándo indicar oxígeno y qué lugar ocupa la cánula nasal de alto flujo.",
     teoria: [
@@ -851,7 +854,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "rinovirus", titulo: "Rinovirus", tipo: "concepto",
+    id: "rinovirus", nivel: 2, titulo: "Rinovirus", tipo: "concepto",
     x: 420, y: 135,
     resumen: "Segundo agente de bronquiolitis y principal desencadenante de crisis en preescolares y escolares.",
     teoria: [
@@ -863,7 +866,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "bo-postinfecciosa", titulo: "Bronquiolitis obliterante postinfecciosa", corto: "BO postinfecciosa", tipo: "concepto",
+    id: "bo-postinfecciosa", nivel: 3, titulo: "Bronquiolitis obliterante postinfecciosa", corto: "BO postinfecciosa", tipo: "concepto",
     x: 420, y: 400,
     resumen: "Secuela grave, clásicamente por adenovirus, con obstrucción fija. Diagnóstico diferencial relevante en nuestro medio.",
     teoria: [
@@ -874,7 +877,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "fenotipos", titulo: "Fenotipos de sibilancias", tipo: "concepto",
+    id: "fenotipos", nivel: 2, titulo: "Fenotipos de sibilancias", tipo: "concepto",
     x: 595, y: 110,
     resumen: "Transitorias, persistentes y de inicio tardío; episódicas virales o por desencadenantes múltiples.",
     teoria: [
@@ -886,7 +889,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ipa", titulo: "Índice Predictivo de Asma", corto: "IPA", tipo: "concepto",
+    id: "ipa", nivel: 2, titulo: "Índice Predictivo de Asma", corto: "IPA", tipo: "concepto",
     x: 790, y: 165,
     resumen: "Estima el riesgo de asma en edad escolar en un preescolar con sibilancias.",
     teoria: [
@@ -904,7 +907,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "dd-sibilancias", titulo: "Diagnóstico diferencial", tipo: "concepto",
+    id: "dd-sibilancias", nivel: 2, titulo: "Diagnóstico diferencial", tipo: "concepto",
     x: 545, y: 480,
     resumen: "Qué más puede sibilar: señales de alarma que obligan a estudiar.",
     teoria: [
@@ -917,7 +920,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "saba", titulo: "Broncodilatadores", tipo: "concepto",
+    id: "saba", nivel: 1, titulo: "Broncodilatadores", tipo: "concepto",
     x: 735, y: 520,
     resumen: "Salbutamol con aerocámara: rescate en sibilancias y asma; sin beneficio demostrado en bronquiolitis.",
     teoria: [
@@ -929,7 +932,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ci", titulo: "Corticoides inhalados", corto: "CI", tipo: "concepto",
+    id: "ci", nivel: 1, titulo: "Corticoides inhalados", corto: "CI", tipo: "concepto",
     x: 820, y: 420,
     resumen: "Base del tratamiento controlador. Controlan síntomas, no cambian la historia natural.",
     teoria: [
@@ -941,7 +944,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "cort-sistemicos", titulo: "Corticoides sistémicos", tipo: "concepto",
+    id: "cort-sistemicos", nivel: 2, titulo: "Corticoides sistémicos", tipo: "concepto",
     x: 950, y: 520,
     resumen: "Indicados en la crisis asmática; sin beneficio en bronquiolitis ni de rutina en preescolares con sibilancias virales.",
     teoria: [
@@ -953,7 +956,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "crisis", titulo: "Crisis asmática", tipo: "concepto",
+    id: "crisis", nivel: 1, titulo: "Crisis asmática", tipo: "concepto",
     x: 1105, y: 395,
     resumen: "Evaluación de la gravedad y tratamiento escalonado en la guardia.",
     teoria: [
@@ -973,7 +976,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "espirometria", titulo: "Espirometría", tipo: "concepto",
+    id: "espirometria", nivel: 2, titulo: "Espirometría", tipo: "concepto",
     x: 1110, y: 195,
     resumen: "Confirma la obstrucción variable en niños de 6 años o más.",
     teoria: [
@@ -985,7 +988,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ambiente", titulo: "Tabaco y ambiente", tipo: "concepto",
+    id: "ambiente", nivel: 3, titulo: "Tabaco y ambiente", tipo: "concepto",
     x: 950, y: 85,
     resumen: "Humo de tabaco, contaminación y alérgenos: factores modificables en los tres cuadros.",
     teoria: [
@@ -1001,7 +1004,7 @@ window.NODOS = [
      Columnas: cómo lo nombramos · durante la crisis · entre crisis · con el tiempo */
 
   {
-    id: "sr-terminos", mapa: "sibilancias", titulo: "Sibilancia, broncoespasmo e hiperreactividad", corto: "Sibilancia ≠ broncoespasmo", tipo: "concepto",
+    id: "sr-terminos", nivel: 1, mapa: "sibilancias", titulo: "Sibilancia, broncoespasmo e hiperreactividad", corto: "Sibilancia ≠ broncoespasmo", tipo: "concepto",
     x: 150, y: 165,
     resumen: "Un signo, un mecanismo y una propiedad fisiológica. Confundirlos lleva a tratar el ruido.",
     teoria: [
@@ -1014,7 +1017,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-ers", mapa: "sibilancias", titulo: "Definición ERS 2024", tipo: "concepto",
+    id: "sr-ers", nivel: 2, mapa: "sibilancias", titulo: "Definición ERS 2024", tipo: "concepto",
     x: 150, y: 285,
     resumen: "Menor de 6 años, más de un episodio y al menos uno confirmado.",
     teoria: [
@@ -1027,7 +1030,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-gina5", mapa: "sibilancias", titulo: "Asma en menores de 6 años", corto: "Asma en ≤ 5 años (GINA)", tipo: "concepto",
+    id: "sr-gina5", nivel: 2, mapa: "sibilancias", titulo: "Asma en menores de 6 años", corto: "Asma en ≤ 5 años (GINA)", tipo: "concepto",
     x: 150, y: 405,
     resumen: "Tres elementos juntos: patrón compatible, sin causa alternativa y respuesta documentada al tratamiento.",
     teoria: [
@@ -1040,7 +1043,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-alternativas", mapa: "sibilancias", titulo: "Causas alternativas", tipo: "concepto",
+    id: "sr-alternativas", nivel: 2, mapa: "sibilancias", titulo: "Causas alternativas", tipo: "concepto",
     x: 150, y: 525,
     resumen: "Lo que obliga a pensar en otra cosa antes de hablar de asma.",
     teoria: [
@@ -1053,7 +1056,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-gravedad", mapa: "sibilancias", titulo: "Gravedad y respuesta", tipo: "concepto",
+    id: "sr-gravedad", nivel: 1, mapa: "sibilancias", titulo: "Gravedad y respuesta", tipo: "concepto",
     x: 450, y: 185,
     resumen: "Primero cuánto le cuesta respirar; después cuánto cambia con el salbutamol.",
     teoria: [
@@ -1066,7 +1069,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-salbutamol", mapa: "sibilancias", titulo: "Salbutamol con aerocámara", tipo: "concepto",
+    id: "sr-salbutamol", nivel: 1, mapa: "sibilancias", titulo: "Salbutamol con aerocámara", tipo: "concepto",
     x: 450, y: 335,
     resumen: "Rescate de elección en el preescolar con sibilancias recurrentes.",
     teoria: [
@@ -1078,7 +1081,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-cort-oral", mapa: "sibilancias", titulo: "Corticoide oral en la crisis", corto: "Corticoide oral", tipo: "concepto",
+    id: "sr-cort-oral", nivel: 2, mapa: "sibilancias", titulo: "Corticoide oral en la crisis", corto: "Corticoide oral", tipo: "concepto",
     x: 450, y: 485,
     resumen: "Beneficio modesto, mayor en quienes ya tienen historia de sibilancias o asma.",
     teoria: [
@@ -1102,7 +1105,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-patron", mapa: "sibilancias", titulo: "Patrón entre episodios", tipo: "concepto",
+    id: "sr-patron", nivel: 1, mapa: "sibilancias", titulo: "Patrón entre episodios", tipo: "concepto",
     x: 750, y: 165,
     resumen: "La pregunta que más cambia la interpretación: ¿cómo está cuando se le pasa el resfrío?",
     teoria: [
@@ -1115,7 +1118,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-ci-diario", mapa: "sibilancias", titulo: "Corticoide inhalado diario", corto: "CI diario", tipo: "concepto",
+    id: "sr-ci-diario", nivel: 1, mapa: "sibilancias", titulo: "Corticoide inhalado diario", corto: "CI diario", tipo: "concepto",
     x: 750, y: 285,
     resumen: "Controlador de elección cuando hay síntomas entre episodios o crisis frecuentes. Prueba de 2 a 3 meses.",
     teoria: [
@@ -1141,7 +1144,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-ci-intermitente", mapa: "sibilancias", titulo: "Corticoide inhalado intermitente", corto: "CI intermitente", tipo: "concepto",
+    id: "sr-ci-intermitente", nivel: 2, mapa: "sibilancias", titulo: "Corticoide inhalado intermitente", corto: "CI intermitente", tipo: "concepto",
     x: 750, y: 405,
     resumen: "Alternativa en chicos que están bien entre resfríos y tuvieron crisis importantes.",
     teoria: [
@@ -1165,7 +1168,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-ambiente", mapa: "sibilancias", titulo: "Humedad, humo y hogar", corto: "Humedad y humo", tipo: "concepto",
+    id: "sr-ambiente", nivel: 3, mapa: "sibilancias", titulo: "Humedad, humo y hogar", corto: "Humedad y humo", tipo: "concepto",
     x: 750, y: 525,
     resumen: "Factores del hogar que se pueden cambiar: humo de tabaco, sahumerios, humedad y moho.",
     teoria: [
@@ -1178,7 +1181,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-trayectorias", mapa: "sibilancias", titulo: "Trayectorias de sibilancias", corto: "Trayectorias", tipo: "concepto",
+    id: "sr-trayectorias", nivel: 1, mapa: "sibilancias", titulo: "Trayectorias de sibilancias", corto: "Trayectorias", tipo: "concepto",
     x: 1050, y: 165,
     resumen: "Tucson y ALSPAC: historias que solo se pueden nombrar cuando el chico creció.",
     teoria: [
@@ -1192,7 +1195,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-rinovirus", mapa: "sibilancias", titulo: "Rinovirus y riesgo de asma", corto: "Rinovirus", tipo: "concepto",
+    id: "sr-rinovirus", nivel: 3, mapa: "sibilancias", titulo: "Rinovirus y riesgo de asma", corto: "Rinovirus", tipo: "concepto",
     x: 1050, y: 285,
     resumen: "Sibilar con rinovirus en los primeros años se asocia fuertemente con asma a los 6.",
     teoria: [
@@ -1216,7 +1219,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-ipa", mapa: "sibilancias", titulo: "IPA y rasgos tratables", tipo: "concepto",
+    id: "sr-ipa", nivel: 2, mapa: "sibilancias", titulo: "IPA y rasgos tratables", tipo: "concepto",
     x: 1050, y: 405,
     resumen: "Predecir asma (IPA) y predecir respuesta al tratamiento (eosinófilos, sensibilización) son preguntas distintas.",
     teoria: [
@@ -1229,7 +1232,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sr-historia", mapa: "sibilancias", titulo: "¿El corticoide inhalado cambia la evolución?", corto: "¿El CI cambia la evolución?", tipo: "concepto",
+    id: "sr-historia", nivel: 3, mapa: "sibilancias", titulo: "¿El corticoide inhalado cambia la evolución?", corto: "¿El CI cambia la evolución?", tipo: "concepto",
     x: 1050, y: 525,
     resumen: "No. Controla síntomas mientras se usa, pero no previene el asma.",
     teoria: [
@@ -1246,7 +1249,7 @@ window.NODOS = [
      Columnas: diagnóstico · control · tratamiento · crisis */
 
   {
-    id: "sa-sintomas", mapa: "asma", titulo: "Síntomas variables", tipo: "concepto",
+    id: "sa-sintomas", nivel: 1, mapa: "asma", titulo: "Síntomas variables", tipo: "concepto",
     x: 150, y: 165,
     resumen: "Lo que sugiere asma en la historia: síntomas que van y vienen, con desencadenantes típicos.",
     teoria: [
@@ -1259,7 +1262,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-espirometria", mapa: "asma", titulo: "Espirometría y prueba broncodilatadora", corto: "Espirometría", tipo: "concepto",
+    id: "sa-espirometria", nivel: 1, mapa: "asma", titulo: "Espirometría y prueba broncodilatadora", corto: "Espirometría", tipo: "concepto",
     x: 150, y: 285,
     resumen: "La prueba que confirma la obstrucción variable. Una espirometría normal no la descarta.",
     teoria: [
@@ -1272,7 +1275,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-pruebas", mapa: "asma", titulo: "FeNO, PEF y pruebas de provocación", corto: "FeNO, PEF y provocación", tipo: "concepto",
+    id: "sa-pruebas", nivel: 2, mapa: "asma", titulo: "FeNO, PEF y pruebas de provocación", corto: "FeNO, PEF y provocación", tipo: "concepto",
     x: 150, y: 405,
     resumen: "Herramientas para cuando la espirometría no alcanza.",
     teoria: [
@@ -1284,7 +1287,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-diferencial", mapa: "asma", titulo: "Si no responde, revisar el diagnóstico", corto: "Revisar el diagnóstico", tipo: "concepto",
+    id: "sa-diferencial", nivel: 2, mapa: "asma", titulo: "Si no responde, revisar el diagnóstico", corto: "Revisar el diagnóstico", tipo: "concepto",
     x: 150, y: 525,
     resumen: "En edad escolar y adolescencia, varias cosas se parecen al asma.",
     teoria: [
@@ -1296,7 +1299,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-control", mapa: "asma", titulo: "Control de síntomas", tipo: "concepto",
+    id: "sa-control", nivel: 1, mapa: "asma", titulo: "Control de síntomas", tipo: "concepto",
     x: 450, y: 165,
     resumen: "Cuatro preguntas sobre las últimas 4 semanas, o un cuestionario validado.",
     teoria: [
@@ -1309,7 +1312,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-riesgo", mapa: "asma", titulo: "Riesgo futuro de crisis", corto: "Riesgo futuro", tipo: "concepto",
+    id: "sa-riesgo", nivel: 2, mapa: "asma", titulo: "Riesgo futuro de crisis", corto: "Riesgo futuro", tipo: "concepto",
     x: 450, y: 285,
     resumen: "Un chico con pocos síntomas puede tener alto riesgo de crisis.",
     teoria: [
@@ -1322,7 +1325,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-tecnica", mapa: "asma", titulo: "Técnica y adherencia", tipo: "concepto",
+    id: "sa-tecnica", nivel: 2, mapa: "asma", titulo: "Técnica y adherencia", tipo: "concepto",
     x: 450, y: 405,
     resumen: "La primera causa de asma «que no responde». Revisar antes de subir un escalón.",
     teoria: [
@@ -1335,7 +1338,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-comorbilidades", mapa: "asma", titulo: "Comorbilidades y ambiente", corto: "Comorbilidades", tipo: "concepto",
+    id: "sa-comorbilidades", nivel: 3, mapa: "asma", titulo: "Comorbilidades y ambiente", corto: "Comorbilidades", tipo: "concepto",
     x: 450, y: 525,
     resumen: "Rinitis, obesidad, humo y ansiedad empeoran el control.",
     teoria: [
@@ -1347,7 +1350,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-escalones", mapa: "asma", titulo: "Escalones de tratamiento de 6 a 11 años", corto: "Escalones 6 a 11 años", tipo: "concepto",
+    id: "sa-escalones", nivel: 1, mapa: "asma", titulo: "Escalones de tratamiento de 6 a 11 años", corto: "Escalones 6 a 11 años", tipo: "concepto",
     x: 750, y: 150,
     resumen: "Cinco pasos de GINA, siempre con CI desde el inicio.",
     teoria: [
@@ -1361,7 +1364,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-mart", mapa: "asma", titulo: "Mantenimiento y rescate con budesonida-formoterol", corto: "MART", tipo: "concepto",
+    id: "sa-mart", nivel: 2, mapa: "asma", titulo: "Mantenimiento y rescate con budesonida-formoterol", corto: "MART", tipo: "concepto",
     x: 750, y: 255,
     resumen: "Un solo inhalador para el día a día y para los síntomas. Menos crisis.",
     teoria: [
@@ -1385,7 +1388,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-adolescentes", mapa: "asma", titulo: "Adolescentes: corticoide-formoterol a demanda", corto: "12 años o más", tipo: "concepto",
+    id: "sa-adolescentes", nivel: 2, mapa: "asma", titulo: "Adolescentes: corticoide-formoterol a demanda", corto: "12 años o más", tipo: "concepto",
     x: 750, y: 360,
     resumen: "Desde los 12 años, GINA desaconseja el salbutamol solo y prefiere budesonida-formoterol a demanda.",
     teoria: [
@@ -1409,7 +1412,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-biologicos", mapa: "asma", titulo: "Asma grave y biológicos", corto: "Biológicos", tipo: "concepto",
+    id: "sa-biologicos", nivel: 3, mapa: "asma", titulo: "Asma grave y biológicos", corto: "Biológicos", tipo: "concepto",
     x: 750, y: 465,
     resumen: "Para el asma grave confirmada por especialista, según el fenotipo.",
     teoria: [
@@ -1434,7 +1437,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-seguridad", mapa: "asma", titulo: "Seguridad del corticoide inhalado", corto: "CI y talla", tipo: "concepto",
+    id: "sa-seguridad", nivel: 3, mapa: "asma", titulo: "Seguridad del corticoide inhalado", corto: "CI y talla", tipo: "concepto",
     x: 750, y: 570,
     resumen: "Efecto pequeño y no progresivo sobre la talla. Usar la dosis mínima eficaz.",
     teoria: [
@@ -1458,7 +1461,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-crisis-gravedad", mapa: "asma", titulo: "Gravedad de la crisis", tipo: "concepto",
+    id: "sa-crisis-gravedad", nivel: 1, mapa: "asma", titulo: "Gravedad de la crisis", tipo: "concepto",
     x: 1050, y: 150,
     resumen: "Clasificar en minutos para decidir dónde y cómo tratar.",
     teoria: [
@@ -1471,7 +1474,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-crisis-broncod", mapa: "asma", titulo: "Salbutamol e ipratropio", tipo: "concepto",
+    id: "sa-crisis-broncod", nivel: 1, mapa: "asma", titulo: "Salbutamol e ipratropio", tipo: "concepto",
     x: 1050, y: 255,
     resumen: "Salbutamol repetido en la primera hora; ipratropio en crisis moderadas y graves.",
     teoria: [
@@ -1494,7 +1497,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-crisis-cort", mapa: "asma", titulo: "Corticoide sistémico en la crisis", corto: "Corticoide sistémico", tipo: "concepto",
+    id: "sa-crisis-cort", nivel: 2, mapa: "asma", titulo: "Corticoide sistémico en la crisis", corto: "Corticoide sistémico", tipo: "concepto",
     x: 1050, y: 360,
     resumen: "En la primera hora. Dexametasona o prednisolona, con eficacia similar.",
     teoria: [
@@ -1506,7 +1509,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-crisis-mg", mapa: "asma", titulo: "Sulfato de magnesio", tipo: "concepto",
+    id: "sa-crisis-mg", nivel: 3, mapa: "asma", titulo: "Sulfato de magnesio", tipo: "concepto",
     x: 1050, y: 465,
     resumen: "En la crisis grave que no responde al tratamiento inicial.",
     teoria: [
@@ -1530,7 +1533,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "sa-alta", mapa: "asma", titulo: "Alta y plan de acción", corto: "Alta y seguimiento", tipo: "concepto",
+    id: "sa-alta", nivel: 1, mapa: "asma", titulo: "Alta y plan de acción", corto: "Alta y seguimiento", tipo: "concepto",
     x: 1050, y: 570,
     resumen: "Cada crisis es una señal de que el tratamiento de base no alcanza.",
     teoria: [
@@ -1545,7 +1548,7 @@ window.NODOS = [
      Zonas: diagnóstico · evaluación · tratamiento · crisis. Fuente: GINA 2026, guía resumida. */
 
   {
-    id: "g-dx-criterios", mapa: "gina", titulo: "Dos rasgos que definen el asma", corto: "Qué define el asma", tipo: "concepto",
+    id: "g-dx-criterios", nivel: 1, mapa: "gina", titulo: "Dos rasgos que definen el asma", corto: "Qué define el asma", tipo: "concepto",
     x: 180, y: 120, fuente: "GINA 2026, guía resumida, págs. 6–7",
     resumen: "Síntomas respiratorios variables y flujo espiratorio variable, documentados antes de empezar el CI.",
     teoria: [
@@ -1558,7 +1561,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-dx-flujo", mapa: "gina", titulo: "Flujo espiratorio variable", tipo: "concepto",
+    id: "g-dx-flujo", nivel: 2, mapa: "gina", titulo: "Flujo espiratorio variable", tipo: "concepto",
     x: 100, y: 200, fuente: "GINA 2026, guía resumida, pág. 8 (tabla 1)",
     resumen: "Cinco maneras de documentarlo, con puntos de corte distintos para niños.",
     teoria: [
@@ -1570,7 +1573,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-dx-biomarcadores", mapa: "gina", titulo: "FeNO y eosinófilos", tipo: "concepto",
+    id: "g-dx-biomarcadores", nivel: 3, mapa: "gina", titulo: "FeNO y eosinófilos", tipo: "concepto",
     x: 260, y: 200, fuente: "GINA 2026, guía resumida, pág. 8",
     resumen: "Apoyan el diagnóstico de asma tipo 2 si los síntomas son típicos. Valores bajos no la descartan.",
     teoria: [
@@ -1582,7 +1585,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-dx-con-ics", mapa: "gina", titulo: "Confirmar el diagnóstico en quien ya usa CI", corto: "Si ya usa CI", tipo: "concepto",
+    id: "g-dx-con-ics", nivel: 3, mapa: "gina", titulo: "Confirmar el diagnóstico en quien ya usa CI", corto: "Si ya usa CI", tipo: "concepto",
     x: 100, y: 280, fuente: "GINA 2026, guía resumida, pág. 9",
     resumen: "Subir o bajar el tratamiento y volver a medir.",
     teoria: [
@@ -1594,7 +1597,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-dx-tos", mapa: "gina", titulo: "Tos como único síntoma", tipo: "concepto",
+    id: "g-dx-tos", nivel: 3, mapa: "gina", titulo: "Tos como único síntoma", tipo: "concepto",
     x: 260, y: 280, fuente: "GINA 2026, guía resumida, pág. 9",
     resumen: "El asma variante tos existe, pero la tos crónica tiene muchas otras causas.",
     teoria: [
@@ -1606,7 +1609,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-ev-control", mapa: "gina", titulo: "Control de síntomas", tipo: "concepto",
+    id: "g-ev-control", nivel: 1, mapa: "gina", titulo: "Control de síntomas", tipo: "concepto",
     x: 100, y: 410, fuente: "GINA 2026, guía resumida, pág. 12 (tabla 2A)",
     resumen: "Cuatro preguntas sobre las últimas 4 semanas. Evaluar en cada visita y al menos una vez por año.",
     teoria: [
@@ -1618,7 +1621,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-ev-riesgo", mapa: "gina", titulo: "Factores de riesgo", tipo: "concepto",
+    id: "g-ev-riesgo", nivel: 1, mapa: "gina", titulo: "Factores de riesgo", tipo: "concepto",
     x: 260, y: 410, fuente: "GINA 2026, guía resumida, pág. 12 (tabla 2B)",
     resumen: "Riesgo de crisis, de obstrucción persistente y de efectos adversos. Pueden estar presentes con pocos síntomas.",
     teoria: [
@@ -1631,7 +1634,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-ev-funcion", mapa: "gina", titulo: "Función pulmonar en el seguimiento", corto: "Función pulmonar", tipo: "concepto",
+    id: "g-ev-funcion", nivel: 3, mapa: "gina", titulo: "Función pulmonar en el seguimiento", corto: "Función pulmonar", tipo: "concepto",
     x: 100, y: 490, fuente: "GINA 2026, guía resumida, pág. 11",
     resumen: "Antes de iniciar CI, a los 3–6 meses y después cada 1–2 años.",
     teoria: [
@@ -1643,7 +1646,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-ev-gravedad", mapa: "gina", titulo: "Asma leve, difícil de tratar y grave", corto: "Leve, difícil o grave", tipo: "concepto",
+    id: "g-ev-gravedad", nivel: 3, mapa: "gina", titulo: "Asma leve, difícil de tratar y grave", corto: "Leve, difícil o grave", tipo: "concepto",
     x: 260, y: 490, fuente: "GINA 2026, guía resumida, pág. 13",
     resumen: "La gravedad se define por el tratamiento que necesita, y se evalúa después de meses de tratamiento.",
     teoria: [
@@ -1655,7 +1658,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-ev-nocontrol", mapa: "gina", titulo: "Si no está controlada: qué revisar", corto: "Si no está controlada", tipo: "concepto",
+    id: "g-ev-nocontrol", nivel: 2, mapa: "gina", titulo: "Si no está controlada: qué revisar", corto: "Si no está controlada", tipo: "concepto",
     x: 100, y: 570, fuente: "GINA 2026, guía resumida, pág. 14 (figura 2)",
     resumen: "Buscar la causa antes de cambiar el tratamiento. Siempre técnica y adherencia primero.",
     teoria: [
@@ -1666,7 +1669,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-ev-pob", mapa: "gina", titulo: "Comorbilidades y situaciones especiales", corto: "Comorbilidades", tipo: "concepto",
+    id: "g-ev-pob", nivel: 3, mapa: "gina", titulo: "Comorbilidades y situaciones especiales", corto: "Comorbilidades", tipo: "concepto",
     x: 260, y: 570, fuente: "GINA 2026, guía resumida, págs. 31–33",
     resumen: "Rinitis, obesidad, reflujo, alergia alimentaria, cirugía, virus respiratorios.",
     teoria: [
@@ -1678,7 +1681,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-tx-ciclo", mapa: "gina", titulo: "Evaluar, ajustar, revisar", tipo: "tema", edad: "El ciclo de la guía",
+    id: "g-tx-ciclo", nivel: 1, mapa: "gina", titulo: "Evaluar, ajustar, revisar", tipo: "tema", edad: "El ciclo de la guía",
     x: 600, y: 280, fuente: "GINA 2026, guía resumida, pág. 18 (figura 4)",
     resumen: "El centro de la guía: un ciclo continuo de decisión compartida con el paciente y su familia.",
     teoria: [
@@ -1692,7 +1695,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-tx-nosaba", mapa: "gina", titulo: "Nunca SABA solo", tipo: "concepto",
+    id: "g-tx-nosaba", nivel: 1, mapa: "gina", titulo: "Nunca SABA solo", tipo: "concepto",
     x: 440, y: 105, fuente: "GINA 2026, guía resumida, pág. 15",
     resumen: "Todo paciente de 6 años o más recibe un tratamiento que incluya CI, aunque tenga pocos síntomas.",
     teoria: [
@@ -1704,7 +1707,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-tx-air", mapa: "gina", titulo: "Rescate antiinflamatorio (AIR)", corto: "Rescate antiinflamatorio", tipo: "concepto",
+    id: "g-tx-air", nivel: 2, mapa: "gina", titulo: "Rescate antiinflamatorio (AIR)", corto: "Rescate antiinflamatorio", tipo: "concepto",
     x: 600, y: 105, fuente: "GINA 2026, guía resumida, págs. 15, 21 y 38",
     resumen: "El rescate que además trae corticoide: CI-formoterol o CI-SABA.",
     teoria: [
@@ -1717,7 +1720,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-tx-inhalador", mapa: "gina", titulo: "Elegir y enseñar el inhalador", corto: "Elegir el inhalador", tipo: "concepto",
+    id: "g-tx-inhalador", nivel: 2, mapa: "gina", titulo: "Elegir y enseñar el inhalador", corto: "Elegir el inhalador", tipo: "concepto",
     x: 760, y: 105, fuente: "GINA 2026, guía resumida, págs. 16–17 y 20 (figura 3)",
     resumen: "Cinco preguntas para elegir, y verificar la técnica en cada oportunidad.",
     teoria: [
@@ -1730,7 +1733,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-ni-inicio", mapa: "gina", titulo: "Tratamiento inicial de 6 a 11 años", corto: "Inicio 6 a 11 años", tipo: "concepto",
+    id: "g-ni-inicio", nivel: 2, mapa: "gina", titulo: "Tratamiento inicial de 6 a 11 años", corto: "Inicio 6 a 11 años", tipo: "concepto",
     x: 430, y: 215, fuente: "GINA 2026, guía resumida, pág. 28 (tabla 4)",
     resumen: "Según la frecuencia de los síntomas al diagnóstico.",
     teoria: [
@@ -1742,7 +1745,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-ni-pasos", mapa: "gina", titulo: "Pasos de tratamiento de 6 a 11 años", corto: "Pasos 6 a 11 años", tipo: "concepto",
+    id: "g-ni-pasos", nivel: 1, mapa: "gina", titulo: "Pasos de tratamiento de 6 a 11 años", corto: "Pasos 6 a 11 años", tipo: "concepto",
     x: 430, y: 345, fuente: "GINA 2026, guía resumida, págs. 29–31 (figura 8)",
     resumen: "Cinco pasos; desde el paso 2, CI todos los días.",
     teoria: [
@@ -1755,7 +1758,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-ad-inicio", mapa: "gina", titulo: "Tratamiento inicial desde los 12 años", corto: "Inicio 12 años o más", tipo: "concepto",
+    id: "g-ad-inicio", nivel: 2, mapa: "gina", titulo: "Tratamiento inicial desde los 12 años", corto: "Inicio 12 años o más", tipo: "concepto",
     x: 770, y: 215, fuente: "GINA 2026, guía resumida, pág. 22 (tabla 3)",
     resumen: "Track 1 preferido: CI-formoterol según la frecuencia de los síntomas.",
     teoria: [
@@ -1766,7 +1769,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-ad-track1", mapa: "gina", titulo: "Track 1: CI-formoterol como rescate", corto: "Track 1", tipo: "concepto",
+    id: "g-ad-track1", nivel: 1, mapa: "gina", titulo: "Track 1: CI-formoterol como rescate", corto: "Track 1", tipo: "concepto",
     x: 770, y: 345, fuente: "GINA 2026, guía resumida, págs. 23–24 (figuras 5 y 6)",
     resumen: "El camino preferido desde los 12 años: un solo inhalador para el rescate y el mantenimiento.",
     teoria: [
@@ -1779,7 +1782,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-ad-track2", mapa: "gina", titulo: "Track 2: rescate CI-SABA o SABA", corto: "Track 2", tipo: "concepto",
+    id: "g-ad-track2", nivel: 2, mapa: "gina", titulo: "Track 2: rescate CI-SABA o SABA", corto: "Track 2", tipo: "concepto",
     x: 810, y: 440, fuente: "GINA 2026, guía resumida, pág. 25 (figura 7)",
     resumen: "La alternativa cuando no hay CI-formoterol, o si el paciente está estable y adherente con su esquema.",
     teoria: [
@@ -1791,7 +1794,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-tx-dosis", mapa: "gina", titulo: "Tablas de dosis de CI y de AIR/MART", corto: "Tablas de dosis", tipo: "concepto",
+    id: "g-tx-dosis", nivel: 3, mapa: "gina", titulo: "Tablas de dosis de CI y de AIR/MART", corto: "Tablas de dosis", tipo: "concepto",
     x: 600, y: 440, fuente: "GINA 2026, guía resumida, págs. 44–45 (tablas 6 y 7)",
     resumen: "Dosis baja, media y alta de cada CI, y cómo usar el CI-formoterol según edad y paso.",
     teoria: [
@@ -1803,7 +1806,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-tx-bajar", mapa: "gina", titulo: "Bajar de escalón", tipo: "concepto",
+    id: "g-tx-bajar", nivel: 2, mapa: "gina", titulo: "Bajar de escalón", tipo: "concepto",
     x: 430, y: 455, fuente: "GINA 2026, guía resumida, págs. 27 y 31",
     resumen: "Tras 2–3 meses de buen control: buscar el paso más bajo que controle síntomas y crisis.",
     teoria: [
@@ -1814,7 +1817,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-tx-grave", mapa: "gina", titulo: "Paso 5: asma grave", corto: "Asma grave (paso 5)", tipo: "concepto",
+    id: "g-tx-grave", nivel: 3, mapa: "gina", titulo: "Paso 5: asma grave", corto: "Asma grave (paso 5)", tipo: "concepto",
     x: 500, y: 565, fuente: "GINA 2026, guía resumida, págs. 26, 30 y 40–42",
     resumen: "Derivar a un especialista en asma pediátrica para evaluar el fenotipo y agregar tratamiento.",
     teoria: [
@@ -1827,7 +1830,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-tx-otros", mapa: "gina", titulo: "Otras opciones y tratamientos no recomendados", corto: "Otras y no recomendadas", tipo: "concepto",
+    id: "g-tx-otros", nivel: 3, mapa: "gina", titulo: "Otras opciones y tratamientos no recomendados", corto: "Otras y no recomendadas", tipo: "concepto",
     x: 720, y: 565, fuente: "GINA 2026, guía resumida, págs. 19, 27, 31 y 40",
     resumen: "Montelukast, inmunoterapia, medidas no farmacológicas, y lo que GINA desaconseja.",
     teoria: [
@@ -1840,7 +1843,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-cr-plan", mapa: "gina", titulo: "Plan de acción escrito", tipo: "concepto",
+    id: "g-cr-plan", nivel: 1, mapa: "gina", titulo: "Plan de acción escrito", tipo: "concepto",
     x: 1020, y: 115, fuente: "GINA 2026, guía resumida, págs. 21 y 33–34",
     resumen: "Escrito, digital o con dibujos; nunca solo verbal. Dice qué hacer cuando empeora y cuándo consultar.",
     teoria: [
@@ -1853,7 +1856,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-cr-gravedad", mapa: "gina", titulo: "Gravedad de la crisis", tipo: "concepto",
+    id: "g-cr-gravedad", nivel: 2, mapa: "gina", titulo: "Gravedad de la crisis", tipo: "concepto",
     x: 950, y: 215, fuente: "GINA 2026, guía resumida, págs. 35–36 (figura 9)",
     resumen: "Leve, moderada o grave; en menores de 18 años, con el PRAM.",
     teoria: [
@@ -1865,7 +1868,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-cr-tratamiento", mapa: "gina", titulo: "Tratamiento de la crisis", tipo: "concepto",
+    id: "g-cr-tratamiento", nivel: 1, mapa: "gina", titulo: "Tratamiento de la crisis", tipo: "concepto",
     x: 1090, y: 295, fuente: "GINA 2026, guía resumida, págs. 35–36 (figura 9)",
     resumen: "Salbutamol con aerocámara según gravedad, ipratropio, oxígeno y corticoide sistémico.",
     teoria: [
@@ -1879,7 +1882,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-cr-ocs", mapa: "gina", titulo: "Corticoide oral", tipo: "concepto",
+    id: "g-cr-ocs", nivel: 2, mapa: "gina", titulo: "Corticoide oral", tipo: "concepto",
     x: 950, y: 375, fuente: "GINA 2026, guía resumida, págs. 34–35 y 42",
     resumen: "Puede salvar vidas en la crisis grave, pero cada curso suma efectos adversos.",
     teoria: [
@@ -1892,7 +1895,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-cr-alta", mapa: "gina", titulo: "Criterios de alta", tipo: "concepto",
+    id: "g-cr-alta", nivel: 2, mapa: "gina", titulo: "Criterios de alta", tipo: "concepto",
     x: 1090, y: 455, fuente: "GINA 2026, guía resumida, págs. 35–36",
     resumen: "Criterios de crisis leve durante 1–2 horas, saturación ≥ 92 % y recursos en casa.",
     teoria: [
@@ -1904,7 +1907,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "g-cr-seguimiento", mapa: "gina", titulo: "Seguimiento después de la crisis", corto: "Seguimiento", tipo: "concepto",
+    id: "g-cr-seguimiento", nivel: 3, mapa: "gina", titulo: "Seguimiento después de la crisis", corto: "Seguimiento", tipo: "concepto",
     x: 1000, y: 560, fuente: "GINA 2026, guía resumida, págs. 35–37",
     resumen: "Control en 2 a 5 días en niños; la crisis es una señal para revisar todo el tratamiento.",
     teoria: [
@@ -1916,27 +1919,9 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
 
-  /* ───── Inicio: materias ───── */
-  {
-    id: "m-sibilancias", mapa: "inicio", titulo: "Sibilancias", tipo: "tema", edad: "Del lactante al escolar", color: "var(--edad-2)",
-    x: 330, y: 300, submapa: "raiz",
-    resumen: "Bronquiolitis, sibilancias recurrentes y asma: tres cuadros que suelen verse como uno solo a lo largo de la infancia.",
-    teoria: [{ h: "Qué hay en este mapa", html: "<p>Un mapa ordenado por edad con tres temas (bronquiolitis, sibilancias recurrentes y asma), dos submapas y la guía GINA 2026 convertida en grafo.</p>" }],
-    evidencia: [], pico: [], ateneos: [], conexiones: [],
-    revision: { estado: "borrador", revisor: null, fecha: null }
-  },
-  {
-    id: "m-exantemas", mapa: "inicio", titulo: "Exantemas", tipo: "tema", edad: "Subtipos y causas", color: "var(--derm)",
-    x: 870, y: 300, submapa: "exantemas",
-    resumen: "Los exantemas agrupados por el tipo de lesión y coloreados por su causa: infecciosa, alérgica o por fármacos, o inflamatoria.",
-    teoria: [{ h: "Qué hay en este mapa", html: "<p>Seis zonas (maculopapular, eritema difuso, vesículas y ampollas, petequias y púrpura, habones y dianas, y cómo abordarlo), con recorridos para seguir casos frecuentes de la guardia y el consultorio.</p>" }],
-    evidencia: [], pico: [], ateneos: [], conexiones: [],
-    revision: { estado: "borrador", revisor: null, fecha: null }
-  },
-
   /* ───── Dermatología › Exantemas ───── */
   {
-    id: "ex-abordaje", mapa: "exantemas", titulo: "Cómo abordar un exantema", corto: "Abordaje", tipo: "tema", edad: "El punto de partida", color: "var(--derm)",
+    id: "ex-abordaje", nivel: 1, mapa: "exantemas", titulo: "Cómo abordar un exantema", corto: "Abordaje", tipo: "tema", edad: "El punto de partida", color: "var(--derm)",
     x: 600, y: 145,
     resumen: "Tres preguntas ordenan casi todo: qué lesión domina, cómo está el chico y qué pasó antes (fiebre, fármacos, contactos, vacunas).",
     teoria: [
@@ -1950,7 +1935,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-alarma", mapa: "exantemas", titulo: "Señales de alarma", tipo: "concepto",
+    id: "ex-alarma", nivel: 1, mapa: "exantemas", titulo: "Señales de alarma", tipo: "concepto",
     x: 600, y: 285,
     resumen: "Los signos que cambian la conducta en minutos: petequias con fiebre, dolor de piel, ampollas, mucosas, hipotensión.",
     teoria: [
@@ -1964,7 +1949,7 @@ window.NODOS = [
 
   /* Maculopapular */
   {
-    id: "ex-sarampion", mapa: "exantemas", titulo: "Sarampión", tipo: "concepto", causa: "infecciosa",
+    id: "ex-sarampion", nivel: 1, mapa: "exantemas", titulo: "Sarampión", tipo: "concepto", causa: "infecciosa",
     x: 100, y: 125,
     resumen: "Pródromo de fiebre, tos, coriza y conjuntivitis; Koplik; exantema que empieza detrás de las orejas y baja.",
     teoria: [
@@ -1983,7 +1968,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-rubeola", mapa: "exantemas", titulo: "Rubéola", tipo: "concepto", causa: "infecciosa",
+    id: "ex-rubeola", nivel: 2, mapa: "exantemas", titulo: "Rubéola", tipo: "concepto", causa: "infecciosa",
     x: 230, y: 125,
     resumen: "Exantema leve y fugaz con adenopatías retroauriculares y occipitales. Lo grave es el contagio a embarazadas.",
     teoria: [
@@ -1995,7 +1980,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-roseola", mapa: "exantemas", titulo: "Exantema súbito (roséola)", corto: "Exantema súbito", tipo: "concepto", causa: "infecciosa",
+    id: "ex-roseola", nivel: 2, mapa: "exantemas", titulo: "Exantema súbito (roséola)", corto: "Exantema súbito", tipo: "concepto", causa: "infecciosa",
     x: 360, y: 125,
     resumen: "Lactante con 3 a 5 días de fiebre alta y buen estado; cuando la fiebre cede, aparece un exantema rosado.",
     teoria: [
@@ -2008,7 +1993,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-parvo", mapa: "exantemas", titulo: "Eritema infeccioso (parvovirus B19)", corto: "Eritema infeccioso", tipo: "concepto", causa: "infecciosa",
+    id: "ex-parvo", nivel: 2, mapa: "exantemas", titulo: "Eritema infeccioso (parvovirus B19)", corto: "Eritema infeccioso", tipo: "concepto", causa: "infecciosa",
     x: 100, y: 210,
     resumen: "Mejillas abofeteadas y luego un exantema en encaje en los miembros. Cuando aparece el exantema ya no contagia.",
     teoria: [
@@ -2020,7 +2005,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-viral", mapa: "exantemas", titulo: "Exantemas virales inespecíficos", corto: "Viral inespecífico", tipo: "concepto", causa: "infecciosa",
+    id: "ex-viral", nivel: 1, mapa: "exantemas", titulo: "Exantemas virales inespecíficos", corto: "Viral inespecífico", tipo: "concepto", causa: "infecciosa",
     x: 230, y: 210,
     resumen: "La causa más frecuente de exantema en la infancia: enterovirus, adenovirus y otros virus respiratorios.",
     teoria: [
@@ -2033,7 +2018,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-dengue", mapa: "exantemas", titulo: "Dengue", tipo: "concepto", causa: "infecciosa",
+    id: "ex-dengue", nivel: 2, mapa: "exantemas", titulo: "Dengue", tipo: "concepto", causa: "infecciosa",
     x: 360, y: 210,
     resumen: "Fiebre alta con dolor retroocular y muscular; el exantema llega al bajar la fiebre, que es también cuando aparecen las complicaciones.",
     teoria: [
@@ -2046,7 +2031,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-mono", mapa: "exantemas", titulo: "Mononucleosis y amoxicilina", corto: "Mononucleosis + amoxicilina", tipo: "concepto", causa: ["infecciosa", "alergica"],
+    id: "ex-mono", nivel: 2, mapa: "exantemas", titulo: "Mononucleosis y amoxicilina", corto: "Mononucleosis + amoxicilina", tipo: "concepto", causa: ["infecciosa", "alergica"],
     x: 105, y: 300,
     resumen: "El virus de Epstein-Barr puede dar exantema por sí solo, y más si se da amoxicilina; casi nunca es una alergia verdadera.",
     teoria: [
@@ -2065,7 +2050,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-farmaco", mapa: "exantemas", titulo: "Exantema morbiliforme por fármacos", corto: "Morbiliforme por fármacos", tipo: "concepto", causa: "alergica",
+    id: "ex-farmaco", nivel: 1, mapa: "exantemas", titulo: "Exantema morbiliforme por fármacos", corto: "Morbiliforme por fármacos", tipo: "concepto", causa: "alergica",
     x: 335, y: 300,
     resumen: "La reacción a fármacos más común: máculas y pápulas que aparecen días después de empezar. Casi siempre benigna, y muchas veces ni siquiera es por el fármaco.",
     teoria: [
@@ -2089,7 +2074,7 @@ window.NODOS = [
 
   /* Eritema difuso */
   {
-    id: "ex-escarlatina", mapa: "exantemas", titulo: "Escarlatina", tipo: "concepto", causa: "infecciosa",
+    id: "ex-escarlatina", nivel: 1, mapa: "exantemas", titulo: "Escarlatina", tipo: "concepto", causa: "infecciosa",
     x: 100, y: 450,
     resumen: "Estreptococo del grupo A: exantema áspero como papel de lija, lengua aframbuesada y descamación de manos y pies después.",
     teoria: [
@@ -2101,7 +2086,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-shock", mapa: "exantemas", titulo: "Síndrome de shock tóxico", corto: "Shock tóxico", tipo: "concepto", causa: "infecciosa",
+    id: "ex-shock", nivel: 3, mapa: "exantemas", titulo: "Síndrome de shock tóxico", corto: "Shock tóxico", tipo: "concepto", causa: "infecciosa",
     x: 235, y: 450,
     resumen: "Fiebre, hipotensión y eritrodermia como quemadura de sol por toxinas de estafilococo o estreptococo. Una urgencia.",
     teoria: [
@@ -2114,7 +2099,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-kawasaki", mapa: "exantemas", titulo: "Enfermedad de Kawasaki", corto: "Kawasaki", tipo: "concepto", causa: "inflamatoria",
+    id: "ex-kawasaki", nivel: 1, mapa: "exantemas", titulo: "Enfermedad de Kawasaki", corto: "Kawasaki", tipo: "concepto", causa: "inflamatoria",
     x: 365, y: 450,
     resumen: "Vasculitis de vasos medianos: fiebre de 5 días o más con conjuntivitis, labios rojos, exantema, cambios en manos y pies y adenopatía. Riesgo de aneurismas coronarios.",
     teoria: [
@@ -2136,7 +2121,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-misc", mapa: "exantemas", titulo: "Síndrome inflamatorio multisistémico (MIS-C)", corto: "MIS-C", tipo: "concepto", causa: "inflamatoria",
+    id: "ex-misc", nivel: 3, mapa: "exantemas", titulo: "Síndrome inflamatorio multisistémico (MIS-C)", corto: "MIS-C", tipo: "concepto", causa: "inflamatoria",
     x: 150, y: 560,
     resumen: "De 2 a 6 semanas después de una infección por SARS-CoV-2: fiebre, compromiso digestivo, shock y disfunción cardíaca. Se parece a Kawasaki, pero en chicos más grandes.",
     teoria: [
@@ -2154,7 +2139,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-dress", mapa: "exantemas", titulo: "DRESS", tipo: "concepto", causa: "alergica",
+    id: "ex-dress", nivel: 3, mapa: "exantemas", titulo: "DRESS", tipo: "concepto", causa: "alergica",
     x: 330, y: 560,
     resumen: "Reacción grave a fármacos semanas después de empezar: exantema extenso, edema facial, fiebre, adenopatías, eosinofilia y compromiso de órganos.",
     teoria: [
@@ -2169,7 +2154,7 @@ window.NODOS = [
 
   /* Vesículas y ampollas */
   {
-    id: "ex-varicela", mapa: "exantemas", titulo: "Varicela", tipo: "concepto", causa: "infecciosa",
+    id: "ex-varicela", nivel: 1, mapa: "exantemas", titulo: "Varicela", tipo: "concepto", causa: "infecciosa",
     x: 525, y: 420,
     resumen: "Vesículas como gotas de rocío en distintos estadios, de distribución central y muy pruriginosas.",
     teoria: [
@@ -2188,7 +2173,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-mpb", mapa: "exantemas", titulo: "Mano-pie-boca", tipo: "concepto", causa: "infecciosa",
+    id: "ex-mpb", nivel: 2, mapa: "exantemas", titulo: "Mano-pie-boca", tipo: "concepto", causa: "infecciosa",
     x: 680, y: 420,
     resumen: "Enterovirus: aftas en la boca y vesículas ovaladas en manos, pies y glúteos. El coxsackie A6 da formas extensas.",
     teoria: [
@@ -2201,7 +2186,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-eh", mapa: "exantemas", titulo: "Eccema herpético", tipo: "concepto", causa: "infecciosa",
+    id: "ex-eh", nivel: 3, mapa: "exantemas", titulo: "Eccema herpético", tipo: "concepto", causa: "infecciosa",
     x: 525, y: 505,
     resumen: "Herpes simple sobre la dermatitis atópica: vesículas iguales y erosiones en sacabocado, con fiebre. Necesita aciclovir.",
     teoria: [
@@ -2213,7 +2198,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-ssss", mapa: "exantemas", titulo: "Síndrome de piel escaldada estafilocócica", corto: "Piel escaldada (SSSS)", tipo: "concepto", causa: "infecciosa",
+    id: "ex-ssss", nivel: 2, mapa: "exantemas", titulo: "Síndrome de piel escaldada estafilocócica", corto: "Piel escaldada (SSSS)", tipo: "concepto", causa: "infecciosa",
     x: 680, y: 505,
     resumen: "Toxinas exfoliativas del estafilococo: eritema doloroso, ampollas flácidas y Nikolsky positivo, sin compromiso de mucosas.",
     teoria: [
@@ -2225,7 +2210,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-sjs", mapa: "exantemas", titulo: "Stevens-Johnson y necrólisis epidérmica tóxica", corto: "SJS / NET", tipo: "concepto", causa: ["alergica", "infecciosa"],
+    id: "ex-sjs", nivel: 2, mapa: "exantemas", titulo: "Stevens-Johnson y necrólisis epidérmica tóxica", corto: "SJS / NET", tipo: "concepto", causa: ["alergica", "infecciosa"],
     x: 600, y: 580,
     resumen: "Necrosis de la epidermis con compromiso de mucosas. En adultos casi siempre por fármacos; en niños, a menudo por infecciones.",
     teoria: [
@@ -2240,7 +2225,7 @@ window.NODOS = [
 
   /* Petequias y púrpura */
   {
-    id: "ex-meningococo", mapa: "exantemas", titulo: "Meningococcemia", tipo: "concepto", causa: "infecciosa",
+    id: "ex-meningococo", nivel: 1, mapa: "exantemas", titulo: "Meningococcemia", tipo: "concepto", causa: "infecciosa",
     x: 850, y: 150,
     resumen: "Petequias que no desaparecen con la presión, en un chico que se ve mal. Los signos tempranos son los de sepsis, no el exantema.",
     teoria: [
@@ -2252,7 +2237,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-petvir", mapa: "exantemas", titulo: "Petequias en contexto viral", corto: "Petequias virales", tipo: "concepto", causa: "infecciosa",
+    id: "ex-petvir", nivel: 2, mapa: "exantemas", titulo: "Petequias en contexto viral", corto: "Petequias virales", tipo: "concepto", causa: "infecciosa",
     x: 1090, y: 150,
     resumen: "La mayoría de los niños con fiebre y petequias tiene un virus. El desafío es reconocer al que no.",
     teoria: [
@@ -2265,7 +2250,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-iga", mapa: "exantemas", titulo: "Vasculitis por IgA (Schönlein-Henoch)", corto: "Vasculitis por IgA", tipo: "concepto", causa: "inflamatoria",
+    id: "ex-iga", nivel: 2, mapa: "exantemas", titulo: "Vasculitis por IgA (Schönlein-Henoch)", corto: "Vasculitis por IgA", tipo: "concepto", causa: "inflamatoria",
     x: 970, y: 235,
     resumen: "La vasculitis más frecuente en la infancia: púrpura palpable en piernas y glúteos con plaquetas normales, dolor abdominal, artritis y a veces nefritis.",
     teoria: [
@@ -2279,7 +2264,7 @@ window.NODOS = [
 
   /* Habones y dianas */
   {
-    id: "ex-urticaria", mapa: "exantemas", titulo: "Urticaria aguda", tipo: "concepto", causa: ["infecciosa", "alergica"],
+    id: "ex-urticaria", nivel: 1, mapa: "exantemas", titulo: "Urticaria aguda", tipo: "concepto", causa: ["infecciosa", "alergica"],
     x: 860, y: 395,
     resumen: "Habones que aparecen y desaparecen en menos de 24 horas. En niños, la causa más común es una infección viral, no un alimento.",
     teoria: [
@@ -2292,7 +2277,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-anafilaxia", mapa: "exantemas", titulo: "Anafilaxia", tipo: "concepto", causa: "alergica",
+    id: "ex-anafilaxia", nivel: 2, mapa: "exantemas", titulo: "Anafilaxia", tipo: "concepto", causa: "alergica",
     x: 1090, y: 395,
     resumen: "Reacción alérgica sistémica grave. La piel suele avisar, pero lo que define es el compromiso respiratorio o circulatorio. Adrenalina intramuscular primero.",
     teoria: [
@@ -2304,7 +2289,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-suero", mapa: "exantemas", titulo: "Reacción tipo enfermedad del suero", corto: "Tipo enfermedad del suero", tipo: "concepto", causa: "alergica",
+    id: "ex-suero", nivel: 3, mapa: "exantemas", titulo: "Reacción tipo enfermedad del suero", corto: "Tipo enfermedad del suero", tipo: "concepto", causa: "alergica",
     x: 975, y: 470,
     resumen: "1 a 3 semanas después de un antibiótico: fiebre, habones o lesiones anulares violáceas y artralgias con edema.",
     teoria: [
@@ -2317,7 +2302,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-em", mapa: "exantemas", titulo: "Eritema multiforme", tipo: "concepto", causa: "infecciosa",
+    id: "ex-em", nivel: 2, mapa: "exantemas", titulo: "Eritema multiforme", tipo: "concepto", causa: "infecciosa",
     x: 870, y: 560,
     resumen: "Lesiones en diana fijas, acrales, casi siempre tras un herpes simple. No es una forma leve de Stevens-Johnson.",
     teoria: [
@@ -2330,7 +2315,7 @@ window.NODOS = [
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
-    id: "ex-mirm", mapa: "exantemas", titulo: "Mucositis por Mycoplasma (MIRM / RIME)", corto: "MIRM / RIME", tipo: "concepto", causa: "infecciosa",
+    id: "ex-mirm", nivel: 3, mapa: "exantemas", titulo: "Mucositis por Mycoplasma (MIRM / RIME)", corto: "MIRM / RIME", tipo: "concepto", causa: "infecciosa",
     x: 1080, y: 560,
     resumen: "Mucositis intensa con poca o ninguna lesión de piel, en escolares con neumonía o tos por Mycoplasma.",
     teoria: [
