@@ -1,6 +1,6 @@
 /*
   El Gran Mapa Pediátrico — contenido del prototipo
-  Áreas: Neumonología › Sibilancias del lactante al escolar; Dermatología › Exantemas
+  Áreas: Neumonología › Sibilancias del lactante al escolar; Dermatología › Exantemas; Cardiología › Cardiopatías congénitas
 
   Cómo está organizado:
   - REFS: bibliografía verificada en PubMed (PMID y, cuando lo tenemos, DOI). Cada nodo la cita por su clave.
@@ -11,7 +11,7 @@
       evidencia: claves de REFS
       pico: preguntas { p, i, c, o, respuesta, certeza, refs }
       ateneos: { titulo, fecha, presenta, url }
-      causa: "infecciosa" | "alergica" | "inflamatoria" (o una lista) — colorea el punto en mapas con leyenda de causas
+      causa: "infecciosa" | "alergica" | "inflamatoria" | "cortocircuito" | "cianotica" | "obstructiva" (o una lista) — colorea el punto en mapas con leyenda de causas
       color: color del nodo tema (variable CSS)
       nivel: capa de lectura (1 lo esencial, 2 para profundizar, 3 todo)
       conexiones: ids de otros nodos
@@ -412,6 +412,132 @@ window.REFS = {
     tipo: "Revisión sistemática",
     hallazgo: "Mucositis oral 94 %, ocular 82 % y urogenital 63 %; piel ausente (34 %) o escasa (47 %). Edad media 11,9 años. Recurrencia 8 %, mortalidad 3 %. Propone el nombre MIRM.",
     pmid: "25592340", doi: "10.1016/j.jaad.2014.06.026"
+  },
+  mahle2009: {
+    cita: "Mahle WT, et al. Role of pulse oximetry in examining newborns for congenital heart disease: a scientific statement from the AHA and AAP. Circulation. 2009;120:447-58.",
+    tipo: "Declaración científica (AHA/AAP)",
+    hallazgo: "Propone la oximetría de pulso en recién nacidos asintomáticos después de las 24 horas de vida para detectar cardiopatías congénitas críticas que el examen físico no encuentra.",
+    pmid: "19581492", doi: "10.1161/CIRCULATIONAHA.109.192576"
+  },
+  martin2020: {
+    cita: "Martin GR, et al. Updated strategies for pulse oximetry screening for critical congenital heart disease. Pediatrics. 2020;146:e20191650.",
+    tipo: "Recomendación de panel de expertos",
+    hallazgo: "Para pasar, la saturación tiene que ser de 95 % o más en la mano derecha y en un pie (antes alcanzaba con uno de los dos), con una diferencia de 3 % o menos. Si no pasa ni falla, se repite una sola vez.",
+    pmid: "32499387", doi: "10.1542/peds.2019-1650"
+  },
+  plana2018: {
+    cita: "Plana MN, et al. Pulse oximetry screening for critical congenital heart defects. Cochrane Database Syst Rev. 2018;3:CD011912.",
+    tipo: "Revisión sistemática (Cochrane, 19 estudios, n = 436.758)",
+    hallazgo: "Sensibilidad 76,3 % y especificidad 99,9 % para cardiopatías críticas. Los falsos positivos bajan si la prueba se hace después de las 24 horas.",
+    pmid: "29494750", doi: "10.1002/14651858.CD011912.pub2"
+  },
+  hoffman2002: {
+    cita: "Hoffman JIE, Kaplan S. The incidence of congenital heart disease. J Am Coll Cardiol. 2002;39:1890-900.",
+    tipo: "Revisión de estudios poblacionales",
+    hallazgo: "Las formas moderadas y graves aparecen en unos 6 de cada 1000 nacidos vivos; con la válvula aórtica bicúspide, 19 de cada 1000; con las CIV musculares pequeñas y otras lesiones triviales, hasta 75 de cada 1000.",
+    pmid: "12084585", doi: "10.1016/s0735-1097(02)01886-7"
+  },
+  vanderlinde2011: {
+    cita: "van der Linde D, et al. Birth prevalence of congenital heart disease worldwide: a systematic review and meta-analysis. J Am Coll Cardiol. 2011;58:2241-7.",
+    tipo: "Revisión sistemática y metanálisis",
+    hallazgo: "Prevalencia al nacer de 9,1 por 1000 nacidos vivos en el período 1995-2010, en aumento respecto de las décadas previas; la CIV es la más frecuente.",
+    pmid: "22078432", doi: "10.1016/j.jacc.2011.08.025"
+  },
+  frank2011: {
+    cita: "Frank JE, Jacobe KM. Evaluation and management of heart murmurs in children. Am Fam Physician. 2011;84:793-800.",
+    tipo: "Revisión",
+    hallazgo: "La mayoría de los soplos en niños son inocentes. Sugieren patología: soplo holosistólico o diastólico, intensidad de 3/6 o más, calidad áspera, frémito, clic, segundo ruido anormal, y que se intensifique al ponerse de pie.",
+    pmid: "22010618"
+  },
+  lewis1981: {
+    cita: "Lewis AB, et al. Side effects of therapy with prostaglandin E1 in infants with critical congenital heart disease. Circulation. 1981;64:893-8.",
+    tipo: "Registro multicéntrico (n = 492)",
+    hallazgo: "Efectos adversos cardiovasculares 18 %, del sistema nervioso central 16 % y depresión respiratoria 12 % (42 % en menores de 2 kg). Hay que estar preparado para asistir la ventilación.",
+    pmid: "7285304", doi: "10.1161/01.cir.64.5.893"
+  },
+  kantor2013: {
+    cita: "Kantor PF, et al. Presentation, diagnosis, and medical management of heart failure in children: Canadian Cardiovascular Society guidelines. Can J Cardiol. 2013;29:1535-52.",
+    tipo: "Guía de práctica clínica",
+    hallazgo: "En lactantes la insuficiencia cardíaca se presenta como taquipnea, sudoración y cansancio al comer, y poco aumento de peso. Los diuréticos alivian la congestión; los IECA y betabloqueantes, en disfunción ventricular.",
+    pmid: "24267800", doi: "10.1016/j.cjca.2013.08.008"
+  },
+  penny2011: {
+    cita: "Penny DJ, Vick GW. Ventricular septal defect. Lancet. 2011;377:1103-12.",
+    tipo: "Revisión",
+    hallazgo: "Es la cardiopatía congénita más frecuente. Muchas CIV musculares y perimembranosas pequeñas cierran solas; las grandes dan insuficiencia cardíaca en los primeros meses y requieren cierre antes de que se instale la hipertensión pulmonar.",
+    pmid: "21349577", doi: "10.1016/S0140-6736(10)61339-6"
+  },
+  geva2014: {
+    cita: "Geva T, Martins JD, Wald RM. Atrial septal defects. Lancet. 2014;383:1921-32.",
+    tipo: "Revisión",
+    hallazgo: "Suele ser asintomática en la infancia. Desdoblamiento fijo del segundo ruido y soplo sistólico pulmonar por hiperflujo. Las de tipo ostium secundum con bordes adecuados se cierran por cateterismo.",
+    pmid: "24725467", doi: "10.1016/S0140-6736(13)62145-5"
+  },
+  schneider2006: {
+    cita: "Schneider DJ, Moore JW. Patent ductus arteriosus. Circulation. 2006;114:1873-82.",
+    tipo: "Revisión",
+    hallazgo: "En el recién nacido de término, el ductus persistente no cierra espontáneamente. Soplo continuo en maquinaria infraclavicular izquierda y pulsos saltones. Se cierra por cateterismo por el riesgo de endarteritis e insuficiencia cardíaca.",
+    pmid: "17060397", doi: "10.1161/CIRCULATIONAHA.105.592063"
+  },
+  calabro2006: {
+    cita: "Calabrò R, Limongelli G. Complete atrioventricular canal. Orphanet J Rare Dis. 2006;1:8.",
+    tipo: "Revisión",
+    hallazgo: "Fuerte asociación con síndrome de Down. Da insuficiencia cardíaca en la lactancia y la hipertensión pulmonar se vuelve irreversible: la cirugía se hace entre el tercer y el sexto mes.",
+    pmid: "16722604", doi: "10.1186/1750-1172-1-8"
+  },
+  apitz2009: {
+    cita: "Apitz C, Webb GD, Redington AN. Tetralogy of Fallot. Lancet. 2009;374:1462-71.",
+    tipo: "Revisión",
+    hallazgo: "Es la cardiopatía cianótica más frecuente. La reparación completa en el primer año tiene excelente supervivencia; en la adultez preocupan la insuficiencia pulmonar, las arritmias y la muerte súbita.",
+    pmid: "19683809", doi: "10.1016/S0140-6736(09)60657-7"
+  },
+  martins2008: {
+    cita: "Martins P, Castela E. Transposition of the great arteries. Orphanet J Rare Dis. 2008;3:27.",
+    tipo: "Revisión",
+    hallazgo: "Cianosis en las primeras horas de vida, sin soplo y con radiografía casi normal. Necesita mezcla: prostaglandina y, si no alcanza, atrioseptostomía de Rashkind. La corrección es el switch arterial en las primeras semanas.",
+    pmid: "18851735", doi: "10.1186/1750-1172-3-27"
+  },
+  torok2015: {
+    cita: "Torok RD, et al. Coarctation of the aorta: management from infancy to adulthood. World J Cardiol. 2015;7:765-75.",
+    tipo: "Revisión",
+    hallazgo: "La coartación crítica se manifiesta como shock cuando cierra el ductus. En niños mayores, hipertensión en los brazos y pulsos femorales débiles o retrasados. Riesgo de recoartación e hipertensión de por vida.",
+    pmid: "26635924", doi: "10.4330/wjc.v7.i11.765"
+  },
+  ohye2010: {
+    cita: "Ohye RG, et al. Comparison of shunt types in the Norwood procedure for single-ventricle lesions. N Engl J Med. 2010;362:1980-92.",
+    tipo: "Ensayo clínico aleatorizado multicéntrico (SVR, n = 555)",
+    hallazgo: "Supervivencia libre de trasplante a los 12 meses: 74 % con el conducto ventrículo derecho-arteria pulmonar vs 64 % con el shunt de Blalock-Taussig modificado. Después de los 12 meses la diferencia no fue significativa.",
+    pmid: "20505177", doi: "10.1056/NEJMoa0912461"
+  },
+  rychik2019: {
+    cita: "Rychik J, et al. Evaluation and management of the child and adult with Fontan circulation: a scientific statement from the AHA. Circulation. 2019;140:e234-e284.",
+    tipo: "Declaración científica (AHA)",
+    hallazgo: "La circulación de Fontan afecta a casi todos los órganos: hígado, linfáticos (enteropatía perdedora de proteínas, bronquitis plástica), arritmias, trombosis y neurodesarrollo. Propone un seguimiento estructurado de por vida.",
+    pmid: "31256636", doi: "10.1161/CIR.0000000000000696"
+  },
+  abman2015: {
+    cita: "Abman SH, et al. Pediatric pulmonary hypertension: guidelines from the AHA and ATS. Circulation. 2015;132:2037-99.",
+    tipo: "Guía de práctica clínica (AHA/ATS)",
+    hallazgo: "Los cortocircuitos grandes no reparados llevan a enfermedad vascular pulmonar. Con resistencia pulmonar alta e inversión del cortocircuito (Eisenmenger), el cierre ya no está indicado.",
+    pmid: "26534956", doi: "10.1161/CIR.0000000000000329"
+  },
+  bull2022: {
+    cita: "Bull MJ, et al. Health supervision for children and adolescents with Down syndrome. Pediatrics. 2022;149:e2022057010.",
+    tipo: "Informe clínico (AAP)",
+    hallazgo: "Cerca de la mitad tiene cardiopatía congénita (canal AV la más típica). Ecocardiograma a todos los recién nacidos, aunque el examen y el estudio prenatal sean normales.",
+    pmid: "35490285", doi: "10.1542/peds.2022-057010"
+  },
+  mcdonald2015: {
+    cita: "McDonald-McGinn DM, et al. 22q11.2 deletion syndrome. Nat Rev Dis Primers. 2015;1:15071.",
+    tipo: "Revisión",
+    hallazgo: "La microdeleción más frecuente (1 en 1000 fetos). Tríada clásica: cardiopatía, hipocalcemia por hipoparatiroidismo e inmunodeficiencia, con anomalías del paladar y problemas del desarrollo y psiquiátricos.",
+    pmid: "27189754", doi: "10.1038/nrdp.2015.71"
+  },
+  wilson2021: {
+    cita: "Wilson WR, et al. Prevention of viridans group streptococcal infective endocarditis: a scientific statement from the AHA. Circulation. 2021;143:e963-e978.",
+    tipo: "Declaración científica (AHA)",
+    hallazgo: "Mantiene la profilaxis antibiótica solo para procedimientos dentales en pacientes de mayor riesgo: válvula protésica, endocarditis previa, cardiopatía cianótica no reparada o con cortocircuitos residuales, y los primeros 6 meses tras reparar con material protésico.",
+    pmid: "33853363", doi: "10.1161/CIR.0000000000000969"
   }
 };
 
@@ -521,7 +647,7 @@ window.MAPAS = {
       { id: "neuro", titulo: "Neurología", detalle: "Convulsiones, cefalea, desarrollo", organo: "cerebro", lado: "izq", y: 40 },
       { id: "neumo", titulo: "Neumonología", detalle: "Bronquiolitis, sibilancias y asma", organo: "pulmones", mapa: "raiz", color: "var(--edad-2)", lado: "izq", y: 216 },
       { id: "gastro", titulo: "Gastroenterología", detalle: "Diarrea, reflujo, dolor abdominal", organo: "digestivo", lado: "izq", y: 392 },
-      { id: "cardio", titulo: "Cardiología", detalle: "Soplos y cardiopatías congénitas", organo: "corazon", lado: "der", y: 128 },
+      { id: "cardio", titulo: "Cardiología", detalle: "Soplos y cardiopatías congénitas", organo: "corazon", mapa: "cardiopatias", color: "var(--cardio)", lado: "der", y: 128 },
       { id: "derma", titulo: "Dermatología", detalle: "Exantemas: subtipos y causas", organo: "piel", mapa: "exantemas", color: "var(--derm)", lado: "der", y: 304 },
       { id: "nefro", titulo: "Nefrología", detalle: "Infección urinaria, hematuria", organo: "rinones", lado: "der", y: 480 }
     ]
@@ -579,6 +705,60 @@ window.MAPAS = {
         { nodo: "ex-mpb", nota: "Coxsackie A6 también se acentúa sobre el eccema; mirar boca, manos, pies y glúteos." },
         { nodo: "ex-varicela", nota: "Lesiones en distintos estadios y de distribución central." },
         { nodo: "ex-ssss", nota: "Piel dolorosa, ampollas flácidas y Nikolsky positivo: piel escaldada." }
+      ] }
+    ]
+  },
+  cardiopatias: {
+    titulo: "Cardiopatías congénitas",
+    padre: "inicio",
+    ruta: ["Pediatría", "Cardiología", "Cardiopatías congénitas"],
+    bajada: "Las cardiopatías agrupadas por su fisiología, que es lo que decide cómo se presentan: cortocircuito de izquierda a derecha (insuficiencia cardíaca, sin cianosis), cianóticas y obstructivas. Las líneas unen lo que conviene diferenciar o lo que una lleva a la otra.",
+    disposicion: "zonas",
+    indice: "Cardiopatías por fisiología",
+    buscar: "Buscar: Fallot, oximetría, alprostadil…",
+    pista: "Cada zona agrupa una fisiología; el color del punto la repite. Un segundo punto chico indica que comparte dos. Elegí un recorrido para seguir a un paciente.",
+    causas: ["cortocircuito", "cianotica", "obstructiva"],
+    zonas: [
+      { x: 30, y: 60, w: 400, h: 290, titulo: "Cortocircuito izquierda-derecha" },
+      { x: 450, y: 60, w: 300, h: 290, titulo: "Cómo abordarlo" },
+      { x: 770, y: 60, w: 400, h: 290, titulo: "Cianóticas" },
+      { x: 30, y: 370, w: 400, h: 250, titulo: "Obstructivas" },
+      { x: 450, y: 370, w: 300, h: 250, titulo: "Cuando el corazón no alcanza" },
+      { x: 770, y: 370, w: 400, h: 250, titulo: "Síndromes y cuidados" }
+    ],
+    recorridos: [
+      { id: "soplo-control", titulo: "Soplo en el control de salud", descripcion: "3 años, asintomático; en el control se ausculta un soplo sistólico.", pasos: [
+        { nodo: "cc-soplo", nota: "Primero decidir si suena inocente: suave, corto, sistólico, que cambia con la posición, en un chico que crece bien." },
+        { nodo: "cc-cia", nota: "Soplo pulmonar suave con desdoblamiento fijo del segundo ruido: pensar en CIA, aunque esté asintomático." },
+        { nodo: "cc-civ", nota: "Soplo holosistólico áspero en el borde esternal izquierdo: CIV, a menudo pequeña." },
+        { nodo: "cc-ep", nota: "Soplo eyectivo con clic en foco pulmonar: estenosis pulmonar." },
+        { nodo: "cc-eao", nota: "Soplo eyectivo en foco aórtico que irradia al cuello, con clic: estenosis aórtica o válvula bicúspide." }
+      ] },
+      { id: "oximetria", titulo: "Oximetría que no pasa", descripcion: "Recién nacido de 30 horas, asintomático: 92 % en la mano derecha y 93 % en el pie, igual al repetir.", pasos: [
+        { nodo: "cc-oximetria", nota: "Por debajo de 95 % en mano y pie después de repetir: no pasa. Examen completo y ecocardiograma antes del alta." },
+        { nodo: "cc-ductus", nota: "Si empeora o se confirma una lesión dependiente del ductus: prostaglandina sin esperar." },
+        { nodo: "cc-tga", nota: "Cianosis sin dificultad respiratoria ni soplo: pensar en transposición." },
+        { nodo: "cc-fallot", nota: "Con soplo eyectivo áspero y cianosis variable: tetralogía de Fallot." },
+        { nodo: "cc-coartacion", nota: "Una oximetría normal no descarta la coartación: palpar los pulsos femorales y medir presión en brazo y pierna." }
+      ] },
+      { id: "lactante-come", titulo: "Lactante que suda al comer y no aumenta de peso", descripcion: "2 meses, se cansa con las tomas, transpira, respira rápido y está por debajo de su curva.", pasos: [
+        { nodo: "cc-icc", nota: "Taquipnea, sudoración con las tomas, hepatomegalia y mal progreso de peso: insuficiencia cardíaca." },
+        { nodo: "cc-civ", nota: "A esta edad cae la resistencia pulmonar y una CIV grande empieza a dar síntomas." },
+        { nodo: "cc-canal", nota: "Si tiene síndrome de Down o eje QRS superior en el ECG: canal auriculoventricular." },
+        { nodo: "cc-dap", nota: "Soplo continuo y pulsos saltones: ductus persistente grande." },
+        { nodo: "cc-hp", nota: "Si no se cierra a tiempo, la hipertensión pulmonar se vuelve irreversible." }
+      ] },
+      { id: "shock-neonatal", titulo: "Recién nacido en shock en la primera semana", descripcion: "6 días, en casa desde el segundo día; consulta por letargo, mala perfusión y taquipnea. Pulsos femorales casi ausentes.", pasos: [
+        { nodo: "cc-ductus", nota: "Shock en la primera o segunda semana sin causa clara: pensar en el cierre del ductus. Prostaglandina mientras se confirma." },
+        { nodo: "cc-coartacion", nota: "Pulsos femorales débiles y diferencia de presión entre brazos y piernas: coartación crítica." },
+        { nodo: "cc-hlhs", nota: "Pulsos débiles en los cuatro miembros y shock profundo: hipoplasia de cavidades izquierdas." },
+        { nodo: "cc-eao", nota: "Estenosis aórtica crítica: bajo gasto con soplo que puede ser suave." }
+      ] },
+      { id: "down", titulo: "Recién nacido con síndrome de Down", descripcion: "Primer día de vida, diagnóstico clínico de síndrome de Down, examen cardiovascular normal.", pasos: [
+        { nodo: "cc-down", nota: "Ecocardiograma a todos, aunque el examen sea normal y el control prenatal no haya mostrado nada." },
+        { nodo: "cc-canal", nota: "Es la cardiopatía más típica: puede no tener soplo en los primeros días." },
+        { nodo: "cc-civ", nota: "CIV y CIA también son frecuentes." },
+        { nodo: "cc-hp", nota: "Tienen hipertensión pulmonar antes y con más frecuencia: no demorar la cirugía." }
       ] }
     ]
   }
@@ -2324,6 +2504,289 @@ window.NODOS = [
     ],
     evidencia: ["canavan2015", "ramien2022"], pico: [], ateneos: [],
     conexiones: ["ex-sjs"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  /* ───── Cardiología › Cardiopatías congénitas ───── */
+  {
+    id: "cc-abordaje", nivel: 1, mapa: "cardiopatias", titulo: "Cómo pensar una cardiopatía", corto: "Abordaje", tipo: "tema", edad: "El punto de partida", color: "var(--cardio)",
+    x: 600, y: 130,
+    resumen: "Más que memorizar lesiones, conviene preguntarse qué hace la sangre: si sobra flujo al pulmón, si falta oxígeno o si algo obstruye la salida.",
+    teoria: [
+      { h: "Qué tan frecuentes son", html: "<p>Alrededor de 9 de cada 1000 recién nacidos tienen una cardiopatía congénita; las moderadas y graves son unas 6 de cada 1000. La más frecuente es la CIV. Cerca de una cuarta parte son <b>críticas</b>: necesitan cirugía o cateterismo en el primer año.</p>" },
+      { h: "Tres fisiologías", html: "<div class=\"tabla\"><table><thead><tr><th>Fisiología</th><th>Cómo se presenta</th><th>Ejemplos</th></tr></thead><tbody><tr><td>Cortocircuito izquierda-derecha</td><td>Sin cianosis; insuficiencia cardíaca a partir de las 4–8 semanas, cuando baja la resistencia pulmonar</td><td><a href=\"#cc-civ\">CIV</a>, <a href=\"#cc-cia\">CIA</a>, <a href=\"#cc-dap\">ductus</a>, <a href=\"#cc-canal\">canal AV</a></td></tr><tr><td>Cianóticas</td><td>Cianosis que no mejora con oxígeno</td><td><a href=\"#cc-fallot\">Fallot</a>, <a href=\"#cc-tga\">transposición</a>, <a href=\"#cc-fontan\">ventrículo único</a></td></tr><tr><td>Obstructivas</td><td>Soplo eyectivo; las críticas, shock cuando cierra el ductus</td><td><a href=\"#cc-coartacion\">coartación</a>, <a href=\"#cc-eao\">estenosis aórtica</a>, <a href=\"#cc-ep\">estenosis pulmonar</a>, <a href=\"#cc-hlhs\">hipoplasia izquierda</a></td></tr></tbody></table></div>" },
+      { h: "Cuándo aparecen", html: "<ul><li><b>Primeras horas:</b> cianosis (transposición, atresia pulmonar).</li><li><b>Primera o segunda semana:</b> shock al cerrar el ductus (coartación, hipoplasia izquierda, estenosis aórtica crítica).</li><li><b>1 a 3 meses:</b> insuficiencia cardíaca por cortocircuitos grandes.</li><li><b>Cualquier edad:</b> un soplo en un control (CIA, CIV pequeña, estenosis valvulares leves).</li></ul>" },
+      { h: "Qué pedir", html: "<p>Saturación en mano derecha y pie, presión en los cuatro miembros, pulsos femorales, ECG y radiografía de tórax orientan; el <b>ecocardiograma</b> hace el diagnóstico. Ante un recién nacido grave, la prostaglandina va antes que el ecocardiograma.</p>" }
+    ],
+    evidencia: ["vanderlinde2011", "hoffman2002"], pico: [], ateneos: [],
+    casos: [
+      { titulo: "Recién nacido con cianosis a las 6 horas", html: "<p>Término, parto normal. A las 6 horas la enfermera nota los labios azulados. Respira tranquilo, sin soplo. Saturación de 78 % que no sube con oxígeno al 100 %.</p><p><b>Cómo pensarlo:</b> cianosis sin dificultad respiratoria y que no responde al oxígeno orienta a una cardiopatía cianótica, sobre todo transposición. Iniciar prostaglandina y pedir ecocardiograma urgente; puede necesitar atrioseptostomía.</p>", nodos: ["cc-tga", "cc-ductus"] },
+      { titulo: "Lactante de 6 semanas que respira rápido", html: "<p>Nacido de término, oximetría normal al alta. Ahora tarda 40 minutos en cada toma, transpira, respira a 70 por minuto y aumentó 300 g en un mes. Soplo holosistólico 3/6 en borde esternal izquierdo, hígado a 3 cm.</p><p><b>Cómo pensarlo:</b> la oximetría no detecta cortocircuitos de izquierda a derecha. Al bajar la resistencia pulmonar, una CIV grande da insuficiencia cardíaca: diuréticos, más calorías y derivación para cierre.</p>", nodos: ["cc-civ", "cc-icc"] }
+    ],
+    conexiones: ["cc-soplo", "cc-oximetria", "cc-ductus", "cc-civ", "cc-fallot", "cc-coartacion", "cc-icc"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-soplo", nivel: 1, mapa: "cardiopatias", titulo: "Soplo: inocente o patológico", corto: "Soplo inocente o no", tipo: "concepto",
+    x: 520, y: 225,
+    resumen: "La mayoría de los soplos en la infancia son inocentes. Unos pocos rasgos indican que hay que estudiarlo.",
+    teoria: [
+      { h: "Soplos inocentes frecuentes", html: "<ul><li><b>Soplo de Still:</b> vibratorio, musical, en el borde esternal izquierdo bajo, entre los 2 y 7 años.</li><li><b>Eyectivo pulmonar:</b> suave, en el foco pulmonar, en niños y adolescentes delgados.</li><li><b>Zumbido venoso:</b> continuo, debajo de las clavículas, desaparece al acostarse o al girar el cuello.</li><li><b>Estenosis de ramas pulmonares periféricas:</b> en recién nacidos, irradia a axilas y espalda, desaparece hacia los 6 meses.</li></ul><p>Las características: sistólicos (salvo el zumbido venoso), cortos, de 1/6 a 2/6, sin frémito, cambian con la posición y aumentan con fiebre o ejercicio.</p>" },
+      { h: "Qué hace pensar que no es inocente", html: "<ul><li>Holosistólico o diastólico.</li><li>Intensidad de 3/6 o más, frémito.</li><li>Calidad áspera; clic de eyección.</li><li>Segundo ruido anormal (desdoblamiento fijo, único o muy fuerte).</li><li>Aumenta al ponerse de pie (miocardiopatía hipertrófica).</li><li>Síntomas: cansancio al comer, mal progreso de peso, síncope, dolor de pecho con el esfuerzo, cianosis.</li><li>Pulsos femorales débiles, síndrome genético asociado.</li></ul>" },
+      { h: "Qué hacer", html: "<p>Si suena inocente y el chico está bien, se puede tranquilizar a la familia sin estudios. Ante cualquier rasgo patológico, o en un recién nacido, derivar a cardiología con ecocardiograma. El ECG y la radiografía rara vez cambian la conducta en un soplo aislado.</p>" }
+    ],
+    evidencia: ["frank2011"], pico: [], ateneos: [],
+    conexiones: ["cc-cia", "cc-civ", "cc-ep", "cc-eao"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-oximetria", nivel: 1, mapa: "cardiopatias", titulo: "Oximetría de pulso al recién nacido", corto: "Oximetría neonatal", tipo: "concepto",
+    x: 680, y: 225,
+    resumen: "Saturación en mano derecha y un pie después de las 24 horas: encuentra cardiopatías críticas que el examen no detecta.",
+    teoria: [
+      { h: "Cómo se hace", html: "<ul><li>Después de las 24 horas de vida (o antes del alta si es antes), con el bebé tranquilo y caliente.</li><li>Sensor en la <b>mano derecha</b> (preductal) y en <b>un pie</b> (posductal).</li></ul>" },
+      { h: "Cómo se interpreta (algoritmo 2020)", html: "<div class=\"tabla\"><table><thead><tr><th>Resultado</th><th>Criterio</th></tr></thead><tbody><tr><td>Pasa</td><td>95 % o más en mano <b>y</b> pie, con diferencia de 3 % o menos</td></tr><tr><td>Repetir una vez, a la hora</td><td>90–94 % en mano y pie, o diferencia de más de 3 %</td></tr><tr><td>No pasa</td><td>Menos de 90 % en cualquiera, o persiste el resultado intermedio al repetir</td></tr></tbody></table></div><p>Si no pasa: examen completo, buscar causas no cardíacas (infección, problema respiratorio) y ecocardiograma antes del alta.</p>" },
+      { h: "Lo que no detecta", html: "<p>Detecta 3 de cada 4 cardiopatías críticas. Se le escapan sobre todo las <b>obstrucciones del lado izquierdo</b> (coartación, interrupción del arco), en las que la saturación puede ser normal. No reemplaza al examen: pulsos femorales y presión en los cuatro miembros.</p>" }
+    ],
+    evidencia: ["martin2020", "plana2018", "mahle2009"],
+    pico: [
+      { p: "Recién nacidos asintomáticos", i: "Oximetría de pulso", c: "Examen físico solo", o: "Detección de cardiopatías congénitas críticas",
+        respuesta: "La oximetría tiene una sensibilidad de 76 % y una especificidad de 99,9 %; combinada con el examen físico detecta más casos que el examen solo, con muy pocos falsos positivos si se hace después de las 24 horas.",
+        certeza: "Moderada", refs: ["plana2018"] }
+    ],
+    ateneos: [],
+    conexiones: ["cc-ductus", "cc-tga", "cc-coartacion"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-ductus", nivel: 1, mapa: "cardiopatias", titulo: "Recién nacido grave: lesiones dependientes del ductus", corto: "Dependientes del ductus", tipo: "concepto",
+    x: 600, y: 310,
+    resumen: "Si la circulación pulmonar o la sistémica depende del ductus, el bebé se descompensa cuando se cierra. La prostaglandina lo reabre.",
+    teoria: [
+      { h: "Dos formas de depender del ductus", html: "<ul><li><b>Flujo pulmonar dependiente:</b> cianosis progresiva (atresia pulmonar, estenosis pulmonar crítica, Fallot grave, atresia tricuspídea).</li><li><b>Flujo sistémico dependiente:</b> shock, acidosis, pulsos débiles (coartación crítica, interrupción del arco, estenosis aórtica crítica, hipoplasia de cavidades izquierdas).</li><li>La <b>transposición</b> necesita el ductus y el foramen oval para mezclar la sangre.</li></ul><p>Suelen presentarse entre los 2 y 14 días de vida, a veces ya en casa, y se confunden con sepsis.</p>" },
+      { h: "Prostaglandina E1 (alprostadil)", html: "<ul><li>Dosis de inicio habitual: 0,05 a 0,1 µg/kg/min IV; una vez abierto el ductus, bajar a la menor dosis eficaz (0,01–0,03 µg/kg/min).</li><li>Efectos adversos: apnea (sobre todo en menores de 2 kg y con dosis altas), fiebre, vasodilatación, hipotensión.</li><li>Tener todo listo para asistir la ventilación; no demorarla por esperar el ecocardiograma.</li></ul><p class=\"nota\">Verificar dosis con el vademécum institucional.</p>" },
+      { h: "Además", html: "<p>Evitar el oxígeno en exceso en los dependientes del flujo sistémico (aumenta el flujo pulmonar y roba circulación sistémica). Corregir acidosis, hipoglucemia e hipocalcemia. Inotrópicos si hay disfunción ventricular. Traslado a un centro con cirugía cardiovascular.</p>" }
+    ],
+    evidencia: ["lewis1981", "mahle2009"], pico: [], ateneos: [],
+    conexiones: ["cc-coartacion", "cc-hlhs", "cc-tga", "cc-fallot", "cc-eao"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Cortocircuito izquierda-derecha */
+  {
+    id: "cc-civ", nivel: 1, mapa: "cardiopatias", titulo: "Comunicación interventricular (CIV)", corto: "CIV", tipo: "concepto", causa: "cortocircuito",
+    x: 110, y: 140,
+    resumen: "La cardiopatía congénita más frecuente. Las chicas cierran solas y suenan fuerte; las grandes dan insuficiencia cardíaca a los 1–3 meses.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li><b>Pequeña (restrictiva):</b> soplo holosistólico áspero, fuerte (a veces con frémito), en el borde esternal izquierdo; asintomática.</li><li><b>Grande:</b> el soplo puede ser más suave; a partir de las 4–8 semanas, taquipnea, sudoración con las tomas, mal progreso de peso, hepatomegalia e infecciones respiratorias a repetición.</li><li>Tipos: perimembranosa (la más común en las series quirúrgicas), muscular (la más común al nacer), de entrada y de salida.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>Pequeñas: control; muchas musculares y algunas perimembranosas cierran en los primeros años.</li><li>Grandes: tratamiento de la <a href=\"#cc-icc\">insuficiencia cardíaca</a> y cierre quirúrgico, en general antes del año, para evitar la <a href=\"#cc-hp\">hipertensión pulmonar</a> irreversible.</li><li>Las perimembranosas y de salida se controlan por insuficiencia aórtica.</li></ul>" }
+    ],
+    evidencia: ["penny2011"], pico: [], ateneos: [],
+    conexiones: ["cc-cia", "cc-canal", "cc-icc", "cc-hp", "cc-fallot"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-cia", nivel: 1, mapa: "cardiopatias", titulo: "Comunicación interauricular (CIA)", corto: "CIA", tipo: "concepto", causa: "cortocircuito",
+    x: 320, y: 140,
+    resumen: "Silenciosa en la infancia: soplo suave en foco pulmonar y desdoblamiento fijo del segundo ruido.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Casi siempre asintomática; se descubre por un soplo o una radiografía.</li><li>Soplo sistólico eyectivo suave en el foco pulmonar (por hiperflujo, no por la CIA) y <b>desdoblamiento fijo del segundo ruido</b>.</li><li>Tipos: ostium secundum (la más frecuente), ostium primum (parte del <a href=\"#cc-canal\">canal AV</a>), seno venoso y del seno coronario.</li><li>El foramen oval permeable no es una CIA.</li></ul>" },
+      { h: "Qué hacer", html: "<p>Las pequeñas pueden cerrar solas. Las que dilatan las cavidades derechas se cierran en edad preescolar o escolar: por cateterismo (dispositivo) si es ostium secundum con bordes adecuados; por cirugía los demás tipos. Sin cerrar, en la adultez dan arritmias, insuficiencia cardíaca e hipertensión pulmonar.</p>" }
+    ],
+    evidencia: ["geva2014"], pico: [], ateneos: [],
+    conexiones: ["cc-canal", "cc-soplo"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-dap", nivel: 2, mapa: "cardiopatias", titulo: "Ductus arterioso persistente", corto: "Ductus persistente", tipo: "concepto", causa: "cortocircuito",
+    x: 110, y: 270,
+    resumen: "En el niño de término no cierra solo: soplo continuo en maquinaria y pulsos saltones. El del prematuro es otro problema.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Soplo continuo en maquinaria debajo de la clavícula izquierda; en el lactante a veces solo sistólico.</li><li>Pulsos saltones, presión diferencial amplia.</li><li>Si es grande: insuficiencia cardíaca, como la CIV grande.</li></ul>" },
+      { h: "Qué hacer", html: "<p>En niños de término, cierre por cateterismo (dispositivo o coil) cuando es audible o hemodinámicamente significativo, por el riesgo de insuficiencia cardíaca, hipertensión pulmonar y endarteritis. En prematuros, la conducta (expectante, farmacológica o cierre) es distinta y depende de la repercusión.</p>" }
+    ],
+    evidencia: ["schneider2006"], pico: [], ateneos: [],
+    conexiones: ["cc-civ", "cc-icc"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-canal", nivel: 2, mapa: "cardiopatias", titulo: "Canal auriculoventricular", corto: "Canal AV", tipo: "concepto", causa: "cortocircuito",
+    x: 320, y: 270,
+    resumen: "CIA ostium primum, CIV de entrada y una válvula AV común. La cardiopatía típica del síndrome de Down.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Forma completa: insuficiencia cardíaca en los primeros meses, con mal progreso de peso.</li><li>Puede no tener soplo en los primeros días porque la resistencia pulmonar todavía es alta.</li><li>ECG: <b>eje QRS superior</b> (desviado a la izquierda), una pista útil.</li><li>Forma parcial (CIA ostium primum con hendidura mitral): parecida a una CIA.</li></ul>" },
+      { h: "Qué hacer", html: "<p>Diuréticos como puente y cirugía correctora entre el 3.º y el 6.º mes, antes de que la <a href=\"#cc-hp\">hipertensión pulmonar</a> se vuelva irreversible. En el síndrome de Down la hipertensión pulmonar aparece antes.</p>" }
+    ],
+    evidencia: ["calabro2006"], pico: [], ateneos: [],
+    conexiones: ["cc-down", "cc-hp", "cc-icc"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Cianóticas */
+  {
+    id: "cc-fallot", nivel: 1, mapa: "cardiopatias", titulo: "Tetralogía de Fallot", corto: "Fallot", tipo: "concepto", causa: "cianotica",
+    x: 850, y: 140,
+    resumen: "CIV, obstrucción al tracto de salida del ventrículo derecho, aorta cabalgada e hipertrofia del VD. Cianosis variable y crisis hipoxémicas.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>La cardiopatía cianótica más frecuente.</li><li>La cianosis depende de cuánto obstruye la salida del VD: desde «Fallot rosado» hasta cianosis neonatal dependiente del ductus.</li><li>Soplo eyectivo áspero en el borde esternal izquierdo (por la estenosis, no por la CIV); segundo ruido único.</li><li>Radiografía: corazón «en bota» con poca trama vascular pulmonar.</li><li>Asociado a la deleción <a href=\"#cc-22q11\">22q11.2</a>, sobre todo con arco aórtico derecho.</li></ul>" },
+      { h: "Crisis hipoxémica", html: "<p>Llanto, hiperpnea, cianosis creciente y el soplo que <b>se apaga</b> (pasa menos sangre por la salida del VD). Qué hacer:</p><ul><li>Calmar, en brazos con las rodillas contra el pecho.</li><li>Oxígeno.</li><li>Morfina, volumen IV.</li><li>Si no cede: betabloqueante IV o fenilefrina, y avisar a cardiología.</li></ul><p class=\"nota\">Verificar dosis con el vademécum institucional.</p>" },
+      { h: "Tratamiento", html: "<p>Reparación completa en el primer año (cierre de la CIV y ampliación de la salida del VD). Seguimiento de por vida: insuficiencia pulmonar, arritmias y muerte súbita en la adultez.</p>" }
+    ],
+    evidencia: ["apitz2009"], pico: [], ateneos: [],
+    conexiones: ["cc-tga", "cc-22q11", "cc-civ"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-tga", nivel: 1, mapa: "cardiopatias", titulo: "Transposición de las grandes arterias", corto: "Transposición", tipo: "concepto", causa: "cianotica",
+    x: 1080, y: 140,
+    resumen: "Cianosis intensa en las primeras horas, sin dificultad respiratoria ni soplo. Necesita mezclar sangre: prostaglandina y a veces Rashkind.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>La aorta sale del VD y la pulmonar del VI: dos circulaciones en paralelo. Sobrevive mientras se mezclen por el foramen oval, el ductus o una CIV.</li><li>Cianosis en las primeras horas que no mejora con oxígeno; respira tranquilo; a menudo sin soplo.</li><li>Puede haber <b>cianosis diferencial invertida</b>: saturación más alta en el pie que en la mano derecha.</li><li>Radiografía: «huevo sobre un hilo», a veces normal.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>Prostaglandina para abrir el ductus.</li><li>Si la mezcla sigue siendo insuficiente: <b>atrioseptostomía con balón (Rashkind)</b> urgente.</li><li>Corrección con el switch arterial (Jatene) en las primeras semanas de vida.</li></ul>" }
+    ],
+    evidencia: ["martins2008"], pico: [], ateneos: [],
+    conexiones: ["cc-ductus", "cc-fallot"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-fontan", nivel: 3, mapa: "cardiopatias", titulo: "Ventrículo único y circulación de Fontan", corto: "Ventrículo único (Fontan)", tipo: "concepto", causa: "cianotica",
+    x: 965, y: 270,
+    resumen: "Cuando no se pueden tener dos ventrículos, se conecta la sangre venosa directo a los pulmones en tres etapas.",
+    teoria: [
+      { h: "Qué cardiopatías llevan a este camino", html: "<p>Hipoplasia de cavidades izquierdas, atresia tricuspídea, ventrículo de doble entrada y otras con un solo ventrículo funcional.</p>" },
+      { h: "Las tres etapas", html: "<ol><li><b>Neonatal:</b> asegurar un flujo pulmonar y sistémico estable (Norwood, shunt, banding o stent ductal).</li><li><b>4–6 meses:</b> Glenn bidireccional (vena cava superior a la pulmonar).</li><li><b>2–5 años:</b> Fontan (vena cava inferior a la pulmonar). La sangre llega al pulmón sin bomba.</li></ol>" },
+      { h: "El paciente con Fontan", html: "<p>Saturación algo baja, presión venosa alta. Riesgos de por vida: enfermedad hepática, enteropatía perdedora de proteínas, bronquitis plástica, arritmias, trombosis y problemas del neurodesarrollo. Ante deshidratación o una infección, compensan mal: consultar temprano con su equipo de cardiología.</p>" }
+    ],
+    evidencia: ["rychik2019", "ohye2010"], pico: [], ateneos: [],
+    conexiones: ["cc-hlhs"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Obstructivas */
+  {
+    id: "cc-coartacion", nivel: 1, mapa: "cardiopatias", titulo: "Coartación de aorta", corto: "Coartación", tipo: "concepto", causa: "obstructiva",
+    x: 110, y: 450,
+    resumen: "Shock en el recién nacido cuando cierra el ductus; en el niño mayor, hipertensión en los brazos y pulsos femorales débiles.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li><b>Crítica neonatal:</b> en la primera o segunda semana, mala perfusión, acidosis, pulsos femorales ausentes. Puede pasar la oximetría.</li><li><b>Niño mayor o adolescente:</b> asintomática; hipertensión arterial, pulsos femorales débiles o retrasados respecto del radial, presión en los brazos mayor que en las piernas (más de 10–20 mmHg).</li><li>Asociaciones: válvula aórtica bicúspide, síndrome de Turner.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>Neonatal: prostaglandina y cirugía.</li><li>Niños mayores: cirugía o angioplastia con stent según edad y anatomía.</li><li>Seguimiento de por vida: recoartación e hipertensión arterial aun después de una buena reparación.</li></ul><p>Palpar los pulsos femorales y medir la presión en un brazo y una pierna en todo niño con hipertensión.</p>" }
+    ],
+    evidencia: ["torok2015"], pico: [], ateneos: [],
+    conexiones: ["cc-hlhs", "cc-eao", "cc-ductus"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-hlhs", nivel: 2, mapa: "cardiopatias", titulo: "Hipoplasia de cavidades izquierdas", corto: "Hipoplasia izquierda", tipo: "concepto", causa: ["obstructiva", "cianotica"],
+    x: 320, y: 450,
+    resumen: "El lado izquierdo no alcanza para sostener la circulación sistémica: depende del ductus y termina en un Fontan.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Hoy se diagnostica a menudo antes de nacer.</li><li>Si no: shock con pulsos débiles en los cuatro miembros cuando cierra el ductus, con cianosis leve.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>Prostaglandina, evitar el exceso de oxígeno y la hiperventilación (aumentan el flujo pulmonar a costa del sistémico).</li><li>Paliación en tres etapas: Norwood (o procedimiento híbrido), Glenn y <a href=\"#cc-fontan\">Fontan</a>. En el ensayo SVR, el conducto VD-arteria pulmonar dio mejor supervivencia al año que el shunt de Blalock-Taussig.</li></ul>" }
+    ],
+    evidencia: ["ohye2010", "rychik2019"],
+    pico: [
+      { p: "Recién nacidos con ventrículo único que van a Norwood", i: "Conducto ventrículo derecho-arteria pulmonar", c: "Shunt de Blalock-Taussig modificado", o: "Supervivencia sin trasplante",
+        respuesta: "A los 12 meses la supervivencia sin trasplante fue mejor con el conducto (74 % vs 64 %). Después del año la diferencia dejó de ser significativa.",
+        certeza: "Moderada", refs: ["ohye2010"] }
+    ],
+    ateneos: [],
+    conexiones: ["cc-fontan", "cc-eao", "cc-ductus"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-eao", nivel: 2, mapa: "cardiopatias", titulo: "Estenosis aórtica", tipo: "concepto", causa: "obstructiva",
+    x: 110, y: 560,
+    resumen: "Soplo eyectivo en foco aórtico que irradia al cuello, con clic. La crítica del recién nacido da bajo gasto; la del escolar, síncope o dolor con el esfuerzo.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Casi siempre valvular, a menudo sobre una válvula bicúspide.</li><li>Soplo sistólico eyectivo en el foco aórtico que irradia al cuello; clic de eyección; frémito supraesternal.</li><li>Síntomas de alarma: síncope, dolor de pecho o disnea con el esfuerzo.</li><li>Crítica neonatal: dependiente del ductus.</li></ul>" },
+      { h: "Qué hacer", html: "<p>Valvuloplastia con balón o cirugía según la gravedad. Las moderadas y graves restringen el deporte competitivo hasta la evaluación de cardiología. La válvula bicúspide se controla de por vida (estenosis, insuficiencia, dilatación de la aorta).</p>" }
+    ],
+    evidencia: [], pico: [], ateneos: [],
+    conexiones: ["cc-ep", "cc-soplo"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-ep", nivel: 2, mapa: "cardiopatias", titulo: "Estenosis pulmonar", tipo: "concepto", causa: "obstructiva",
+    x: 320, y: 560,
+    resumen: "Soplo eyectivo en foco pulmonar con clic. Las leves no progresan; las graves se resuelven con valvuloplastia.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Soplo sistólico eyectivo en el foco pulmonar, que irradia a la espalda, con clic que varía con la respiración.</li><li>Leve: asintomática y sin progresión.</li><li>Crítica neonatal: cianosis dependiente del ductus.</li><li>Asociada al síndrome de Noonan (válvula displásica).</li></ul>" },
+      { h: "Qué hacer", html: "<p>Valvuloplastia con balón cuando el gradiente es moderado o grave; da buenos resultados y suele evitar la cirugía.</p>" }
+    ],
+    evidencia: [], pico: [], ateneos: [],
+    conexiones: ["cc-fallot"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Cuando el corazón no alcanza */
+  {
+    id: "cc-icc", nivel: 1, mapa: "cardiopatias", titulo: "Insuficiencia cardíaca en el lactante", corto: "Insuficiencia cardíaca", tipo: "concepto",
+    x: 600, y: 450,
+    resumen: "Taquipnea, sudoración y cansancio con las tomas, mal progreso de peso y hepatomegalia. Casi siempre por un cortocircuito grande.",
+    teoria: [
+      { h: "Cómo se reconoce", html: "<ul><li>Tarda mucho en comer, se cansa y transpira con las tomas.</li><li>Taquipnea, tiraje, a veces sibilancias o rales (se confunde con bronquiolitis).</li><li>Taquicardia, hepatomegalia, ritmo de galope.</li><li>Mal progreso de peso. Los edemas periféricos son raros en lactantes.</li></ul>" },
+      { h: "Causas según la edad", html: "<ul><li><b>Primera semana:</b> lesiones obstructivas izquierdas dependientes del ductus, arritmias, asfixia.</li><li><b>1 a 3 meses:</b> cortocircuitos grandes (CIV, canal AV, ductus) al bajar la resistencia pulmonar.</li><li><b>Cualquier edad:</b> miocarditis, miocardiopatías, taquicardia supraventricular sostenida, origen anómalo de la coronaria izquierda.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>Diuréticos (furosemida) para la congestión.</li><li>Más calorías: fórmula o leche materna fortificada, tomas más cortas y frecuentes, sonda si no alcanza.</li><li>Tratar anemia e infecciones.</li><li>El tratamiento de fondo es corregir el defecto.</li></ul>" }
+    ],
+    evidencia: ["kantor2013"], pico: [], ateneos: [],
+    conexiones: ["cc-hp", "cc-civ", "cc-canal"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-hp", nivel: 2, mapa: "cardiopatias", titulo: "Hipertensión pulmonar y Eisenmenger", corto: "Hipertensión pulmonar", tipo: "concepto",
+    x: 600, y: 560,
+    resumen: "Un cortocircuito grande sin cerrar daña los vasos pulmonares. Si la resistencia supera la sistémica, el cortocircuito se invierte y aparece la cianosis.",
+    teoria: [
+      { h: "Cómo pasa", html: "<p>El hiperflujo y la presión alta sostenidos remodelan las arteriolas pulmonares. Al principio es reversible; con los meses (antes en el síndrome de Down), la resistencia queda fija. Cuando supera la sistémica, el cortocircuito se invierte: <b>síndrome de Eisenmenger</b>, con cianosis, policitemia y dedos en palillo de tambor.</p>" },
+      { h: "Pistas", html: "<ul><li>Un lactante con CIV grande que «mejora» (menos taquipnea, el soplo se acorta) puede estar subiendo la resistencia pulmonar.</li><li>Segundo ruido fuerte y único.</li></ul>" },
+      { h: "Qué hacer", html: "<p>Prevenir: cerrar los cortocircuitos grandes a tiempo. Con Eisenmenger ya instalado, el cierre está contraindicado y se usan vasodilatadores pulmonares en centros especializados.</p>" }
+    ],
+    evidencia: ["abman2015"], pico: [], ateneos: [],
+    conexiones: ["cc-down", "cc-canal"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Síndromes y cuidados */
+  {
+    id: "cc-down", nivel: 2, mapa: "cardiopatias", titulo: "Síndrome de Down y corazón", corto: "Síndrome de Down", tipo: "concepto",
+    x: 870, y: 450,
+    resumen: "Cerca de la mitad tiene una cardiopatía, sobre todo canal AV. Ecocardiograma a todos al nacer.",
+    teoria: [
+      { h: "Qué cardiopatías", html: "<p>Canal auriculoventricular (la más típica), CIV, CIA, ductus y, menos frecuente, Fallot.</p>" },
+      { h: "Qué hacer", html: "<ul><li><b>Ecocardiograma neonatal a todos</b>, aunque el examen y la ecografía fetal sean normales: el canal AV puede no tener soplo al principio.</li><li>La hipertensión pulmonar aparece antes y con más frecuencia: no demorar la cirugía.</li><li>También pueden tener hipertensión pulmonar sin cardiopatía (apnea obstructiva, vía aérea).</li></ul>" },
+      { h: "Otros síndromes que conviene recordar", html: "<div class=\"tabla\"><table><thead><tr><th>Síndrome</th><th>Cardiopatía típica</th></tr></thead><tbody><tr><td>Deleción 22q11.2</td><td>Troncales y arco: Fallot, truncus, interrupción del arco</td></tr><tr><td>Turner</td><td>Coartación, válvula aórtica bicúspide</td></tr><tr><td>Williams</td><td>Estenosis aórtica supravalvular, estenosis de ramas pulmonares</td></tr><tr><td>Noonan</td><td>Estenosis pulmonar, miocardiopatía hipertrófica</td></tr><tr><td>Marfan</td><td>Dilatación de la raíz aórtica</td></tr></tbody></table></div>" }
+    ],
+    evidencia: ["bull2022"], pico: [], ateneos: [],
+    conexiones: ["cc-canal", "cc-hp", "cc-22q11"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-22q11", nivel: 2, mapa: "cardiopatias", titulo: "Deleción 22q11.2 (DiGeorge)", corto: "Deleción 22q11.2", tipo: "concepto",
+    x: 1080, y: 450,
+    resumen: "Cardiopatía troncal o del arco, hipocalcemia e inmunodeficiencia. Pedir el estudio ante Fallot, truncus o interrupción del arco.",
+    teoria: [
+      { h: "Cuándo pensarlo", html: "<ul><li>Cardiopatía conotroncal: Fallot (sobre todo con arco aórtico derecho o atresia pulmonar), truncus arterioso, interrupción del arco aórtico tipo B.</li><li>Hipocalcemia neonatal (convulsiones), infecciones por linfopenia T.</li><li>Paladar hendido o insuficiencia velofaríngea, rasgos faciales sutiles, trastornos del aprendizaje y psiquiátricos más adelante.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>Estudio genético (microarray o FISH).</li><li>Calcio, PTH y recuento de linfocitos T antes de la cirugía.</li><li>Sangre irradiada y sin vacunas vivas hasta evaluar la inmunidad.</li><li>Seguimiento multidisciplinario.</li></ul>" }
+    ],
+    evidencia: ["mcdonald2015"], pico: [], ateneos: [],
+    conexiones: ["cc-fallot"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "cc-endocarditis", nivel: 2, mapa: "cardiopatias", titulo: "Profilaxis de endocarditis", corto: "Profilaxis de endocarditis", tipo: "concepto",
+    x: 965, y: 560,
+    resumen: "Hoy se indica a muy pocos: solo pacientes de mayor riesgo y solo para procedimientos dentales. Lo que más protege es la salud bucal.",
+    teoria: [
+      { h: "Quiénes la necesitan", html: "<ul><li>Válvula protésica o material protésico usado para reparar una válvula.</li><li>Endocarditis previa.</li><li>Cardiopatía cianótica no reparada, incluidos los shunts y conductos paliativos.</li><li>Los primeros 6 meses después de reparar con material protésico (cirugía o cateterismo).</li><li>Defecto residual junto a un parche o dispositivo protésico.</li><li>Trasplante cardíaco con valvulopatía.</li></ul><p>No la necesitan: CIV, CIA o ductus sin reparar o reparados hace más de 6 meses sin residuo, soplos inocentes, prolapso mitral.</p>" },
+      { h: "Cuándo y cómo", html: "<p>Solo para procedimientos dentales que manipulan la encía o la región periapical. Amoxicilina 50 mg/kg VO (máximo 2 g) 30–60 minutos antes; en alérgicos, azitromicina o clindamicina según la normativa local.</p><p>Más importante que la profilaxis: higiene bucal y controles odontológicos regulares.</p><p class=\"nota\">Verificar dosis con el vademécum institucional.</p>" }
+    ],
+    evidencia: ["wilson2021"],
+    pico: [
+      { p: "Niños con cardiopatía de alto riesgo que van a un procedimiento dental", i: "Profilaxis antibiótica", c: "Sin profilaxis", o: "Endocarditis infecciosa",
+        respuesta: "No hay ensayos aleatorizados. La AHA mantiene la profilaxis solo en el grupo de mayor riesgo, porque la bacteriemia diaria por cepillado y masticación supera a la de un procedimiento aislado.",
+        certeza: "Baja", refs: ["wilson2021"] }
+    ],
+    ateneos: [],
+    conexiones: ["cc-fontan"],
     revision: { estado: "borrador", revisor: null, fecha: null }
   }
 ];

@@ -31,7 +31,7 @@ img{max-width:100%}
   --edad-2: #3A6F9C;
   --edad-3: #1C3F69;
   --accent: var(--edad-2);
-  --c-inf: #B9502C; --c-ale: #7A4DA3; --c-infl: #1F7D74; --derm: #A85A2E;
+  --c-inf: #B9502C; --c-ale: #7A4DA3; --c-infl: #1F7D74; --derm: #A85A2E; --cardio: #A33A4F; --c-shunt: #C0533E; --c-cian: #3F5FAE; --c-obst: #9A7414;
   --cuerpo: #E6ECF1; --cuerpo-borde: #C3CFD9; --organo: #D5DDE4; --organo-borde: #B7C3CD;
   --draft: #9A6514;
   --draft-bg: #F8EEDC;
@@ -48,7 +48,7 @@ img{max-width:100%}
     --line: #2B3843; --line-soft: #212C35;
     --edad-1: #5F93B6; --edad-2: #86B3DC; --edad-3: #C3D9F4;
     --draft: #E3B266; --draft-bg: #33281A; --ok: #7CC6A0; --ok-bg: #18301F; --danger: #F08C7C;
-    --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076;
+    --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076; --cardio: #EE8FA0; --c-shunt: #F2977F; --c-cian: #93ADF0; --c-obst: #E0BC5A;
     --cuerpo: #1D2932; --cuerpo-borde: #34444F; --organo: #2A3843; --organo-borde: #3E505C;
     color-scheme: dark;
   }
@@ -58,7 +58,7 @@ img{max-width:100%}
   --line: #2B3843; --line-soft: #212C35;
   --edad-1: #5F93B6; --edad-2: #86B3DC; --edad-3: #C3D9F4;
   --draft: #E3B266; --draft-bg: #33281A; --ok: #7CC6A0; --ok-bg: #18301F; --danger: #F08C7C;
-  --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076;
+  --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076; --cardio: #EE8FA0; --c-shunt: #F2977F; --c-cian: #93ADF0; --c-obst: #E0BC5A;
   --cuerpo: #1D2932; --cuerpo-borde: #34444F; --organo: #2A3843; --organo-borde: #3E505C;
   color-scheme: dark;
 }
@@ -117,18 +117,23 @@ h1 { font-size: clamp(26px, 4vw, 40px); line-height: 1.1; font-weight: 600; lett
 .nodo.concepto .aro { fill: transparent; }
 .nodo.concepto text.t { font-size: 13px; fill: var(--muted); }
 svg.columnas .nodo.concepto .punto { fill: var(--accent); }
+svg.con-causas .nodo.concepto .punto { fill: var(--muted); }
 svg.columnas .nodo.concepto text.t { fill: var(--ink); font-size: 14px; }
 .nodo:hover .punto, .nodo:focus-visible .punto, .nodo.activo .punto { fill: var(--accent); }
 svg .nodo.concepto .punto.c-infecciosa, .leyenda .c-infecciosa { fill: var(--c-inf); background: var(--c-inf); }
 svg .nodo.concepto .punto.c-alergica, .leyenda .c-alergica { fill: var(--c-ale); background: var(--c-ale); }
 svg .nodo.concepto .punto.c-inflamatoria, .leyenda .c-inflamatoria { fill: var(--c-infl); background: var(--c-infl); }
+svg .nodo.concepto .punto.c-cortocircuito, .leyenda .c-cortocircuito { fill: var(--c-shunt); background: var(--c-shunt); }
+svg .nodo.concepto .punto.c-cianotica, .leyenda .c-cianotica { fill: var(--c-cian); background: var(--c-cian); }
+svg .nodo.concepto .punto.c-obstructiva, .leyenda .c-obstructiva { fill: var(--c-obst); background: var(--c-obst); }
 .nodo .punto2 { stroke: var(--surface); stroke-width: 1.5; }
 .nodo .punto2.c-infecciosa { fill: var(--c-inf); } .nodo .punto2.c-alergica { fill: var(--c-ale); } .nodo .punto2.c-inflamatoria { fill: var(--c-infl); }
+.nodo .punto2.c-cortocircuito { fill: var(--c-shunt); } .nodo .punto2.c-cianotica { fill: var(--c-cian); } .nodo .punto2.c-obstructiva { fill: var(--c-obst); }
 #ley-causas { display: inline-flex; flex-wrap: wrap; gap: 6px 16px; }
 .leyenda .causa-i { width: 9px; height: 9px; border-radius: 50%; }
 .p-causas { display: inline-flex; gap: 6px; margin-left: 8px; }
 .p-causas span { font-size: 11px; padding: 1px 7px; border-radius: 10px; color: #fff; }
-.p-causas .c-infecciosa { background: var(--c-inf); } .p-causas .c-alergica { background: var(--c-ale); } .p-causas .c-inflamatoria { background: var(--c-infl); }
+.p-causas .c-infecciosa { background: var(--c-inf); } .p-causas .c-alergica { background: var(--c-ale); } .p-causas .c-inflamatoria { background: var(--c-infl); } .p-causas .c-cortocircuito { background: var(--c-shunt); } .p-causas .c-cianotica { background: var(--c-cian); } .p-causas .c-obstructiva { background: var(--c-obst); }
 :root[data-theme="dark"] .p-causas span { color: #111; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .p-causas span { color: #111; } }
 .nodo.concepto:hover text.t, .nodo.concepto.activo text.t { fill: var(--ink); }
@@ -437,7 +442,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   const BASE_R = window.REFS || {};
   const MAPAS = window.MAPAS || { raiz: { titulo: "Mapa", ruta: [], bajada: "", disposicion: "edad" } };
   const INICIO = MAPAS.inicio ? "inicio" : "raiz";
-  const CAUSAS = { infecciosa: "Infecciosa", alergica: "Alérgica o por fármacos", inflamatoria: "Inflamatoria" };
+  const CAUSAS = { infecciosa: "Infecciosa", alergica: "Alérgica o por fármacos", inflamatoria: "Inflamatoria", cortocircuito: "Cortocircuito izquierda-derecha", cianotica: "Cianótica", obstructiva: "Obstructiva" };
   const CAPAS = { 1: "Lo esencial", 2: "Para profundizar", 3: "Todo" };
   const capas = {};
   const capa = () => capas[mapaActual] || 1;
@@ -586,6 +591,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     svg.classList.toggle("columnas", m.disposicion !== "edad");
     svg.classList.toggle("recorrido", !!recorridoActivo());
     svg.classList.toggle("cuerpo", m.disposicion === "cuerpo");
+    svg.classList.toggle("con-causas", !!(m.causas || []).length);
     ["capa-1", "capa-2", "capa-3"].forEach(k => svg.classList.remove(k));
     svg.classList.add("capa-" + capa());
     if (m.disposicion === "cuerpo") { dibujarCuerpo(m); nodoEls = {}; aristaEls = []; return; }
