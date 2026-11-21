@@ -827,6 +827,178 @@ window.REFS = {
     tipo: "Guía de práctica clínica internacional",
     hallazgo: "Compromiso multisistémico con hipotonía, hipoplasia cerebelosa, pezones invertidos, distribución anormal de la grasa, estrabismo y coagulopatía. Pesquisa con isoelectroenfoque de transferrina.",
     pmid: "30740725", doi: "10.1002/jimd.12024"
+  },
+  bradley2011: {
+    cita: "Bradley JS, Byington CL, Shah SS, et al. The management of community-acquired pneumonia in infants and children older than 3 months of age: clinical practice guidelines by the PIDS and the IDSA. Clin Infect Dis. 2011;53:e25-e76.",
+    tipo: "Guía de práctica clínica (PIDS/IDSA)",
+    hallazgo: "No hace falta radiografía de rutina en el niño que se trata ambulatoriamente; sí ante hipoxemia, dificultad respiratoria importante, fracaso del tratamiento o internación. En preescolares el antibiótico no se requiere de rutina (la causa suele ser viral). Primera línea: amoxicilina en dosis altas.",
+    pmid: "21880587", doi: "10.1093/cid/cir531"
+  },
+  sap2021irab: {
+    cita: "Comités de Neumonología, Infectología, Medicina Interna Pediátrica y Pediatría Ambulatoria (SAP). Recomendaciones para el manejo de las infecciones respiratorias agudas bajas en menores de 2 años. Actualización 2021. Arch Argent Pediatr. 2021;119(4):S171-S197.",
+    tipo: "Recomendaciones nacionales (SAP)",
+    hallazgo: "Marco argentino para las IRAB en menores de 2 años, con la bronquiolitis y la neumonía como entidades principales. Antibiótico empírico cuando no puede descartarse una neumonía bacteriana; no de rutina ante un cuadro compatible con infección viral.",
+    pmid: "34309327", doi: "10.5546/aap.2021.S171"
+  },
+  shah2017: {
+    cita: "Shah SN, Bachur RG, Simel DL, Neuman MI. Does this child have pneumonia? The Rational Clinical Examination systematic review. JAMA. 2017;318:462-471.",
+    tipo: "Revisión sistemática de exactitud diagnóstica",
+    hallazgo: "23 cohortes (13 833 niños). Ningún síntoma aislado diagnostica neumonía. La fiebre, la taquipnea (LR 1,5) y la auscultación pesan poco. Lo que más suma: SatO₂ ≤ 96 % (LR 2,8) y aumento del trabajo respiratorio, con quejido, aleteo o tiraje (LR 2,1). Una SatO₂ > 96 % la hace menos probable (LR 0,47).",
+    pmid: "28763554", doi: "10.1001/jama.2017.9039"
+  },
+  andronikou2017: {
+    cita: "Andronikou S, Lambert E, Halton J, et al. Guidelines for the use of chest radiographs in community-acquired pneumonia in children and adolescents. Pediatr Radiol. 2017;47:1405-1411.",
+    tipo: "Guía (radiología pediátrica)",
+    hallazgo: "La radiografía no distingue de forma confiable una neumonía viral de una bacteriana. Se reserva para casos seleccionados.",
+    pmid: "29043422", doi: "10.1007/s00247-017-3944-4"
+  },
+  cao2013: {
+    cita: "Cao AMY, Choy JP, Mohanakrishnan LN, Bain RF, van Driel ML. Chest radiographs for acute lower respiratory tract infections. Cochrane Database Syst Rev. 2013;(12):CD009119.",
+    tipo: "Revisión sistemática (Cochrane)",
+    hallazgo: "Dos ensayos (uno con 522 niños ambulatorios en Sudáfrica). Hacer radiografía no mejoró el tiempo de recuperación. Ambos excluyeron a los pacientes graves.",
+    pmid: "24369343", doi: "10.1002/14651858.CD009119.pub2"
+  },
+  vandemaat2021: {
+    cita: "van de Maat JS, Garcia Perez D, Driessen GJA, et al. The influence of chest X-ray results on antibiotic prescription for childhood pneumonia in the emergency department. Eur J Pediatr. 2021;180:2765-2772.",
+    tipo: "Análisis secundario de un ensayo por conglomerados (8 guardias, Países Bajos)",
+    hallazgo: "597 niños de 1 mes a 5 años con fiebre y tos o disnea. Se hizo radiografía al 18 %. Hacerla se asoció con más antibiótico aun ajustando por la clínica y por el resultado (OR 7,25); el hallazgo de la placa no se asoció con la prescripción.",
+    pmid: "33754207", doi: "10.1007/s00431-021-03996-2"
+  },
+  lipshaw2021: {
+    cita: "Lipshaw MJ, Florin TA, Krueger S, et al. Factors associated with antibiotic prescribing and outcomes for pediatric pneumonia in the emergency department. Pediatr Emerg Care. 2021;37:e1033-e1038.",
+    tipo: "Cohorte prospectiva (guardia pediátrica)",
+    hallazgo: "En el 35 % de los niños el médico ya pensaba dar antibiótico antes de la radiografía. Esa intención predijo la prescripción (OR 6,4) más que la neumonía radiográfica (OR 3,5).",
+    pmid: "31290801", doi: "10.1097/PEC.0000000000001892"
+  },
+  fancourt2017: {
+    cita: "Fancourt N, Deloria Knoll M, Barger-Kamate B, et al. Standardized interpretation of chest radiographs in cases of pediatric pneumonia from the PERCH study. Clin Infect Dis. 2017;64(Suppl 3):S253-S261.",
+    tipo: "Estudio de concordancia (PERCH)",
+    hallazgo: "Aun con lectores entrenados y criterios OMS, persistió el desacuerdo; la concordancia fue mejor para la consolidación que para los otros infiltrados.",
+    pmid: "28575359", doi: "10.1093/cid/cix082"
+  },
+  cherian2005: {
+    cita: "Cherian T, Mulholland EK, Carlin JB, et al. Standardized interpretation of paediatric chest radiographs for the diagnosis of pneumonia in epidemiological studies. Bull World Health Organ. 2005;83:353-359.",
+    tipo: "Metodología OMS",
+    hallazgo: "Define la neumonía radiográfica «de punto final» (consolidación o derrame asociado a infiltrado) y los «otros infiltrados». Se pensó para comparar estudios y ensayos de vacunas, no para decidir el tratamiento de cada paciente.",
+    pmid: "15976876"
+  },
+  geanacopoulos2025: {
+    cita: "Geanacopoulos AT, Monuteaux MC, Nelson KA, et al. Radiographic uncertainty and antibiotic prescribing in pediatric pneumonia. Pediatrics. 2025;156(5):e2025073473.",
+    tipo: "Cohorte prospectiva (guardia pediátrica)",
+    hallazgo: "Clasificó los informes radiológicos en negativos, equívocos y compatibles con neumonía. Los equívocos fueron una minoría, pero en ellos se indicó antibiótico con mucha más frecuencia que en los negativos (alrededor de 71 % frente a 8 %; 95 % en los compatibles): la incertidumbre de la placa empuja a tratar.",
+    pmid: "41101769", doi: "10.1542/peds.2025-073473"
+  },
+  moreno2006: {
+    cita: "Moreno L, Krishnan JA, Duran P, Ferrero F. Development and validation of a clinical prediction rule to distinguish bacterial from viral pneumonia in children. Pediatr Pulmonol. 2006;41:331-337.",
+    tipo: "Desarrollo y validación de una regla de predicción (Argentina)",
+    hallazgo: "Bacterial Pneumonia Score: temperatura axilar ≥ 39 °C (3 puntos), edad ≥ 9 meses (2), neutrófilos ≥ 8000/mm³ (2), cayados ≥ 5 % (1) y la radiografía (−3 a 7). Con ≥ 4 puntos: sensibilidad 100 % y especificidad 93,8 % en niños internados con etiología identificada.",
+    pmid: "16493666", doi: "10.1002/ppul.20364"
+  },
+  karakachoff2008: {
+    cita: "Karakachoff M, Battagliotti C, Maciel J, Gamba N. Validación de un método para predecir etiología en niños con neumonía. Arch Argent Pediatr. 2008;106:126-131.",
+    tipo: "Validación externa (Argentina)",
+    hallazgo: "En 82 niños internados, el BPS ≥ 4 tuvo sensibilidad 94 % y valor predictivo negativo 95 %, pero especificidad de solo 34 %. Sirve más para descartar la causa bacteriana que para confirmarla.",
+    pmid: "18661037", doi: "10.1590/S0325-00752008000200006"
+  },
+  jain2015: {
+    cita: "Jain S, Williams DJ, Arnold SR, et al. Community-acquired pneumonia requiring hospitalization among U.S. children. N Engl J Med. 2015;372:835-845.",
+    tipo: "Vigilancia poblacional prospectiva (estudio EPIC)",
+    hallazgo: "2222 niños internados con neumonía radiográfica: se halló algún virus en el 66 % y bacterias en el 8 %. El VSR fue más frecuente en menores de 5 años (37 % frente a 8 %) y Mycoplasma en los de 5 años o más (19 % frente a 3 %).",
+    pmid: "25714161", doi: "10.1056/NEJMoa1405870"
+  },
+  perch2019: {
+    cita: "Pneumonia Etiology Research for Child Health (PERCH) Study Group. Causes of severe pneumonia requiring hospital admission in children without HIV infection from Africa and Asia: the PERCH multi-country case-control study. Lancet. 2019;394:757-779.",
+    tipo: "Casos y controles multicéntrico",
+    hallazgo: "En niños de 1 a 59 meses con neumonía grave, los virus explicaron el 61 % de los casos (VSR 31 %), las bacterias el 27 % y la tuberculosis el 6 %. Las bacterias pesaron más en los casos muy graves.",
+    pmid: "31257127", doi: "10.1016/S0140-6736(19)30721-4"
+  },
+  williams2022: {
+    cita: "Williams DJ, Creech CB, Walter EB, et al. Short- vs standard-course outpatient antibiotic therapy for community-acquired pneumonia in children: the SCOUT-CAP randomized clinical trial. JAMA Pediatr. 2022;176:253-261.",
+    tipo: "Ensayo clínico aleatorizado, doble ciego",
+    hallazgo: "380 niños de 6 a 71 meses con neumonía no grave que mejoraban: 5 días de antibiótico fueron tan buenos como 10, sin diferencias en la respuesta clínica ni en los efectos adversos.",
+    pmid: "35040920", doi: "10.1001/jamapediatrics.2021.5547"
+  },
+  bielicki2021: {
+    cita: "Bielicki JA, Stöhr W, Barratt S, et al. Effect of amoxicillin dose and treatment duration on the need for antibiotic re-treatment in children with community-acquired pneumonia: the CAP-IT randomized clinical trial. JAMA. 2021;326:1713-1724.",
+    tipo: "Ensayo clínico aleatorizado factorial de no inferioridad",
+    hallazgo: "824 niños de 6 meses o más dados de alta con amoxicilina. La dosis menor (35–50 mg/kg/día) no fue inferior a la mayor (70–90) y 3 días no fueron inferiores a 7 en la necesidad de retratamiento. Con 3 días la tos duró un poco más.",
+    pmid: "34726708", doi: "10.1001/jama.2021.17843"
+  },
+  little2021: {
+    cita: "Little P, Francis NA, Stuart B, et al. Antibiotics for lower respiratory tract infection in children presenting in primary care in England (ARTIC PC): a double-blind, randomised, placebo-controlled trial. Lancet. 2021;398:1417-1426.",
+    tipo: "Ensayo clínico aleatorizado, controlado con placebo",
+    hallazgo: "432 niños de 6 meses a 12 años con infección respiratoria baja no complicada, sin sospecha clínica de neumonía. La amoxicilina no acortó los síntomas, ni en general ni en los subgrupos con fiebre, signos en el tórax o mal estado.",
+    pmid: "34562391", doi: "10.1016/S0140-6736(21)01431-8"
+  },
+  hazir2008: {
+    cita: "Hazir T, Fox LM, Nisar YB, et al. Ambulatory short-course high-dose oral amoxicillin for treatment of severe pneumonia in children: a randomised equivalency trial. Lancet. 2008;371:49-56.",
+    tipo: "Ensayo clínico aleatorizado de equivalencia (Pakistán)",
+    hallazgo: "2037 niños de 3 a 59 meses con neumonía con tiraje (grave según la OMS de entonces). Amoxicilina oral en dosis altas en el domicilio fue equivalente a internar y dar ampicilina parenteral (fracaso 7,5 % frente a 8,6 %). Fundamentó el cambio de la clasificación OMS de 2014.",
+    pmid: "18177775", doi: "10.1016/S0140-6736(08)60071-9"
+  },
+  dutron2026: {
+    cita: "Dutron S, Pissarra J, Deguet A, et al. Consensus definition for community-acquired pneumonia in children using a Delphi approach. Pediatr Infect Dis J. 2026.",
+    tipo: "Consenso Delphi (países con alto acceso a la salud)",
+    hallazgo: "Neumonía presunta = 3 criterios mayores (fiebre, taquipnea y consolidación focal en la radiografía) más 3 de 5 menores (crepitantes focales, PCR > 80 mg/L, alteración del estado general, tos, síndrome de condensación). Exige radiografía.",
+    pmid: "42750427", doi: "10.1097/INF.0000000000005408"
+  },
+  ricci2015: {
+    cita: "Ricci V, Delgado Nunes V, Murphy MS, Cunningham S; Guideline Development Group. Bronchiolitis in children: summary of NICE guidance. BMJ. 2015;350:h2305.",
+    tipo: "Resumen de guía (NICE)",
+    hallazgo: "Bronquiolitis en menores de 2 años (sobre todo en el primer año): pródromo catarral y después tos persistente con taquipnea o tiraje y sibilancias o crepitantes. En el Reino Unido los crepitantes pesan tanto como la sibilancia.",
+    pmid: "26037525", doi: "10.1136/bmj.h2305"
+  },
+  shi2024: {
+    cita: "Shi C, Xu X, Xu Y. Systematic review and meta-analysis of the accuracy of lung ultrasound and chest radiography in diagnosing community acquired pneumonia in children. Pediatr Pulmonol. 2024;59:3130-3147.",
+    tipo: "Revisión sistemática y metaanálisis de exactitud diagnóstica",
+    hallazgo: "30 estudios, 4546 niños. Ecografía pulmonar: sensibilidad 94 % y especificidad 86 %; radiografía: 89 % y 91 %. La ecografía sumó más sensibilidad, sin radiación.",
+    pmid: "39239917", doi: "10.1002/ppul.27221"
+  },
+  meyersauteur2024: {
+    cita: "Meyer Sauteur PM. Childhood community-acquired pneumonia. Eur J Pediatr. 2024;183:1129-1136.",
+    tipo: "Revisión narrativa",
+    hallazgo: "Con las vacunas conjugadas contra neumococo y Hib, hoy predominan los virus y Mycoplasma. Ni la clínica, ni el laboratorio, ni la radiografía distinguen con seguridad la causa bacteriana de la viral.",
+    pmid: "38112800", doi: "10.1007/s00431-023-05366-6"
+  },
+  rowlands2024: {
+    cita: "Rowlands RS, Meyer Sauteur PM, Beeton ML; ESGMAC MyCOVID Study Team. Mycoplasma pneumoniae: not a typical respiratory pathogen. J Med Microbiol. 2024;73.",
+    tipo: "Revisión",
+    hallazgo: "Causa importante de neumonía en escolares y adultos jóvenes, con brotes cada 1 a 4 años (uno grande en 2023–2024, tras la pandemia). Manifestaciones extrapulmonares y resistencia a macrólidos en aumento, sobre todo en Asia.",
+    pmid: "39475213", doi: "10.1099/jmm.0.001910"
+  },
+  kilgore2016: {
+    cita: "Kilgore PE, Salim AM, Zervos MJ, Schmitt HJ. Pertussis: microbiology, disease, treatment, and prevention. Clin Microbiol Rev. 2016;29:449-486.",
+    tipo: "Revisión",
+    hallazgo: "En lactantes pequeños la tos convulsa puede presentarse con apneas o cianosis más que con el gallo; la leucocitosis con linfocitosis marca riesgo. Macrólidos como tratamiento y profilaxis; vacunación en el embarazo para proteger al recién nacido.",
+    pmid: "27029594", doi: "10.1128/CMR.00083-15"
+  },
+  tormoehlen2014: {
+    cita: "Tormoehlen LM, Tekulve KJ, Nañagas KA. Hydrocarbon toxicity: a review. Clin Toxicol (Phila). 2014;52:479-489.",
+    tipo: "Revisión",
+    hallazgo: "La neumonitis por hidrocarburos depende de la aspiración (baja viscosidad, alta volatilidad), no de lo absorbido por el intestino. No inducir el vómito; los síntomas aparecen en las primeras horas.",
+    pmid: "24911841", doi: "10.3109/15563650.2014.923904"
+  },
+  chiang2005: {
+    cita: "Chiang YC, Shyur SD, Huang LH, et al. Chlamydia trachomatis pneumonia: experience in a medical center. Acta Paediatr Taiwan. 2005;46:284-288.",
+    tipo: "Serie de casos",
+    hallazgo: "Neumonía afebril del lactante de 1 a 3 meses: tos en staccato, taquipnea, a veces conjuntivitis previa y eosinofilia; infiltrados intersticiales bilaterales con hiperinsuflación.",
+    pmid: "16640002"
+  },
+  oms2014imci: {
+    cita: "Organización Mundial de la Salud. Revised WHO classification and treatment of childhood pneumonia at health facilities: evidence summaries. Ginebra: OMS; 2014.",
+    tipo: "Guía OMS (AIEPI)",
+    hallazgo: "Reclasifica la neumonía en dos categorías. «Neumonía» (respiración rápida o tiraje) se trata con amoxicilina oral en el domicilio; «neumonía grave» (un signo general de peligro) se deriva con antibiótico parenteral."
+  },
+  proa2023: {
+    cita: "Ministerio de Salud de la Nación. Directrices para la implementación de Programas para la Optimización del uso de los Antimicrobianos (PROA) en establecimientos de salud. Buenos Aires; 2023.",
+    tipo: "Directriz nacional",
+    hallazgo: "Los PROA empiezan por medir cómo se prescribe. Buscan la indicación pertinente y el fármaco, la dosis, la vía y la duración adecuados."
+  },
+  jorrobaron2025: {
+    cita: "Jorro-Baron F, Echave C, Rodriguez V, et al. Improving antibiotic use in pediatric hospitals in Argentina: a quality improvement study. Hosp Pediatr. 2025;15:e230-e239.",
+    tipo: "Estudio de mejora de la calidad (2 hospitales argentinos)",
+    hallazgo: "Un programa de optimización de antibióticos en internación pediátrica, con las IRAB como causa frecuente, aumentó el uso de antibióticos de espectro reducido (grupo Acceso de la OMS: de 30,7 % a 37,9 %).",
+    pmid: "40335064", doi: "10.1542/hpeds.2024-008046"
   }
 };
 
@@ -934,7 +1106,7 @@ window.MAPAS = {
     pista: "Tocá un sistema para entrar en su mapa.",
     sistemas: [
       { id: "neuro", titulo: "Neurología", detalle: "Las 20 patologías más frecuentes", organo: "cerebro", mapa: "neurologia", color: "var(--neuro)", lado: "izq", y: 30 },
-      { id: "neumo", titulo: "Neumonología", detalle: "Bronquiolitis, sibilancias y asma", organo: "pulmones", mapa: "raiz", color: "var(--edad-2)", lado: "izq", y: 186 },
+      { id: "neumo", titulo: "Neumonología", detalle: "Bronquiolitis, sibilancias, asma y neumonía", organo: "pulmones", mapa: "raiz", color: "var(--edad-2)", lado: "izq", y: 186 },
       { id: "gastro", titulo: "Gastroenterología", detalle: "Diarrea, reflujo, dolor abdominal", organo: "digestivo", lado: "izq", y: 498 },
       { id: "cardio", titulo: "Cardiología", detalle: "Soplos y cardiopatías congénitas", organo: "corazon", mapa: "cardiopatias", color: "var(--cardio)", lado: "der", y: 128 },
       { id: "derma", titulo: "Dermatología", detalle: "Exantemas: subtipos y causas", organo: "piel", mapa: "exantemas", color: "var(--derm)", lado: "der", y: 304 },
@@ -1197,6 +1369,61 @@ window.MAPAS = {
         { titulo: "Lisosoma (2)", pasos: ["l:Glucosaminoglucanos", { e: "Hidrolasas", ecm: "ecm-mps", dx: "Mucopolisacaridosis" }, "Azúcares", "|", "l:Colesterol", { e: "NPC1 · NPC2", ecm: "ecm-npc", dx: "Niemann-Pick C" }, "Membranas"] },
         { titulo: "Peroxisoma", pasos: ["Ácidos grasos muy largos", { e: "ABCD1", ecm: "ecm-xald", dx: "X-ALD" }, "p:β-oxidación peroxisomal", "|", "Proteínas PEX", { e: "Biogénesis", ecm: "ecm-zellweger", dx: "Zellweger" }, "p:Peroxisoma"] },
         { titulo: "Retículo y Golgi", pasos: ["r:Proteínas", { e: "Glicosilación", ecm: "ecm-cdg", dx: "CDG" }, "r:Glucoproteínas", "|", "7-Dehidrocolesterol", { e: "DHCR7", ecm: "ecm-slo", dx: "Smith-Lemli-Opitz" }, "Colesterol"] }
+      ] }
+    ]
+  },
+  irab: {
+    titulo: "IRAB y neumonía",
+    padre: "raiz",
+    tema: "irab",
+    ruta: ["Pediatría", "Neumonología", "IRAB y neumonía"],
+    bajada: "Las infecciones respiratorias agudas bajas en tres zonas: qué nombre le ponemos (y por qué cada país usa otro), la neumonía adquirida en la comunidad, de la sospecha a la radiografía y el antibiótico, y las neumonitis según el germen. El color del punto indica qué tipo de agente la causa.",
+    disposicion: "zonas",
+    indice: "IRAB por zona",
+    buscar: "Buscar: taquipnea, Rx equívoca, Mycoplasma, Chlamydia…",
+    pista: "Cada zona responde una pregunta distinta. El color del punto indica el tipo de agente; un segundo punto chico, que puede tener más de uno. Elegí un recorrido para seguir a un paciente.",
+    causas: ["viral", "bacteriana", "atipica", "otra"],
+    zonas: [
+      { x: 30, y: 60, w: 360, h: 560, titulo: "¿Cómo lo llamamos?" },
+      { x: 410, y: 60, w: 440, h: 560, titulo: "Neumonía adquirida en la comunidad" },
+      { x: 870, y: 60, w: 300, h: 560, titulo: "Neumonitis y gérmenes" }
+    ],
+    recorridos: [
+      { id: "fiebre-taquipnea", titulo: "14 meses, fiebre y taquipnea en la guardia", descripcion: "Dos días de fiebre de 39 °C y tos; FR 52, SatO₂ 95 %, leve tiraje subcostal, crepitantes en la base derecha.", pasos: [
+        { nodo: "nac-clinica", nota: "Lo que más pesa es la saturación de 95 % y el trabajo respiratorio, no la taquipnea ni la auscultación por separado." },
+        { nodo: "irab-oms", nota: "Para la OMS ya es «neumonía» (respiración rápida y tiraje); sin signos de peligro, se trata en el domicilio." },
+        { nodo: "nac-rx", nota: "Si está estable, la radiografía no es obligatoria para tratar. Se pide si hay hipoxemia, dificultad importante, mala evolución o se interna." },
+        { nodo: "nac-etiologia", nota: "A esta edad la causa más probable es un virus, aunque haya crepitantes." },
+        { nodo: "nac-atb", nota: "Si no puede descartarse la causa bacteriana: amoxicilina en dosis altas, 5 días." },
+        { nodo: "nac-internacion", nota: "Pautas de alarma claras y control en 48 horas." }
+      ] },
+      { id: "rx-equivoca", titulo: "La Rx dice «infiltrado peribronquial»", descripcion: "3 años, fiebre y tos. Se pidió una radiografía y el informe es dudoso.", pasos: [
+        { nodo: "nac-rx-lectura", nota: "Engrosamiento peribronquial y opacidades parcheadas no son consolidación: es una placa equívoca." },
+        { nodo: "nac-rx-atb", nota: "Ante una placa equívoca se tiende a dar antibiótico; la decisión debería volver a la clínica." },
+        { nodo: "nac-bps", nota: "El BPS ayuda a descartar la causa bacteriana, con cautela fuera de la internación." },
+        { nodo: "nac-etiologia", nota: "Patrón intersticial o peribronquial: más compatible con virus o atípicos." },
+        { nodo: "nac-atb", nota: "Si se decide tratar, amoxicilina y un plan de control; si no, pautas de alarma." }
+      ] },
+      { id: "lactante-afebril", titulo: "7 semanas, tos en accesos y sin fiebre", descripcion: "Tos desde hace 10 días que empeora, en accesos; está afebril y entre los accesos se lo ve bien.", pasos: [
+        { nodo: "neu-que", nota: "Sin fiebre y con tos que domina el cuadro, pensar en neumonitis y en tos convulsa antes que en una neumonía típica." },
+        { nodo: "neu-pertussis", nota: "Accesos con cianosis, apneas o vómitos y linfocitosis: tos convulsa. Es lo más urgente de descartar." },
+        { nodo: "neu-afebril", nota: "Tos en staccato, taquipnea, conjuntivitis previa y eosinofilia: neumonitis afebril del lactante." },
+        { nodo: "neu-chlamydia", nota: "La causa clásica es Chlamydia trachomatis transmitida en el parto." },
+        { nodo: "neu-viral", nota: "El VSR y otros virus también dan cuadros afebriles a esta edad." }
+      ] },
+      { id: "escolar-tos", titulo: "8 años, tos de 10 días y cefalea", descripcion: "Febrícula, cefalea, tos seca persistente; buen estado general. Crepitantes difusos; hermano con cuadro parecido.", pasos: [
+        { nodo: "neu-mycoplasma", nota: "Escolar, comienzo gradual, tos que domina, contactos con lo mismo: Mycoplasma pneumoniae." },
+        { nodo: "nac-etiologia", nota: "Desde los 5 años Mycoplasma pasa a ser una causa principal." },
+        { nodo: "nac-atb", nota: "La amoxicilina no lo cubre; si se trata, macrólido." },
+        { nodo: "nac-complicaciones", nota: "Si la fiebre persiste pese al tratamiento, buscar complicaciones y repensar el diagnóstico." }
+      ] },
+      { id: "nombres", titulo: "La misma tos, cinco nombres", descripcion: "Un lactante de 11 meses con su primer cuadro de tos, rales y sibilancias, contado en distintos países.", pasos: [
+        { nodo: "irab-paraguas", nota: "En Argentina es una IRAB; el nombre preciso depende de la definición que se use." },
+        { nodo: "irab-bronquiolitis-def", nota: "SAP y AAP: bronquiolitis. Con la definición australiana (menores de 12 meses) también." },
+        { nodo: "irab-oms", nota: "Para la OMS, si respira rápido es «neumonía»." },
+        { nodo: "irab-etiquetas", nota: "En otro servicio puede figurar como síndrome bronquial obstructivo o bronquitis." },
+        { nodo: "irab-lrti", nota: "En un artículo británico, «lower respiratory tract infection»." },
+        { nodo: "irab-investigar", nota: "Antes de aplicar un estudio, mirar qué definición usó." }
       ] }
     ]
   }
@@ -4592,6 +4819,482 @@ window.NODOS = [
     evidencia: ["saudubray2022"], pico: [], ateneos: [],
     conexiones: ["ecm-cdg"],
     revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* ───────────── IRAB Y NEUMONÍA (submapa irab) ───────────── */
+  {
+    id: "irab", nivel: 1,
+    titulo: "IRAB y neumonía",
+    tipo: "tema",
+    color: "var(--c-irab)",
+    x: 330, y: 140,
+    edad: "0 a 5 años",
+    submapa: "irab",
+    resumen: "Infecciones respiratorias agudas bajas: la bronquiolitis, la neumonía y las neumonitis comparten síntomas, y cada país las nombra distinto. El submapa ordena las definiciones, la NAC y los gérmenes.",
+    teoria: [
+      { h: "Por qué va al lado de la bronquiolitis", html: "<p>Fiebre, tos, taquipnea, tiraje y rales aparecen en la bronquiolitis, en la neumonía viral, en la bacteriana y en las neumonitis. <b>Ningún hallazgo aislado las separa</b>: el diagnóstico surge de la edad, la forma de comienzo, la saturación y el trabajo respiratorio, y de cómo evoluciona.</p>" },
+      { h: "Qué hay en el submapa", html: "<ul><li><b>¿Cómo lo llamamos?</b> IRAB, bronquiolitis, neumonía OMS, SBO, LRTI: qué incluye cada nombre.</li><li><b>Neumonía adquirida en la comunidad:</b> clínica, radiografía, etiología, BPS, antibiótico, internación y complicaciones.</li><li><b>Neumonitis y gérmenes:</b> Mycoplasma, Chlamydia, tos convulsa, virus, inmunocomprometidos y aspiración.</li></ul>" }
+    ],
+    diferenciales: [
+      { dx: "Bronquiolitis", nodo: "bronquiolitis", claves: "<ul><li>Menor de 2 años, primer episodio, pródromo catarral, sibilancias o rales difusos y simétricos.</li><li>La fiebre alta, la focalidad o el mal estado general orientan a neumonía.</li></ul>" },
+      { dx: "Sibilancias recurrentes o crisis asmática", nodo: "sibilancias", claves: "<ul><li>Episodios previos, sibilancias difusas, respuesta clara al broncodilatador.</li><li>Atelectasias en la placa que se confunden con neumonía.</li></ul>" }
+    ],
+    evidencia: ["sap2021irab", "bradley2011"], pico: [], ateneos: [],
+    conexiones: ["bronquiolitis", "vsr", "sibilancias"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "irab-paraguas", nivel: 1, mapa: "irab", titulo: "IRAB: un paraguas, no un diagnóstico", corto: "IRAB, el paraguas", tipo: "concepto",
+    x: 210, y: 140,
+    resumen: "Infección respiratoria aguda baja: agrupa cuadros distintos por debajo de la laringe. Sirve para organizar la atención y la vigilancia, no para decidir un tratamiento.",
+    teoria: [
+      { h: "Qué incluye", html: "<p>En Argentina, IRAB es el término de las recomendaciones de la SAP y de la vigilancia epidemiológica. Abarca la <b>bronquiolitis</b> y la <b>neumonía</b> como entidades principales y, según la fuente, también la bronquitis, el síndrome bronquial obstructivo, la tos convulsa o la influenza.</p><p>Las recomendaciones de la SAP de 2021 se refieren a <b>menores de 2 años</b>.</p>" },
+      { h: "Por qué confunde", html: "<ul><li>No es una enfermedad: es un nivel anatómico más un tiempo de evolución.</li><li>Los límites cambian con cada definición: la edad de la bronquiolitis, si la neumonía exige radiografía o no, si un primer episodio con sibilancias cuenta como bronquiolitis o como «neumonía» OMS.</li><li>Un mismo niño puede recibir nombres distintos en la guardia, en la historia clínica, en la notificación y en un artículo.</li></ul>" },
+      { h: "Lo práctico", html: "<p>Usar IRAB como punto de partida y después <b>nombrar el cuadro concreto</b>: bronquiolitis, neumonía (con o sin radiografía), neumonitis, coqueluche. Cada nombre tiene su evidencia y su conducta.</p>" }
+    ],
+    diferenciales: [
+      { dx: "Infección respiratoria alta", claves: "<ul><li>Rinitis, faringitis u otitis sin taquipnea, tiraje ni hallazgos auscultatorios bajos.</li><li>La tos puede ser por goteo posnasal.</li></ul>" },
+      { dx: "Laringitis (crup)", claves: "<ul><li>Estridor inspiratorio, tos perruna y disfonía: obstrucción alta, no baja.</li></ul>" }
+    ],
+    evidencia: ["sap2021irab"], pico: [], ateneos: [],
+    conexiones: ["irab-oms", "irab-neumonia-def", "irab-bronquiolitis-def", "irab-etiquetas"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "irab-oms", nivel: 1, mapa: "irab", titulo: "La neumonía de la OMS: contar respiraciones", corto: "Neumonía OMS (AIEPI)", tipo: "concepto",
+    x: 110, y: 250,
+    resumen: "Tos o dificultad para respirar con respiración rápida o tiraje. Muy sensible y pensada para bajar la mortalidad donde no hay radiografía; incluye muchas bronquiolitis.",
+    teoria: [
+      { h: "La definición", html: "<div class=\"tabla\"><table><thead><tr><th>Edad</th><th>Respiración rápida</th></tr></thead><tbody><tr><td>Menos de 2 meses</td><td>60 o más por minuto</td></tr><tr><td>2 a 11 meses</td><td>50 o más por minuto</td></tr><tr><td>12 a 59 meses</td><td>40 o más por minuto</td></tr></tbody></table></div><p>Se cuenta durante un minuto completo, con el niño tranquilo.</p>" },
+      { h: "Clasificación de 2014", html: "<ul><li><b>Neumonía:</b> respiración rápida y/o tiraje subcostal, sin signos de peligro. Amoxicilina oral en el domicilio.</li><li><b>Neumonía grave:</b> cualquier signo general de peligro (no puede beber ni mamar, vomita todo, convulsiones, letargo, estridor en reposo, desnutrición grave) o SatO₂ menor de 90 %. Derivar y antibiótico parenteral.</li><li>El cambio se apoyó en ensayos como el de Hazir: la neumonía con tiraje tratada en casa con amoxicilina oral evolucionó igual que internada.</li></ul>" },
+      { h: "Para qué sirve y para qué no", html: "<p>Es una herramienta de <b>salud pública</b>: que un agente de salud sin radiografía ni laboratorio no deje sin tratar a un niño que puede morir. Por eso prioriza la sensibilidad.</p><p>En un hospital con acceso a la salud, aplicada al pie de la letra, rotula como neumonía a muchos lactantes con bronquiolitis o sibilancias y lleva a dar antibiótico de más.</p>" }
+    ],
+    diferenciales: [
+      { dx: "Bronquiolitis", nodo: "bronquiolitis", claves: "<ul><li>Cumple la definición OMS (taquipnea, tiraje), pero es viral y no necesita antibiótico.</li><li>Sibilancias o rales difusos, pródromo catarral, menor de 2 años.</li></ul>" },
+      { dx: "Crisis de sibilancias", nodo: "sr-salbutamol", claves: "<ul><li>Taquipnea que mejora tras el broncodilatador: reevaluar antes de clasificar como neumonía.</li></ul>" },
+      { dx: "Taquipnea por fiebre o acidosis", claves: "<ul><li>La fiebre aumenta la frecuencia respiratoria; recontar con la temperatura más baja.</li><li>Respiración profunda sin tiraje ni hallazgos pulmonares: pensar en acidosis (deshidratación, cetoacidosis, metabólica).</li></ul>", nodo: "ecm-acidosis" }
+    ],
+    evidencia: ["oms2014imci", "hazir2008", "shah2017"],
+    pico: [
+      { p: "Niños de 3 a 59 meses con neumonía con tiraje, sin signos de peligro", i: "Amoxicilina oral en dosis altas en el domicilio", c: "Internación con ampicilina parenteral", o: "Fracaso del tratamiento al día 6",
+        respuesta: "Equivalentes: fracaso de 7,5 % en domicilio y 8,6 % internados. Base de la clasificación OMS de 2014.",
+        certeza: "Moderada", refs: ["hazir2008"] }
+    ],
+    ateneos: [],
+    conexiones: ["irab-neumonia-def", "irab-bronquiolitis-def", "nac-clinica"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "irab-neumonia-def", nivel: 1, mapa: "irab", titulo: "¿Qué es neumonía? Cuatro definiciones", corto: "Definir neumonía", tipo: "concepto",
+    x: 310, y: 250,
+    resumen: "No existe un patrón de referencia único. Clínica OMS, radiológica OMS, IDSA y el consenso Delphi de 2026 miden cosas distintas.",
+    teoria: [
+      { h: "Las cuatro", html: "<div class=\"tabla\"><table><thead><tr><th>Definición</th><th>Qué exige</th><th>Para qué sirve</th></tr></thead><tbody><tr><td><b>OMS clínica</b></td><td>Tos o dificultad respiratoria con respiración rápida o tiraje</td><td>Detectar y tratar sin radiografía</td></tr><tr><td><b>OMS radiológica</b> (de punto final)</td><td>Consolidación, o derrame pleural asociado a infiltrado</td><td>Comparar estudios y ensayos de vacunas</td></tr><tr><td><b>IDSA/PIDS 2011</b></td><td>Signos y síntomas de infección parenquimatosa adquirida fuera del hospital, en un niño previamente sano</td><td>Guía de manejo en países de altos ingresos</td></tr><tr><td><b>Delphi 2026</b></td><td>3 mayores (fiebre, taquipnea, consolidación en la radiografía) más 3 de 5 menores (crepitantes focales, PCR > 80 mg/L, mal estado general, tos, síndrome de condensación)</td><td>Práctica e investigación en países con alto acceso a la salud</td></tr></tbody></table></div>" },
+      { h: "Dos niveles", html: "<p>Conviene separar la <b>sospecha clínica</b> (que se puede aplicar a todos, con o sin placa) de la <b>clasificación radiográfica</b> (que solo existe si se hizo la placa). Mezclarlas lleva a círculos: si la definición exige radiografía, los niños tratados sin placa quedan afuera.</p>" },
+      { h: "Neumonía, bronconeumonía, neumonitis", html: "<ul><li><b>Neumonía:</b> infección del parénquima con ocupación alveolar.</li><li><b>Bronconeumonía:</b> término anatomopatológico y radiológico (focos parcheados alrededor de los bronquios). No indica una causa.</li><li><b>Neumonitis:</b> inflamación de predominio intersticial; se usa para cuadros virales, atípicos o no infecciosos.</li></ul>" }
+    ],
+    diferenciales: [
+      { dx: "Atelectasia", claves: "<ul><li>Opacidad con pérdida de volumen (desplazamiento de cisuras, mediastino o diafragma), frecuente en bronquiolitis y asma.</li><li>Sin fiebre alta ni mal estado; cambia de lugar en placas sucesivas.</li></ul>" },
+      { dx: "Timo normal", claves: "<ul><li>Opacidad mediastínica superior en lactantes (signo de la vela), sin clínica respiratoria baja.</li></ul>" }
+    ],
+    evidencia: ["dutron2026", "cherian2005", "bradley2011", "shah2017"], pico: [], ateneos: [],
+    conexiones: ["irab-investigar", "nac", "nac-rx-lectura", "neu-que"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "irab-bronquiolitis-def", nivel: 1, mapa: "irab", titulo: "Bronquiolitis: ¿hasta los 12 o los 24 meses?", corto: "Límites de la bronquiolitis", tipo: "concepto",
+    x: 110, y: 370,
+    resumen: "La SAP, la AAP y NICE la definen hasta los 2 años; la guía australiana y varios ensayos europeos, hasta los 12 meses. Unos piden sibilancias; NICE acepta crepitantes.",
+    teoria: [
+      { h: "Cómo la define cada uno", html: "<div class=\"tabla\"><table><thead><tr><th>Fuente</th><th>Edad</th><th>Lo que pide</th></tr></thead><tbody><tr><td>SAP (Argentina)</td><td>Menores de 2 años</td><td>Primer episodio de sibilancias con signos de infección viral</td></tr><tr><td>AAP (EE. UU.)</td><td>1 a 23 meses</td><td>Rinitis y tos que progresan a taquipnea, sibilancias, rales y tiraje</td></tr><tr><td>NICE (Reino Unido)</td><td>Menores de 2 años, sobre todo el primer año</td><td>Pródromo catarral; tos con taquipnea o tiraje, y sibilancias <b>o crepitantes</b></td></tr><tr><td>Australasia y muchos ensayos europeos</td><td>Menores de 12 meses</td><td>Cuadro viral con dificultad respiratoria; el segundo año se considera aparte</td></tr></tbody></table></div>" },
+      { h: "Por qué importa", html: "<ul><li>Un niño de 18 meses con su tercer episodio de sibilancias es «bronquiolitis» para unos y «sibilancias recurrentes» o asma preescolar para otros. Responde distinto al broncodilatador y al corticoide.</li><li>Los ensayos que dicen que «nada sirve en bronquiolitis» incluyeron sobre todo lactantes pequeños con primer episodio.</li><li>Donde se acepta «solo crepitantes», crece la superposición con la neumonía viral.</li></ul>" }
+    ],
+    diferenciales: [
+      { dx: "Sibilancias recurrentes", nodo: "sibilancias", claves: "<ul><li>Segundo episodio o más, en general después del año; antecedentes de atopia o respuesta al broncodilatador.</li></ul>" },
+      { dx: "Neumonía", nodo: "nac", claves: "<ul><li>Fiebre alta, mal estado, hallazgos focales o asimétricos, SatO₂ baja desproporcionada.</li></ul>" }
+    ],
+    evidencia: ["ralston2014", "ricci2015", "sap2021irab"], pico: [], ateneos: [],
+    conexiones: ["irab-etiquetas", "irab-investigar"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "irab-etiquetas", nivel: 2, mapa: "irab", titulo: "SBO, bronquitis y otras etiquetas", corto: "Etiquetas vagas", tipo: "concepto",
+    x: 310, y: 370,
+    resumen: "Síndrome bronquial obstructivo, bronquitis, broncoespasmo, «reactive airway disease», «wheezy bronchitis»: nombres que describen el ruido y no la causa.",
+    teoria: [
+      { h: "Las etiquetas más usadas", html: "<ul><li><b>Síndrome bronquial obstructivo (SBO):</b> muy usado en Argentina y Chile para cualquier cuadro con sibilancias. Junta bronquiolitis, sibilancias recurrentes y asma.</li><li><b>Bronquitis aguda / «bronquitis obstructiva»:</b> tos con roncus, en general viral. En niños no necesita antibiótico.</li><li><b>«Reactive airway disease»</b> (EE. UU.) y <b>«wheezy bronchitis»</b> (Reino Unido, histórica): evitan decir asma o bronquiolitis.</li><li><b>«Hiperreactividad bronquial»</b> usada como diagnóstico: en sentido estricto es un hallazgo de laboratorio (prueba de provocación), no un cuadro clínico.</li><li><b>«Neumonía viral»</b> o <b>«neumonitis»</b>: para algunos, sinónimo de bronquiolitis con infiltrados.</li></ul>" },
+      { h: "Qué hacer con ellas", html: "<p>Al escribir la historia clínica, usar el nombre más preciso que se pueda sostener. Al leer un artículo, traducir la etiqueta a la población real: edad, número de episodio, si hubo radiografía.</p>" }
+    ],
+    diferenciales: [
+      { dx: "Cuerpo extraño", nodo: "sr-alternativas", claves: "<ul><li>Sibilancia unilateral tras atragantamiento: no rotular como SBO.</li></ul>" }
+    ],
+    evidencia: ["little2021"], pico: [], ateneos: [],
+    conexiones: ["irab-lrti", "sr-terminos"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "irab-lrti", nivel: 2, mapa: "irab", titulo: "LRTI y «chest infection» en el Reino Unido", corto: "LRTI británica", tipo: "concepto",
+    x: 110, y: 490,
+    resumen: "En la atención primaria británica, la infección respiratoria baja es una categoría clínica amplia; se separa la «no complicada» (sin sospecha de neumonía), que no necesita antibiótico.",
+    teoria: [
+      { h: "Cómo la usan", html: "<p><b>Lower respiratory tract infection</b> o <i>chest infection</i>: tos aguda con al menos un síntoma o signo bajo (expectoración, disnea, sibilancias, dolor torácico), sin otra explicación. Incluye la bronquitis aguda; la neumonía es un subgrupo con sospecha clínica o radiológica.</p>" },
+      { h: "Lo que mostró ARTIC PC", html: "<p>En 432 niños de 6 meses a 12 años con LRTI no complicada, sin sospecha de neumonía, la amoxicilina no acortó los síntomas frente a placebo, tampoco en los que tenían fiebre, signos en el tórax o se veían mal. Conclusión del ensayo: pautas de alarma y no antibiótico para la mayoría.</p>" }
+    ],
+    diferenciales: [
+      { dx: "Neumonía", nodo: "nac", claves: "<ul><li>Hipoxemia, aumento del trabajo respiratorio, mal estado o hallazgos focales: salir de la «LRTI no complicada».</li></ul>" }
+    ],
+    evidencia: ["little2021"],
+    pico: [
+      { p: "Niños de 6 meses a 12 años con infección respiratoria baja no complicada, sin sospecha de neumonía", i: "Amoxicilina 50 mg/kg/día por 7 días", c: "Placebo", o: "Duración de los síntomas moderados o peores",
+        respuesta: "Sin diferencia: 5 días con amoxicilina frente a 6 con placebo (HR 1,13; IC 95 % 0,90 a 1,42), también en los subgrupos.",
+        certeza: "Alta", refs: ["little2021"] }
+    ],
+    ateneos: [],
+    conexiones: ["irab-investigar"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "irab-investigar", nivel: 2, mapa: "irab", titulo: "Al leer evidencia: ¿qué definición usaron?", corto: "Definición y evidencia", tipo: "concepto",
+    x: 310, y: 490,
+    resumen: "La misma palabra cubre poblaciones distintas. Antes de aplicar un estudio, mirar edad, episodio, si exigió radiografía y dónde se hizo.",
+    teoria: [
+      { h: "Preguntas para cada artículo", html: "<ol class=\"pasos\"><li><b>Edad:</b> ¿menores de 12 o de 24 meses? ¿Incluye escolares?</li><li><b>Definición:</b> ¿clínica (OMS), radiológica (OMS de punto final) o del médico tratante?</li><li><b>Episodio:</b> ¿primero o recurrente?</li><li><b>Ámbito:</b> ¿atención primaria, guardia, internación? ¿País de bajos o altos ingresos?</li><li><b>Etiología:</b> ¿hubo confirmación microbiológica?</li></ol>" },
+      { h: "Ejemplos", html: "<ul><li>PERCH y la OMS estudiaron neumonía grave en países de ingresos bajos: más bacterias y tuberculosis que en una guardia de Buenos Aires.</li><li>EPIC incluyó niños internados con neumonía radiográfica en EE. UU.</li><li>ARTIC PC, en cambio, excluyó la sospecha de neumonía.</li></ul>" }
+    ],
+    diferenciales: [],
+    evidencia: ["perch2019", "jain2015", "little2021", "dutron2026"], pico: [], ateneos: [],
+    conexiones: ["nac-etiologia"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "nac", nivel: 1, mapa: "irab", titulo: "Neumonía adquirida en la comunidad", corto: "NAC", tipo: "concepto", causa: ["viral", "bacteriana"],
+    x: 630, y: 150,
+    resumen: "Infección aguda del parénquima pulmonar adquirida fuera del hospital, viral o bacteriana. El problema de la guardia no es tratarla: es decidir quién la tiene y quién necesita antibiótico.",
+    teoria: [
+      { h: "Definición y peso", html: "<p>Infección aguda del parénquima pulmonar adquirida en la comunidad, en un niño previamente sano, de causa viral o bacteriana. Es una de las principales causas infecciosas de muerte en menores de 5 años en el mundo; en nuestro medio, una de las primeras causas de internación pediátrica en invierno.</p>" },
+      { h: "Las tres incertidumbres", html: "<ol class=\"pasos\"><li><b>Diagnóstica:</b> ningún signo aislado la confirma y la radiografía tiene variabilidad entre lectores.</li><li><b>Etiológica:</b> ni la clínica, ni el laboratorio, ni la placa separan con seguridad virus de bacteria.</li><li><b>Terapéutica:</b> de ahí surge la variabilidad en pedir radiografía y en indicar antibiótico.</li></ol>" },
+      { h: "El recorrido en la guardia", html: "<ol class=\"pasos\"><li>¿Es una IRAB baja? Contar la frecuencia respiratoria, mirar el trabajo respiratorio, medir la saturación.</li><li>¿Hay gravedad? Signos de peligro, SatO₂ menor de 92 %, mal estado.</li><li>¿Necesito una placa? Solo si cambia la conducta.</li><li>¿Puede ser bacteriana? Edad, fiebre alta, aspecto tóxico, foco, laboratorio si se pidió.</li><li>Tratar o no, y con qué. Pautas de alarma y control.</li></ol>" },
+      { h: "Una pregunta abierta en la CEP del HIBA", html: "<p>Hay una tesis de la Maestría en Investigación Clínica del Hospital Italiano en marcha sobre este tema. Es un estudio transversal en niños de 3 a 59 meses atendidos en la guardia con sospecha de NAC, que analiza cómo se combinan la radiografía y el antibiótico y cuánto antibiótico reciben los episodios con placa negativa o equívoca. Ver <a href=\"#nac-rx-atb\">Rx y antibiótico</a>.</p>" }
+    ],
+    diferenciales: [
+      { dx: "Bronquiolitis", nodo: "bronquiolitis", claves: "<ul><li>Menor de 2 años, pródromo catarral, hallazgos difusos y simétricos (sibilancias, rales), fiebre baja o ausente.</li><li>Epidemia de VSR en la comunidad.</li></ul>" },
+      { dx: "Crisis asmática con atelectasia", nodo: "crisis", claves: "<ul><li>Episodios previos, sibilancias difusas, mejora con broncodilatador.</li><li>Opacidad con pérdida de volumen en la placa.</li></ul>" },
+      { dx: "Aspiración de cuerpo extraño", nodo: "sr-alternativas", claves: "<ul><li>Atragantamiento, inicio brusco, hallazgos unilaterales persistentes, neumonía que se repite en el mismo lugar.</li></ul>" },
+      { dx: "Insuficiencia cardíaca", nodo: "cc-icc", claves: "<ul><li>Lactante con taquipnea, sudoración con la alimentación, mal progreso de peso, hepatomegalia, soplo; cardiomegalia en la placa.</li></ul>" },
+      { dx: "Tuberculosis", claves: "<ul><li>Neumonía que no responde, adenopatías hiliares, contacto adulto con tos crónica, pérdida de peso.</li></ul>" },
+      { dx: "Tos convulsa", nodo: "neu-pertussis", claves: "<ul><li>Lactante sin fiebre con accesos de tos, apneas o cianosis y linfocitosis.</li></ul>" }
+    ],
+    evidencia: ["bradley2011", "sap2021irab", "meyersauteur2024", "dutron2026"], pico: [], ateneos: [],
+    conexiones: ["nac-clinica", "nac-etiologia", "nac-rx", "nac-atb", "nac-internacion"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "nac-clinica", nivel: 1, mapa: "irab", titulo: "¿Tiene neumonía? Lo que pesa en el examen", corto: "La clínica", tipo: "concepto",
+    x: 480, y: 140,
+    resumen: "La hipoxemia (SatO₂ ≤ 96 %) y el aumento del trabajo respiratorio pesan más que la taquipnea o la auscultación. Una saturación normal la hace menos probable.",
+    teoria: [
+      { h: "La revisión de JAMA (2017)", html: "<div class=\"tabla\"><table><thead><tr><th>Hallazgo</th><th>LR</th><th>Lectura</th></tr></thead><tbody><tr><td>SatO₂ ≤ 96 %</td><td>2,8</td><td>El que más suma</td></tr><tr><td>Quejido, aleteo o tiraje</td><td>2,1</td><td>Suma</td></tr><tr><td>Fiebre > 37,5 °C</td><td>1,7–1,8</td><td>Poco</td></tr><tr><td>FR > 40/min</td><td>1,5</td><td>Poco</td></tr><tr><td>Auscultación (crepitantes, hipoventilación)</td><td>—</td><td>No se asoció</td></tr><tr><td>SatO₂ > 96 %</td><td>0,47</td><td>Resta</td></tr></tbody></table></div><p>Patrón de referencia: infiltrado en la radiografía. Prevalencia de neumonía radiográfica en los estudios norteamericanos: alrededor del 19 %.</p>" },
+      { h: "Datos que se asocian con infiltrado", html: "<p>Además del quejido, el tiraje y la hipoxemia: antecedente de fiebre, crepitantes, taquipnea y la <b>impresión clínica global</b>. Ninguno decide solo; juntos ordenan la probabilidad.</p>" },
+      { h: "Neumonía oculta", html: "<p>Fiebre alta (de más de 5 días o con leucocitosis marcada) y tos <b>sin</b> taquipnea ni signos bajos: entre 5 y 19 % tienen un infiltrado en la placa. Es una de las situaciones en que la radiografía sí está indicada aunque el examen sea normal.</p>" }
+    ],
+    diferenciales: [
+      { dx: "Bronquiolitis", nodo: "bronquiolitis", claves: "<ul><li>También hipoxemia y tiraje, pero con sibilancias y rales difusos, en lactantes, durante la epidemia.</li></ul>" },
+      { dx: "Sepsis o infección grave sin foco", claves: "<ul><li>Taquipnea por acidosis o fiebre con mal relleno capilar y taquicardia desproporcionada; buscar otro foco.</li></ul>" }
+    ],
+    evidencia: ["shah2017", "bradley2011"],
+    pico: [
+      { p: "Niños con sospecha de neumonía", i: "SatO₂ ≤ 96 % o aumento del trabajo respiratorio", c: "Ausencia del hallazgo", o: "Neumonía radiográfica",
+        respuesta: "Hipoxemia moderada LR 2,8; trabajo respiratorio aumentado LR 2,1; SatO₂ > 96 % LR 0,47. Taquipnea y auscultación aportan poco.",
+        certeza: "Moderada", refs: ["shah2017"] }
+    ],
+    ateneos: [],
+    conexiones: ["nac-rx", "irab-oms"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "nac-etiologia", nivel: 1, mapa: "irab", titulo: "Etiología según la edad", corto: "Etiología", tipo: "concepto", causa: ["viral", "bacteriana", "atipica"],
+    x: 780, y: 140,
+    resumen: "En menores de 5 años predominan los virus (VSR primero). Neumococo es la bacteria principal; Mycoplasma crece desde los 5 años.",
+    teoria: [
+      { h: "Qué dicen los grandes estudios", html: "<ul><li><b>EPIC (EE. UU., internados):</b> virus en el 66 %, bacterias en el 8 %. VSR en el 37 % de los menores de 5 años; Mycoplasma en el 19 % de los de 5 años o más.</li><li><b>PERCH (África y Asia, neumonía grave):</b> virus 61 % (VSR 31 %), bacterias 27 %, tuberculosis 6 %. Las bacterias pesaron más en los casos muy graves.</li><li>Con las vacunas conjugadas contra neumococo y Hib, el peso de las bacterias bajó.</li></ul>" },
+      { h: "Por edad", html: "<div class=\"tabla\"><table><thead><tr><th>Edad</th><th>Más frecuentes</th><th>No olvidar</th></tr></thead><tbody><tr><td>1 a 3 meses</td><td>VSR y otros virus</td><td>Chlamydia trachomatis, tos convulsa, estreptococo grupo B si es muy pequeño</td></tr><tr><td>3 meses a 5 años</td><td>Virus (VSR, rinovirus, metapneumovirus, influenza, adenovirus)</td><td>Neumococo; S. aureus si es necrotizante o tras influenza</td></tr><tr><td>5 años o más</td><td>Mycoplasma, neumococo, virus</td><td>Chlamydophila pneumoniae; tuberculosis</td></tr></tbody></table></div>" },
+      { h: "Qué sugiere bacteria", html: "<p>Fiebre de 39 °C o más, aspecto tóxico, consolidación lobar, derrame, neutrofilia marcada o PCR muy alta. Ninguno es definitivo: la coinfección virus-bacteria es frecuente y la detección de un virus en el hisopado no descarta bacteria.</p>" }
+    ],
+    diferenciales: [],
+    evidencia: ["jain2015", "perch2019", "meyersauteur2024"], pico: [], ateneos: [],
+    conexiones: ["nac-bps", "neu-mycoplasma", "neu-viral"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "nac-rx", nivel: 1, mapa: "irab", titulo: "Radiografía de tórax: cuándo sí", corto: "¿Pedir Rx?", tipo: "concepto",
+    x: 480, y: 260,
+    resumen: "No se necesita para tratar a un niño estable en forma ambulatoria. Sí ante hipoxemia, dificultad importante, fracaso del tratamiento, internación o fiebre prolongada sin foco.",
+    teoria: [
+      { h: "Indicaciones (PIDS/IDSA 2011)", html: "<ul><li>Hipoxemia sospechada o documentada, o dificultad respiratoria importante.</li><li>Fracaso del tratamiento antibiótico inicial: buscar derrame, necrosis, absceso.</li><li>Niño que se interna.</li><li>Fiebre prolongada y tos aun sin taquipnea (neumonía oculta).</li><li><b>No de rutina</b> para confirmar la neumonía en el niño que se trata ambulatoriamente, ni para control si evoluciona bien.</li></ul>" },
+      { h: "Por qué no siempre", html: "<ul><li>No distingue virus de bacteria.</li><li>Hay desacuerdo entre lectores, sobre todo fuera de la consolidación.</li><li>En el ensayo pediátrico de la revisión Cochrane (522 niños ambulatorios) hacerla no mejoró la recuperación.</li><li>Radiación, tiempo y costos.</li><li>Y un efecto menos visible: <b>pedirla se asocia con dar más antibiótico</b>, independientemente del resultado.</li></ul>" },
+      { h: "Ecografía pulmonar", html: "<p>En un metaanálisis de 30 estudios, la ecografía tuvo sensibilidad de 94 % y especificidad de 86 % (radiografía: 89 % y 91 %). Sin radiación y repetible, pero depende del operador y tampoco dice la causa.</p>" }
+    ],
+    diferenciales: [],
+    evidencia: ["bradley2011", "cao2013", "andronikou2017", "vandemaat2021", "shi2024"],
+    pico: [
+      { p: "Niños ambulatorios con infección respiratoria baja, sin enfermedad grave", i: "Radiografía de tórax además del juicio clínico", c: "Juicio clínico solo", o: "Tiempo de recuperación",
+        respuesta: "Sin diferencia: mediana de recuperación de 7 días en ambos grupos. Evidencia limitada (un ensayo pediátrico).",
+        certeza: "Baja", refs: ["cao2013"] }
+    ],
+    ateneos: [],
+    conexiones: ["nac-rx-lectura", "nac-rx-atb"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "nac-rx-lectura", nivel: 2, mapa: "irab", titulo: "Leer la Rx: compatible, equívoca o negativa", corto: "Leer la Rx", tipo: "concepto",
+    x: 630, y: 270,
+    resumen: "La consolidación es lo único que los lectores reconocen con buena concordancia. Los infiltrados peribronquiales o parcheados son la zona gris.",
+    teoria: [
+      { h: "Tres categorías", html: "<div class=\"tabla\"><table><thead><tr><th>Categoría</th><th>Qué se ve</th></tr></thead><tbody><tr><td><b>Compatible con neumonía</b></td><td>Consolidación (opacidad densa o confluente, con o sin broncograma aéreo) o derrame pleural asociado a infiltrado: la neumonía «de punto final» de la OMS</td></tr><tr><td><b>Equívoca</b></td><td>Otros infiltrados: opacidades lineales o parcheadas, engrosamiento peribronquial, atelectasias menores; placa técnicamente subóptima</td></tr><tr><td><b>Negativa</b></td><td>Sin consolidación, infiltrados ni derrame</td></tr></tbody></table></div><p>Categorías usadas por Geanacopoulos (2025) sobre informes radiológicos.</p>" },
+      { h: "Cuánto pesa cada una", html: "<p>En la cohorte de Geanacopoulos, la mayoría de las placas fueron negativas (alrededor de 73 %), las equívocas cerca de 14 % y las compatibles 13 %.</p>" },
+      { h: "Trampas", html: "<ul><li><b>Atelectasia</b> en bronquiolitis o asma: opacidad con pérdida de volumen.</li><li><b>Timo</b> en el lactante.</li><li>Placa espirada o rotada que simula infiltrados.</li><li>La consolidación «redonda» del niño pequeño que parece una masa.</li><li>La placa puede ser normal al comienzo y la consolidación aparecer después.</li></ul>" }
+    ],
+    diferenciales: [],
+    evidencia: ["cherian2005", "fancourt2017", "geanacopoulos2025"], pico: [], ateneos: [],
+    conexiones: ["nac-rx-atb", "nac-bps", "irab-neumonia-def"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "nac-rx-atb", nivel: 1, mapa: "irab", titulo: "Radiografía y antibiótico: la evidencia", corto: "Rx y antibiótico", tipo: "concepto",
+    x: 780, y: 260,
+    resumen: "La decisión de dar antibiótico depende más de la impresión clínica previa que del resultado de la placa. Con placa equívoca se trata con frecuencia.",
+    teoria: [
+      { h: "Tres estudios que lo muestran", html: "<ul><li><b>van de Maat 2021</b> (8 guardias, Países Bajos): hacer la radiografía se asoció con más antibiótico aun ajustando por la clínica y por el resultado (OR 7,25). El hallazgo de la placa no se asoció con la prescripción.</li><li><b>Lipshaw 2021</b>: la intención de tratar antes de ver la placa predijo el antibiótico (OR 6,4) con más fuerza que la neumonía radiográfica (OR 3,5).</li><li><b>Geanacopoulos 2025</b>: antibiótico en cerca del 8 % de las placas negativas, 71 % de las equívocas y 95 % de las compatibles.</li></ul>" },
+      { h: "Qué significa para la práctica", html: "<ul><li>Antes de pedir la placa, preguntarse: <b>¿qué voy a hacer distinto según el resultado?</b></li><li>Una placa equívoca no convierte el cuadro en bacteriano: volver a la clínica (estado general, saturación, fiebre, evolución).</li><li>La discordancia entre placa y conducta no prueba por sí sola una prescripción inadecuada: la clínica puede justificarla.</li></ul>" },
+      { h: "Medir la propia práctica", html: "<p>Los programas de optimización de antimicrobianos (PROA) empiezan por describir cómo se prescribe. En Argentina, un estudio de mejora de calidad en dos hospitales pediátricos aumentó el uso de antibióticos de espectro reducido. Caracterizar la combinación placa-antibiótico en la propia guardia es el primer paso para mejorarla.</p>" }
+    ],
+    diferenciales: [],
+    evidencia: ["vandemaat2021", "lipshaw2021", "geanacopoulos2025", "proa2023", "jorrobaron2025"],
+    pico: [
+      { p: "Niños de 3 a 59 meses en la guardia con sospecha de NAC y radiografía negativa o equívoca", i: "Placa equívoca", c: "Placa negativa", o: "Indicación de antibiótico",
+        respuesta: "En la cohorte de Geanacopoulos, alrededor de 71 % de las equívocas recibió antibiótico frente a 8 % de las negativas. En la CEP del HIBA está en curso un estudio transversal que busca estimarlo localmente.",
+        certeza: "Baja", refs: ["geanacopoulos2025"] }
+    ],
+    ateneos: [],
+    conexiones: ["nac-atb"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "nac-eco", nivel: 3, mapa: "irab", titulo: "Ecografía pulmonar", corto: "Ecografía", tipo: "concepto",
+    x: 480, y: 380,
+    resumen: "Sensible para consolidación y derrame, sin radiación. Útil en manos entrenadas; no reemplaza la clínica ni dice la causa.",
+    teoria: [
+      { h: "Qué muestra", html: "<ul><li>Consolidación subpleural con broncograma aéreo (dinámico en la neumonía, estático en la atelectasia).</li><li>Derrame pleural y si tiene tabiques: mejor que la radiografía para el derrame.</li><li>Líneas B confluentes en cuadros intersticiales o virales.</li></ul>" },
+      { h: "Exactitud", html: "<p>Metaanálisis de 30 estudios (4546 niños): sensibilidad 94 %, especificidad 86 %. La radiografía: 89 % y 91 %.</p><p>Las consolidaciones pequeñas que no llegan a la pleura se pueden perder.</p>" }
+    ],
+    diferenciales: [],
+    evidencia: ["shi2024"], pico: [], ateneos: [],
+    conexiones: ["nac-rx", "nac-complicaciones"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "nac-bps", nivel: 2, mapa: "irab", titulo: "Bacterial Pneumonia Score (BPS)", corto: "BPS", tipo: "concepto",
+    x: 630, y: 380,
+    resumen: "Regla argentina que suma temperatura, edad, neutrófilos, cayados y radiografía. Con ≥ 4 sugiere bacteria; útil sobre todo para descartarla.",
+    teoria: [
+      { h: "Cómo se calcula", html: "<div class=\"tabla\"><table><thead><tr><th>Variable</th><th>Puntos</th></tr></thead><tbody><tr><td>Temperatura axilar ≥ 39 °C</td><td>3</td></tr><tr><td>Edad ≥ 9 meses</td><td>2</td></tr><tr><td>Neutrófilos ≥ 8000/mm³</td><td>2</td></tr><tr><td>Cayados ≥ 5 %</td><td>1</td></tr><tr><td>Radiografía (infiltrado, localización, derrame, absceso o neumatocele, atelectasia)</td><td>−3 a 7</td></tr></tbody></table></div><p>Rango total de −3 a 15. <b>4 o más</b> sugiere neumonía bacteriana.</p>" },
+      { h: "Cuánto rinde", html: "<ul><li><b>Desarrollo (Moreno 2006):</b> sensibilidad 100 %, especificidad 93,8 %, valor predictivo negativo 100 %.</li><li><b>Validación externa (Karakachoff 2008):</b> sensibilidad 94 %, valor predictivo negativo 95 %, pero especificidad 34 %.</li><li>Ambos en niños <b>internados</b> con etiología identificada: aplicarlo en la guardia, en cuadros leves, requiere cautela.</li><li>Necesita hemograma y radiografía, que no se piden de rutina.</li></ul>" }
+    ],
+    diferenciales: [],
+    evidencia: ["moreno2006", "karakachoff2008"], pico: [], ateneos: [],
+    conexiones: ["nac-atb"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "nac-atb", nivel: 1, mapa: "irab", titulo: "Antibiótico: cuándo, cuál y cuánto", corto: "Antibiótico", tipo: "concepto", causa: "bacteriana",
+    x: 780, y: 380,
+    resumen: "No de rutina en el preescolar con cuadro viral. Si se trata: amoxicilina en dosis altas por 5 días. Macrólido solo si se sospecha un atípico.",
+    teoria: [
+      { h: "¿A quién?", html: "<ul><li>SAP (menores de 2 años): antibiótico empírico cuando no puede descartarse una causa bacteriana; no de rutina ante un cuadro compatible con infección viral.</li><li>PIDS/IDSA: el preescolar con NAC ambulatoria no requiere antibiótico de rutina, porque la mayoría es viral.</li><li>En la LRTI sin sospecha de neumonía, la amoxicilina no acorta los síntomas (ARTIC PC).</li></ul>" },
+      { h: "Ambulatorio", html: "<ul><li><b>Amoxicilina</b> 80–90 mg/kg/día, en 2 o 3 tomas (máximo 4 g/día). Es la primera línea en el niño sano y vacunado.</li><li><b>Duración: 5 días</b> si mejora (SCOUT-CAP). En CAP-IT, 3 días y dosis más bajas no fueron inferiores en retratamiento.</li><li>Sospecha de atípico (escolar, comienzo gradual): <b>azitromicina</b> 10 mg/kg el día 1 y 5 mg/kg los días 2 a 5.</li><li>Alergia no grave a penicilina: cefalosporina oral; reacción grave: macrólido o según infectología.</li></ul>" },
+      { h: "Internado", html: "<ul><li>Vacunación completa y sin complicaciones: <b>ampicilina</b> 150–200 mg/kg/día cada 6 horas.</li><li>Vacunación incompleta, gravedad o complicación: <b>ceftriaxona</b> 50–100 mg/kg/día.</li><li>Sospecha de S. aureus (necrosis, neumatoceles, postinfluenza): agregar cobertura según la epidemiología local.</li><li>Pasar a vía oral cuando mejora y tolera.</li></ul><p class=\"nota\">Verificar dosis con el vademécum institucional.</p>" }
+    ],
+    diferenciales: [],
+    evidencia: ["bradley2011", "sap2021irab", "williams2022", "bielicki2021", "little2021"],
+    pico: [
+      { p: "Niños de 6 a 71 meses con NAC no grave que mejoran", i: "5 días de antibiótico", c: "10 días", o: "Respuesta clínica, síntomas y efectos adversos",
+        respuesta: "Sin diferencias; la estrategia corta resultó al menos tan buena.", certeza: "Alta", refs: ["williams2022"] },
+      { p: "Niños de 6 meses o más dados de alta con amoxicilina por NAC", i: "Dosis menor (35–50 mg/kg/día) y 3 días", c: "Dosis mayor (70–90 mg/kg/día) y 7 días", o: "Retratamiento a 28 días",
+        respuesta: "No inferior en dosis ni en duración (alrededor de 12,5 % en todos los grupos). Con 3 días la tos duró un poco más (12 frente a 10 días).", certeza: "Moderada", refs: ["bielicki2021"] }
+    ],
+    ateneos: [],
+    conexiones: ["nac-internacion", "neu-mycoplasma"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "nac-oculta", nivel: 3, mapa: "irab", titulo: "Neumonía oculta", corto: "Neumonía oculta", tipo: "concepto", causa: "bacteriana",
+    x: 480, y: 500,
+    resumen: "Fiebre alta y leucocitosis sin signos respiratorios: entre 5 y 19 % tienen infiltrado. La tos y la fiebre prolongada son la pista.",
+    teoria: [
+      { h: "Cuándo pensarla", html: "<ul><li>Fiebre alta sin foco claro, a veces con leucocitosis marcada (más de 20 000/mm³).</li><li>Fiebre de más de 5 días con tos, aunque no haya taquipnea ni dificultad.</li><li>Dolor abdominal con fiebre: la neumonía de base puede simular un abdomen agudo.</li><li>Neumonía de lóbulo superior con meningismo.</li></ul>" },
+      { h: "Qué hacer", html: "<p>Radiografía de tórax. Es una de las pocas indicaciones con examen pulmonar normal.</p>" }
+    ],
+    diferenciales: [
+      { dx: "Infección urinaria", claves: "<ul><li>Causa más frecuente de fiebre sin foco en lactantes: orina antes que placa si no hay tos.</li></ul>" },
+      { dx: "Apendicitis", claves: "<ul><li>Dolor que empieza periumbilical y migra a la fosa ilíaca derecha, sin tos ni taquipnea.</li></ul>" }
+    ],
+    evidencia: ["bradley2011"], pico: [], ateneos: [],
+    conexiones: ["nac-clinica", "nac-rx"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "nac-internacion", nivel: 1, mapa: "irab", titulo: "Gravedad: cuándo internar", corto: "Internar", tipo: "concepto",
+    x: 630, y: 500,
+    resumen: "Hipoxemia, dificultad respiratoria importante, aspecto tóxico, menor de 3 a 6 meses con sospecha bacteriana, intolerancia oral o un contexto que no asegura el control.",
+    teoria: [
+      { h: "Criterios de internación", html: "<ul><li>SatO₂ menor de 90–92 % (según la guía) con aire ambiente.</li><li>Dificultad respiratoria moderada a grave: quejido, aleteo, tiraje marcado, apneas, FR muy alta.</li><li>Aspecto tóxico, deshidratación o no tolera la vía oral.</li><li>Lactante menor de 3 a 6 meses con sospecha de neumonía bacteriana.</li><li>Patógeno de sospecha más agresiva (S. aureus extrahospitalario).</li><li>Complicación: derrame, necrosis, absceso.</li><li>Familia que no puede asegurar el tratamiento o el control.</li></ul>" },
+      { h: "Signos de peligro OMS", html: "<p>No puede beber ni mamar, vomita todo, convulsiones, letargo o inconsciencia, estridor en reposo, desnutrición grave: neumonía grave.</p>" },
+      { h: "Al alta", html: "<p>Pautas de alarma claras (respira más rápido o con esfuerzo, labios morados, no come, fiebre que no cede en 48 a 72 horas) y control a las 48 horas.</p>" }
+    ],
+    diferenciales: [],
+    evidencia: ["bradley2011", "oms2014imci"], pico: [], ateneos: [],
+    conexiones: ["nac-complicaciones", "oxigeno"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "nac-complicaciones", nivel: 2, mapa: "irab", titulo: "Mala evolución y complicaciones", corto: "Complicaciones", tipo: "concepto", causa: "bacteriana",
+    x: 780, y: 500,
+    resumen: "Fiebre que persiste más de 48 a 72 horas con tratamiento: buscar derrame o empiema, neumonía necrotizante, absceso o un diagnóstico equivocado.",
+    teoria: [
+      { h: "Qué buscar", html: "<ul><li><b>Derrame paraneumónico y empiema:</b> hipoventilación con matidez, dolor pleurítico; ecografía para ver cantidad y tabiques.</li><li><b>Neumonía necrotizante y absceso:</b> neumococo (serotipos como el 3 y el 19A) y S. aureus.</li><li><b>Neumatoceles</b>, típicos de S. aureus.</li><li>Bacteriemia, sepsis, síndrome urémico hemolítico asociado a neumococo (raro).</li></ul>" },
+      { h: "Si no mejora, repensar", html: "<ul><li>¿Es un virus o un atípico? (la amoxicilina no cubre Mycoplasma).</li><li>¿Dosis o adherencia insuficientes?</li><li>¿Cuerpo extraño, tuberculosis, malformación o inmunodeficiencia de base?</li></ul>" }
+    ],
+    diferenciales: [
+      { dx: "Tuberculosis", claves: "<ul><li>Adenopatías hiliares, contacto adulto, evolución subaguda; PPD o IGRA, jugo gástrico o esputo.</li></ul>" },
+      { dx: "Malformación pulmonar congénita", claves: "<ul><li>Neumonías repetidas en el mismo lóbulo, imagen que no se normaliza: secuestro, malformación adenomatoidea quística.</li></ul>" }
+    ],
+    evidencia: ["bradley2011"], pico: [], ateneos: [],
+    conexiones: ["nac-eco"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "neu-que", nivel: 1, mapa: "irab", titulo: "Neumonitis: qué llamamos así", corto: "¿Qué es neumonitis?", tipo: "concepto",
+    x: 1025, y: 140,
+    resumen: "Inflamación de predominio intersticial: virus, bacterias atípicas, Pneumocystis y causas no infecciosas (aspiración, hidrocarburos). La pista es la edad y el contexto.",
+    teoria: [
+      { h: "Qué la distingue de la neumonía típica", html: "<div class=\"tabla\"><table><thead><tr><th></th><th>Neumonía típica (lobar)</th><th>Neumonitis</th></tr></thead><tbody><tr><td>Comienzo</td><td>Brusco, fiebre alta</td><td>Gradual, fiebre baja o ausente</td></tr><tr><td>Tos</td><td>Puede faltar al inicio</td><td>Domina el cuadro</td></tr><tr><td>Examen</td><td>Foco: hipoventilación, soplo</td><td>Rales difusos, a veces sibilancias</td></tr><tr><td>Radiografía</td><td>Consolidación</td><td>Infiltrado intersticial bilateral, hiperinsuflación</td></tr><tr><td>Laboratorio</td><td>Neutrofilia, PCR alta</td><td>Variable; eosinofilia en Chlamydia, linfocitosis en tos convulsa</td></tr></tbody></table></div><p>Es una orientación, no una regla: hay superposición.</p>" },
+      { h: "El germen según la edad y el contexto", html: "<ul><li><b>1 a 4 meses, afebril:</b> Chlamydia trachomatis, CMV, Ureaplasma; tos convulsa.</li><li><b>Lactantes y preescolares:</b> VSR, metapneumovirus, parainfluenza, influenza, adenovirus.</li><li><b>Escolares:</b> Mycoplasma pneumoniae y Chlamydophila pneumoniae.</li><li><b>Inmunocomprometidos o expuestos a VIH:</b> Pneumocystis jirovecii, CMV.</li><li><b>No infecciosa:</b> aspiración (trastorno deglutorio, reflujo), hidrocarburos, hipersensibilidad (aves, moho), fármacos.</li></ul>" }
+    ],
+    diferenciales: [],
+    evidencia: ["meyersauteur2024", "jain2015"], pico: [], ateneos: [],
+    conexiones: ["neu-afebril", "neu-mycoplasma", "neu-viral", "neu-aspirativa", "irab-neumonia-def"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "neu-afebril", nivel: 1, mapa: "irab", titulo: "Neumonitis afebril del lactante", corto: "Afebril del lactante", tipo: "concepto", causa: ["atipica", "viral"],
+    x: 960, y: 250,
+    resumen: "Lactante de 1 a 4 meses con tos en staccato, taquipnea y sin fiebre, que empeora en días o semanas. Chlamydia trachomatis es la causa clásica; también CMV y Ureaplasma.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Edad típica: 2 a 12 semanas, comienzo gradual.</li><li>Tos en staccato (seca, entrecortada, repetitiva), taquipnea, rales difusos; sibilancias poco frecuentes.</li><li><b>Sin fiebre</b> o con febrícula; buen estado general relativo.</li><li>Antecedente de conjuntivitis neonatal en la mitad de los casos por Chlamydia.</li><li>Eosinofilia en sangre periférica.</li><li>Radiografía: hiperinsuflación con infiltrados intersticiales bilaterales.</li></ul>" },
+      { h: "Gérmenes", html: "<ul><li><b>Chlamydia trachomatis</b> (transmisión en el parto).</li><li><b>CMV</b>: congénito o perinatal; más grave en prematuros.</li><li><b>Ureaplasma urealyticum</b>.</li><li><b>Pneumocystis</b> si hay exposición al VIH o inmunodeficiencia.</li></ul>" }
+    ],
+    diferenciales: [
+      { dx: "Tos convulsa", nodo: "neu-pertussis", claves: "<ul><li>Accesos con cianosis o apneas, vómitos tras la tos, bien entre accesos, linfocitosis (no eosinofilia).</li><li>Es lo más urgente de descartar.</li></ul>" },
+      { dx: "Bronquiolitis", nodo: "bronquiolitis", claves: "<ul><li>Pródromo catarral, contexto epidémico, sibilancias; evolución en días, no en semanas.</li></ul>" },
+      { dx: "Trastorno deglutorio o reflujo con aspiración", nodo: "neu-aspirativa", claves: "<ul><li>Tos o atoro con la alimentación, infiltrados en lóbulos posteriores o derechos.</li></ul>" },
+      { dx: "Cardiopatía con hiperflujo pulmonar", nodo: "cc-icc", claves: "<ul><li>Taquipnea con sudoración al comer, soplo, hepatomegalia, cardiomegalia.</li></ul>" }
+    ],
+    evidencia: ["chiang2005"], pico: [], ateneos: [],
+    conexiones: ["neu-chlamydia", "neu-pertussis"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "neu-chlamydia", nivel: 2, mapa: "irab", titulo: "Chlamydia trachomatis", corto: "C. trachomatis", tipo: "concepto", causa: "atipica",
+    x: 960, y: 370,
+    resumen: "Transmitida en el parto. Conjuntivitis en las primeras semanas y neumonitis afebril entre las 2 y 12 semanas, con eosinofilia.",
+    teoria: [
+      { h: "Diagnóstico", html: "<ul><li>Sospecha clínica: lactante afebril con tos en staccato y taquipnea; conjuntivitis previa.</li><li>PCR o cultivo de aspirado nasofaríngeo.</li><li>Eosinofilia (más de 300–400/mm³) como dato orientador.</li><li><b>Estudiar y tratar a la madre y su pareja</b>: es una infección de transmisión sexual.</li></ul>" },
+      { h: "Tratamiento", html: "<ul><li><b>Azitromicina</b> 20 mg/kg/día, una dosis diaria, por 3 días; o <b>eritromicina</b> 50 mg/kg/día en 4 tomas por 14 días.</li><li>Los macrólidos en menores de 6 semanas se asocian con estenosis hipertrófica de píloro: avisar a la familia y vigilar vómitos.</li></ul><p class=\"nota\">Verificar dosis con el vademécum institucional.</p>" }
+    ],
+    diferenciales: [],
+    evidencia: ["chiang2005"], pico: [], ateneos: [],
+    conexiones: ["neu-afebril"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "neu-mycoplasma", nivel: 1, mapa: "irab", titulo: "Mycoplasma pneumoniae", corto: "Mycoplasma", tipo: "concepto", causa: "atipica",
+    x: 1090, y: 250,
+    resumen: "Escolares y adolescentes: comienzo gradual, tos seca persistente, cefalea, febrícula, contactos con lo mismo. La amoxicilina no lo cubre.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Sobre todo desde los 5 años, aunque en brotes también afecta a preescolares.</li><li>Fiebre moderada, cefalea, malestar, odinofagia y una tos seca que domina y dura semanas.</li><li>Examen pulmonar con más hallazgos que lo esperable por el buen estado («neumonía que camina»).</li><li>Radiografía variable: infiltrados intersticiales o parcheados, a veces consolidación o derrame pequeño.</li><li>Brotes cada 1 a 4 años; hubo uno grande en 2023–2024.</li></ul>" },
+      { h: "Fuera del pulmón", html: "<ul><li>Mucositis con poca piel (MIRM/RIME) y eritema multiforme.</li><li>Anemia hemolítica por crioaglutininas.</li><li>Encefalitis y otras complicaciones neurológicas.</li><li>Bronquiolitis obliterante como secuela rara.</li></ul>" },
+      { h: "Diagnóstico y tratamiento", html: "<ul><li>PCR en hisopado faríngeo o nasofaríngeo; la serología sirve más en retrospectiva. La PCR puede quedar positiva semanas después (portación).</li><li><b>Azitromicina</b> 10 mg/kg el día 1 y 5 mg/kg los días 2 a 5. Alternativa: claritromicina.</li><li>Resistencia a macrólidos en aumento, sobre todo en Asia. Si no responde, doxiciclina o levofloxacina según la edad e infectología.</li></ul><p class=\"nota\">Verificar dosis con el vademécum institucional.</p>" }
+    ],
+    diferenciales: [
+      { dx: "Neumonía neumocócica", nodo: "nac", claves: "<ul><li>Comienzo brusco, fiebre alta, aspecto tóxico, consolidación lobar, neutrofilia.</li></ul>" },
+      { dx: "Neumonía viral", nodo: "neu-viral", claves: "<ul><li>Edad menor, contexto epidémico (VSR, influenza), sibilancias más frecuentes.</li></ul>" },
+      { dx: "Tos convulsa en el escolar", nodo: "neu-pertussis", claves: "<ul><li>Tos en accesos de más de 2 semanas, vómitos tras la tos, sin hallazgos pulmonares ni infiltrados.</li></ul>" },
+      { dx: "Tuberculosis", claves: "<ul><li>Evolución más larga, pérdida de peso, adenopatías hiliares, contacto adulto.</li></ul>" }
+    ],
+    evidencia: ["rowlands2024", "jain2015", "bradley2011"], pico: [], ateneos: [],
+    conexiones: ["ex-mirm", "bo-postinfecciosa", "nac-atb"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "neu-pertussis", nivel: 1, mapa: "irab", titulo: "Tos convulsa (Bordetella pertussis)", corto: "Tos convulsa", tipo: "concepto", causa: "bacteriana",
+    x: 1090, y: 370,
+    resumen: "En el lactante pequeño puede no tener «gallo»: apneas, cianosis y vómitos después de la tos, con linfocitosis. Es la IRAB más letal del primer trimestre.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li><b>Lactante menor de 3 meses:</b> accesos de tos con cianosis, apneas o bradicardia; puede faltar el estridor inspiratorio. Entre accesos se lo ve bien. Sin fiebre.</li><li><b>Niño mayor y adolescente:</b> tos en accesos de más de 2 semanas, gallo inspiratorio, vómitos tras la tos.</li><li>Leucocitosis con <b>linfocitosis</b>: cuanto más alta, más riesgo (hipertensión pulmonar, muerte).</li><li>Contacto con un adulto o hermano con tos prolongada.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>PCR en aspirado nasofaríngeo.</li><li><b>Azitromicina</b>: 10 mg/kg/día por 5 días en menores de 6 meses; 10 mg/kg el día 1 y 5 mg/kg los días 2 a 5 en mayores.</li><li>Internar a los menores de 3 a 6 meses y a los que tengan apneas o cianosis.</li><li>Notificar; quimioprofilaxis de los contactos cercanos.</li><li>Prevención: vacuna en cada embarazo y esquema completo del lactante.</li></ul><p class=\"nota\">Verificar dosis con el vademécum institucional.</p>" }
+    ],
+    diferenciales: [
+      { dx: "Neumonitis afebril del lactante", nodo: "neu-afebril", claves: "<ul><li>Tos en staccato sin apneas, taquipnea, eosinofilia, conjuntivitis previa.</li></ul>" },
+      { dx: "Bronquiolitis", nodo: "bronquiolitis", claves: "<ul><li>Taquipnea y rales o sibilancias persistentes, sin intervalos libres entre accesos.</li><li>El VSR también da apneas en el menor de 2 meses.</li></ul>" },
+      { dx: "Cuerpo extraño", nodo: "sr-alternativas", claves: "<ul><li>Tos brusca tras atragantamiento en un niño que gatea o camina.</li></ul>" }
+    ],
+    evidencia: ["kilgore2016"], pico: [], ateneos: [],
+    conexiones: ["neu-afebril", "bronquiolitis"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "neu-viral", nivel: 1, mapa: "irab", titulo: "Neumonías virales", corto: "Virales", tipo: "concepto", causa: "viral",
+    x: 960, y: 490,
+    resumen: "VSR, metapneumovirus, influenza, parainfluenza, adenovirus y SARS-CoV-2: la causa más frecuente de neumonía en menores de 5 años. Cada uno tiene su detalle.",
+    teoria: [
+      { h: "Virus a conocer", html: "<ul><li><b>VSR:</b> el principal en lactantes; neumonía y bronquiolitis se superponen.</li><li><b>Metapneumovirus:</b> clínica parecida al VSR, a edades algo mayores.</li><li><b>Influenza:</b> fiebre alta, mialgias; riesgo de sobreinfección por S. aureus y neumococo. Oseltamivir en internados, menores de 2 años y grupos de riesgo.</li><li><b>Adenovirus:</b> fiebre alta y prolongada, conjuntivitis, faringitis, PCR alta que simula bacteria. Puede ser grave y dejar <b>bronquiolitis obliterante</b>.</li><li><b>Sarampión:</b> neumonía como principal causa de muerte; exantema y Koplik.</li><li><b>SARS-CoV-2:</b> en general leve en niños.</li></ul>" },
+      { h: "Implicancia práctica", html: "<p>Detectar un virus en el hisopado no excluye una bacteria (coinfección), pero un cuadro típicamente viral, con buen estado y sin hipoxemia importante, no necesita antibiótico.</p>" }
+    ],
+    diferenciales: [
+      { dx: "Neumonía bacteriana", nodo: "nac", claves: "<ul><li>Aspecto tóxico, fiebre alta persistente, consolidación lobar o derrame, empeoramiento tras una mejoría inicial (sobreinfección).</li></ul>" },
+      { dx: "Sarampión", nodo: "ex-sarampion", claves: "<ul><li>Pródromo catarral con conjuntivitis, Koplik y exantema descendente; vacunación incompleta.</li></ul>" }
+    ],
+    evidencia: ["jain2015", "perch2019"], pico: [], ateneos: [],
+    conexiones: ["vsr", "bo-postinfecciosa", "nac-etiologia"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "neu-inmuno", nivel: 2, mapa: "irab", titulo: "Inmunocomprometidos: Pneumocystis y CMV", corto: "Pneumocystis y CMV", tipo: "concepto", causa: ["otra", "viral"],
+    x: 1090, y: 490,
+    resumen: "Hipoxemia desproporcionada a la radiografía en un lactante expuesto al VIH o un niño inmunodeprimido: pensar en Pneumocystis jirovecii.",
+    teoria: [
+      { h: "Pneumocystis jirovecii", html: "<ul><li>Lactantes de 3 a 6 meses expuestos al VIH o con VIH sin profilaxis, inmunodeficiencias primarias, oncológicos, trasplantados, corticoides prolongados.</li><li>Taquipnea e <b>hipoxemia marcada</b> con pocos hallazgos auscultatorios; LDH alta.</li><li>Infiltrado intersticial bilateral («vidrio esmerilado») o radiografía casi normal al inicio.</li><li>Diagnóstico: PCR o tinción en lavado broncoalveolar o esputo inducido.</li><li>Tratamiento: <b>trimetoprima-sulfametoxazol</b> en dosis altas por 21 días; corticoides si hay hipoxemia (en VIH). Profilaxis en los grupos de riesgo.</li></ul>" },
+      { h: "CMV", html: "<p>Neumonitis en trasplantados, inmunodeficiencias y prematuros con infección perinatal. Ganciclovir según infectología.</p><p class=\"nota\">Verificar dosis con el vademécum institucional.</p>" }
+    ],
+    diferenciales: [],
+    evidencia: ["perch2019"], pico: [], ateneos: [],
+    conexiones: ["neu-afebril"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "neu-aspirativa", nivel: 2, mapa: "irab", titulo: "Neumonitis por aspiración e hidrocarburos", corto: "Aspiración e hidrocarburos", tipo: "concepto", causa: "otra",
+    x: 1025, y: 575,
+    resumen: "Química, no infecciosa al comienzo. Hidrocarburos: síntomas en las primeras 6 horas; no inducir el vómito ni dar antibiótico o corticoide de rutina.",
+    teoria: [
+      { h: "Hidrocarburos", html: "<ul><li>Kerosene, nafta, aceites de lámparas, solventes: los de baja viscosidad se aspiran con facilidad.</li><li>Tos, atoro o vómitos tras la ingesta; taquipnea, quejido y fiebre en las horas siguientes.</li><li>La radiografía puede ser normal al inicio: repetirla o reevaluar a las <b>6 horas</b>. Si a las 6 horas está asintomático y la placa es normal, puede irse.</li><li><b>No inducir el vómito</b> ni hacer lavado gástrico. Sin antibióticos ni corticoides profilácticos.</li></ul>" },
+      { h: "Aspiración crónica o recurrente", html: "<ul><li>Niños con encefalopatía, trastornos deglutorios, reflujo importante o fístula traqueoesofágica.</li><li>Infiltrados en segmentos declive (posteriores de los lóbulos superiores, inferiores; el derecho con más frecuencia).</li><li>Si se sobreinfecta, cubrir la flora oral (amoxicilina-clavulánico).</li><li>Evaluación de la deglución.</li></ul>" }
+    ],
+    diferenciales: [
+      { dx: "Cuerpo extraño", nodo: "sr-alternativas", claves: "<ul><li>Atragantamiento con un objeto o alimento sólido, hallazgos unilaterales, atrapamiento aéreo.</li></ul>" },
+      { dx: "Neumonía bacteriana", nodo: "nac", claves: "<ul><li>Sin antecedente de ingesta ni de trastorno deglutorio; fiebre y foco desde el inicio.</li></ul>" }
+    ],
+    evidencia: ["tormoehlen2014"], pico: [], ateneos: [],
+    conexiones: ["neu-que"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
   }
 ];
-

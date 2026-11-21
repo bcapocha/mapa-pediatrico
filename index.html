@@ -31,7 +31,7 @@ img{max-width:100%}
   --edad-2: #3A6F9C;
   --edad-3: #1C3F69;
   --accent: var(--edad-2);
-  --c-inf: #B9502C; --c-ale: #7A4DA3; --c-infl: #1F7D74; --derm: #A85A2E; --cardio: #A33A4F; --neuro: #6A4C9C; --metab: #1D7A8C; --bloqueo: #C8203A; --mito: #1F7D74; --liso: #7A4DA3; --perox: #9A7414; --ret: #3F5FAE; --c-tox: #B8651B; --c-ener: #2C7DA0; --c-comp: #7A4DA3; --c-shunt: #C0533E; --c-cian: #3F5FAE; --c-obst: #9A7414;
+  --c-inf: #B9502C; --c-ale: #7A4DA3; --c-infl: #1F7D74; --derm: #A85A2E; --cardio: #A33A4F; --neuro: #6A4C9C; --metab: #1D7A8C; --bloqueo: #C8203A; --mito: #1F7D74; --liso: #7A4DA3; --perox: #9A7414; --ret: #3F5FAE; --c-tox: #B8651B; --c-ener: #2C7DA0; --c-comp: #7A4DA3; --c-shunt: #C0533E; --c-cian: #3F5FAE; --c-obst: #9A7414; --c-vir: #2C7DA0; --c-bac: #B9502C; --c-ati: #7A4DA3; --c-otra: #6B7A85; --c-irab: #2E8A7A;
   --cuerpo: #E6ECF1; --cuerpo-borde: #C3CFD9; --organo: #D5DDE4; --organo-borde: #B7C3CD;
   --draft: #9A6514;
   --draft-bg: #F8EEDC;
@@ -48,7 +48,7 @@ img{max-width:100%}
     --line: #2B3843; --line-soft: #212C35;
     --edad-1: #5F93B6; --edad-2: #86B3DC; --edad-3: #C3D9F4;
     --draft: #E3B266; --draft-bg: #33281A; --ok: #7CC6A0; --ok-bg: #18301F; --danger: #F08C7C;
-    --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076; --cardio: #EE8FA0; --neuro: #BDA8EA; --metab: #79C9D6; --bloqueo: #FF7A8A; --mito: #6CC6BC; --liso: #BC9DE3; --perox: #E0BC5A; --ret: #93ADF0; --c-tox: #F0A560; --c-ener: #7EC4E0; --c-comp: #BC9DE3; --c-shunt: #F2977F; --c-cian: #93ADF0; --c-obst: #E0BC5A;
+    --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076; --cardio: #EE8FA0; --neuro: #BDA8EA; --metab: #79C9D6; --bloqueo: #FF7A8A; --mito: #6CC6BC; --liso: #BC9DE3; --perox: #E0BC5A; --ret: #93ADF0; --c-tox: #F0A560; --c-ener: #7EC4E0; --c-comp: #BC9DE3; --c-shunt: #F2977F; --c-cian: #93ADF0; --c-obst: #E0BC5A; --c-vir: #7EC4E0; --c-bac: #F0946F; --c-ati: #BC9DE3; --c-otra: #A9B6BF; --c-irab: #6CC6B4;
     --cuerpo: #1D2932; --cuerpo-borde: #34444F; --organo: #2A3843; --organo-borde: #3E505C;
     color-scheme: dark;
   }
@@ -58,7 +58,7 @@ img{max-width:100%}
   --line: #2B3843; --line-soft: #212C35;
   --edad-1: #5F93B6; --edad-2: #86B3DC; --edad-3: #C3D9F4;
   --draft: #E3B266; --draft-bg: #33281A; --ok: #7CC6A0; --ok-bg: #18301F; --danger: #F08C7C;
-  --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076; --cardio: #EE8FA0; --neuro: #BDA8EA; --metab: #79C9D6; --bloqueo: #FF7A8A; --mito: #6CC6BC; --liso: #BC9DE3; --perox: #E0BC5A; --ret: #93ADF0; --c-tox: #F0A560; --c-ener: #7EC4E0; --c-comp: #BC9DE3; --c-shunt: #F2977F; --c-cian: #93ADF0; --c-obst: #E0BC5A;
+  --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076; --cardio: #EE8FA0; --neuro: #BDA8EA; --metab: #79C9D6; --bloqueo: #FF7A8A; --mito: #6CC6BC; --liso: #BC9DE3; --perox: #E0BC5A; --ret: #93ADF0; --c-tox: #F0A560; --c-ener: #7EC4E0; --c-comp: #BC9DE3; --c-shunt: #F2977F; --c-cian: #93ADF0; --c-obst: #E0BC5A; --c-vir: #7EC4E0; --c-bac: #F0946F; --c-ati: #BC9DE3; --c-otra: #A9B6BF; --c-irab: #6CC6B4;
   --cuerpo: #1D2932; --cuerpo-borde: #34444F; --organo: #2A3843; --organo-borde: #3E505C;
   color-scheme: dark;
 }
@@ -129,6 +129,12 @@ svg .nodo.concepto .punto.c-obstructiva, .leyenda .c-obstructiva { fill: var(--c
 svg .nodo.concepto .punto.c-intoxicacion, .leyenda .c-intoxicacion { fill: var(--c-tox); background: var(--c-tox); }
 svg .nodo.concepto .punto.c-energetico, .leyenda .c-energetico { fill: var(--c-ener); background: var(--c-ener); }
 svg .nodo.concepto .punto.c-complejas, .leyenda .c-complejas { fill: var(--c-comp); background: var(--c-comp); }
+svg .nodo.concepto .punto.c-viral, .leyenda .c-viral { fill: var(--c-vir); background: var(--c-vir); }
+svg .nodo.concepto .punto.c-bacteriana, .leyenda .c-bacteriana { fill: var(--c-bac); background: var(--c-bac); }
+svg .nodo.concepto .punto.c-atipica, .leyenda .c-atipica { fill: var(--c-ati); background: var(--c-ati); }
+svg .nodo.concepto .punto.c-otra, .leyenda .c-otra { fill: var(--c-otra); background: var(--c-otra); }
+.nodo .punto2.c-viral { fill: var(--c-vir); } .nodo .punto2.c-bacteriana { fill: var(--c-bac); } .nodo .punto2.c-atipica { fill: var(--c-ati); } .nodo .punto2.c-otra { fill: var(--c-otra); }
+.p-causas .c-viral { background: var(--c-vir); } .p-causas .c-bacteriana { background: var(--c-bac); } .p-causas .c-atipica { background: var(--c-ati); } .p-causas .c-otra { background: var(--c-otra); }
 .nodo .punto2 { stroke: var(--surface); stroke-width: 1.5; }
 .nodo .punto2.c-infecciosa { fill: var(--c-inf); } .nodo .punto2.c-alergica { fill: var(--c-ale); } .nodo .punto2.c-inflamatoria { fill: var(--c-infl); }
 .nodo .punto2.c-intoxicacion { fill: var(--c-tox); } .nodo .punto2.c-energetico { fill: var(--c-ener); } .nodo .punto2.c-complejas { fill: var(--c-comp); }
@@ -473,7 +479,7 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
   <div class="p-pie" id="p-pie" hidden></div>
 </aside>
 
-<script>window.VERSION_PUBLICA = {"fecha": "2026-11-20", "nodos": {}, "refs": {}};</script>
+<script>window.VERSION_PUBLICA = {"fecha": "2026-11-21", "nodos": {}, "refs": {}};</script>
 <script src="contenido.js"></script>
 <script>
 (function () {
@@ -482,7 +488,7 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
   const BASE_R = window.REFS || {};
   const MAPAS = window.MAPAS || { raiz: { titulo: "Mapa", ruta: [], bajada: "", disposicion: "edad" } };
   const INICIO = MAPAS.inicio ? "inicio" : "raiz";
-  const CAUSAS = { infecciosa: "Infecciosa", alergica: "Alérgica o por fármacos", inflamatoria: "Inflamatoria", cortocircuito: "Cortocircuito izquierda-derecha", cianotica: "Cianótica", obstructiva: "Obstructiva", intoxicacion: "Grupo 1 · Intoxicación", energetico: "Grupo 2 · Déficit energético", complejas: "Grupo 3 · Moléculas complejas" };
+  const CAUSAS = { infecciosa: "Infecciosa", alergica: "Alérgica o por fármacos", inflamatoria: "Inflamatoria", cortocircuito: "Cortocircuito izquierda-derecha", cianotica: "Cianótica", obstructiva: "Obstructiva", intoxicacion: "Grupo 1 · Intoxicación", energetico: "Grupo 2 · Déficit energético", complejas: "Grupo 3 · Moléculas complejas", viral: "Viral", bacteriana: "Bacteriana", atipica: "Bacteria atípica", otra: "Hongos o no infecciosa" };
   const CAPAS = { 1: "Lo esencial", 2: "Para profundizar", 3: "Todo" };
   const capas = {};
   const capa = () => capas[mapaActual] || 1;
@@ -490,7 +496,7 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
   const NS = "http://www.w3.org/2000/svg";
   const $ = id => document.getElementById(id);
   const svg = $("svg");
-  const colorTema = { bronquiolitis: "var(--edad-1)", sibilancias: "var(--edad-2)", asma: "var(--edad-3)" };
+  const colorTema = { bronquiolitis: "var(--edad-1)", sibilancias: "var(--edad-2)", asma: "var(--edad-3)", irab: "var(--c-irab)" };
   const PESTANAS = [["teoria", "Teoría"], ["diferenciales", "Diferenciales"], ["evidencia", "Evidencia"], ["pico", "PICO"], ["casos", "Casos"], ["ateneos", "Ateneos"]];
   const CERTEZAS = ["Alta", "Moderada", "Baja a moderada", "Baja", "Muy baja"];
 
