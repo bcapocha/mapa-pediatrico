@@ -31,7 +31,7 @@ img{max-width:100%}
   --edad-2: #3A6F9C;
   --edad-3: #1C3F69;
   --accent: var(--edad-2);
-  --c-inf: #B9502C; --c-ale: #7A4DA3; --c-infl: #1F7D74; --derm: #A85A2E; --cardio: #A33A4F; --neuro: #6A4C9C; --c-shunt: #C0533E; --c-cian: #3F5FAE; --c-obst: #9A7414;
+  --c-inf: #B9502C; --c-ale: #7A4DA3; --c-infl: #1F7D74; --derm: #A85A2E; --cardio: #A33A4F; --neuro: #6A4C9C; --metab: #1D7A8C; --bloqueo: #C8203A; --mito: #1F7D74; --liso: #7A4DA3; --perox: #9A7414; --ret: #3F5FAE; --c-tox: #B8651B; --c-ener: #2C7DA0; --c-comp: #7A4DA3; --c-shunt: #C0533E; --c-cian: #3F5FAE; --c-obst: #9A7414;
   --cuerpo: #E6ECF1; --cuerpo-borde: #C3CFD9; --organo: #D5DDE4; --organo-borde: #B7C3CD;
   --draft: #9A6514;
   --draft-bg: #F8EEDC;
@@ -48,7 +48,7 @@ img{max-width:100%}
     --line: #2B3843; --line-soft: #212C35;
     --edad-1: #5F93B6; --edad-2: #86B3DC; --edad-3: #C3D9F4;
     --draft: #E3B266; --draft-bg: #33281A; --ok: #7CC6A0; --ok-bg: #18301F; --danger: #F08C7C;
-    --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076; --cardio: #EE8FA0; --neuro: #BDA8EA; --c-shunt: #F2977F; --c-cian: #93ADF0; --c-obst: #E0BC5A;
+    --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076; --cardio: #EE8FA0; --neuro: #BDA8EA; --metab: #79C9D6; --bloqueo: #FF7A8A; --mito: #6CC6BC; --liso: #BC9DE3; --perox: #E0BC5A; --ret: #93ADF0; --c-tox: #F0A560; --c-ener: #7EC4E0; --c-comp: #BC9DE3; --c-shunt: #F2977F; --c-cian: #93ADF0; --c-obst: #E0BC5A;
     --cuerpo: #1D2932; --cuerpo-borde: #34444F; --organo: #2A3843; --organo-borde: #3E505C;
     color-scheme: dark;
   }
@@ -58,7 +58,7 @@ img{max-width:100%}
   --line: #2B3843; --line-soft: #212C35;
   --edad-1: #5F93B6; --edad-2: #86B3DC; --edad-3: #C3D9F4;
   --draft: #E3B266; --draft-bg: #33281A; --ok: #7CC6A0; --ok-bg: #18301F; --danger: #F08C7C;
-  --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076; --cardio: #EE8FA0; --neuro: #BDA8EA; --c-shunt: #F2977F; --c-cian: #93ADF0; --c-obst: #E0BC5A;
+  --c-inf: #F0946F; --c-ale: #BC9DE3; --c-infl: #6CC6BC; --derm: #E7A076; --cardio: #EE8FA0; --neuro: #BDA8EA; --metab: #79C9D6; --bloqueo: #FF7A8A; --mito: #6CC6BC; --liso: #BC9DE3; --perox: #E0BC5A; --ret: #93ADF0; --c-tox: #F0A560; --c-ener: #7EC4E0; --c-comp: #BC9DE3; --c-shunt: #F2977F; --c-cian: #93ADF0; --c-obst: #E0BC5A;
   --cuerpo: #1D2932; --cuerpo-borde: #34444F; --organo: #2A3843; --organo-borde: #3E505C;
   color-scheme: dark;
 }
@@ -126,14 +126,18 @@ svg .nodo.concepto .punto.c-inflamatoria, .leyenda .c-inflamatoria { fill: var(-
 svg .nodo.concepto .punto.c-cortocircuito, .leyenda .c-cortocircuito { fill: var(--c-shunt); background: var(--c-shunt); }
 svg .nodo.concepto .punto.c-cianotica, .leyenda .c-cianotica { fill: var(--c-cian); background: var(--c-cian); }
 svg .nodo.concepto .punto.c-obstructiva, .leyenda .c-obstructiva { fill: var(--c-obst); background: var(--c-obst); }
+svg .nodo.concepto .punto.c-intoxicacion, .leyenda .c-intoxicacion { fill: var(--c-tox); background: var(--c-tox); }
+svg .nodo.concepto .punto.c-energetico, .leyenda .c-energetico { fill: var(--c-ener); background: var(--c-ener); }
+svg .nodo.concepto .punto.c-complejas, .leyenda .c-complejas { fill: var(--c-comp); background: var(--c-comp); }
 .nodo .punto2 { stroke: var(--surface); stroke-width: 1.5; }
 .nodo .punto2.c-infecciosa { fill: var(--c-inf); } .nodo .punto2.c-alergica { fill: var(--c-ale); } .nodo .punto2.c-inflamatoria { fill: var(--c-infl); }
+.nodo .punto2.c-intoxicacion { fill: var(--c-tox); } .nodo .punto2.c-energetico { fill: var(--c-ener); } .nodo .punto2.c-complejas { fill: var(--c-comp); }
 .nodo .punto2.c-cortocircuito { fill: var(--c-shunt); } .nodo .punto2.c-cianotica { fill: var(--c-cian); } .nodo .punto2.c-obstructiva { fill: var(--c-obst); }
 #ley-causas { display: inline-flex; flex-wrap: wrap; gap: 6px 16px; }
 .leyenda .causa-i { width: 9px; height: 9px; border-radius: 50%; }
 .p-causas { display: inline-flex; gap: 6px; margin-left: 8px; }
 .p-causas span { font-size: 11px; padding: 1px 7px; border-radius: 10px; color: #fff; }
-.p-causas .c-infecciosa { background: var(--c-inf); } .p-causas .c-alergica { background: var(--c-ale); } .p-causas .c-inflamatoria { background: var(--c-infl); } .p-causas .c-cortocircuito { background: var(--c-shunt); } .p-causas .c-cianotica { background: var(--c-cian); } .p-causas .c-obstructiva { background: var(--c-obst); }
+.p-causas .c-infecciosa { background: var(--c-inf); } .p-causas .c-alergica { background: var(--c-ale); } .p-causas .c-inflamatoria { background: var(--c-infl); } .p-causas .c-cortocircuito { background: var(--c-shunt); } .p-causas .c-intoxicacion { background: var(--c-tox); } .p-causas .c-energetico { background: var(--c-ener); } .p-causas .c-complejas { background: var(--c-comp); } .p-causas .c-cianotica { background: var(--c-cian); } .p-causas .c-obstructiva { background: var(--c-obst); }
 :root[data-theme="dark"] .p-causas span { color: #111; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .p-causas span { color: #111; } }
 .nodo.concepto:hover text.t, .nodo.concepto.activo text.t { fill: var(--ink); }
@@ -340,6 +344,42 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
 .pie a { font-family: var(--f-mono); }
 
 /* Casos */
+svg.vias { min-width: 1000px; }
+.via-banda { fill: color-mix(in srgb, var(--g) 5%, transparent); stroke: color-mix(in srgb, var(--g) 22%, transparent); }
+.via-barra { fill: var(--g); }
+.via-grupo-t { font-family: var(--f-mono); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; fill: var(--g); }
+.via-carril-t { font-family: var(--f-ui); font-size: 14px; font-weight: 600; fill: var(--ink); }
+.via-carril-s { font-family: var(--f-ui); font-size: 11.5px; fill: var(--muted); }
+.ley-t { font-family: var(--f-ui); font-size: 12.5px; fill: var(--muted); }
+.met rect { fill: var(--surface); stroke: var(--line); stroke-width: 1.2; transition: fill .2s, stroke .2s; }
+.met text { font-family: var(--f-ui); font-size: 12.5px; fill: var(--ink); }
+.met.mito rect { stroke: var(--mito); stroke-dasharray: 4 3; fill: color-mix(in srgb, var(--mito) 9%, var(--surface)); }
+.met.liso rect { stroke: var(--liso); stroke-dasharray: 2 3; fill: color-mix(in srgb, var(--liso) 9%, var(--surface)); }
+.met.perox rect { stroke: var(--perox); stroke-dasharray: 6 3; fill: color-mix(in srgb, var(--perox) 9%, var(--surface)); }
+.met.ret rect { stroke: var(--ret); stroke-dasharray: 1 3; stroke-width: 1.6; fill: color-mix(in srgb, var(--ret) 9%, var(--surface)); }
+.met.cruce rect { stroke-width: 2.2; }
+.met.cruce { cursor: help; }
+.met.on rect { stroke: var(--accent); stroke-dasharray: none; fill: color-mix(in srgb, var(--accent) 16%, var(--surface)); }
+.flecha { stroke: var(--muted); stroke-width: 1.4; }
+.punta { fill: var(--muted); }
+.enz { font-family: var(--f-mono); font-size: 11px; fill: var(--muted); }
+.defecto { cursor: pointer; }
+.defecto.ley { cursor: default; }
+.defecto .bloq { stroke: var(--bloqueo); stroke-width: 3.5; stroke-linecap: round; }
+.defecto .dx-bg { fill: color-mix(in srgb, var(--bloqueo) 10%, var(--surface)); stroke: color-mix(in srgb, var(--bloqueo) 45%, transparent); transition: fill .2s; }
+.defecto .dx { font-family: var(--f-ui); font-size: 11.5px; font-weight: 600; fill: var(--bloqueo); }
+.defecto:hover .dx-bg, .defecto:focus-visible .dx-bg, .defecto.activo .dx-bg { fill: color-mix(in srgb, var(--bloqueo) 24%, var(--surface)); stroke: var(--bloqueo); }
+.defecto:focus-visible { outline: none; }
+.defecto:focus-visible .dx-bg { stroke-width: 2; }
+svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
+.dif-intro { margin: 0 0 12px; font-size: 14px; color: var(--muted); }
+.difs { display: grid; gap: 12px; }
+.dif { border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; display: grid; gap: 6px; }
+.dif h3 { margin: 0; font-size: 16px; font-weight: 600; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.dif h3 .btn-texto { white-space: nowrap; flex: none; }
+.dif .rico { font-family: var(--f-read); font-size: 15px; line-height: 1.5; }
+.dif .rico ul { margin: 0; padding-left: 20px; }
+.dif .rico p { margin: 0; }
 .caso { border-left: 2px solid var(--accent); padding: 2px 0 2px 16px; display: grid; gap: 8px; }
 .caso h3 { margin: 0; font-size: 16px; font-weight: 600; }
 .caso .rico { font-family: var(--f-read); font-size: 15.5px; line-height: 1.55; }
@@ -442,7 +482,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   const BASE_R = window.REFS || {};
   const MAPAS = window.MAPAS || { raiz: { titulo: "Mapa", ruta: [], bajada: "", disposicion: "edad" } };
   const INICIO = MAPAS.inicio ? "inicio" : "raiz";
-  const CAUSAS = { infecciosa: "Infecciosa", alergica: "Alérgica o por fármacos", inflamatoria: "Inflamatoria", cortocircuito: "Cortocircuito izquierda-derecha", cianotica: "Cianótica", obstructiva: "Obstructiva" };
+  const CAUSAS = { infecciosa: "Infecciosa", alergica: "Alérgica o por fármacos", inflamatoria: "Inflamatoria", cortocircuito: "Cortocircuito izquierda-derecha", cianotica: "Cianótica", obstructiva: "Obstructiva", intoxicacion: "Grupo 1 · Intoxicación", energetico: "Grupo 2 · Déficit energético", complejas: "Grupo 3 · Moléculas complejas" };
   const CAPAS = { 1: "Lo esencial", 2: "Para profundizar", 3: "Todo" };
   const capas = {};
   const capa = () => capas[mapaActual] || 1;
@@ -451,7 +491,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   const $ = id => document.getElementById(id);
   const svg = $("svg");
   const colorTema = { bronquiolitis: "var(--edad-1)", sibilancias: "var(--edad-2)", asma: "var(--edad-3)" };
-  const PESTANAS = [["teoria", "Teoría"], ["evidencia", "Evidencia"], ["pico", "PICO"], ["casos", "Casos"], ["ateneos", "Ateneos"]];
+  const PESTANAS = [["teoria", "Teoría"], ["diferenciales", "Diferenciales"], ["evidencia", "Evidencia"], ["pico", "PICO"], ["casos", "Casos"], ["ateneos", "Ateneos"]];
   const CERTEZAS = ["Alta", "Moderada", "Baja a moderada", "Baja", "Muy baja"];
 
   /* ───── Datos: contenido base + cambios guardados en la base compartida ───── */
@@ -539,9 +579,9 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     $("bajada").textContent = m.bajada || "";
     $("volver").hidden = !m.padre;
     if (m.padre) $("volver").textContent = m.padre === INICIO ? "← Volver al inicio" : "← Volver a " + ((MAPAS[m.padre] || {}).titulo || "el mapa anterior");
-    $("ley-tema").hidden = m.disposicion === "columnas" || m.disposicion === "cuerpo";
+    $("ley-tema").hidden = m.disposicion === "columnas" || m.disposicion === "cuerpo" || m.disposicion === "vias";
     const causas = m.causas || [];
-    $("ley-con").hidden = !!causas.length || m.disposicion === "cuerpo";
+    $("ley-con").hidden = !!causas.length || m.disposicion === "cuerpo" || m.disposicion === "vias";
     $("ley-causas").hidden = !causas.length;
     $("ley-causas").innerHTML = causas.map(c => `<span><i class="causa-i c-${esc(c)}"></i>${esc(CAUSAS[c] || c)}</span>`).join(" ");
     $("q").placeholder = m.buscar || "Buscar: VSR, IPA, magnesio…";
@@ -575,7 +615,9 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   }
 
   /* ───── Mapa ───── */
-  let nodoEls = {}, aristaEls = [];
+  let nodoEls = {}, aristaEls = [], viaEls = {};
+  const esVias = () => (MAPAS[mapaActual] || {}).disposicion === "vias";
+  const viaDe = id => (Object.entries(MAPAS).find(([, x]) => x.disposicion === "vias" && (x.grupos || []).some(g => g.carriles.some(c => c.pasos.some(p => p && p.ecm === id)))) || [])[0];
   const edadX = [[0, 60], [1, 250], [2, 390], [3, 490], [5, 700], [6, 800], [12, 1050], [18, 1150]];
   const xEdad = a => {
     for (let i = 1; i < edadX.length; i++) {
@@ -588,6 +630,8 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   function pintarMapa() {
     const m = MAPAS[mapaActual] || MAPAS[INICIO];
     svg.innerHTML = "";
+    svg.setAttribute("viewBox", "0 0 1200 650");
+    svg.classList.toggle("vias", m.disposicion === "vias");
     svg.classList.toggle("columnas", m.disposicion !== "edad");
     svg.classList.toggle("recorrido", !!recorridoActivo());
     svg.classList.toggle("cuerpo", m.disposicion === "cuerpo");
@@ -595,6 +639,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     ["capa-1", "capa-2", "capa-3"].forEach(k => svg.classList.remove(k));
     svg.classList.add("capa-" + capa());
     if (m.disposicion === "cuerpo") { dibujarCuerpo(m); nodoEls = {}; aristaEls = []; return; }
+    if (m.disposicion === "vias") { nodoEls = {}; aristaEls = []; dibujarVias(m); if (busqueda) aplicarBusqueda(); else enfocar(actual); return; }
     const recA = recorridoActivo();
     const forzados = new Set(recA ? recA.pasos.map(p => p.nodo) : []);
     if (actual) forzados.add(actual);
@@ -734,7 +779,12 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
       el("path", { class: "forma", d: "M572,372 C572,362 628,362 628,372 L628,420 C628,430 572,430 572,420 Z" }, g);
       ["M582,380 C596,374 604,386 618,380", "M582,394 C596,388 604,400 618,394", "M582,408 C596,402 604,414 618,408"].forEach(d => el("path", { class: "trazo", d }, g));
     } },
-    rinones: { ancla: [646, 350], dibujar: g => {
+    higado: { ancla: [560, 336], dibujar: g => {
+      el("path", { class: "forma", d: "M547,334 C546,323 562,318 580,320 C592,321 595,328 591,335 C585,345 570,350 557,348 C550,346 547,341 547,334 Z" }, g);
+      el("path", { class: "trazo", d: "M566,322 C568,332 566,340 562,347" }, g);
+    } },
+    rinones: { ancla: [646, 378], dibujar: g0 => {
+      const g = el("g", { transform: "translate(0,28)" }, g0);
       el("path", { class: "forma", d: "M560,332 C550,332 546,346 548,356 C550,368 562,372 566,362 C562,354 570,346 566,338 C565,334 563,332 560,332 Z" }, g);
       el("path", { class: "forma", d: "M640,332 C650,332 654,346 652,356 C650,368 638,372 634,362 C638,354 630,346 634,338 C635,334 637,332 640,332 Z" }, g);
     } },
@@ -760,7 +810,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
       const org = ORGANOS[sis.organo]; if (!org) return;
       const vivo = !!(sis.mapa && MAPAS[sis.mapa]);
       const color = sis.color || "var(--accent)";
-      const go = el("g", { class: "organo" + (vivo ? " vivo" : ""), style: "--sis:" + color }, sis.organo === "piel" ? fondo : gO);
+      const go = el("g", { class: "organo" + (vivo ? " vivo" : ""), style: "--sis:" + color }, sis.organo === "piel" || sis.organo === "higado" ? fondo : gO);
       org.dibujar(go);
       const izq = sis.lado === "izq", W = 270, H = 92, x = izq ? 120 : 1200 - 120 - W, y = sis.y;
       const [ax, ay] = org.ancla, bx = izq ? x + W : x, by = y + H / 2, mx = izq ? bx + 40 : bx - 40;
@@ -784,6 +834,104 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     });
   }
 
+  /* ───── Vías metabólicas: carriles con metabolitos, enzimas y defectos ───── */
+  const COMP = { m: "mito", l: "liso", p: "perox", r: "ret" };
+  const COMP_T = { mito: "Mitocondria", liso: "Lisosoma", perox: "Peroxisoma", ret: "Retículo y Golgi" };
+  function dibujarVias(m) {
+    viaEls = {};
+    const X0 = 232, X1 = 1184, FILA = 80;
+    const ancho = t => Math.max(60, String(t).length * 6.7 + 24);
+    const defs = el("defs", {}, svg);
+    const mk = el("marker", { id: "punta", viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: "auto-start-reverse" }, defs);
+    el("path", { d: "M0,1 L9,5 L0,9 z", class: "punta" }, mk);
+    // leyenda de compartimentos
+    const ley = el("g", { class: "via-ley" }, svg);
+    let lx = 24;
+    [["", "Citosol"], ["mito", "Mitocondria"], ["liso", "Lisosoma"], ["perox", "Peroxisoma"], ["ret", "Retículo y Golgi"]].forEach(([c, t]) => {
+      const g = el("g", { class: "met " + c, transform: `translate(${lx},26)` }, ley);
+      el("rect", { x: 0, y: -10, width: 22, height: 20, rx: 10 }, g);
+      el("text", { class: "ley-t", x: 30, y: 4 }, g).textContent = t;
+      lx += 46 + t.length * 7.2;
+    });
+    const gb = el("g", { class: "defecto ley", transform: `translate(${lx + 10},26)` }, ley);
+    el("line", { class: "bloq", x1: 6, y1: -9, x2: 6, y2: 9 }, gb);
+    el("text", { class: "ley-t", x: 18, y: 4 }, gb).textContent = "Enzima que falla (tocá para abrir la enfermedad)";
+    // conteo de nombres para marcar los cruces entre vías
+    const nombres = {};
+    (m.grupos || []).forEach(g => g.carriles.forEach(c => c.pasos.forEach(p => { if (typeof p === "string" && p !== "|") { const k = normal(p.replace(/^[a-z]:/, "")); nombres[k] = (nombres[k] || 0) + 1; } })));
+    const metEls = {};
+    let y = 64;
+    (m.grupos || []).forEach(grp => {
+      const y0 = y;
+      const banda = el("rect", { class: "via-banda", x: 8, y: y0, width: 1184, height: 10, rx: 14, style: "--g:" + grp.color }, svg);
+      el("rect", { class: "via-barra", x: 8, y: y0, width: 5, height: 10, rx: 2, style: "--g:" + grp.color }, svg);
+      el("text", { class: "via-grupo-t", x: 26, y: y0 + 24, style: "--g:" + grp.color }, svg).textContent = grp.titulo;
+      y += 36;
+      grp.carriles.forEach(car => {
+        const cy = y + 40;
+        el("text", { class: "via-carril-t", x: 26, y: cy - 2 }, svg).textContent = car.titulo;
+        if (car.sub) {
+          const lineas = [""];
+          car.sub.split(" ").forEach(w => { const u = lineas.length - 1; if ((lineas[u] + " " + w).trim().length > 30 && lineas[u]) lineas.push(w); else lineas[u] = (lineas[u] + " " + w).trim(); });
+          const t = el("text", { class: "via-carril-s", x: 26, y: cy + 15 }, svg);
+          lineas.slice(0, 2).forEach((l, i) => { el("tspan", { x: 26, dy: i ? 14 : 0 }, t).textContent = l; });
+        }
+        // medir
+        const items = car.pasos.map((p, i) => {
+          if (p === "|") return { tipo: "corte", w: 40 };
+          if (typeof p === "string") { const mm = p.match(/^([a-z]):(.*)$/); const t = mm ? mm[2] : p; return { tipo: "met", t, comp: mm ? COMP[mm[1]] : "", w: ancho(t) }; }
+          return { tipo: "rx", p, w: p.ecm ? 96 : p.e ? 74 : 34 };
+        });
+        // insertar flechas simples entre metabolitos consecutivos
+        const seq = [];
+        items.forEach((it, i) => { if (it.tipo === "met" && seq.length && seq[seq.length - 1].tipo === "met") seq.push({ tipo: "rx", p: {}, w: 34 }); seq.push(it); });
+        const base = seq.reduce((a, it) => a + it.w, 0);
+        const nRx = seq.filter(it => it.tipo === "rx").length || 1;
+        const extra = Math.max(0, Math.min(60, (X1 - X0 - base) / nRx));
+        let x = X0;
+        let prev = null;
+        seq.forEach(it => {
+          if (it.tipo === "corte") { x += it.w; prev = null; return; }
+          if (it.tipo === "met") {
+            const g = el("g", { class: "met " + it.comp, transform: `translate(${x},${cy})` }, svg);
+            const k = normal(it.t);
+            if (nombres[k] > 1) { g.classList.add("cruce"); g.addEventListener("mouseenter", () => (metEls[k] || []).forEach(e => e.classList.add("on"))); g.addEventListener("mouseleave", () => (metEls[k] || []).forEach(e => e.classList.remove("on"))); }
+            el("rect", { x: 0, y: -13, width: it.w, height: 26, rx: 13 }, g);
+            el("text", { x: it.w / 2, y: 4.5, "text-anchor": "middle" }, g).textContent = it.t;
+            if (it.comp) el("title", {}, g).textContent = COMP_T[it.comp];
+            (metEls[k] = metEls[k] || []).push(g);
+            prev = x + it.w; x += it.w; return;
+          }
+          const L = it.w + extra, x1 = x + 4, x2 = x + L - 4, mx = x + L / 2;
+          el("line", { class: "flecha", x1, y1: cy, x2, y2: cy, "marker-end": "url(#punta)" }, svg);
+          const r = it.p;
+          if (r.e) el("text", { class: "enz", x: mx, y: cy - 20, "text-anchor": "middle" }, svg).textContent = r.e;
+          if (r.ecm) {
+            const n = porId[r.ecm];
+            const nom = r.dx || (n ? (n.corto || n.titulo) : r.ecm);
+            const g = el("g", { class: "defecto", tabindex: 0, role: "button", "aria-label": (r.e ? r.e + ": " : "") + nom }, svg);
+            el("line", { class: "bloq", x1: mx, y1: cy - 9, x2: mx, y2: cy + 9 }, g);
+            const tw = nom.length * 6.6 + 16;
+            el("rect", { class: "dx-bg", x: mx - tw / 2, y: cy + 15, width: tw, height: 20, rx: 10 }, g);
+            el("text", { class: "dx", x: mx, y: cy + 29, "text-anchor": "middle" }, g).textContent = nom;
+            el("title", {}, g).textContent = (n ? n.titulo : nom) + (r.nota ? " · " + r.nota : "");
+            const ir = () => { pestana = pestana || "teoria"; abrir(r.ecm); };
+            g.addEventListener("click", ir);
+            g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); ir(); } });
+            (viaEls[r.ecm] = viaEls[r.ecm] || []).push(g);
+          }
+          x += L;
+        });
+        y += FILA;
+      });
+      y += 12;
+      banda.setAttribute("height", y - y0 - 6);
+      banda.nextSibling.setAttribute("height", y - y0 - 6);
+      y += 8;
+    });
+    svg.setAttribute("viewBox", `0 0 1200 ${y + 4}`);
+  }
+
   function pintarPasos() {
     const rec = recorridoActivo();
     const caja = $("pasos-rec");
@@ -798,6 +946,12 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
 
   function enfocar(id, conjunto) {
     const rec = recorridoActivo();
+    if (esVias()) {
+      const set = conjunto || (id ? new Set([id]) : null);
+      svg.classList.toggle("enfoque", !!set);
+      Object.entries(viaEls).forEach(([k, gs]) => gs.forEach(g => g.classList.toggle("activo", !!set && set.has(k))));
+      return;
+    }
     if (!id && !conjunto && rec) conjunto = new Set(rec.pasos.map(p => p.nodo));
     if (!id && !conjunto) {
       svg.classList.remove("enfoque");
@@ -819,15 +973,16 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     const t = normal(busqueda.trim());
     if ((MAPAS[mapaActual] || {}).disposicion === "cuerpo") { coincidencias = t ? N.filter(n => textoNodo(n).includes(t)).map(n => n.id) : []; pintarIndice(); return; }
     if (!t) { coincidencias = []; enfocar(actual); return; }
-    coincidencias = N.filter(n => n.mapa === mapaActual && textoNodo(n).includes(t)).map(n => n.id);
-    if (coincidencias.some(id => !nodoEls[id]) && capa() < 3) { capas[mapaActual] = 3; pintarEncabezado(); pintarMapa(); return; }
+    const mapaN = (MAPAS[mapaActual] || {}).nodosDe || mapaActual;
+    coincidencias = N.filter(n => n.mapa === mapaN && textoNodo(n).includes(t)).map(n => n.id);
+    if (!esVias() && coincidencias.some(id => !nodoEls[id]) && capa() < 3) { capas[mapaActual] = 3; pintarEncabezado(); pintarMapa(); return; }
     enfocar(null, new Set(coincidencias.length ? coincidencias : ["__ninguno"]));
   }
   $("q").addEventListener("input", e => { busqueda = e.target.value; aplicarBusqueda(); });
   $("q").addEventListener("keydown", e => { if (e.key === "Enter" && coincidencias[0]) abrir(coincidencias[0]); });
 
   /* ───── Índice bajo el mapa ───── */
-  const cuenta = n => `<span class="cuentas"><span><b>${(n.teoria || []).length}</b> secciones</span><span><b>${(n.evidencia || []).length}</b> artículos</span><span><b>${(n.pico || []).length}</b> PICO</span><span><b>${(n.casos || []).length}</b> casos</span><span><b>${(n.ateneos || []).length}</b> ateneos</span></span>`;
+  const cuenta = n => `<span class="cuentas"><span><b>${(n.teoria || []).length}</b> secciones</span><span><b>${(n.diferenciales || []).length}</b> diferenciales</span><span><b>${(n.evidencia || []).length}</b> artículos</span><span><b>${(n.pico || []).length}</b> PICO</span><span><b>${(n.casos || []).length}</b> casos</span><span><b>${(n.ateneos || []).length}</b> ateneos</span></span>`;
   function pintarIndice() {
     const m = MAPAS[mapaActual] || MAPAS[INICIO];
     const visibles = N.filter(n => n.mapa === mapaActual);
@@ -839,6 +994,8 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
       } else {
         html += `<h2>Sistemas</h2><div class="sistemas-idx">${(m.sistemas || []).map(sis => { const vivo = !!(sis.mapa && MAPAS[sis.mapa]); return `<button type="button" class="sistema" style="--sis:${esc(sis.color || "var(--accent)")}" ${vivo ? `data-mapa="${esc(sis.mapa)}"` : "disabled"}><b>${esc(sis.titulo)}</b><span>${esc(sis.detalle || "")}</span><em>${vivo ? conceptosDe(sis.mapa) + " conceptos →" : "Próximamente"}</em></button>`; }).join("")}</div>`;
       }
+    } else if (m.disposicion === "vias") {
+      html += `<h2>${esc(m.indice || "Enfermedades por vía")}</h2><div class="columnas-idx">${(m.grupos || []).map(g => { const ids = [...new Set(g.carriles.flatMap(c => c.pasos.filter(p => p && p.ecm && porId[p.ecm]).map(p => p.ecm)))]; return `<section><h3 style="color:${esc(g.color)}">${esc(g.titulo)}</h3><div class="chips">${ids.map(id => `<button type="button" class="chip" data-ir="${esc(id)}">${esc(porId[id].titulo)}</button>`).join("")}</div></section>`; }).join("")}</div>`;
     } else if (m.disposicion === "zonas") {
       const zs = m.zonas || [];
       const zonaDe = n => zs.findIndex(z => n.x >= z.x && n.x <= z.x + z.w && n.y >= z.y && n.y <= z.y + z.h);
@@ -881,6 +1038,9 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     teoria: n => (n.teoria || []).length
       ? `<div class="lectura">${n.teoria.map(s => `<section><h3>${esc(s.h)}</h3><div class="rico">${limpiar(s.html)}</div></section>`).join("")}</div>`
       : vacio("Todavía no hay teoría para este concepto." + invitacion()),
+    diferenciales: n => (n.diferenciales || []).length
+      ? `<p class="dif-intro">Qué orienta a cada diagnóstico frente a <b>${esc(n.corto || n.titulo)}</b>:</p><div class="difs">${n.diferenciales.map(d => `<article class="dif"><h3><span>${esc(d.dx)}</span>${d.nodo && porId[d.nodo] && d.nodo !== n.id ? `<button type="button" class="btn-texto" data-ir="${esc(d.nodo)}">Abrir${porId[d.nodo].mapa !== n.mapa ? " ↗" : " →"}</button>` : ""}</h3><div class="rico">${limpiar(d.claves)}</div></article>`).join("")}</div>`
+      : vacio("Todavía no hay diagnósticos diferenciales para este concepto." + invitacion(), "Por cada diferencial: el diagnóstico y los datos clave que orientan a pensarlo."),
     evidencia: n => (n.evidencia || []).filter(k => R[k]).length
       ? `<div class="refs">${n.evidencia.filter(k => R[k]).map(k => { const r = R[k]; return `<article class="ref"><span class="tipo">${esc(r.tipo)}</span><p class="hallazgo">${esc(r.hallazgo)}</p><p class="cita">${esc(r.cita)}</p><div class="links">${linkRef(r)}</div></article>`; }).join("")}</div>`
       : vacio("Todavía no hay artículos asociados." + invitacion()),
@@ -901,9 +1061,9 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   function abrir(id, sinHash) {
     const n = porId[id]; if (!n) return;
     if (edicion && edicion.id !== id) { pedirDescartar(() => { edicion = null; abrir(id, sinHash); }); return; }
-    if (n.mapa !== mapaActual) { mapaActual = n.mapa; busqueda = ""; $("q").value = ""; pintarTodo(); }
+    if (n.mapa !== mapaActual && (MAPAS[mapaActual] || {}).nodosDe !== n.mapa) { mapaActual = n.mapa; busqueda = ""; $("q").value = ""; pintarTodo(); }
     actual = id;
-    if (!nodoEls[id]) pintarMapa();
+    if (!nodoEls[id] && !esVias()) pintarMapa();
     if (!sinHash) history.replaceState(null, "", "#" + id);
     pintarPanel();
     panel.classList.add("abierto"); velo.classList.add("abierto"); panel.setAttribute("aria-hidden", "false");
@@ -932,6 +1092,8 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
         ${!enEdicion && puede && uid ? (rev.estado === "revisado" ? '<button type="button" class="btn-texto" id="b-desrevisar">Volver a borrador</button>' : '<button type="button" class="btn-texto" id="b-revisar">Marcar como revisado</button>') : ""}
       </div>
       ${n.submapa && MAPAS[n.submapa] && !enEdicion ? `<button type="button" class="btn submapa-btn" data-mapa="${esc(n.submapa)}">Explorar el submapa: ${N.filter(x => x.mapa === n.submapa).length} conceptos →</button>` : ""}
+      ${!enEdicion && !esVias() && viaDe(n.id) ? `<button type="button" class="btn submapa-btn" data-ver-mapa="${esc(viaDe(n.id))}">Ver dónde falla en las vías metabólicas →</button>` : ""}
+      ${!enEdicion && esVias() && n.mapa !== mapaActual ? `<button type="button" class="btn submapa-btn" data-ver-mapa="${esc(n.mapa)}">Ver en el mapa clínico →</button>` : ""}
       <div class="pestanas" role="tablist">${PESTANAS.map(([k, t]) => `<button type="button" role="tab" aria-selected="${k === pestana}" data-tab="${k}">${t}<span class="n">${(n[k] || []).length}</span></button>`).join("")}</div>`;
     nombrarPersonas($("p-meta"));
     if (enEdicion) {
@@ -974,7 +1136,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   function empezarEdicion() {
     const n = porId[actual]; if (!n) return;
     const b = clon(n);
-    ["teoria", "evidencia", "pico", "casos", "ateneos", "conexiones"].forEach(k => { b[k] = b[k] || []; });
+    ["teoria", "diferenciales", "evidencia", "pico", "casos", "ateneos", "conexiones"].forEach(k => { b[k] = b[k] || []; });
     edicion = { id: n.id, n: b, refs: {}, cambios: false, msg: "", error: false, guardando: false, confirmar: null };
     pintarPanel();
   }
@@ -1060,6 +1222,21 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
       });
       botonAgregar(c, "+ Agregar sección", () => { n.teoria.push({ h: "", html: "" }); marcarCambio(); repintar(); });
     },
+    diferenciales(c, n) {
+      n.diferenciales.forEach((d, i) => {
+        const b = bloque(c, "Diferencial " + (i + 1), () => quitar(n.diferenciales, i), d2 => mover(n.diferenciales, i, d2));
+        campo(b, "Diagnóstico", d, "dx", { ph: "Bronquiolitis" });
+        const otros = N.filter(x => x.id !== n.id).sort((a, b2) => a.titulo.localeCompare(b2.titulo));
+        const l = document.createElement("label"); l.className = "campo"; l.innerHTML = "<span>Nodo del mapa (opcional)</span>";
+        const sel = document.createElement("select");
+        sel.innerHTML = `<option value="">Ninguno</option>` + otros.map(x => `<option value="${esc(x.id)}"${x.id === d.nodo ? " selected" : ""}>${esc(x.titulo)}</option>`).join("");
+        sel.onchange = () => { d.nodo = sel.value || undefined; marcarCambio(); };
+        l.appendChild(sel); b.appendChild(l);
+        const t = document.createElement("p"); t.className = "aviso"; t.textContent = "Datos clave que orientan a este diagnóstico:"; b.appendChild(t);
+        editorRico(b, d, "claves");
+      });
+      botonAgregar(c, "+ Agregar diferencial", () => { n.diferenciales.push({ dx: "", claves: "" }); marcarCambio(); repintar(); });
+    },
     evidencia(c, n) {
       const p = document.createElement("p"); p.className = "aviso";
       p.textContent = "Los artículos son comunes a todo el mapa: si corregís uno, el cambio se ve en todos los nodos que lo citan.";
@@ -1141,6 +1318,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
     n.teoria = n.teoria.filter(s => String(s.h || "").trim() || String(s.html || "").replace(/<[^>]+>/g, "").trim()).map(s => ({ h: String(s.h || "").trim(), html: limpiar(s.html) }));
     n.casos = n.casos.filter(c => String(c.titulo || "").trim() || String(c.html || "").replace(/<[^>]+>/g, "").trim()).map(c => Object.assign({}, c, { html: limpiar(c.html) }));
     n.ateneos = n.ateneos.filter(a => String(a.titulo || "").trim() || String(a.url || "").trim());
+    n.diferenciales = (n.diferenciales || []).filter(d => String(d.dx || "").trim()).map(d => { const o = { dx: String(d.dx).trim(), claves: limpiar(d.claves) }; if (d.nodo) o.nodo = d.nodo; return o; });
     n.pico = n.pico.filter(q => ["p", "i", "c", "o", "respuesta"].some(k => String(q[k] || "").trim()));
     // Artículos nuevos o corregidos
     const refsAGuardar = Object.entries(e.refs).filter(([k, r]) => n.evidencia.includes(k) && JSON.stringify(r) !== JSON.stringify(R[k] || null) && (String(r.cita || "").trim() || String(r.pmid || "").trim() || String(r.hallazgo || "").trim()));
@@ -1195,6 +1373,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
   document.addEventListener("click", e => {
     const t = e.target;
     const mapaBtn = t.closest("[data-mapa]"); if (mapaBtn) { irAMapa(mapaBtn.dataset.mapa); return; }
+    const verBtn = t.closest("[data-ver-mapa]"); if (verBtn && !edicion) { mapaActual = verBtn.dataset.verMapa; recorrido = null; busqueda = ""; $("q").value = ""; pintarTodo(); pintarPanel(); enfocar(actual); const g = (viaEls[actual] || [])[0] || nodoEls[actual]; if (g && g.scrollIntoView) g.scrollIntoView({ block: "center", behavior: "smooth" }); return; }
     const capaBtn = t.closest("[data-capa]"); if (capaBtn) { capas[mapaActual] = +capaBtn.dataset.capa; pintarEncabezado(); pintarMapa(); return; }
     const recBtn = t.closest("[data-rec]"); if (recBtn) { elegirRecorrido(recBtn.dataset.rec === recorrido ? null : recBtn.dataset.rec); return; }
     const ir = t.closest("[data-ir]"); if (ir) { if (!edicion) pestana = pestana || "teoria"; abrir(ir.dataset.ir); return; }
