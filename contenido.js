@@ -1,6 +1,6 @@
 /*
   El Gran Mapa Pediátrico — contenido del prototipo
-  Áreas: Neumonología › Sibilancias del lactante al escolar; Dermatología › Exantemas; Cardiología › Cardiopatías congénitas
+  Áreas: Neumonología › Sibilancias del lactante al escolar; Dermatología › Exantemas; Cardiología › Cardiopatías congénitas; Neurología › Las 20 más frecuentes
 
   Cómo está organizado:
   - REFS: bibliografía verificada en PubMed (PMID y, cuando lo tenemos, DOI). Cada nodo la cita por su clave.
@@ -538,6 +538,156 @@ window.REFS = {
     tipo: "Declaración científica (AHA)",
     hallazgo: "Mantiene la profilaxis antibiótica solo para procedimientos dentales en pacientes de mayor riesgo: válvula protésica, endocarditis previa, cardiopatía cianótica no reparada o con cortocircuitos residuales, y los primeros 6 meses tras reparar con material protésico.",
     pmid: "33853363", doi: "10.1161/CIR.0000000000000969"
+  },
+  aap2011: {
+    cita: "Subcommittee on Febrile Seizures, AAP. Neurodiagnostic evaluation of the child with a simple febrile seizure. Pediatrics. 2011;127:389-94.",
+    tipo: "Guía de práctica clínica (AAP)",
+    hallazgo: "Después de una convulsión febril simple, buscar la causa de la fiebre. No se recomiendan de rutina EEG, laboratorio ni neuroimágenes. Punción lumbar si hay signos de meningitis; es opcional entre los 6 y 12 meses con vacunas incompletas o con antibiótico previo.",
+    pmid: "21285335", doi: "10.1542/peds.2010-3318"
+  },
+  offringa2021: {
+    cita: "Offringa M, et al. Prophylactic drug management for febrile seizures in children. Cochrane Database Syst Rev. 2021;6:CD003031.",
+    tipo: "Revisión sistemática (Cochrane, 32 ensayos, n = 4431)",
+    hallazgo: "Las convulsiones febriles afectan al 2-4 % de los niños y recurren en el 30 %. El diazepam intermitente reduce algo las recurrencias, pero ningún fármaco mejora el pronóstico a largo plazo; los antitérmicos no previenen la recurrencia.",
+    pmid: "34131913", doi: "10.1002/14651858.CD003031.pub4"
+  },
+  glauser2016: {
+    cita: "Glauser T, et al. Evidence-based guideline: treatment of convulsive status epilepticus in children and adults. Epilepsy Curr. 2016;16:48-61.",
+    tipo: "Guía de práctica clínica (American Epilepsy Society)",
+    hallazgo: "Algoritmo por tiempos: benzodiacepina como primera línea a los 5 minutos (midazolam IM, lorazepam o diazepam IV); segunda línea a los 20 minutos (fosfenitoína, valproato o levetiracetam); tercera línea a los 40 minutos.",
+    pmid: "26900382", doi: "10.5698/1535-7597-16.1.48"
+  },
+  dalziel2019: {
+    cita: "Dalziel SR, et al. Levetiracetam versus phenytoin for second-line treatment of convulsive status epilepticus in children (ConSEPT). Lancet. 2019;393:2135-45.",
+    tipo: "Ensayo clínico aleatorizado multicéntrico (n = 233)",
+    hallazgo: "El cese de la convulsión a los 5 minutos de la infusión fue de 60 % con fenitoína y 50 % con levetiracetam, sin diferencia significativa. El levetiracetam no fue superior.",
+    pmid: "31005386", doi: "10.1016/S0140-6736(19)30722-6"
+  },
+  kapur2019: {
+    cita: "Kapur J, et al. Randomized trial of three anticonvulsant medications for status epilepticus (ESETT). N Engl J Med. 2019;381:2103-13.",
+    tipo: "Ensayo clínico aleatorizado (n = 384, niños y adultos)",
+    hallazgo: "En estado de mal refractario a benzodiacepinas, levetiracetam (47 %), fosfenitoína (45 %) y valproato (46 %) controlaron la crisis con mejoría de la conciencia en proporciones similares, con efectos adversos parecidos.",
+    pmid: "31774955", doi: "10.1056/NEJMoa1905795"
+  },
+  hirtz2000: {
+    cita: "Hirtz D, et al. Practice parameter: evaluating a first nonfebrile seizure in children. Neurology. 2000;55:616-23.",
+    tipo: "Guía de práctica clínica (AAN/CNS)",
+    hallazgo: "EEG recomendado tras una primera convulsión no provocada. Laboratorio y punción lumbar según la clínica. Neuroimagen (de preferencia RM) programada si hay déficit focal, crisis focal o EEG focal no idiopático.",
+    pmid: "10980722", doi: "10.1212/wnl.55.5.616"
+  },
+  fisher2014: {
+    cita: "Fisher RS, et al. ILAE official report: a practical clinical definition of epilepsy. Epilepsia. 2014;55:475-82.",
+    tipo: "Definición de consenso (ILAE)",
+    hallazgo: "Epilepsia: dos crisis no provocadas separadas por más de 24 horas; una crisis no provocada con riesgo de recurrencia de al menos 60 % en 10 años; o el diagnóstico de un síndrome epiléptico.",
+    pmid: "24730690", doi: "10.1111/epi.12550"
+  },
+  scheffer2017: {
+    cita: "Scheffer IE, et al. ILAE classification of the epilepsies. Epilepsia. 2017;58:512-21.",
+    tipo: "Documento de posición (ILAE)",
+    hallazgo: "Clasificación en tres niveles: tipo de crisis (focal, generalizada, de inicio desconocido), tipo de epilepsia y síndrome; en cada nivel, considerar la etiología (estructural, genética, infecciosa, metabólica, inmune, desconocida) y las comorbilidades.",
+    pmid: "28276062", doi: "10.1111/epi.13709"
+  },
+  glauser2010: {
+    cita: "Glauser TA, et al. Ethosuximide, valproic acid, and lamotrigine in childhood absence epilepsy. N Engl J Med. 2010;362:790-9.",
+    tipo: "Ensayo clínico aleatorizado doble ciego (n = 453)",
+    hallazgo: "A las 16 semanas, libres de fracaso: etosuximida 53 %, ácido valproico 58 % y lamotrigina 29 %. La etosuximida tuvo menos efectos adversos sobre la atención.",
+    pmid: "20200383", doi: "10.1056/NEJMoa0902014"
+  },
+  ocallaghan2017: {
+    cita: "O'Callaghan FJK, et al. Safety and effectiveness of hormonal treatment versus hormonal treatment with vigabatrin for infantile spasms (ICISS). Lancet Neurol. 2017;16:33-42.",
+    tipo: "Ensayo clínico aleatorizado multicéntrico (n = 377)",
+    hallazgo: "Sin espasmos entre los días 14 y 42: 72 % con tratamiento hormonal más vigabatrina vs 57 % con tratamiento hormonal solo.",
+    pmid: "27838190", doi: "10.1016/S1474-4422(16)30294-0"
+  },
+  powers2017: {
+    cita: "Powers SW, et al. Trial of amitriptyline, topiramate, and placebo for pediatric migraine (CHAMP). N Engl J Med. 2017;376:115-24.",
+    tipo: "Ensayo clínico aleatorizado doble ciego (n = 361)",
+    hallazgo: "Reducción de 50 % o más en los días de cefalea: amitriptilina 52 %, topiramato 55 % y placebo 61 %, sin diferencias. Los fármacos tuvieron más efectos adversos.",
+    pmid: "27788026", doi: "10.1056/NEJMoa1610384"
+  },
+  oskoui2019: {
+    cita: "Oskoui M, et al. Practice guideline update summary: acute treatment of migraine in children and adolescents. Neurology. 2019;93:487-99.",
+    tipo: "Guía de práctica clínica (AAN/AHS)",
+    hallazgo: "Ibuprofeno como primera opción para la crisis; paracetamol también es eficaz. En adolescentes, varios triptanes (sumatriptán-naproxeno, zolmitriptán nasal, rizatriptán, almotriptán) son eficaces. Tomarlo temprano.",
+    pmid: "31413171", doi: "10.1212/WNL.0000000000008095"
+  },
+  do2019: {
+    cita: "Do TP, et al. Red and orange flags for secondary headaches in clinical practice: SNNOOP10 list. Neurology. 2019;92:134-44.",
+    tipo: "Revisión",
+    hallazgo: "Lista SNNOOP10 de banderas rojas para cefaleas secundarias: síntomas sistémicos, déficit neurológico, inicio súbito, cambio de patrón, empeoramiento con Valsalva o en decúbito, papiledema, entre otras.",
+    pmid: "30587518", doi: "10.1212/WNL.0000000000006697"
+  },
+  kuppermann2009: {
+    cita: "Kuppermann N, et al. Identification of children at very low risk of clinically-important brain injuries after head trauma (PECARN). Lancet. 2009;374:1160-70.",
+    tipo: "Cohorte prospectiva multicéntrica (n = 42.412)",
+    hallazgo: "Reglas de predicción para menores y mayores de 2 años. Sin ningún criterio, el valor predictivo negativo para lesión cerebral clínicamente importante fue cercano al 100 %: se puede evitar la tomografía.",
+    pmid: "19758692", doi: "10.1016/S0140-6736(09)61558-0"
+  },
+  brouwer2015: {
+    cita: "Brouwer MC, et al. Corticosteroids for acute bacterial meningitis. Cochrane Database Syst Rev. 2015;(9):CD004405.",
+    tipo: "Revisión sistemática (Cochrane, 25 estudios, n = 4121)",
+    hallazgo: "Los corticoides no redujeron significativamente la mortalidad global, pero sí la hipoacusia grave (RR 0,67) y las secuelas neurológicas. En niños, el beneficio auditivo se vio sobre todo con Haemophilus influenzae.",
+    pmid: "26362566", doi: "10.1002/14651858.CD004405.pub5"
+  },
+  venkatesan2013: {
+    cita: "Venkatesan A, et al. Case definitions, diagnostic algorithms, and priorities in encephalitis: consensus statement of the International Encephalitis Consortium. Clin Infect Dis. 2013;57:1114-28.",
+    tipo: "Consenso internacional",
+    hallazgo: "Encefalitis: alteración de conciencia o conducta de 24 horas o más, con al menos dos o tres criterios menores (fiebre, convulsiones, foco neurológico, pleocitosis, neuroimagen o EEG alterados). Aciclovir empírico mientras se descarta herpes.",
+    pmid: "23861361", doi: "10.1093/cid/cit458"
+  },
+  titulaer2013: {
+    cita: "Titulaer MJ, et al. Treatment and prognostic factors for long-term outcome in patients with anti-NMDA receptor encephalitis. Lancet Neurol. 2013;12:157-65.",
+    tipo: "Cohorte observacional (n = 577, 211 niños)",
+    hallazgo: "La mayoría responde a la inmunoterapia; 53 % mejoró en 4 semanas con la primera línea. La segunda línea mejoró el pronóstico cuando la primera fracasó. La recuperación puede llevar hasta 18 meses.",
+    pmid: "23290630", doi: "10.1016/S1474-4422(12)70310-1"
+  },
+  leonhard2019: {
+    cita: "Leonhard SE, et al. Diagnosis and management of Guillain-Barré syndrome in ten steps. Nat Rev Neurol. 2019;15:671-83.",
+    tipo: "Revisión con recomendaciones de consenso",
+    hallazgo: "Debilidad ascendente simétrica con arreflexia. Vigilar la función respiratoria y autonómica. IGIV o plasmaféresis en los que no pueden caminar sin ayuda. Los niños tienen mejor pronóstico.",
+    pmid: "31541214", doi: "10.1038/s41582-019-0250-9"
+  },
+  hughes2014: {
+    cita: "Hughes RAC, et al. Intravenous immunoglobulin for Guillain-Barré syndrome. Cochrane Database Syst Rev. 2014;(9):CD002063.",
+    tipo: "Revisión sistemática (Cochrane, 12 ensayos)",
+    hallazgo: "En la enfermedad grave, la IGIV iniciada dentro de las dos semanas acelera la recuperación tanto como la plasmaféresis. Los corticoides no son útiles.",
+    pmid: "25238327", doi: "10.1002/14651858.CD002063.pub6"
+  },
+  babl2024: {
+    cita: "Babl FE, et al. Facial function in Bell palsy in a cohort of children randomized to prednisolone or placebo 12 months after diagnosis. Pediatr Neurol. 2024;153:44-47.",
+    tipo: "Seguimiento de ensayo clínico aleatorizado (BellPEDS, n = 187)",
+    hallazgo: "A los 6 meses, recuperación de la función facial: 98 % con prednisolona vs 93 % con placebo. Casi todos los niños se recuperan; el beneficio de los corticoides es pequeño e incierto.",
+    pmid: "38320457", doi: "10.1016/j.pediatrneurol.2024.01.011"
+  },
+  petley2020: {
+    cita: "Petley E, et al. Investigating ataxia in childhood. Arch Dis Child Educ Pract Ed. 2020;105:214-21.",
+    tipo: "Revisión",
+    hallazgo: "La ataxia aguda más frecuente es la cerebelitis postinfecciosa, seguida de las intoxicaciones. Neuroimagen urgente si hay signos de hipertensión endocraneana, foco, alteración de conciencia o trauma.",
+    pmid: "31645356", doi: "10.1136/archdischild-2018-315893"
+  },
+  moeschler2014: {
+    cita: "Moeschler JB, Shevell M. Comprehensive evaluation of the child with intellectual disability or global developmental delays. Pediatrics. 2014;134:e903-18.",
+    tipo: "Informe clínico (AAP)",
+    hallazgo: "Primer nivel de estudio: microarray cromosómico y X frágil; pesquisa metabólica según la clínica. Neuroimagen ante microcefalia, macrocefalia, convulsiones o signos focales.",
+    pmid: "25157020", doi: "10.1542/peds.2014-1839"
+  },
+  novak2017: {
+    cita: "Novak I, et al. Early, accurate diagnosis and early intervention in cerebral palsy. JAMA Pediatr. 2017;171:897-907.",
+    tipo: "Revisión sistemática de guías y revisiones",
+    hallazgo: "Antes de los 5 meses corregidos, las herramientas más sensibles son la RM a término (86-89 %), los movimientos generales de Prechtl (98 %) y el examen neurológico de Hammersmith (90 %). Permiten diagnosticar o sospechar parálisis cerebral antes de los 6 meses e intervenir temprano.",
+    pmid: "28715518", doi: "10.1001/jamapediatrics.2017.1689"
+  },
+  hyman2020: {
+    cita: "Hyman SL, et al. Identification, evaluation, and management of children with autism spectrum disorder. Pediatrics. 2020;145:e20193447.",
+    tipo: "Informe clínico (AAP)",
+    hallazgo: "Pesquisa con instrumento validado (M-CHAT) a los 18 y 24 meses. Derivar a intervención temprana sin esperar la confirmación diagnóstica. Estudio genético (microarray) a todos.",
+    pmid: "31843864", doi: "10.1542/peds.2019-3447"
+  },
+  wolraich2019: {
+    cita: "Wolraich ML, et al. Clinical practice guideline for the diagnosis, evaluation, and treatment of ADHD in children and adolescents. Pediatrics. 2019;144:e20192528.",
+    tipo: "Guía de práctica clínica (AAP)",
+    hallazgo: "Diagnóstico con criterios DSM-5 e informes de más de un ámbito (casa y escuela). En preescolares, primero entrenamiento a padres. Desde los 6 años, estimulantes junto con intervenciones conductuales y escolares.",
+    pmid: "31570648", doi: "10.1542/peds.2019-2528"
   }
 };
 
@@ -644,7 +794,7 @@ window.MAPAS = {
     buscar: "Buscar en todo el mapa: Koplik, IPA, magnesio…",
     pista: "Tocá un sistema para entrar en su mapa.",
     sistemas: [
-      { id: "neuro", titulo: "Neurología", detalle: "Convulsiones, cefalea, desarrollo", organo: "cerebro", lado: "izq", y: 40 },
+      { id: "neuro", titulo: "Neurología", detalle: "Las 20 patologías más frecuentes", organo: "cerebro", mapa: "neurologia", color: "var(--neuro)", lado: "izq", y: 40 },
       { id: "neumo", titulo: "Neumonología", detalle: "Bronquiolitis, sibilancias y asma", organo: "pulmones", mapa: "raiz", color: "var(--edad-2)", lado: "izq", y: 216 },
       { id: "gastro", titulo: "Gastroenterología", detalle: "Diarrea, reflujo, dolor abdominal", organo: "digestivo", lado: "izq", y: 392 },
       { id: "cardio", titulo: "Cardiología", detalle: "Soplos y cardiopatías congénitas", organo: "corazon", mapa: "cardiopatias", color: "var(--cardio)", lado: "der", y: 128 },
@@ -759,6 +909,58 @@ window.MAPAS = {
         { nodo: "cc-canal", nota: "Es la cardiopatía más típica: puede no tener soplo en los primeros días." },
         { nodo: "cc-civ", nota: "CIV y CIA también son frecuentes." },
         { nodo: "cc-hp", nota: "Tienen hipertensión pulmonar antes y con más frecuencia: no demorar la cirugía." }
+      ] }
+    ]
+  },
+  neurologia: {
+    titulo: "Neurología: las 20 más frecuentes",
+    padre: "inicio",
+    ruta: ["Pediatría", "Neurología", "Las 20 más frecuentes"],
+    bajada: "Las veinte consultas neurológicas que más se ven en pediatría, agrupadas por cómo llegan: convulsiones, cefalea y trauma, cuadros agudos (infecciones, debilidad, ataxia) y neurodesarrollo. Las líneas unen lo que conviene diferenciar.",
+    disposicion: "zonas",
+    indice: "Patologías por grupo",
+    buscar: "Buscar: status, PECARN, migraña, West…",
+    pista: "Cada zona agrupa un motivo de consulta. Empezá por «Cómo abordarlo» o elegí un recorrido para seguir a un paciente.",
+    zonas: [
+      { x: 30, y: 60, w: 400, h: 560, titulo: "Convulsiones y epilepsia" },
+      { x: 450, y: 60, w: 300, h: 250, titulo: "Cómo abordarlo" },
+      { x: 770, y: 60, w: 400, h: 250, titulo: "Cefalea y trauma" },
+      { x: 450, y: 330, w: 300, h: 290, titulo: "Infección y déficit agudo" },
+      { x: 770, y: 330, w: 400, h: 290, titulo: "Neurodesarrollo" }
+    ],
+    recorridos: [
+      { id: "convulsion-fiebre", titulo: "Convulsión con fiebre en la guardia", descripcion: "18 meses, convulsión tónico-clónica generalizada de 2 minutos con 39 °C. Llega somnoliento.", pasos: [
+        { nodo: "ne-febril", nota: "Edad típica, generalizada, menos de 15 minutos: probable convulsión febril simple. Esperar que recupere la conciencia." },
+        { nodo: "ne-meningitis", nota: "Buscar signos meníngeos, fontanela, petequias y estado de vacunas. Si no recupera o hay signos, punción lumbar." },
+        { nodo: "ne-encefalitis", nota: "Si la alteración de conciencia persiste horas o hay foco, pensar en encefalitis: aciclovir empírico." },
+        { nodo: "ne-status", nota: "Si la convulsión dura más de 5 minutos, ya es tiempo de tratar como estado de mal." }
+      ] },
+      { id: "no-para", titulo: "La convulsión que no para", descripcion: "4 años con epilepsia conocida; convulsiona hace 7 minutos al llegar la ambulancia.", pasos: [
+        { nodo: "ne-status", nota: "A los 5 minutos, benzodiacepina; a los 10 minutos de la primera dosis, repetir una vez; a los 20, segunda línea." },
+        { nodo: "ne-epilepsia", nota: "Una vez controlada, revisar adherencia, niveles y desencadenantes. Indicar midazolam de rescate para la casa." },
+        { nodo: "ne-meningitis", nota: "Si es el primer episodio o hay fiebre, descartar infección del sistema nervioso central." }
+      ] },
+      { id: "primer-episodio", titulo: "Primer episodio sin fiebre", descripcion: "7 años, lo encontraron al despertar con babeo y la hemicara derecha contraída, sin perder la conciencia.", pasos: [
+        { nodo: "ne-paroxisticos", nota: "Primero confirmar que fue una crisis: ¿síncope, parasomnia, reflujo? Pedir un video si se repite." },
+        { nodo: "ne-primera", nota: "Primera crisis no provocada: EEG, y neuroimagen programada si es focal y el EEG no muestra un síndrome claro." },
+        { nodo: "ne-rolandica", nota: "Crisis hemifacial al dormir o al despertar con puntas centrotemporales: epilepsia autolimitada. Suele no requerir tratamiento." },
+        { nodo: "ne-epilepsia", nota: "Con una segunda crisis o un síndrome definido ya es epilepsia; decidir tratamiento según el síndrome y la frecuencia." }
+      ] },
+      { id: "cefalea", titulo: "Cefalea en el consultorio", descripcion: "10 años, cefaleas desde hace 4 meses, dos por semana; la mamá pide una tomografía.", pasos: [
+        { nodo: "ne-cefalea-alarma", nota: "Buscar banderas rojas en la historia y en el examen (fondo de ojo incluido). Sin ellas, la neuroimagen no suele ayudar." },
+        { nodo: "ne-migrana", nota: "Pulsátil, con náuseas, fotofobia y alivio al dormir: migraña. Ibuprofeno temprano y diario de cefaleas." },
+        { nodo: "ne-tec", nota: "Si empezó después de un golpe, pensar en síntomas posconmocionales." }
+      ] },
+      { id: "desarrollo", titulo: "Lactante que no se sienta", descripcion: "9 meses, no se sienta sin apoyo, poco balbuceo. Nació a las 31 semanas.", pasos: [
+        { nodo: "ne-retraso", nota: "Corregir la edad por prematurez y evaluar todas las áreas: ¿es solo motor o global?" },
+        { nodo: "ne-pc", nota: "Tono anormal, asimetría o reflejos persistentes con factores de riesgo: sospechar parálisis cerebral y derivar ya a intervención temprana." },
+        { nodo: "ne-west", nota: "Si aparecen salvas de flexiones al despertar o pierde pautas: espasmos infantiles, EEG urgente." },
+        { nodo: "ne-tea", nota: "Si lo que falta es el contacto social, la atención conjunta o el balbuceo: pesquisa de autismo." }
+      ] },
+      { id: "no-camina", titulo: "Dejó de caminar de golpe", descripcion: "3 años, una semana después de una varicela camina como borracho y se cae.", pasos: [
+        { nodo: "ne-ataxia", nota: "Ataxia de la marcha con conciencia normal tras una virosis: cerebelitis postinfecciosa. Descartar intoxicación." },
+        { nodo: "ne-gbs", nota: "Si en realidad no camina por debilidad o dolor en las piernas y faltan los reflejos: Guillain-Barré." },
+        { nodo: "ne-encefalitis", nota: "Si hay somnolencia, fiebre o convulsiones: encefalitis, no ataxia aislada." }
       ] }
     ]
   }
@@ -2787,6 +2989,328 @@ window.NODOS = [
     ],
     ateneos: [],
     conexiones: ["cc-fontan"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  /* ───── Neurología › Las 20 más frecuentes ───── */
+  {
+    id: "ne-abordaje", nivel: 1, mapa: "neurologia", titulo: "Cómo abordar la consulta neurológica", corto: "Abordaje", tipo: "tema", edad: "El punto de partida", color: "var(--neuro)",
+    x: 600, y: 150,
+    resumen: "Tres preguntas ordenan la consulta: ¿es agudo o crónico?, ¿hay algo que no espera? y ¿dónde está la lesión?",
+    teoria: [
+      { h: "1. ¿Qué no puede esperar?", html: "<ul><li>Convulsión que dura más de 5 minutos: <a href=\"#ne-status\">estado de mal</a>.</li><li>Fiebre con alteración de conciencia, rigidez de nuca o petequias: <a href=\"#ne-meningitis\">meningitis</a> o <a href=\"#ne-encefalitis\">encefalitis</a>.</li><li>Cefalea con signos de hipertensión endocraneana o foco: <a href=\"#ne-cefalea-alarma\">cefalea secundaria</a>.</li><li>Debilidad ascendente con compromiso respiratorio o autonómico: <a href=\"#ne-gbs\">Guillain-Barré</a>.</li><li>Trauma con Glasgow menor de 15 o fractura palpable: <a href=\"#ne-tec\">TEC</a>.</li><li>Lactante con espasmos en salvas: <a href=\"#ne-west\">síndrome de West</a>, EEG en días.</li></ul>" },
+      { h: "2. ¿Agudo, recurrente o progresivo?", html: "<div class=\"tabla\"><table><thead><tr><th>Curso</th><th>Pensar en</th></tr></thead><tbody><tr><td>Agudo</td><td>Infección, trauma, intoxicación, ACV, inflamación postinfecciosa</td></tr><tr><td>Episódico, con normalidad entre episodios</td><td>Epilepsia, migraña, eventos paroxísticos no epilépticos</td></tr><tr><td>Estático</td><td>Parálisis cerebral, discapacidad intelectual</td></tr><tr><td>Progresivo o con pérdida de pautas</td><td>Tumor, hidrocefalia, enfermedad metabólica o degenerativa: siempre derivar</td></tr></tbody></table></div>" },
+      { h: "3. ¿Dónde está?", html: "<p>Un examen dirigido ubica el problema: conciencia y conducta (corteza), pares craneales y fondo de ojo (tronco, presión endocraneana), tono, fuerza y reflejos (primera o segunda motoneurona), coordinación y marcha (cerebelo), perímetro cefálico en todo lactante. La regresión del desarrollo nunca es normal.</p>" }
+    ],
+    evidencia: ["scheffer2017"], pico: [], ateneos: [],
+    casos: [
+      { titulo: "Lactante de 5 meses con «sustos» al despertar", html: "<p>La mamá cuenta que desde hace dos semanas, al despertar, flexiona la cabeza y los brazos varias veces seguidas, como asustado. Dejó de sonreír tanto. Tiene manchas hipocrómicas en el tronco.</p><p><b>Cómo pensarlo:</b> salvas de espasmos con estancamiento del desarrollo son un síndrome de West hasta que se demuestre lo contrario; las manchas hipocrómicas sugieren esclerosis tuberosa. EEG en días, no en semanas: el tiempo hasta el tratamiento cambia el pronóstico.</p>", nodos: ["ne-west", "ne-retraso"] },
+      { titulo: "Escolar con cefalea que lo despierta", html: "<p>8 años, cefalea hace 3 semanas, peor a la mañana, con vómitos. Lo despierta de noche. En el examen, marcha algo inestable.</p><p><b>Cómo pensarlo:</b> cefalea reciente y progresiva, que lo despierta, con vómitos matinales y un signo cerebeloso: tiene varias banderas rojas. Neuroimagen urgente (RM o, si no está disponible, TC).</p>", nodos: ["ne-cefalea-alarma", "ne-ataxia"] }
+    ],
+    conexiones: ["ne-febril", "ne-status", "ne-cefalea-alarma", "ne-meningitis", "ne-retraso", "ne-tec"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Convulsiones y epilepsia */
+  {
+    id: "ne-febril", nivel: 1, mapa: "neurologia", titulo: "Convulsión febril", tipo: "concepto",
+    x: 120, y: 140,
+    resumen: "Entre los 6 meses y 5 años, con fiebre y sin infección del sistema nervioso. La simple es benigna y no requiere estudios.",
+    teoria: [
+      { h: "Simple o compleja", html: "<div class=\"tabla\"><table><thead><tr><th>Simple</th><th>Compleja</th></tr></thead><tbody><tr><td>Generalizada</td><td>Focal</td></tr><tr><td>Menos de 15 minutos</td><td>15 minutos o más</td></tr><tr><td>Una sola en 24 horas</td><td>Se repite en 24 horas</td></tr></tbody></table></div><p>Afecta al 2–4 % de los niños; recurre en un 30 %. El riesgo de epilepsia posterior es apenas mayor que el de la población general tras una simple.</p>" },
+      { h: "Qué estudiar", html: "<ul><li>Buscar la causa de la fiebre.</li><li><b>Punción lumbar</b> si hay signos meníngeos o la conciencia no se recupera; considerarla entre los 6 y 12 meses con vacunas incompletas o si venía con antibiótico.</li><li>No pedir de rutina EEG, laboratorio ni neuroimágenes en la simple.</li><li>En la compleja, individualizar: más estudios si hay foco persistente o no recupera.</li></ul>" },
+      { h: "Qué decirle a la familia", html: "<ul><li>No daña el cerebro ni causa retraso.</li><li>Qué hacer si se repite: de costado, no meter nada en la boca, cronometrar, consultar si dura más de 5 minutos.</li><li>Los antitérmicos dan confort, pero no previenen la recurrencia.</li><li>Medicación de rescate (midazolam bucal o intranasal, diazepam rectal) solo si hubo crisis prolongadas o lejos de un centro.</li></ul>" }
+    ],
+    evidencia: ["aap2011", "offringa2021"],
+    pico: [
+      { p: "Niños con convulsiones febriles", i: "Diazepam intermitente durante la fiebre", c: "Placebo o nada", o: "Recurrencia de convulsiones",
+        respuesta: "Reduce algo las recurrencias, pero con efectos adversos (somnolencia, ataxia) y sin mejorar el pronóstico a largo plazo. Los antitérmicos no previenen la recurrencia. No se recomienda la profilaxis de rutina.",
+        certeza: "Moderada", refs: ["offringa2021"] }
+    ],
+    ateneos: [],
+    conexiones: ["ne-meningitis", "ne-status", "ne-primera"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-primera", nivel: 1, mapa: "neurologia", titulo: "Primera convulsión sin fiebre", corto: "Primera convulsión", tipo: "concepto",
+    x: 330, y: 140,
+    resumen: "Confirmar que fue una crisis, buscar si fue provocada y pedir un EEG. La mayoría no necesita tratamiento tras el primer episodio.",
+    teoria: [
+      { h: "Provocada o no provocada", html: "<p><b>Provocada (sintomática aguda):</b> hipoglucemia, hiponatremia, hipocalcemia, trauma, intoxicación, infección del SNC. Se trata la causa.</p><p><b>No provocada:</b> sin desencadenante agudo. El riesgo de una segunda es de alrededor de 40–50 % en dos años; mayor si el EEG es anormal, si hay causa estructural o si fue durante el sueño.</p>" },
+      { h: "Qué pedir", html: "<ul><li><b>EEG</b> en todos (idealmente con sueño).</li><li>Laboratorio (glucemia, ionograma, calcio) si hay vómitos, diarrea, deshidratación o no recupera.</li><li>Neuroimagen urgente si no recupera, hay déficit focal persistente o trauma. Programada (RM) si la crisis fue focal o el EEG muestra un foco que no es de un síndrome autolimitado, o en menores de 1 año.</li></ul>" },
+      { h: "Tratar o no", html: "<p>Tras una primera crisis no provocada en general no se trata. Se considera si el riesgo de recurrencia es alto (lesión estructural, EEG epileptiforme) o si una nueva crisis tendría consecuencias graves. Dar pautas de seguridad (natación, altura, baño) y un plan de rescate.</p>" }
+    ],
+    evidencia: ["hirtz2000", "fisher2014"], pico: [], ateneos: [],
+    conexiones: ["ne-epilepsia", "ne-paroxisticos"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-status", nivel: 1, mapa: "neurologia", titulo: "Estado de mal epiléptico", corto: "Estado de mal", tipo: "concepto",
+    x: 120, y: 260,
+    resumen: "Toda convulsión que dura más de 5 minutos se trata como estado de mal: benzodiacepina, y a los 20 minutos, segunda línea.",
+    teoria: [
+      { h: "El reloj", html: "<div class=\"tabla\"><table><thead><tr><th>Tiempo</th><th>Qué hacer</th></tr></thead><tbody><tr><td>0–5 min</td><td>ABC, oxígeno, monitor, glucemia capilar, acceso venoso</td></tr><tr><td>5 min</td><td><b>Benzodiacepina:</b> midazolam IM, intranasal o bucal (0,2 mg/kg, máx. 10 mg), o lorazepam IV (0,1 mg/kg, máx. 4 mg), o diazepam IV (0,15–0,2 mg/kg, máx. 10 mg) o rectal (0,5 mg/kg). Se puede repetir una vez.</td></tr><tr><td>20 min</td><td><b>Segunda línea:</b> levetiracetam (60 mg/kg, máx. 4,5 g), fosfenitoína (20 mg EF/kg) o fenitoína (20 mg/kg), o valproato (40 mg/kg). Fenobarbital (20 mg/kg) si no hay otro.</td></tr><tr><td>40 min</td><td>Refractario: terapia intensiva, intubación, infusión de midazolam o anestésicos, EEG continuo</td></tr></tbody></table></div><p class=\"nota\">Verificar dosis con el vademécum institucional.</p>" },
+      { h: "Errores frecuentes", html: "<ul><li>Dar más de dos dosis de benzodiacepina: aumenta la depresión respiratoria sin más eficacia.</li><li>Demorar la segunda línea.</li><li>Olvidar la glucemia.</li><li>Valproato en menores de 2 años o con sospecha de enfermedad metabólica o hepática.</li><li>No buscar la causa: infección, trauma, intoxicación, suspensión de la medicación.</li></ul>" }
+    ],
+    evidencia: ["glauser2016", "dalziel2019", "kapur2019"],
+    pico: [
+      { p: "Niños con estado de mal convulsivo que no cedió con benzodiacepinas", i: "Levetiracetam", c: "Fenitoína o fosfenitoína", o: "Cese de la convulsión",
+        respuesta: "Eficacia similar: alrededor de la mitad cede con cualquiera de ellos. El levetiracetam se infunde más rápido y tiene menos efectos adversos graves, por eso muchos centros lo prefieren.",
+        certeza: "Alta", refs: ["dalziel2019", "kapur2019"] }
+    ],
+    ateneos: [],
+    conexiones: ["ne-epilepsia", "ne-meningitis", "ne-encefalitis"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-epilepsia", nivel: 1, mapa: "neurologia", titulo: "Epilepsia: definición y clasificación", corto: "Epilepsia", tipo: "concepto",
+    x: 330, y: 260,
+    resumen: "Dos crisis no provocadas, o una con alto riesgo de repetirse, o un síndrome epiléptico. Clasificar por tipo de crisis, tipo de epilepsia, síndrome y causa.",
+    teoria: [
+      { h: "Cuándo es epilepsia", html: "<ul><li>Dos crisis no provocadas separadas por más de 24 horas.</li><li>Una crisis no provocada con riesgo de recurrencia de 60 % o más (por ejemplo, lesión estructural con EEG epileptiforme).</li><li>Diagnóstico de un síndrome epiléptico.</li></ul>" },
+      { h: "Cómo se clasifica (ILAE)", html: "<ol><li><b>Tipo de crisis:</b> focal (con o sin alteración de la conciencia), generalizada o de inicio desconocido.</li><li><b>Tipo de epilepsia:</b> focal, generalizada, combinada o desconocida.</li><li><b>Síndrome:</b> por ejemplo, <a href=\"#ne-ausencias\">ausencias infantiles</a>, <a href=\"#ne-rolandica\">autolimitada con puntas centrotemporales</a>, <a href=\"#ne-west\">espasmos infantiles</a>.</li></ol><p>En cada nivel: etiología (estructural, genética, infecciosa, metabólica, inmune, desconocida) y comorbilidades (aprendizaje, conducta, sueño).</p>" },
+      { h: "Tratamiento: principios", html: "<ul><li>Elegir el fármaco según el síndrome, la edad y el sexo.</li><li>Monoterapia a la menor dosis eficaz.</li><li>Si fracasan dos fármacos bien elegidos, es farmacorresistente: derivar a un centro de epilepsia (cirugía, dieta cetogénica).</li><li>Plan de rescate escrito y pautas de seguridad para la escuela.</li></ul>" }
+    ],
+    evidencia: ["fisher2014", "scheffer2017"], pico: [], ateneos: [],
+    conexiones: ["ne-ausencias", "ne-rolandica", "ne-west"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-ausencias", nivel: 2, mapa: "neurologia", titulo: "Epilepsia de ausencias infantil", corto: "Ausencias", tipo: "concepto",
+    x: 120, y: 390,
+    resumen: "Escolares que «se quedan colgados» muchas veces por día, unos segundos. La hiperventilación las provoca en el consultorio.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Entre los 4 y 10 años; más en niñas.</li><li>Desconexión brusca de 5 a 15 segundos, mirada fija, a veces parpadeo o automatismos; vuelve enseguida sin confusión.</li><li>Decenas de veces por día; a menudo se consulta por bajo rendimiento escolar o «está distraído».</li><li><b>Hiperventilar 3 minutos</b> en el consultorio las reproduce en la mayoría.</li><li>EEG: punta-onda generalizada a 3 Hz.</li></ul>" },
+      { h: "Tratamiento", html: "<p><b>Etosuximida</b> como primera opción: igual de eficaz que el valproato y con menos efectos sobre la atención; la lamotrigina es menos eficaz. La mayoría remite en la adolescencia. Diferenciar de la distracción del TDAH: las ausencias interrumpen hasta la conversación y no se cortan al llamarlo.</p>" }
+    ],
+    evidencia: ["glauser2010"],
+    pico: [
+      { p: "Niños con epilepsia de ausencias infantil", i: "Etosuximida", c: "Ácido valproico o lamotrigina", o: "Libres de fracaso terapéutico a las 16 semanas",
+        respuesta: "Etosuximida (53 %) y valproico (58 %) fueron similares y superiores a lamotrigina (29 %). La etosuximida tuvo menos efectos adversos sobre la atención: es la primera elección.",
+        certeza: "Alta", refs: ["glauser2010"] }
+    ],
+    ateneos: [],
+    conexiones: ["ne-tdah", "ne-paroxisticos"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-rolandica", nivel: 3, mapa: "neurologia", titulo: "Epilepsia autolimitada con puntas centrotemporales", corto: "Epilepsia rolándica", tipo: "concepto",
+    x: 330, y: 390,
+    resumen: "La epilepsia focal más frecuente en escolares: crisis hemifaciales al dormir, con babeo y sin poder hablar. Se cura sola en la adolescencia.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Entre los 4 y 10 años.</li><li>Crisis durante el sueño o al despertar: parestesias y clonías de una hemicara, babeo, dificultad para hablar con conciencia conservada; a veces generaliza.</li><li>Desarrollo y examen normales.</li><li>EEG: puntas centrotemporales que aumentan con el sueño.</li></ul>" },
+      { h: "Qué hacer", html: "<p>Con un examen y EEG típicos, no hace falta neuroimagen. Muchos no necesitan tratamiento si las crisis son pocas y nocturnas; se trata si son frecuentes o molestas. Remite antes de los 16 años. Vigilar dificultades de lenguaje y aprendizaje.</p>" }
+    ],
+    evidencia: ["scheffer2017"], pico: [], ateneos: [],
+    conexiones: ["ne-primera"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-west", nivel: 2, mapa: "neurologia", titulo: "Espasmos infantiles (síndrome de West)", corto: "Espasmos infantiles", tipo: "concepto",
+    x: 120, y: 520,
+    resumen: "Lactante de 3 a 12 meses con salvas de espasmos al despertar y estancamiento del desarrollo. Es una urgencia: EEG y tratamiento en días.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Espasmos breves en flexión o extensión, en salvas, al despertar; se confunden con cólicos o con el reflejo de Moro.</li><li>Estancamiento o regresión del desarrollo, menos sonrisa y contacto.</li><li>EEG: hipsarritmia.</li><li>Causas: esclerosis tuberosa (buscar manchas hipocrómicas), encefalopatía hipóxico-isquémica, malformaciones, trisomía 21, genéticas; a veces desconocida.</li></ul>" },
+      { h: "Tratamiento", html: "<ul><li>Tratamiento hormonal (prednisolona en dosis altas o ACTH), y sumar <b>vigabatrina</b> mejora la respuesta.</li><li>En la esclerosis tuberosa, vigabatrina como primera elección.</li><li>Cuanto antes se trata, mejor el pronóstico del desarrollo.</li></ul>" }
+    ],
+    evidencia: ["ocallaghan2017"],
+    pico: [
+      { p: "Lactantes con espasmos infantiles", i: "Tratamiento hormonal más vigabatrina", c: "Tratamiento hormonal solo", o: "Cese de los espasmos (días 14 a 42)",
+        respuesta: "Más lactantes quedaron sin espasmos con la combinación (72 % vs 57 %), con efectos adversos graves similares.",
+        certeza: "Moderada", refs: ["ocallaghan2017"] }
+    ],
+    ateneos: [],
+    conexiones: ["ne-retraso", "ne-paroxisticos"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-paroxisticos", nivel: 2, mapa: "neurologia", titulo: "Eventos paroxísticos no epilépticos", corto: "Lo que no es epilepsia", tipo: "concepto",
+    x: 330, y: 520,
+    resumen: "Espasmo del sollozo, síncope, parasomnias, reflujo, tics: son más frecuentes que la epilepsia y se diagnostican con una buena historia y un video.",
+    teoria: [
+      { h: "Los más frecuentes según la edad", html: "<div class=\"tabla\"><table><thead><tr><th>Edad</th><th>Evento</th><th>Pista</th></tr></thead><tbody><tr><td>Lactante</td><td>Sandifer (reflujo), mioclonías benignas del sueño, estremecimientos</td><td>Relación con las tomas o el sueño; se frenan al despertarlo o sujetarlo</td></tr><tr><td>6 meses – 5 años</td><td><b>Espasmo del sollozo</b> (cianótico o pálido)</td><td>Siempre hay un desencadenante: llanto, enojo, golpe. Pausa en espiración y después pérdida de conciencia</td></tr><tr><td>Preescolar</td><td>Terrores nocturnos, vértigo paroxístico benigno</td><td>Primera parte de la noche; no recuerda</td></tr><tr><td>Escolar y adolescente</td><td><b>Síncope</b>, tics, crisis psicógenas, migraña</td><td>De pie, calor, sangre; pródromo con visión borrosa y palidez; recuperación rápida</td></tr></tbody></table></div>" },
+      { h: "Claves", html: "<ul><li>Pedir un <b>video</b>: suele resolver la duda.</li><li>En el síncope pueden aparecer sacudidas breves: no es epilepsia. ECG en todo síncope (QT largo, preexcitación); preocupa el que ocurre durante el ejercicio.</li><li>En el espasmo del sollozo, controlar la ferritina: el hierro reduce los episodios.</li><li>No pedir EEG «por las dudas»: hallazgos inespecíficos llevan a diagnósticos falsos de epilepsia.</li></ul>" }
+    ],
+    evidencia: [], pico: [], ateneos: [],
+    conexiones: ["ne-primera", "ne-migrana"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Cefalea y trauma */
+  {
+    id: "ne-migrana", nivel: 1, mapa: "neurologia", titulo: "Migraña", tipo: "concepto",
+    x: 850, y: 140,
+    resumen: "La cefalea primaria recurrente más frecuente. En niños dura menos y suele ser bilateral. Ibuprofeno temprano; los preventivos no superaron al placebo.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Crisis de 2 a 72 horas, pulsátil, moderada o intensa, que empeora con la actividad.</li><li>Náuseas o vómitos, fotofobia y fonofobia; el niño busca acostarse y mejora al dormir.</li><li>En niños puede ser bilateral (frontal) y más corta.</li><li>Aura visual en una minoría.</li><li>Antecedentes familiares en la mayoría.</li><li>Equivalentes en los más chicos: vómitos cíclicos, dolor abdominal recurrente, vértigo paroxístico.</li></ul>" },
+      { h: "Tratamiento de la crisis", html: "<ul><li><b>Ibuprofeno</b> 10 mg/kg como primera opción; paracetamol 15 mg/kg como alternativa. Tomarlo apenas empieza.</li><li>Adolescentes: triptanes (sumatriptán-naproxeno, zolmitriptán nasal, rizatriptán).</li><li>En la guardia: hidratación, ketorolac, metoclopramida o proclorperazina.</li><li>Evitar el uso de analgésicos más de 10–15 días por mes (cefalea por abuso).</li></ul><p class=\"nota\">Verificar dosis con el vademécum institucional.</p>" },
+      { h: "Prevención", html: "<p>Primero los hábitos: sueño regular, no saltear comidas, hidratación, actividad física, manejo del estrés, diario de cefaleas. En el ensayo CHAMP, amitriptilina y topiramato no fueron mejores que el placebo (que mejoró al 61 %). La terapia cognitivo-conductual tiene evidencia favorable.</p>" }
+    ],
+    evidencia: ["oskoui2019", "powers2017"],
+    pico: [
+      { p: "Niños y adolescentes con migraña frecuente", i: "Amitriptilina o topiramato", c: "Placebo", o: "Reducción de 50 % o más de los días de cefalea",
+        respuesta: "Sin diferencias: 52 % con amitriptilina, 55 % con topiramato y 61 % con placebo, con más efectos adversos con los fármacos. El efecto placebo y las medidas generales son grandes en esta edad.",
+        certeza: "Alta", refs: ["powers2017"] }
+    ],
+    ateneos: [],
+    conexiones: ["ne-cefalea-alarma", "ne-paroxisticos"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-cefalea-alarma", nivel: 1, mapa: "neurologia", titulo: "Cefalea: banderas rojas", corto: "Cefalea con alarma", tipo: "concepto",
+    x: 1090, y: 140,
+    resumen: "Lo que obliga a buscar una causa secundaria y pedir neuroimagen. Sin banderas rojas, la tomografía no ayuda.",
+    teoria: [
+      { h: "Banderas rojas", html: "<ul><li>Cefalea que despierta de noche o aparece al levantarse, con vómitos.</li><li>Empeora con la tos, el esfuerzo o el decúbito.</li><li>Inicio súbito, «la peor de su vida».</li><li>Progresiva en frecuencia o intensidad, o cambio de patrón.</li><li>Examen anormal: papiledema, déficit focal, ataxia, alteración de la conciencia o de la conducta.</li><li>Fiebre y rigidez de nuca; síntomas sistémicos.</li><li>Menores de 3–5 años (no saben describirla).</li><li>Válvula de derivación, inmunodepresión, neurofibromatosis.</li></ul>" },
+      { h: "Qué hacer", html: "<p>Siempre: presión arterial y <b>fondo de ojo</b>. Con banderas rojas, neuroimagen (RM de preferencia; TC si es urgente y no hay RM). Otras causas secundarias frecuentes y benignas: infecciones virales, sinusitis, cefalea postraumática, abuso de analgésicos. Considerar hipertensión endocraneana idiopática en adolescentes con sobrepeso o con tetraciclinas.</p>" }
+    ],
+    evidencia: ["do2019"], pico: [], ateneos: [],
+    conexiones: ["ne-migrana", "ne-meningitis", "ne-tec"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-tec", nivel: 1, mapa: "neurologia", titulo: "Traumatismo de cráneo leve", corto: "TEC leve", tipo: "concepto",
+    x: 970, y: 250,
+    resumen: "La mayoría no necesita tomografía. Las reglas PECARN separan a los de muy bajo riesgo de los que hay que estudiar u observar.",
+    teoria: [
+      { h: "Reglas PECARN (Glasgow 14–15)", html: "<div class=\"tabla\"><table><thead><tr><th></th><th>Menores de 2 años</th><th>2 años o más</th></tr></thead><tbody><tr><td><b>TC</b></td><td>Glasgow 14 u otra alteración mental; fractura palpable</td><td>Glasgow 14 u otra alteración mental; signos de fractura de base</td></tr><tr><td><b>Observar o TC</b> (según cantidad de hallazgos, evolución y preferencia)</td><td>Hematoma no frontal, pérdida de conciencia de 5 segundos o más, mecanismo grave, no actúa normal según los padres</td><td>Pérdida de conciencia, vómitos, mecanismo grave, cefalea intensa</td></tr><tr><td><b>Sin TC</b></td><td>Ninguno de los anteriores</td><td>Ninguno de los anteriores</td></tr></tbody></table></div><p>Sin ningún hallazgo, el riesgo de lesión importante es menor de 0,05 %. Mecanismo grave: accidente de tránsito con eyección o vuelco, peatón o ciclista sin casco atropellado, caída de más de 90 cm (menores de 2 años) o 1,5 m (mayores), impacto con objeto de alta energía.</p>" },
+      { h: "Al alta", html: "<ul><li>Pautas de alarma: vómitos repetidos, somnolencia, cefalea creciente, convulsión, cambio de conducta.</li><li>Conmoción: reposo relativo 24–48 horas y regreso gradual a la escuela y al deporte; no volver al deporte con síntomas.</li><li>Pensar en maltrato si la historia no coincide con las lesiones o con el desarrollo, sobre todo en lactantes.</li></ul>" }
+    ],
+    evidencia: ["kuppermann2009"], pico: [], ateneos: [],
+    conexiones: ["ne-cefalea-alarma"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Infección y déficit agudo */
+  {
+    id: "ne-meningitis", nivel: 1, mapa: "neurologia", titulo: "Meningitis bacteriana", corto: "Meningitis", tipo: "concepto",
+    x: 530, y: 400,
+    resumen: "Fiebre con rigidez de nuca, alteración de conciencia o petequias. Antibiótico sin demora; la dexametasona reduce la sordera.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Niños: fiebre, cefalea, vómitos, rigidez de nuca, fotofobia, alteración de conciencia, convulsiones; petequias en la meningocócica.</li><li>Lactantes: irritabilidad, rechazo del alimento, fontanela abombada, letargo; la rigidez de nuca puede faltar.</li><li>Gérmenes: neumococo y meningococo (después del mes); estreptococo grupo B, E. coli y Listeria en neonatos.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>Hemocultivo y punción lumbar si está estable y no hay contraindicaciones (inestabilidad, signos de hipertensión endocraneana, coagulopatía). <b>No demorar el antibiótico</b> por la punción ni por la TC.</li><li>Empírico desde el mes: ceftriaxona 100 mg/kg/día (máx. 4 g) más vancomicina según la resistencia local. Menores de 1 mes: ampicilina más cefotaxima o gentamicina.</li><li><b>Dexametasona</b> 0,15 mg/kg cada 6 horas por 2 a 4 días, con la primera dosis antes del antibiótico o junto con él.</li><li>Quimioprofilaxis de contactos en la meningocócica y por Hib.</li><li>Control auditivo antes del alta.</li></ul><p class=\"nota\">Verificar dosis con el vademécum institucional.</p>" }
+    ],
+    evidencia: ["brouwer2015"],
+    pico: [
+      { p: "Niños con meningitis bacteriana", i: "Dexametasona junto con el antibiótico", c: "Antibiótico solo", o: "Mortalidad, hipoacusia y secuelas",
+        respuesta: "No redujo la mortalidad global, pero sí la hipoacusia grave (RR 0,67) y las secuelas neurológicas a corto plazo; en niños, el beneficio se vio sobre todo con Haemophilus influenzae. En países de bajos ingresos no mostró beneficio.",
+        certeza: "Moderada", refs: ["brouwer2015"] }
+    ],
+    ateneos: [],
+    conexiones: ["ne-encefalitis", "ne-febril"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-encefalitis", nivel: 2, mapa: "neurologia", titulo: "Encefalitis", tipo: "concepto",
+    x: 680, y: 400,
+    resumen: "Alteración de la conciencia o de la conducta por más de 24 horas, con fiebre, convulsiones o foco. Aciclovir empírico; pensar también en la autoinmune.",
+    teoria: [
+      { h: "Cuándo pensarlo", html: "<ul><li>Alteración de conciencia, letargo o cambio de conducta de 24 horas o más.</li><li>Con fiebre, convulsiones, déficit focal, pleocitosis en el LCR, neuroimagen o EEG alterados.</li><li>Infecciosa: herpes simple (la más grave tratable), enterovirus, otros virus.</li><li><b>Autoinmune anti-NMDA:</b> cambios de conducta o psiquiátricos, trastornos del movimiento (discinesias orofaciales), convulsiones, alteración autonómica, mutismo; en niñas y adolescentes buscar teratoma de ovario.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li><b>Aciclovir IV</b> empírico apenas se sospecha, hasta descartar herpes por PCR en LCR (repetir la PCR si fue temprana y la sospecha sigue).</li><li>RM y EEG.</li><li>Anticuerpos anti-NMDA en LCR y suero si la causa infecciosa no se confirma.</li><li>Inmunoterapia temprana en la autoinmune (corticoides, IGIV o plasmaféresis; segunda línea con rituximab).</li></ul>" }
+    ],
+    evidencia: ["venkatesan2013", "titulaer2013"], pico: [], ateneos: [],
+    conexiones: ["ne-status", "ne-ataxia"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-gbs", nivel: 1, mapa: "neurologia", titulo: "Síndrome de Guillain-Barré", corto: "Guillain-Barré", tipo: "concepto",
+    x: 530, y: 500,
+    resumen: "Debilidad simétrica ascendente con arreflexia, días a semanas después de una infección. Vigilar la respiración; IGIV si no camina.",
+    teoria: [
+      { h: "Cómo se presenta", html: "<ul><li>Dolor en piernas o espalda (frecuente en niños, a veces el primer síntoma), negativa a caminar.</li><li>Debilidad simétrica que asciende, con reflejos disminuidos o ausentes.</li><li>Puede comprometer pares craneales, respiración y sistema autonómico (arritmias, presión lábil).</li><li>Antecedente de infección respiratoria o diarrea (Campylobacter) en las semanas previas.</li><li>LCR: proteínas altas con células normales (puede ser normal la primera semana).</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>Internar y medir la función respiratoria seriada (capacidad vital, contar en una espiración), la deglución, la presión y el ritmo.</li><li><b>IGIV</b> 2 g/kg en 2 a 5 días (o plasmaféresis) si no puede caminar sin ayuda o progresa rápido.</li><li>Los corticoides no sirven.</li><li>Analgesia y rehabilitación. La mayoría de los niños se recupera bien.</li></ul>" },
+      { h: "Diferenciar de", html: "<p>Mielitis transversa (nivel sensitivo, retención urinaria), compresión medular, botulismo del lactante, miositis aguda benigna (dolor en pantorrillas con CPK alta y reflejos conservados), <a href=\"#ne-ataxia\">ataxia aguda</a>.</p>" }
+    ],
+    evidencia: ["leonhard2019", "hughes2014"],
+    pico: [
+      { p: "Pacientes con Guillain-Barré grave", i: "IGIV iniciada en las primeras dos semanas", c: "Plasmaféresis", o: "Mejoría de la discapacidad a las 4 semanas",
+        respuesta: "La IGIV acelera la recuperación tanto como la plasmaféresis y es más simple de administrar en niños.",
+        certeza: "Moderada", refs: ["hughes2014"] }
+    ],
+    ateneos: [],
+    conexiones: ["ne-ataxia", "ne-bell"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-ataxia", nivel: 2, mapa: "neurologia", titulo: "Ataxia aguda", tipo: "concepto",
+    x: 680, y: 500,
+    resumen: "Preescolar que de golpe camina como borracho, días después de una virosis: casi siempre cerebelitis postinfecciosa. Descartar intoxicación.",
+    teoria: [
+      { h: "Causas", html: "<ul><li><b>Cerebelitis postinfecciosa</b> (la más frecuente): entre 1 y 6 años, 1 a 3 semanas después de varicela u otra virosis; ataxia de la marcha y del tronco, nistagmo, con conciencia normal. Se resuelve en semanas.</li><li><b>Intoxicaciones</b>: benzodiacepinas, antiepilépticos, antihistamínicos, alcohol.</li><li>Otras: encefalomielitis aguda diseminada (con alteración de conciencia o foco), Guillain-Barré (variante Miller Fisher), tumor de fosa posterior, trauma, opsoclono-mioclono (neuroblastoma), migraña basilar, laberintitis.</li></ul>" },
+      { h: "Cuándo estudiar", html: "<p>Neuroimagen urgente si hay alteración de conciencia, foco, signos de hipertensión endocraneana, trauma, ataxia asimétrica o curso progresivo. Pesquisa toxicológica si no hay pródromo viral claro.</p>" }
+    ],
+    evidencia: ["petley2020"], pico: [], ateneos: [],
+    conexiones: ["ne-encefalitis", "ne-gbs"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-bell", nivel: 2, mapa: "neurologia", titulo: "Parálisis facial periférica", corto: "Parálisis facial", tipo: "concepto",
+    x: 605, y: 580,
+    resumen: "Compromete toda la hemicara, también la frente. En niños casi siempre se recupera sola; descartar otitis, Lyme e hipertensión.",
+    teoria: [
+      { h: "Central o periférica", html: "<p><b>Periférica:</b> toda la hemicara, no puede arrugar la frente ni cerrar el ojo. <b>Central:</b> respeta la frente; obliga a buscar una lesión cerebral.</p>" },
+      { h: "Qué buscar", html: "<ul><li>Otitis media aguda o colesteatoma.</li><li>Herpes zóster ótico (vesículas en el conducto: Ramsay Hunt).</li><li>Hipertensión arterial, leucemia, trauma.</li><li>Bilateral o con otros pares: Guillain-Barré, Lyme.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li><b>Proteger el ojo</b>: lágrimas artificiales de día y gel y oclusión de noche.</li><li>Corticoides: en niños el beneficio es pequeño; el ensayo BellPEDS no mostró diferencias significativas. Pueden considerarse en las formas completas.</li><li>Control evolutivo; derivar si no mejora en 3 a 4 semanas.</li></ul>" }
+    ],
+    evidencia: ["babl2024"],
+    pico: [
+      { p: "Niños con parálisis de Bell", i: "Prednisolona", c: "Placebo", o: "Recuperación de la función facial a los 6 meses",
+        respuesta: "Recuperación casi universal en ambos grupos (98 % vs 93 %), sin diferencia significativa. La decisión puede compartirse con la familia.",
+        certeza: "Moderada", refs: ["babl2024"] }
+    ],
+    ateneos: [],
+    conexiones: ["ne-gbs"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+
+  /* Neurodesarrollo */
+  {
+    id: "ne-retraso", nivel: 1, mapa: "neurologia", titulo: "Retraso global del desarrollo", corto: "Retraso del desarrollo", tipo: "concepto",
+    x: 850, y: 410,
+    resumen: "Retraso significativo en dos o más áreas antes de los 5 años. Buscar la causa: microarray, X frágil y, según la clínica, imágenes y metabólico.",
+    teoria: [
+      { h: "Cómo reconocerlo", html: "<ul><li>Pesquisa del desarrollo en cada control (con prueba estandarizada como la PRUNAPE).</li><li>Retraso en dos o más áreas: motora gruesa y fina, lenguaje, cognitiva, social, adaptativa.</li><li>Corregir la edad por prematurez hasta los 2 años.</li><li><b>Regresión</b> (pérdida de pautas adquiridas): siempre es una alarma.</li></ul>" },
+      { h: "Qué estudiar", html: "<ul><li>Audición y visión en todos.</li><li>Primer nivel genético: microarray cromosómico y X frágil.</li><li>Neuroimagen (RM) si hay microcefalia, macrocefalia, convulsiones, signos focales o regresión.</li><li>Estudios metabólicos si hay regresión, consanguinidad, crisis metabólicas u organomegalias.</li><li>Tiroides y plomo según el contexto.</li></ul>" },
+      { h: "Qué hacer", html: "<p>Derivar a estimulación temprana <b>en cuanto se detecta</b>, sin esperar el diagnóstico etiológico. A partir de los 5 años, con evaluación cognitiva confiable, se habla de discapacidad intelectual.</p>" }
+    ],
+    evidencia: ["moeschler2014"], pico: [], ateneos: [],
+    conexiones: ["ne-pc", "ne-tea", "ne-west"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-pc", nivel: 2, mapa: "neurologia", titulo: "Parálisis cerebral", tipo: "concepto",
+    x: 1090, y: 410,
+    resumen: "Trastorno motor permanente por una lesión no progresiva del cerebro inmaduro. Se puede sospechar antes de los 6 meses.",
+    teoria: [
+      { h: "Cuándo sospecharla", html: "<ul><li>Factores de riesgo: prematurez, encefalopatía hipóxico-isquémica, ACV perinatal, infecciones congénitas.</li><li>Tono anormal (hipotonía axial con hipertonía de miembros), asimetría (preferencia de mano antes del año), reflejos primitivos que persisten, retraso motor.</li><li>Antes de los 5 meses corregidos: RM, evaluación de movimientos generales de Prechtl y examen de Hammersmith (HINE) detectan la mayoría.</li></ul>" },
+      { h: "Tipos", html: "<p>Espástica (la más frecuente: hemiparesia, diplejía, cuadriparesia), discinética, atáxica y mixta. Se clasifica la función motora con el GMFCS (niveles I a V).</p>" },
+      { h: "Qué hacer", html: "<ul><li>Intervención temprana específica, sin esperar al diagnóstico definitivo («alto riesgo de PC»).</li><li>Seguimiento de comorbilidades: epilepsia, discapacidad intelectual, visión, audición, deglución y nutrición, caderas (displasia), escoliosis, dolor y sueño.</li></ul>" }
+    ],
+    evidencia: ["novak2017"], pico: [], ateneos: [],
+    conexiones: ["ne-retraso"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-tea", nivel: 2, mapa: "neurologia", titulo: "Trastorno del espectro autista", corto: "TEA", tipo: "concepto",
+    x: 850, y: 540,
+    resumen: "Dificultades en la comunicación social y conductas restringidas o repetitivas. Pesquisa a los 18 y 24 meses; intervención sin esperar el diagnóstico.",
+    teoria: [
+      { h: "Señales tempranas", html: "<ul><li>Poco contacto visual, no responde al nombre, no señala para mostrar (atención conjunta), no comparte intereses.</li><li>Retraso o pérdida del lenguaje.</li><li>Movimientos repetitivos, juego poco funcional (alinear objetos), intereses restringidos, rigidez ante los cambios.</li><li>Hipo o hipersensibilidad sensorial.</li></ul>" },
+      { h: "Qué hacer", html: "<ul><li>Pesquisa con instrumento validado (<b>M-CHAT-R/F</b>) a los 18 y 24 meses, y siempre que haya preocupación de la familia.</li><li>Evaluar la audición.</li><li>Derivar en paralelo a evaluación diagnóstica e intervención temprana.</li><li>Estudio genético (microarray; X frágil en varones).</li><li>Atender comorbilidades: sueño, alimentación selectiva, constipación, TDAH, ansiedad, epilepsia.</li></ul>" }
+    ],
+    evidencia: ["hyman2020"], pico: [], ateneos: [],
+    conexiones: ["ne-tdah", "ne-retraso"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "ne-tdah", nivel: 2, mapa: "neurologia", titulo: "TDAH", tipo: "concepto",
+    x: 1090, y: 540,
+    resumen: "Inatención, hiperactividad o impulsividad en más de un ámbito, que afectan el funcionamiento. Diagnóstico clínico con informes de la casa y la escuela.",
+    teoria: [
+      { h: "Diagnóstico", html: "<ul><li>Síntomas antes de los 12 años, por al menos 6 meses, en dos o más ámbitos (casa, escuela), con impacto funcional.</li><li>Cuestionarios estandarizados a padres y docentes (por ejemplo, Vanderbilt o SNAP-IV).</li><li>Descartar y buscar comorbilidades: problemas de audición o visión, trastornos del aprendizaje, ansiedad, depresión, trastornos del sueño (apnea), ausencias, situaciones de estrés o maltrato.</li></ul>" },
+      { h: "Tratamiento", html: "<ul><li><b>Preescolares (4–5 años):</b> primero entrenamiento conductual para padres; fármacos solo si no alcanza.</li><li><b>Desde los 6 años:</b> estimulantes (metilfenidato) junto con intervenciones conductuales y apoyos escolares.</li><li>Antes de iniciar, preguntar por síntomas cardíacos y antecedentes de muerte súbita.</li><li>Controlar peso, talla, presión y frecuencia cardíaca.</li></ul>" }
+    ],
+    evidencia: ["wolraich2019"], pico: [], ateneos: [],
+    conexiones: ["ne-tea", "ne-ausencias"],
     revision: { estado: "borrador", revisor: null, fecha: null }
   }
 ];
