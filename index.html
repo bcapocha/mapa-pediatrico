@@ -103,8 +103,28 @@ h1 { font-size: clamp(26px, 4vw, 40px); line-height: 1.1; font-weight: 600; lett
 .volver:hover { border-color: var(--accent); color: var(--accent); }
 
 /* Mapa */
-.mapa { background: var(--surface); border: 1px solid var(--line-soft); border-radius: 14px; overflow-x: auto; }
-.mapa svg { display: block; width: 100%; min-width: 880px; height: auto; }
+.mapa { background: var(--surface); border: 1px solid var(--line-soft); border-radius: 14px; overflow: hidden; position: relative; }
+.lienzo { overflow: auto; --z: 1; }
+.lienzo.ampliado { max-height: 78vh; overscroll-behavior: contain; }
+.mapa svg { display: block; width: calc(100% * var(--z)); min-width: calc(880px * var(--z)); height: auto; }
+.zoom { display: flex; align-items: center; justify-content: flex-end; gap: 12px; padding: 8px 12px; border-bottom: 1px solid var(--line-soft); }
+.zoom[hidden] { display: none; }
+.zoom { flex-wrap: wrap; }
+.zoom .ayuda-z { font-size: 12px; color: var(--muted); margin-left: auto; }
+.filtro-est { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.filtro-est[hidden] { display: none; }
+.filtro-est .etq { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.filtro-est .pildora button { font-size: 12.5px; padding: 0 12px; }
+.filtro-est .pildora button[aria-pressed="true"] { background: var(--accent); color: var(--surface); }
+.filtro-est .cuenta { font-family: var(--f-mono); font-size: 11.5px; color: var(--muted); }
+svg .nodo.articulo.atenuado { opacity: .13; }
+svg .arista.rel.atenuada, svg.historia.enfoque .arista.rel.vecina.atenuada { opacity: .04; }
+.zoom .pildora { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.zoom button { font: inherit; font-size: 15px; line-height: 1; min-width: 32px; height: 32px; border: 0; border-radius: 999px; background: none; color: var(--ink); cursor: pointer; }
+.zoom button:hover { background: var(--line-soft); }
+.zoom button:disabled { opacity: .35; cursor: default; background: none; }
+.zoom button.txt { font-size: 12.5px; padding: 0 10px; }
+.zoom span { font-family: var(--f-mono); font-size: 11.5px; color: var(--muted); min-width: 42px; text-align: center; }
 .arista { fill: none; stroke: var(--line); stroke-width: 1.2; transition: stroke .2s, opacity .2s; }
 .nodo { cursor: pointer; transition: opacity .2s; }
 .nodo text { fill: var(--ink); font-family: var(--f-ui); }
@@ -171,6 +191,9 @@ svg.recorrido .arista { opacity: .15; }
 /* Submapas y recorridos */
 .submapas { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); }
 .submapas .btn { font-size: 13px; }
+.submapas .sub-art { margin-left: 8px; }
+.ref .links .btn-art { font: inherit; color: var(--accent); background: none; border: 1px solid currentColor; border-radius: 999px; padding: 1px 10px; cursor: pointer; }
+.ref .links .btn-art:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
 .recorridos { display: grid; gap: 10px; }
 .capas { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .capas .etq { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-right: 4px; }
@@ -184,6 +207,46 @@ svg.recorrido .arista { opacity: .15; }
 .capas .ayuda { font-size: 12.5px; color: var(--muted); }
 .mas-ocultos { font-family: var(--f-mono); font-size: 10px; fill: var(--muted); }
 svg.capa-1 .arista, svg.capa-2 .arista { stroke-width: 1.4; }
+/* Historia: línea de tiempo de artículos */
+.mapa svg.historia { min-width: calc(1180px * var(--z)); }
+.hs-banda { fill: color-mix(in srgb, var(--hc) 7%, transparent); }
+.hs-barra { fill: var(--hc); }
+.eje text.hs-hilo { fill: var(--ink); font-family: var(--f-ui); font-size: 14px; font-weight: 600; }
+.eje text.hs-hilo-s { fill: var(--muted); font-family: var(--f-mono); font-size: 10.5px; }
+.eje text.hs-era { fill: var(--ink); font-family: var(--f-ui); font-size: 15px; font-weight: 600; }
+.eje text.hs-era-p { fill: var(--muted); font-family: var(--f-mono); font-size: 11px; }
+.eje .hs-div { stroke: var(--line); stroke-dasharray: 2 5; }
+.eje text.hs-ley-t { fill: var(--muted); font-family: var(--f-ui); font-size: 12px; }
+.eje text.hs-ley-h { fill: var(--ink); font-family: var(--f-ui); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.nodo.articulo .aro { fill: transparent; }
+.nodo.articulo .punto { fill: var(--hc); stroke: var(--surface); stroke-width: 2; transition: r .2s; }
+.nodo.articulo .anillo-m { fill: none; stroke: var(--hc); stroke-width: 2; }
+.nodo.articulo.superado .punto { fill: var(--surface); stroke: var(--hc); stroke-width: 2; stroke-dasharray: 3 2.5; }
+.nodo.articulo text.t { font-size: 12.5px; font-weight: 600; fill: var(--ink); }
+.nodo.articulo text.et { font-size: 10.5px; fill: var(--muted); }
+.nodo.articulo.superado text.t { fill: var(--muted); }
+.nodo.articulo:hover .punto, .nodo.articulo.activo .punto { fill: var(--hc); r: 9; }
+.nodo.articulo.superado:hover .punto, .nodo.articulo.superado.activo .punto { fill: var(--surface); }
+.arista.rel { stroke: var(--rc); stroke-width: 1.4; opacity: .5; }
+.rel-supera { --rc: var(--bloqueo); } .rel-matiza { --rc: var(--c-tox); } .rel-confirma { --rc: var(--c-infl); } .rel-apoya { --rc: var(--muted); }
+.arista.rel-matiza { stroke-dasharray: 7 4; } .arista.rel-apoya { stroke-dasharray: 2 3; }
+.hs-punta { fill: var(--rc); }
+svg.historia.enfoque .arista.rel { opacity: .1; }
+svg.historia.enfoque .arista.rel.vecina { stroke: var(--rc); opacity: 1; stroke-width: 2.4; }
+svg.historia.recorrido .arista.rel { opacity: .12; }
+.p-original { margin: 0; font-size: 13.5px; color: var(--muted); font-style: italic; }
+.estado-art { font-size: 12px; font-family: var(--f-mono); padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
+.estado-art.vigente { color: var(--ok); background: var(--ok-bg); }
+.estado-art.matizado { color: var(--draft); background: var(--draft-bg); }
+.estado-art.superado { color: var(--muted); background: var(--line-soft); text-decoration: line-through; }
+.dialogo { display: grid; gap: 10px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 20px; background: var(--bg); }
+.dialogo h4 { margin: 0; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.dialogo ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.dialogo li { display: grid; gap: 2px; min-width: 0; }
+.dialogo .rel { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--rc); }
+.dialogo li button { justify-self: start; font: inherit; font-size: 14.5px; font-weight: 600; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+.dialogo li button:hover { text-decoration: underline; }
+.dialogo small { color: var(--muted); font-size: 13px; }
 /* Inicio: cuerpo humano */
 svg.cuerpo { min-width: 0; }
 .cuerpo-sombra { fill: var(--line-soft); }
@@ -350,7 +413,7 @@ aside.panel.abierto { transform: none; box-shadow: -16px 0 40px rgba(10, 18, 24,
 .pie a { font-family: var(--f-mono); }
 
 /* Casos */
-svg.vias { min-width: 1000px; }
+.mapa svg.vias { min-width: calc(1000px * var(--z)); }
 .via-banda { fill: color-mix(in srgb, var(--g) 5%, transparent); stroke: color-mix(in srgb, var(--g) 22%, transparent); }
 .via-barra { fill: var(--g); }
 .via-grupo-t { font-family: var(--f-mono); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; fill: var(--g); }
@@ -423,6 +486,7 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
 .aviso { font-size: 13px; color: var(--muted); background: var(--bg); border-radius: 8px; padding: 10px 12px; margin: 0; }
 
 @media (max-width: 600px) {
+  .zoom .ayuda-z { display: none; }
   .p-cab { padding: 18px 18px 0; }
   .p-cuerpo { padding: 18px 18px 24px; }
   .p-pie { padding: 12px 18px; }
@@ -463,7 +527,8 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
   <section class="recorridos" id="recorridos" hidden></section>
 
   <section class="mapa" aria-label="Mapa conceptual">
-    <svg id="svg" viewBox="0 0 1200 650" role="group" aria-label="Mapa conceptual"></svg>
+    <div class="zoom" id="zoom" role="group" aria-label="Zoom del mapa"><span class="filtro-est" id="filtro-est" hidden><span class="etq">Mostrar</span><span class="pildora"><button type="button" data-est="todos" aria-pressed="true">Todos</button><button type="button" data-est="vigente" aria-pressed="false">Solo vigentes</button><button type="button" data-est="vig-mat" aria-pressed="false">Vigentes y matizados</button></span><span class="cuenta" id="filtro-n"></span></span><span class="ayuda-z">También con Ctrl o ⌘ + rueda, o pellizcando</span><span class="pildora"><button type="button" data-zoom="-" aria-label="Alejar">−</button><span id="zoom-n" aria-live="polite">100 %</span><button type="button" data-zoom="+" aria-label="Acercar">+</button><button type="button" class="txt" data-zoom="0">Ajustar</button></span></div>
+    <div class="lienzo" id="lienzo"><svg id="svg" viewBox="0 0 1200 650" role="group" aria-label="Mapa conceptual"></svg></div>
     <p class="pista" id="pista"></p>
   </section>
 
@@ -479,7 +544,7 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
   <div class="p-pie" id="p-pie" hidden></div>
 </aside>
 
-<script>window.VERSION_PUBLICA = {"fecha": "2026-11-21", "nodos": {}, "refs": {}};</script>
+<script>window.VERSION_PUBLICA = {"fecha": "2026-11-22", "nodos": {}, "refs": {}};</script>
 <script src="contenido.js"></script>
 <script>
 (function () {
@@ -585,9 +650,9 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
     $("bajada").textContent = m.bajada || "";
     $("volver").hidden = !m.padre;
     if (m.padre) $("volver").textContent = m.padre === INICIO ? "← Volver al inicio" : "← Volver a " + ((MAPAS[m.padre] || {}).titulo || "el mapa anterior");
-    $("ley-tema").hidden = m.disposicion === "columnas" || m.disposicion === "cuerpo" || m.disposicion === "vias";
+    $("ley-tema").hidden = m.disposicion === "columnas" || m.disposicion === "cuerpo" || m.disposicion === "vias" || m.disposicion === "historia";
     const causas = m.causas || [];
-    $("ley-con").hidden = !!causas.length || m.disposicion === "cuerpo" || m.disposicion === "vias";
+    $("ley-con").hidden = !!causas.length || m.disposicion === "cuerpo" || m.disposicion === "vias" || m.disposicion === "historia";
     $("ley-causas").hidden = !causas.length;
     $("ley-causas").innerHTML = causas.map(c => `<span><i class="causa-i c-${esc(c)}"></i>${esc(CAUSAS[c] || c)}</span>`).join(" ");
     $("q").placeholder = m.buscar || "Buscar: VSR, IPA, magnesio…";
@@ -596,9 +661,11 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
       : m.disposicion === "zonas"
         ? "Cada zona es una parte de la guía. Las líneas muestran cómo una decisión lleva a otra. En el celular, deslizá el mapa hacia los costados."
         : "Pasá el cursor por un nodo para ver sus conexiones. En el celular, deslizá el mapa hacia los costados.");
-    const hijos = Object.entries(MAPAS).filter(([, x]) => x.padre === mapaActual);
-    $("submapas").hidden = !hijos.length || m.disposicion === "cuerpo";
-    $("submapas").innerHTML = hijos.length ? `<span>${mapaActual === INICIO ? "Ir a:" : m.padre ? "Más en este tema:" : "Submapas:"}</span>` + hijos.map(([id, x]) => `<button type="button" class="btn" data-mapa="${esc(id)}">${esc(x.titulo)} →</button>`).join("") : "";
+    const hijos = Object.entries(MAPAS).filter(([, x]) => x.padre === mapaActual && !x.articulo);
+    const arts = Object.entries(MAPAS).filter(([, x]) => x.padre === mapaActual && x.articulo);
+    $("submapas").hidden = (!hijos.length && !arts.length) || m.disposicion === "cuerpo";
+    $("submapas").innerHTML = (hijos.length ? `<span>${mapaActual === INICIO ? "Ir a:" : m.padre ? "Más en este tema:" : "Submapas:"}</span>` + hijos.map(([id, x]) => `<button type="button" class="btn" data-mapa="${esc(id)}">${esc(x.titulo)} →</button>`).join("") : "")
+      + (arts.length ? `<span class="sub-art">Artículos en mapa:</span>` + arts.map(([id, x]) => `<button type="button" class="btn" data-mapa="${esc(id)}">${esc(x.titulo.split(":")[0])} →</button>`).join("") : "");
     const delMapa = N.filter(n => n.mapa === mapaActual);
     const hayCapas = m.disposicion !== "cuerpo" && delMapa.some(n => nivelDe(n) > 1);
     $("capas").hidden = !hayCapas;
@@ -633,10 +700,142 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
     return 1150;
   };
 
+  /* ───── Historia: línea de tiempo de artículos que dialogan entre sí ───── */
+  const REL = { supera: ["Supera a", "Lo superó"], matiza: ["Matiza a", "Lo matizó"], confirma: ["Confirma a", "Lo confirmó"], apoya: ["Se apoya en", "Lo tomó como base"] };
+  const ESTADOS = { vigente: "Vigente hoy", matizado: "Matizado", superado: "Superado" };
+  const xHist = (m, a) => { const e = (m.eras || []).find(e => a >= e.desde && a <= e.hasta) || (m.eras || [])[0]; return e ? e.x0 + (a - e.desde) / (e.hasta - e.desde) * (e.x1 - e.x0) : 0; };
+  const partir = (t, max) => { const l = [""]; String(t).split(" ").forEach(w => { const u = l.length - 1; if ((l[u] + " " + w).trim().length > max && l[u]) l.push(w); else l[u] = (l[u] + " " + w).trim(); }); return l; };
+  function dibujarFondoHistoria(m) {
+    const W = m.ancho || 1460, hs = m.hilos || [];
+    const g = el("g", { class: "eje" }, svg);
+    const defs = el("defs", {}, svg);
+    Object.keys(REL).forEach(r => { const mk = el("marker", { id: "hs-p-" + r, viewBox: "0 0 10 10", refX: 8, refY: 5, markerWidth: 6, markerHeight: 6, orient: "auto-start-reverse" }, defs); el("path", { d: "M0,1 L9,5 L0,9 z", class: "hs-punta rel-" + r }, mk); });
+    const fin = hs.length ? hs[hs.length - 1].y + hs[hs.length - 1].alto : 900;
+    (m.eras || []).forEach((e, i) => {
+      const cx = (e.x0 + e.x1) / 2, [t1, t2] = String(e.titulo).split(" · ");
+      el("text", { class: "hs-era-p", x: cx, y: 30, "text-anchor": "middle" }, g).textContent = t1;
+      el("text", { class: "hs-era", x: cx, y: 52, "text-anchor": "middle" }, g).textContent = t2 || "";
+      el("text", { class: "hs-era-p", x: cx, y: 72, "text-anchor": "middle" }, g).textContent = e.pregunta;
+      if (i) el("line", { class: "hs-div", x1: e.x0, x2: e.x0, y1: 16, y2: fin + 10 }, g);
+    });
+    hs.forEach(h => {
+      const b = el("g", { style: "--hc:" + h.color }, g);
+      el("rect", { class: "hs-banda", x: 8, y: h.y, width: W - 16, height: h.alto, rx: 12 }, b);
+      el("rect", { class: "hs-barra", x: 8, y: h.y, width: 4, height: h.alto, rx: 2 }, b);
+      const ls = partir(h.titulo, 19);
+      const t = el("text", { class: "hs-hilo", x: 24, y: h.y + 28 }, b);
+      ls.forEach((l, i) => { el("tspan", { x: 24, dy: i ? 17 : 0 }, t).textContent = l; });
+      const s2 = el("text", { class: "hs-hilo-s", x: 24, y: h.y + 28 + ls.length * 17 }, b);
+      partir(h.sub, 26).forEach((l, i) => { el("tspan", { x: 24, dy: i ? 13 : 0 }, s2).textContent = l; });
+    });
+    const yE = fin + 26;
+    el("line", { x1: (m.eras || [{ x0: 250 }])[0].x0, x2: W - 20, y1: yE, y2: yE }, g);
+    (m.anios || []).forEach(a => { const x = xHist(m, a); el("line", { x1: x, x2: x, y1: yE - 4, y2: yE + 4 }, g); el("text", { x, y: yE + 20, "text-anchor": "middle" }, g).textContent = a; });
+    el("text", { class: "titulo-eje", x: 24, y: yE + 4 }, g).textContent = "Año de publicación →";
+    const yL = yE + 54;
+    el("text", { class: "hs-ley-h", x: 24, y: yL }, g).textContent = "Flechas: del artículo más viejo al que le respondió";
+    let lx = 24;
+    [["supera", "Lo supera"], ["matiza", "Lo matiza o le pone límites"], ["confirma", "Lo confirma"], ["apoya", "Se apoya en él"]].forEach(([r, t]) => {
+      el("path", { class: "arista rel rel-" + r, d: `M${lx},${yL + 20} L${lx + 34},${yL + 20}`, "marker-end": `url(#hs-p-${r})`, style: "opacity:1" }, g);
+      el("text", { class: "hs-ley-t", x: lx + 42, y: yL + 24 }, g).textContent = t;
+      lx += 70 + t.length * 6.4;
+    });
+    lx += 30;
+    el("text", { class: "hs-ley-h", x: lx, y: yL }, g).textContent = "Estado hoy";
+    [["vigente", "Vigente"], ["matizado", "Matizado"], ["superado", "Superado"]].forEach(([k, t]) => {
+      const gg = el("g", { class: "nodo articulo " + k, transform: `translate(${lx + 8},${yL + 20})`, style: "--hc:var(--muted);pointer-events:none" }, g);
+      if (k === "matizado") el("circle", { class: "anillo-m", r: 9 }, gg);
+      el("circle", { class: "punto", r: k === "matizado" ? 4.5 : 7 }, gg);
+      el("text", { class: "hs-ley-t", x: lx + 22, y: yL + 24 }, g).textContent = t;
+      lx += 46 + t.length * 7;
+    });
+  }
+  function dibujarDialogos(visibles, enMapa, gA) {
+    visibles.forEach(n => (n.dialogo || []).forEach(d => {
+      const A = porId[d.con]; if (!A || !enMapa.has(A.id) || !REL[d.rel]) return;
+      const dx = n.x - A.x, dy = n.y - A.y, len = Math.hypot(dx, dy) || 1;
+      const x0 = A.x + dx / len * 11, y0 = A.y + dy / len * 11, x1 = n.x - dx / len * 13, y1 = n.y - dy / len * 13;
+      const c = Math.min(70, len * 0.2), mx = (x0 + x1) / 2 - dy / len * c, my = (y0 + y1) / 2 + dx / len * c;
+      const p = el("path", { class: "arista rel rel-" + d.rel, d: `M${x0},${y0} Q${mx},${my} ${x1},${y1}`, "marker-end": `url(#hs-p-${d.rel})` }, gA);
+      p.dataset.a = n.id; p.dataset.b = A.id;
+      el("title", {}, p).textContent = `${n.corto} ${REL[d.rel][0].toLowerCase()} ${A.corto}: ${d.nota}`;
+      aristaEls.push(p);
+    }));
+  }
+  function dibujarArticulo(n, g, m) {
+    const h = (m.hilos || []).find(x => x.id === n.hilo) || {};
+    g.setAttribute("style", "--hc:" + (h.color || "var(--accent)"));
+    g.classList.add(ESTADOS[n.estado] ? n.estado : "vigente");
+    el("circle", { class: "aro", r: 16 }, g);
+    if (n.estado === "matizado") el("circle", { class: "anillo-m", r: 9 }, g);
+    el("circle", { class: "punto", r: n.estado === "matizado" ? 4.5 : 7 }, g);
+    el("text", { class: "t", y: 25, "text-anchor": "middle" }, g).textContent = n.corto || n.titulo;
+    if (n.etiqueta) el("text", { class: "et", y: 38, "text-anchor": "middle" }, g).textContent = n.etiqueta;
+    el("title", {}, g).textContent = (n.original || n.titulo) + (ESTADOS[n.estado] ? " · " + ESTADOS[n.estado] : "");
+  }
+  function bloqueDialogo(n) {
+    if (n.tipo !== "articulo") return "";
+    const sale = (n.dialogo || []).filter(d => porId[d.con] && REL[d.rel]).map(d => ({ o: porId[d.con], rel: REL[d.rel][0], cls: d.rel, nota: d.nota }));
+    const entra = N.filter(x => (x.dialogo || []).some(d => d.con === n.id && REL[d.rel])).map(x => { const d = x.dialogo.find(d => d.con === n.id); return { o: x, rel: REL[d.rel][1], cls: d.rel, nota: d.nota }; }).sort((a, b) => (a.o.anio || 0) - (b.o.anio || 0));
+    if (!sale.length && !entra.length) return "";
+    const li = r => `<li class="rel-${esc(r.cls)}"><span class="rel">${esc(r.rel)}</span><button type="button" data-ir="${esc(r.o.id)}">${esc(r.o.titulo)}</button><small>${esc(r.nota)}</small></li>`;
+    return `<div class="dialogo">${sale.length ? `<h4>Le responde a</h4><ul>${sale.map(li).join("")}</ul>` : ""}${entra.length ? `<h4>Le respondieron después</h4><ul>${entra.map(li).join("")}</ul>` : ""}</div>`;
+  }
+
+  /* ───── Zoom del mapa: botones, Ctrl/⌘ + rueda o pellizco en el trackpad ───── */
+  const PASOS_Z = [1, 1.25, 1.5, 2, 2.5, 3];
+  const zoomPor = {};
+  function aplicarZoom(z, cx, cy) {
+    const lz = $("lienzo"), z0 = zoomPor[mapaActual] || 1;
+    z = Math.max(1, Math.min(3, z));
+    const r = lz.getBoundingClientRect();
+    const px = cx == null ? r.width / 2 : cx - r.left, py = cy == null ? Math.min(r.height, innerHeight) / 2 : cy - r.top;
+    const fx = (lz.scrollLeft + px) / z0, fy = (lz.scrollTop + py) / z0;
+    zoomPor[mapaActual] = z;
+    lz.style.setProperty("--z", z);
+    lz.classList.toggle("ampliado", z > 1);
+    lz.scrollLeft = fx * z - px; lz.scrollTop = z > 1 ? fy * z - py : 0;
+    $("zoom-n").textContent = Math.round(z * 100) + " %";
+    $("zoom").querySelector('[data-zoom="-"]').disabled = z <= 1;
+    $("zoom").querySelector('[data-zoom="+"]').disabled = z >= 3;
+    $("zoom").querySelector('[data-zoom="0"]').disabled = z === 1;
+  }
+  $("zoom").addEventListener("click", e => {
+    const b = e.target.closest("[data-zoom]"); if (!b) return;
+    const z = zoomPor[mapaActual] || 1, k = b.dataset.zoom;
+    aplicarZoom(k === "0" ? 1 : k === "+" ? (PASOS_Z.find(p => p > z + 0.01) || 3) : ([...PASOS_Z].reverse().find(p => p < z - 0.01) || 1));
+  });
+  $("lienzo").addEventListener("wheel", e => {
+    if (!(e.ctrlKey || e.metaKey) || $("zoom").hidden) return;
+    e.preventDefault();
+    aplicarZoom((zoomPor[mapaActual] || 1) * Math.exp(-e.deltaY * 0.01), e.clientX, e.clientY);
+  }, { passive: false });
+
+  /* ───── Historia: resaltar solo los artículos vigentes ───── */
+  let filtroEst = "todos";
+  function aplicarFiltroEst() {
+    const m = MAPAS[mapaActual] || {}, hist = m.disposicion === "historia";
+    $("filtro-est").hidden = !hist;
+    if (!hist) return;
+    $("filtro-est").querySelectorAll("[data-est]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.est === filtroEst)));
+    const ok = n => filtroEst === "todos" || n.estado === "vigente" || (filtroEst === "vig-mat" && n.estado === "matizado");
+    const arts = N.filter(n => n.mapa === mapaActual && n.tipo === "articulo");
+    Object.entries(nodoEls).forEach(([id, g]) => g.classList.toggle("atenuado", !!porId[id] && !ok(porId[id])));
+    aristaEls.forEach(p => p.classList.toggle("atenuada", [p.dataset.a, p.dataset.b].some(id => porId[id] && !ok(porId[id]))));
+    $("filtro-n").textContent = filtroEst === "todos" ? arts.length + " artículos" : arts.filter(ok).length + " de " + arts.length;
+  }
+  $("zoom").addEventListener("click", e => {
+    const b = e.target.closest("[data-est]"); if (!b) return;
+    filtroEst = b.dataset.est; aplicarFiltroEst();
+  });
+
   function pintarMapa() {
     const m = MAPAS[mapaActual] || MAPAS[INICIO];
+    $("zoom").hidden = m.disposicion === "cuerpo";
+    aplicarZoom(m.disposicion === "cuerpo" ? 1 : zoomPor[mapaActual] || 1);
     svg.innerHTML = "";
-    svg.setAttribute("viewBox", "0 0 1200 650");
+    svg.setAttribute("viewBox", m.disposicion === "historia" ? `0 0 ${m.ancho || 1460} ${m.alto || 1300}` : "0 0 1200 650");
+    svg.classList.toggle("historia", m.disposicion === "historia");
     svg.classList.toggle("vias", m.disposicion === "vias");
     svg.classList.toggle("columnas", m.disposicion !== "edad");
     svg.classList.toggle("recorrido", !!recorridoActivo());
@@ -662,6 +861,8 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
         el("text", { class: "zona-t", x: z.x + 16, y: z.y + 26 }, g).textContent = z.titulo;
         (z.sub || []).forEach(s => { el("text", { class: "zona-s", x: s.x, y: s.y, "text-anchor": "middle" }, g).textContent = s.t; });
       });
+    } else if (m.disposicion === "historia") {
+      dibujarFondoHistoria(m);
     } else if (m.disposicion === "columnas") {
       const g = el("g", { class: "eje" }, svg);
       (m.columnas || []).forEach((c, i) => {
@@ -687,7 +888,8 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
     const gA = el("g", {}, svg);
     const vistas = new Set();
     aristaEls = [];
-    visibles.forEach(n => (n.conexiones || []).forEach(mid => {
+    if (m.disposicion === "historia") dibujarDialogos(visibles, enMapa, gA);
+    else visibles.forEach(n => (n.conexiones || []).forEach(mid => {
       const B = porId[mid];
       if (!B || !enMapa.has(mid)) return;
       const k = [n.id, mid].sort().join("|");
@@ -706,7 +908,9 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
     visibles.forEach(n => {
       const g = el("g", { class: "nodo " + (n.tipo || "concepto"), tabindex: 0, role: "button", "aria-label": n.titulo, transform: `translate(${n.x || 600},${n.y || 300})` }, gN);
       g.dataset.id = n.id;
-      if (n.tipo === "tema") {
+      if (n.tipo === "articulo") {
+        dibujarArticulo(n, g, m);
+      } else if (n.tipo === "tema") {
         const c = colorTema[n.id] || n.color || "var(--accent)";
         if (n.submapa) el("circle", { class: "anillo", r: 44, stroke: c }, g);
         el("circle", { class: "halo", r: 34, stroke: c }, g);
@@ -759,6 +963,7 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
         el("text", { "text-anchor": "middle", y: 4 }, gx).textContent = i + 1;
       });
     }
+    aplicarFiltroEst();
     if (busqueda) aplicarBusqueda(); else enfocar(actual);
   }
 
@@ -1006,6 +1211,8 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
       const zs = m.zonas || [];
       const zonaDe = n => zs.findIndex(z => n.x >= z.x && n.x <= z.x + z.w && n.y >= z.y && n.y <= z.y + z.h);
       html += `<h2>${esc(m.indice || "Conceptos de la guía")}</h2><div class="columnas-idx">${zs.map((z, i) => `<section><h3>${esc(z.titulo)}</h3><div class="chips">${visibles.filter(n => zonaDe(n) === i).sort((a, b) => a.y - b.y || a.x - b.x).map(n => `<button type="button" class="chip" data-ir="${esc(n.id)}">${esc(n.titulo)}</button>`).join("")}</div></section>`).join("")}</div>`;
+    } else if (m.disposicion === "historia") {
+      html += `<h2>${esc(m.indice || "Artículos")}</h2><div class="columnas-idx">${(m.hilos || []).map(h => `<section><h3 style="color:${esc(h.color)}">${esc(h.titulo)}</h3><p>${esc(h.sub)}</p><div class="chips">${visibles.filter(n => n.hilo === h.id).sort((a, b) => (a.anio || 0) - (b.anio || 0)).map(n => `<button type="button" class="chip" data-ir="${esc(n.id)}">${esc(n.titulo)}</button>`).join("")}</div></section>`).join("")}</div>`;
     } else if (m.disposicion === "columnas") {
       const cols = m.columnas || [];
       const colDe = n => cols.reduce((best, c, i) => Math.abs(c.x - n.x) < Math.abs(cols[best].x - n.x) ? i : best, 0);
@@ -1037,6 +1244,7 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
     return out.join("");
   };
   const hrefRef = k => { const r = R[k]; if (!r) return ""; if (r.pmid && /^\d+$/.test(String(r.pmid))) return `https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/`; if (r.doi) return "https://doi.org/" + encodeURI(r.doi); return urlSegura(r.url); };
+  const mapaDeRef = k => Object.keys(MAPAS).find(id => MAPAS[id].articulo === k) || null;
   const vacio = (t, d) => `<div class="vacio"><p>${t}</p>${d ? `<p>${d}</p>` : ""}</div>`;
   const invitacion = () => db && puedeEscribir !== false ? " Tocá <b>Editar</b> para agregar." : "";
 
@@ -1048,7 +1256,7 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
       ? `<p class="dif-intro">Qué orienta a cada diagnóstico frente a <b>${esc(n.corto || n.titulo)}</b>:</p><div class="difs">${n.diferenciales.map(d => `<article class="dif"><h3><span>${esc(d.dx)}</span>${d.nodo && porId[d.nodo] && d.nodo !== n.id ? `<button type="button" class="btn-texto" data-ir="${esc(d.nodo)}">Abrir${porId[d.nodo].mapa !== n.mapa ? " ↗" : " →"}</button>` : ""}</h3><div class="rico">${limpiar(d.claves)}</div></article>`).join("")}</div>`
       : vacio("Todavía no hay diagnósticos diferenciales para este concepto." + invitacion(), "Por cada diferencial: el diagnóstico y los datos clave que orientan a pensarlo."),
     evidencia: n => (n.evidencia || []).filter(k => R[k]).length
-      ? `<div class="refs">${n.evidencia.filter(k => R[k]).map(k => { const r = R[k]; return `<article class="ref"><span class="tipo">${esc(r.tipo)}</span><p class="hallazgo">${esc(r.hallazgo)}</p><p class="cita">${esc(r.cita)}</p><div class="links">${linkRef(r)}</div></article>`; }).join("")}</div>`
+      ? `<div class="refs">${n.evidencia.filter(k => R[k]).map(k => { const r = R[k]; return `<article class="ref"><span class="tipo">${esc(r.tipo)}</span><p class="hallazgo">${esc(r.hallazgo)}</p><p class="cita">${esc(r.cita)}</p><div class="links">${linkRef(r)}${mapaDeRef(k) && mapaDeRef(k) !== mapaActual ? `<button type="button" class="btn-art" data-mapa="${esc(mapaDeRef(k))}">Ver el mapa del artículo →</button>` : ""}</div></article>`; }).join("")}</div>`
       : vacio("Todavía no hay artículos asociados." + invitacion()),
     pico: n => (n.pico || []).length
       ? n.pico.map(p => `<article class="pico"><dl>
@@ -1060,7 +1268,7 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
       ? n.casos.map(c => `<article class="caso"><h3>${esc(c.titulo)}</h3><div class="rico">${limpiar(c.html)}</div>${(c.nodos || []).filter(id => porId[id]).length ? `<div class="chips">${c.nodos.filter(id => porId[id]).map(id => `<button type="button" class="chip" data-ir="${esc(id)}">${esc(porId[id].titulo)}</button>`).join("")}</div>` : ""}</article>`).join("")
       : vacio("Todavía no hay casos para este concepto." + invitacion(), "Casos ilustrativos, sin datos que permitan identificar a un paciente."),
     ateneos: n => (n.ateneos || []).length
-      ? `<div class="refs">${n.ateneos.map(a => `<article class="ref"><span class="tipo">${esc([a.fecha, a.presenta].filter(Boolean).join(" · "))}</span><p class="hallazgo">${esc(a.titulo)}</p>${urlSegura(a.url) ? `<div class="links"><a href="${esc(urlSegura(a.url))}" target="_blank" rel="noopener">Abrir material</a></div>` : ""}</article>`).join("")}</div><p class="aviso">Quien abra el enlace necesita permiso en el sitio donde está guardado el material.</p>`
+      ? `<div class="refs">${n.ateneos.map(a => `<article class="ref"><span class="tipo">${esc([a.fecha, a.presenta].filter(Boolean).join(" · "))}</span><p class="hallazgo">${esc(a.titulo)}</p>${urlSegura(a.url) ? `<div class="links"><a href="${esc(urlSegura(a.url))}" target="_blank" rel="noopener">Abrir material</a></div>` : ""}</article>`).join("")}</div>${n.ateneos.some(a => urlSegura(a.url)) ? '<p class="aviso">Quien abra el enlace necesita permiso en el sitio donde está guardado el material.</p>' : ""}`
       : vacio("Todavía no hay ateneos ni clases cargados." + invitacion(), "Por cada uno: título, fecha, quién lo presentó y el enlace (Drive, YouTube privado, campus).")
   };
 
@@ -1084,14 +1292,15 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
     const puede = db && puedeEscribir !== false;
     $("p-cab").innerHTML = `
       <div class="p-fila">
-        <span class="p-tipo">${n.tipo === "tema" ? "Tema" + (n.edad ? " · " + esc(n.edad) : "") : "Concepto"}${n.mapa !== "raiz" && MAPAS[n.mapa] ? " · " + esc(MAPAS[n.mapa].titulo) : ""}${[].concat(n.causa || []).length ? `<span class="p-causas">${[].concat(n.causa).map(c => `<span class="c-${esc(c)}">${esc(CAUSAS[c] || c)}</span>`).join("")}</span>` : ""}</span>
+        <span class="p-tipo">${n.tipo === "tema" ? "Tema" + (n.edad ? " · " + esc(n.edad) : "") : n.tipo === "articulo" ? "Artículo" + (n.anio ? " · " + esc(n.anio) : "") : "Concepto"}${n.mapa !== "raiz" && MAPAS[n.mapa] ? " · " + esc(MAPAS[n.mapa].titulo) : ""}${[].concat(n.causa || []).length ? `<span class="p-causas">${[].concat(n.causa).map(c => `<span class="c-${esc(c)}">${esc(CAUSAS[c] || c)}</span>`).join("")}</span>` : ""}</span>
         <span class="p-acciones">${!enEdicion && puede ? '<button type="button" class="btn" id="b-editar">Editar</button>' : ""}<button type="button" class="btn" id="b-cerrar">${enEdicion ? "Salir" : "Cerrar"}</button></span>
       </div>
       ${enEdicion
         ? `<label class="campo"><span>Título</span><input class="titulo-ed" id="ed-titulo" value="${esc(n.titulo)}"></label>
            <label class="campo"><span>Resumen en una línea</span><textarea id="ed-resumen" rows="2">${esc(n.resumen)}</textarea></label>`
-        : `<h2 id="p-titulo">${esc(n.titulo)}</h2><p class="p-resumen">${esc(n.resumen)}</p>`}
+        : `<h2 id="p-titulo">${esc(n.titulo)}</h2>${n.original ? `<p class="p-original">«${esc(n.original)}»</p>` : ""}<p class="p-resumen">${esc(n.resumen)}</p>`}
       <div class="p-meta" id="p-meta">
+        ${n.tipo === "articulo" && ESTADOS[n.estado] ? `<span class="estado-art ${esc(n.estado)}">${ESTADOS[n.estado]}</span>` : ""}
         ${rev.estado === "revisado" ? `<span class="chip-estado ok">Revisado<span data-persona="${esc(rev.revisor || "")}" data-pre=" por "></span>${rev.fecha ? " · " + esc(fechaLinda(rev.fecha)) : ""}</span>` : `<span class="chip-estado">Borrador · sin revisar</span>`}
         ${n.fuente ? `<span>Fuente: ${esc(n.fuente)}</span>` : ""}
         ${n.editado && n.editado.fecha ? `<span>Última edición<span data-persona="${esc(n.editado.por || "")}" data-pre=": "></span> · ${esc(fechaLinda(n.editado.fecha))}</span>` : ""}
@@ -1117,8 +1326,8 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
     if (edicion) { $("p-cuerpo").innerHTML = ""; editores[pestana]($("p-cuerpo"), n); return; }
     const con = [...(vecinos[n.id] || [])].map(id => porId[id]).filter(Boolean)
       .sort((a, b) => (a.mapa === b.mapa ? 0 : a.mapa === n.mapa ? -1 : 1));
-    $("p-cuerpo").innerHTML = lectura[pestana](n) +
-      (con.length ? `<div class="conexiones"><h4>Conectado con</h4><div class="chips">${con.map(c => `<button type="button" class="chip" data-ir="${esc(c.id)}">${esc(c.titulo)}${c.mapa !== n.mapa ? " ↗" : ""}</button>`).join("")}</div></div>` : "");
+    $("p-cuerpo").innerHTML = (pestana === "teoria" ? bloqueDialogo(n) : "") + lectura[pestana](n) +
+      (con.length && n.tipo !== "articulo" ? `<div class="conexiones"><h4>Conectado con</h4><div class="chips">${con.map(c => `<button type="button" class="chip" data-ir="${esc(c.id)}">${esc(c.titulo)}${c.mapa !== n.mapa ? " ↗" : ""}</button>`).join("")}</div></div>` : "");
     $("p-cuerpo").scrollTop = 0;
   }
 
@@ -1393,9 +1602,10 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
   });
   $("volver").addEventListener("click", () => irAMapa((MAPAS[mapaActual] || {}).padre || INICIO));
   velo.addEventListener("click", cerrar);
-  document.addEventListener("keydown", e => { if (e.key === "Escape" && actual && !edicion) cerrar(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && actual && !edicion && !(e.target.closest && e.target.closest("#tutor"))) cerrar(); });
   window.addEventListener("hashchange", desdeHash);
   window.addEventListener("beforeunload", e => { if (edicion && edicion.cambios) { e.preventDefault(); e.returnValue = ""; } });
+
 
   /* ───── Arranque ───── */
   recomponer();
@@ -1430,6 +1640,8 @@ svg.vias.enfoque .defecto:not(.activo):not(.ley) { opacity: .3; }
   })();
 })();
 </script>
+
+
 
 </body>
 </html>
