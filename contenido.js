@@ -231,6 +231,27 @@ window.REFS = {
     pmid: "27230765",
     doi: "10.1542/peds.2015-4496"
   },
+  sirianansopa2023: {
+    cita: "Sirianansopa K, Ruangnapa K, Prasertsan P, et al. Probability of successful inhaled corticosteroids cessation in preschool wheezers: a predictive score. Eur J Pediatr. 2023;182:237-244.",
+    tipo: "Cohorte retrospectiva (n = 131), un centro de Tailandia",
+    hallazgo: "Más de la mitad de los preescolares pudo suspender el CI después de la prueba terapéutica. Fue menos probable con oxígeno en la primera semana de vida, rinitis alérgica, eosinófilos > 500/mm³ o más de 6 meses de CI previo. Propone un puntaje simple, todavía sin validación externa.",
+    pmid: "36289097",
+    doi: "10.1007/s00431-022-04679-2"
+  },
+  thanatcharoenkul2026: {
+    cita: "Thanatcharoenkul N, Anuntaseree W, Sirianansopa K, et al. Time to cessation of inhaled corticosteroid therapy in transient wheezers. Pediatr Allergy Immunol Pulmonol. 2026;39:36-43.",
+    tipo: "Cohorte retrospectiva (n = 162), un centro de Tailandia",
+    hallazgo: "En sibilantes transitorios que recibieron CI (más de 3 episodios por año), la mediana hasta suspenderlo fue de 16 meses. Los menores de 2 años tardaron el doble (razón de tiempo 2,0) y la rinitis no alérgica lo alargó un 38 %. Los autores aclaran que refleja decisiones médicas y es probablemente un techo.",
+    pmid: "42332903",
+    doi: "10.1177/2151321X261463343"
+  },
+  murphy2009: {
+    cita: "Murphy KR, Zeiger RS, Kosinski M, et al. Test for respiratory and asthma control in kids (TRACK): a caregiver-completed questionnaire for preschool-aged children. J Allergy Clin Immunol. 2009;123:833-839.",
+    tipo: "Estudio de desarrollo y validación de un cuestionario (n = 486 cuidadores)",
+    hallazgo: "TRACK: 5 preguntas que contestan los padres de menores de 5 años (síntomas, limitación y despertares en las últimas 4 semanas, rescate en 3 meses y corticoide oral en el año). Discriminó bien el control según las guías (área bajo la curva 0,82–0,88) y clasificó bien a cerca del 80 %.",
+    pmid: "19348922",
+    doi: "10.1016/j.jaci.2009.01.058"
+  },
   ducharme2008: {
     cita: "Ducharme FM, et al. The Pediatric Respiratory Assessment Measure: a valid clinical score for assessing acute asthma severity from toddlers to teenagers. J Pediatr. 2008;152:476-480.",
     tipo: "Estudio de validación (cohorte prospectiva, 2 a 17 años)",
@@ -1840,7 +1861,7 @@ window.NODOS = [
     ],
     evidencia: ["melody2022", "harmonie2023", "matisse2023"],
     pico: [], ateneos: [],
-    conexiones: ["vsr", "bronquiolitis", "prematurez"],
+    conexiones: ["vsr", "bronquiolitis", "prematurez", "sr-vsr-asma"],
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
@@ -1859,9 +1880,9 @@ window.NODOS = [
     x: 345, y: 475,
     resumen: "Cuándo indicar oxígeno y qué lugar ocupa la cánula nasal de alto flujo.",
     teoria: [
-      { h: "Puntos clave", html: "<ul><li>Bronquiolitis: oxígeno si la SatO₂ es menor de 90–92 % según la guía. No perseguir saturaciones altas ni monitorizar en forma continua a quienes ya no lo necesitan.</li><li>Crisis asmática: objetivo de SatO₂ entre 92 y 95 % (GINA 2026).</li><li>CNAF: aporta flujo calentado y humidificado, con algo de presión positiva. En bronquiolitis su lugar es el rescate tras falla del oxígeno estándar.</li></ul>" }
+      { h: "Puntos clave", html: "<ul><li>Bronquiolitis: oxígeno si la SatO₂ es menor de 90–92 % según la guía. No perseguir saturaciones altas ni monitorizar en forma continua a quienes ya no lo necesitan.</li><li>Crisis asmática: objetivo de SatO₂ entre 92 y 95 % (GINA 2026).</li><li>El número no es todo: con un oxímetro que mostraba 3 puntos más de lo real, se internó el 25 % de los lactantes con bronquiolitis leve a moderada en lugar del 41 % (Schuh 2014). Apuntar a una SatO₂ de 90 % fue tan seguro y eficaz como apuntar a 94 % (Cunningham 2015).</li><li>CNAF: aporta flujo calentado y humidificado, con algo de presión positiva. En bronquiolitis su lugar es el rescate tras falla del oxígeno estándar.</li></ul>" }
     ],
-    evidencia: ["paris2018", "ralston2014"],
+    evidencia: ["paris2018", "ralston2014", "schuh2014", "cunningham2015"],
     pico: [], ateneos: [],
     conexiones: ["bronquiolitis", "crisis"],
     revision: { estado: "borrador", revisor: null, fecha: null }
@@ -2055,9 +2076,10 @@ window.NODOS = [
     resumen: "Menor de 6 años, más de un episodio y al menos uno confirmado.",
     teoria: [
       { h: "Criterios", html: "<ol class=\"pasos\"><li>Edad de 0 a menos de 6 años.</li><li>Más de un episodio de sibilancias en la vida.</li><li>Al menos uno confirmado por un profesional.</li></ol>" },
-      { h: "Qué cambia respecto de 2008", html: "<p>Las categorías <i>episodic viral wheeze</i> y <i>multiple-trigger wheeze</i> no reflejan la patología de la vía aérea y pueden no predecir la respuesta al tratamiento. Siguen sirviendo para recuperar estudios. La propuesta es describir el patrón entre episodios y sumar rasgos tratables: eosinófilos en sangre, sensibilización a aeroalérgenos, función pulmonar e infección.</p>" }
+      { h: "Qué cambia respecto de 2008", html: "<p>Las categorías <i>episodic viral wheeze</i> y <i>multiple-trigger wheeze</i> no reflejan la patología de la vía aérea y pueden no predecir la respuesta al tratamiento. Siguen sirviendo para recuperar estudios. La propuesta es describir el patrón entre episodios y sumar rasgos tratables: eosinófilos en sangre, sensibilización a aeroalérgenos, función pulmonar e infección.</p>" },
+      { h: "El paso intermedio (2014)", html: "<p>Seis años después de 2008, el grupo de la ERS reconoció que el patrón de sibilancias cambia con el tiempo y con el tratamiento, y que en muchos chicos la distinción entre viral episódica y múltiples desencadenantes no es clara. Propuso considerar el CI también en la viral episódica con episodios frecuentes o graves, tomar todo controlador como una prueba con seguimiento cercano y suspenderlo si no hay beneficio (Brand 2014).</p>" }
     ],
-    evidencia: ["makrinioti2024", "brand2008"],
+    evidencia: ["makrinioti2024", "brand2008", "brand2014"],
     pico: [], ateneos: [
       { titulo: "¿Por qué hacemos lo que hacemos? Diagnóstico y tratamiento del paciente sibilante", fecha: "25 de noviembre de 2026" }
     ],
@@ -2100,7 +2122,7 @@ window.NODOS = [
   },
   {
     id: "sr-gravedad", nivel: 1, mapa: "sibilancias", titulo: "Gravedad y respuesta", tipo: "concepto",
-    x: 450, y: 185,
+    x: 450, y: 165,
     resumen: "Primero cuánto le cuesta respirar; después cuánto cambia con el salbutamol.",
     teoria: [
       { h: "Qué evaluar", html: "<ul><li>Frecuencia respiratoria, tiraje y saturación</li><li>Capacidad para hablar, alimentarse e hidratarse</li><li>Estado de conciencia</li><li>Un score clínico objetivo antes y después del broncodilatador: el <b>PRAM</b> está validado desde los 2 años (ver Cap. 12 del reporte GINA)</li></ul>" },
@@ -2113,7 +2135,7 @@ window.NODOS = [
   },
   {
     id: "sr-salbutamol", nivel: 1, mapa: "sibilancias", titulo: "Salbutamol con aerocámara", tipo: "concepto",
-    x: 450, y: 335,
+    x: 450, y: 285,
     resumen: "Rescate de elección en el preescolar con sibilancias recurrentes.",
     teoria: [
       { h: "Cómo darlo", html: "<ul><li>Inhalador de dosis medida con aerocámara; con máscara facial en menores de 4 años.</li><li>GINA (5 años o menos): 2 disparos de 100 µg cada 20 minutos durante la primera hora si hace falta.</li><li>Reevaluar con el mismo score a los 20–60 minutos.</li></ul><p class=\"nota\">Verificar dosis con el vademécum institucional.</p>" }
@@ -2125,13 +2147,14 @@ window.NODOS = [
   },
   {
     id: "sr-cort-oral", nivel: 2, mapa: "sibilancias", titulo: "Corticoide oral en la crisis", corto: "Corticoide oral", tipo: "concepto",
-    x: 450, y: 485,
+    x: 450, y: 405,
     resumen: "Beneficio modesto, mayor en quienes ya tienen historia de sibilancias o asma.",
     teoria: [
       { h: "Qué dice la evidencia", html: "<p>Un metaanálisis de datos individuales (7 ensayos, 1728 chicos de 12 a 71 meses) mostró mejoría del puntaje de sibilancias a las 4 horas, sin diferencia clara a las 12, y una internación 3,2 horas más corta. En quienes tenían antecedentes de sibilancias o asma, 4,5 horas.</p><p>Los ensayos individuales no coinciden: en Panickar 2009 (chicos internados) no hubo diferencia en la duración de la internación; en Foster 2018 (605 chicos de 2 a 6 años en guardia), con prednisolona 1 mg/kg/día por 3 días llegaron antes a estar en condiciones de alta (mediana 370 frente a 540 minutos).</p>" },
-      { h: "Al lado de la camilla", html: "<ul><li>Valorar gravedad y respuesta al salbutamol primero.</li><li>El beneficio es más plausible si la crisis requiere atención hospitalaria y hay antecedentes.</li><li>Las horas de estadía medidas no dicen cuánto ganaría un chico con una crisis leve en su casa.</li><li>El lactante con su primera bronquiolitis queda fuera de esta evidencia.</li></ul>" }
+      { h: "Al lado de la camilla", html: "<ul><li>Valorar gravedad y respuesta al salbutamol primero.</li><li>El beneficio es más plausible si la crisis requiere atención hospitalaria y hay antecedentes.</li><li>Las horas de estadía medidas no dicen cuánto ganaría un chico con una crisis leve en su casa.</li><li>El lactante con su primera bronquiolitis queda fuera de esta evidencia.</li></ul>" },
+      { h: "En casa y en la crisis leve", html: "<p>La prednisolona iniciada por los padres al comenzar un nuevo episodio viral, en chicos de 1 a 5 años, no mejoró los síntomas ni las internaciones frente a placebo, ni siquiera en quienes tenían más «preparación» eosinofílica (Oommen 2003). La actualización de la ERS de 2014 lo resume: no indicarlo en episodios leves a moderados y reservarlo para crisis graves que requieren internación (Brand 2014).</p>" }
     ],
-    evidencia: ["lee2024", "panickar2009", "jartti2006", "foster2018"],
+    evidencia: ["lee2024", "panickar2009", "jartti2006", "foster2018", "oommen2003", "brand2014"],
     pico: [
       {
         p: "Niños de 12 a 71 meses con sibilancias agudas",
@@ -2146,7 +2169,7 @@ window.NODOS = [
     ateneos: [
       { titulo: "¿Por qué hacemos lo que hacemos? Diagnóstico y tratamiento del paciente sibilante", fecha: "25 de noviembre de 2026" }
     ],
-    conexiones: ["sr-gravedad", "sr-rinovirus", "cort-sistemicos"],
+    conexiones: ["sr-gravedad", "sr-rinovirus", "cort-sistemicos", "sr-azitromicina"],
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
@@ -2169,10 +2192,12 @@ window.NODOS = [
     teoria: [
       { h: "Cuándo", html: "<p>Patrón compatible con asma y síntomas no controlados, o crisis frecuentes (por ejemplo, tres o más por año). Es una prueba terapéutica: reevaluar a los 2–3 meses y suspender si no hay beneficio claro.</p>" },
       { h: "Dosis bajas en 5 años o menos (GINA)", html: "<div class=\"tabla\"><table><thead><tr><th>Fármaco</th><th>Dosis diaria baja</th></tr></thead><tbody><tr><td>Beclometasona HFA (IDM)</td><td>100 µg</td></tr><tr><td>Budesonida nebulizada</td><td>500 µg</td></tr><tr><td>Fluticasona propionato HFA (IDM)</td><td>50 µg</td></tr></tbody></table></div><p class=\"nota\">Verificar con la tabla de GINA vigente.</p>" },
-      { h: "¿Quién responde mejor?", html: "<p>En INFANT, la mejor respuesta al CI diario la predijo la <b>sensibilización a aeroalérgenos</b>, y fue aún más probable si además había <b>eosinófilos ≥ 300/µL</b>. La historia de crisis no la predijo. Es un rasgo tratable, no una etiqueta de fenotipo.</p><p class=\"nota\">Borrador: verificar contra el texto original.</p>" },
-      { h: "Antes de subir la dosis", html: "<p>Revisar técnica con aerocámara, adherencia, exposición a humo y diagnóstico.</p>" }
+      { h: "¿Quién responde mejor?", html: "<p>En INFANT, la mejor respuesta al CI diario la predijo la <b>sensibilización a aeroalérgenos</b>, y fue aún más probable si además había <b>eosinófilos ≥ 300/µL</b>. La historia de crisis no la predijo. Es un rasgo tratable, no una etiqueta de fenotipo.</p><p class=\"nota\">Medir los eosinófilos con el chico estable. En zonas con parasitosis frecuente una eosinofilia puede ser parasitaria: interpretarla con cuidado. Los puntos de corte no están bien validados para decidir en un chico individual.</p><p class=\"nota\">Borrador: verificar contra el texto original.</p>" },
+      { h: "Antes de subir la dosis", html: "<p>Revisar técnica con aerocámara, adherencia, exposición a humo y diagnóstico.</p>" },
+      { h: "Seguimiento: cómo medir el control", html: "<p>A los 2–3 meses, además de contar las crisis, sirve un cuestionario validado para menores de 5 años: <b>TRACK</b> (Murphy 2009). Son 5 preguntas para los padres sobre síntomas, despertares y limitación en las últimas 4 semanas, rescates en 3 meses y corticoide oral en el año.</p><p class=\"nota\">Verificar el punto de corte en el cuestionario original antes de usarlo.</p>" },
+      { h: "¿Cuándo y cómo suspender?", html: "<p>Muchos preescolares son sibilantes transitorios: el CI controla mientras se usa pero no cambia la evolución, así que conviene plantear la suspensión en cada control, idealmente al terminar el invierno.</p><ul><li><b>Sirianansopa 2023</b> (cohorte, 131 chicos): más de la mitad pudo suspenderlo tras la prueba. Fue más difícil con oxígeno en la primera semana de vida, rinitis alérgica, eosinófilos > 500/mm³ o más de 6 meses de CI.</li><li><b>Thanatcharoenkul 2026</b> (cohorte, 162 sibilantes transitorios): mediana de 16 meses hasta suspender, el doble en los menores de 2 años.</li></ul><p class=\"nota\">Son estudios retrospectivos de un solo centro: orientan, no son reglas. Si no hubo beneficio claro en la prueba, se suspende sin esperar.</p>" }
     ],
-    evidencia: ["fitzpatrick2016", "zeiger2011", "gina2026", "kaiser2016"],
+    evidencia: ["fitzpatrick2016", "zeiger2011", "gina2026", "kaiser2016", "murphy2009", "sirianansopa2023", "thanatcharoenkul2026"],
     pico: [
       {
         p: "Preescolares con sibilancias persistentes que necesitan un controlador",
@@ -2232,21 +2257,22 @@ window.NODOS = [
   },
   {
     id: "sr-trayectorias", nivel: 1, mapa: "sibilancias", titulo: "Trayectorias de sibilancias", corto: "Trayectorias", tipo: "concepto",
-    x: 1050, y: 165,
+    x: 1050, y: 150,
     resumen: "Tucson y ALSPAC: historias que solo se pueden nombrar cuando el chico creció.",
     teoria: [
       { h: "Tucson (1995)", html: "<p>826 de 1246 recién nacidos con seguimiento completo. A los 6 años: 51,5 % nunca sibilaron, 19,9 % sibilancias tempranas transitorias, 15,0 % de inicio tardío y 13,7 % persistentes. Las transitorias ya tenían menor función pulmonar antes de enfermar; las persistentes, más asma materna e IgE elevada.</p>" },
       { h: "ALSPAC (2008)", html: "<p>6265 chicos, sibilancias registradas siete veces. Seis trayectorias. Las de inicio intermedio (alrededor de 18 meses) se asociaron fuertemente con atopia (OR 8,36) e hiperreactividad a metacolina.</p>" },
-      { h: "El límite", html: "<p>Son descripciones de cohortes, asignadas con el seguimiento completo. No son la probabilidad individual de que a este chico «se le pase».</p>" }
+      { h: "El límite", html: "<p>Son descripciones de cohortes, asignadas con el seguimiento completo. No son la probabilidad individual de que a este chico «se le pase».</p>" },
+      { h: "Función pulmonar (2018)", html: "<p>En tres cohortes (2436 chicos con espirometrías repetidas), el VEF₁ siguió cuatro trayectorias que se mantuvieron desde la edad escolar hasta la adultez temprana. La persistentemente baja (5 %) se asoció con sibilancias persistentes y asma, y en los primeros años con crisis de sibilancias graves, sensibilización alérgica temprana y exposición al humo de tabaco. La mayoría de los lactantes con función baja no terminó en esa trayectoria (Belgrave 2018).</p>" }
     ],
-    evidencia: ["martinez1995", "henderson2008"],
+    evidencia: ["martinez1995", "henderson2008", "belgrave2018"],
     pico: [], ateneos: [],
     conexiones: ["sr-patron", "sr-terminos", "sr-rinovirus", "fenotipos"],
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
     id: "sr-rinovirus", nivel: 3, mapa: "sibilancias", titulo: "Rinovirus y riesgo de asma", corto: "Rinovirus", tipo: "concepto",
-    x: 1050, y: 285,
+    x: 1050, y: 255,
     resumen: "Sibilar con rinovirus en los primeros años se asocia fuertemente con asma a los 6.",
     teoria: [
       { h: "COAST (2008)", html: "<p>259 chicos con antecedentes familiares de alergia o asma, seguidos hasta los 6 años. Sibilancias con rinovirus antes de los 3 años: OR 9,8 de asma; con VSR: OR 2,6. De quienes sibilaron con rinovirus en el tercer año, 26 de 30 tenían asma a los 6.</p>" },
@@ -2266,18 +2292,19 @@ window.NODOS = [
       }
     ],
     ateneos: [],
-    conexiones: ["sr-trayectorias", "sr-ipa", "sr-cort-oral", "rinovirus"],
+    conexiones: ["sr-trayectorias", "sr-ipa", "sr-cort-oral", "rinovirus", "sr-vsr-asma"],
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
     id: "sr-ipa", nivel: 2, mapa: "sibilancias", titulo: "IPA y rasgos tratables", tipo: "concepto",
-    x: 1050, y: 405,
+    x: 1050, y: 360,
     resumen: "Predecir asma (IPA) y predecir respuesta al tratamiento (eosinófilos, sensibilización) son preguntas distintas.",
     teoria: [
       { h: "Dos preguntas", html: "<ul><li><b>¿Va a tener asma?</b> El Índice Predictivo de Asma tiene buen valor predictivo negativo.</li><li><b>¿Qué tratamiento le va a servir?</b> La sensibilización a aeroalérgenos, sobre todo junto con eosinófilos ≥ 300/µL, se asocia con mejor respuesta al CI diario (INFANT).</li></ul>" },
-      { h: "En la práctica", html: "<p>Un hemograma con eosinófilos y una evaluación de sensibilización (prick test o IgE específica) pueden ayudar a decidir el controlador en el preescolar con sibilancias persistentes.</p>" }
+      { h: "En la práctica", html: "<p>Un hemograma con eosinófilos y una evaluación de sensibilización (prick test o IgE específica) pueden ayudar a decidir el controlador en el preescolar con sibilancias persistentes.</p>" },
+      { h: "Los límites de la predicción", html: "<p>Una revisión sistemática de 12 modelos para predecir asma escolar en preescolares con síntomas encontró que algunos predicen mejor y otros descartan mejor, pero ninguno se destaca en las dos cosas a la vez (Smit 2015). En muchos chicos con sibilancias, anticipar el asma sigue siendo difícil: el índice orienta la conversación con la familia, no decide el tratamiento.</p>" }
     ],
-    evidencia: ["castro2000", "fitzpatrick2016", "makrinioti2024"],
+    evidencia: ["castro2000", "fitzpatrick2016", "makrinioti2024", "smit2015"],
     pico: [], ateneos: [
       { titulo: "¿Por qué hacemos lo que hacemos? Diagnóstico y tratamiento del paciente sibilante", fecha: "25 de noviembre de 2026" }
     ],
@@ -2286,7 +2313,7 @@ window.NODOS = [
   },
   {
     id: "sr-historia", nivel: 3, mapa: "sibilancias", titulo: "¿El corticoide inhalado cambia la evolución?", corto: "¿El CI cambia la evolución?", tipo: "concepto",
-    x: 1050, y: 525,
+    x: 1050, y: 465,
     resumen: "Prevenir asma ≠ controlar asma. El CI controla síntomas mientras se usa, pero no previene el asma.",
     teoria: [
       { h: "Prevenir asma ≠ controlar asma", html: "<p>Son dos objetivos distintos. <b>Controlar</b> es que hoy esté bien y tenga menos crisis: el CI lo logra mientras se usa. <b>Prevenir</b> sería cambiar la historia natural, que a los 6 años tenga o no asma: ningún esquema de CI lo logró.</p>" },
@@ -2296,6 +2323,33 @@ window.NODOS = [
     evidencia: ["guilbert2006", "bisgaard2006"],
     pico: [], ateneos: [],
     conexiones: ["sr-ci-diario", "sr-ci-intermitente"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "sr-vsr-asma", nivel: 3, mapa: "sibilancias", titulo: "¿El VSR causa el asma o la anuncia?", corto: "VSR y asma", tipo: "concepto",
+    x: 1050, y: 570,
+    resumen: "Prevenir el VSR redujo las sibilancias del primer año, pero no el asma diagnosticada a los 6 años.",
+    teoria: [
+      { h: "La pregunta", html: "<p>Los chicos que tienen una bronquiolitis por VSR sibilan más después. ¿El virus daña la vía aérea o aparece en chicos que ya eran vulnerables? Las cohortes no pueden separarlo; un ensayo que previene el virus sí.</p>" },
+      { h: "MAKI (2013 y 2018)", html: "<p>429 prematuros sanos de 32 a 35 semanas recibieron palivizumab o placebo en su primera temporada. En el primer año, los días con sibilancias bajaron un 61 % (Blanken 2013). A los 6 años, el asma «actual» informada por los padres fue menor (14 % frente a 24 %), sobre todo por menos chicos con 1 a 3 episodios, pero el asma diagnosticada por el médico (10 % en ambos grupos) y la función pulmonar fueron iguales (Scheltema 2018).</p>" },
+      { h: "Lo que viene", html: "<p>Nirsevimab, en una dosis antes de la temporada, redujo un 74,5 % las infecciones respiratorias bajas por VSR con consulta médica en lactantes sanos de término y prematuros tardíos (Hammitt 2022). Con su uso masivo y el de la vacuna materna, el seguimiento de esas cohortes podrá contestar si menos VSR significa menos asma.</p>" }
+    ],
+    evidencia: ["blanken2013", "scheltema2018", "melody2022"],
+    pico: [], ateneos: [],
+    conexiones: ["sr-rinovirus", "sr-trayectorias", "prevencion-vsr", "vsr"],
+    revision: { estado: "borrador", revisor: null, fecha: null }
+  },
+  {
+    id: "sr-azitromicina", nivel: 3, mapa: "sibilancias", titulo: "Azitromicina en el episodio", corto: "Azitromicina", tipo: "concepto",
+    x: 450, y: 525,
+    resumen: "Acortó los episodios y redujo crisis graves en chicos seleccionados. Prometedora, no de rutina.",
+    teoria: [
+      { h: "Qué mostraron los ensayos", html: "<ul><li><b>COPSAC (Stokholm 2016)</b>: 72 chicos de 1 a 3 años, 158 episodios con síntomas tipo asma. Con azitromicina el episodio duró 3,4 días frente a 7,7 con placebo; el efecto fue mayor si se empezaba antes del sexto día.</li><li><b>APW-RCT (Bacharier 2015)</b>: 443 preescolares con antecedentes de infecciones respiratorias bajas graves recurrentes. Darla al inicio de un resfrío redujo el riesgo de progresar a un cuadro grave (HR 0,64; 5 % frente a 8 % en el primer episodio).</li></ul>" },
+      { h: "Por qué no es rutina", html: "<p>Son poblaciones seleccionadas, el beneficio absoluto es chico y la resistencia bacteriana no se estudió bien (COPSAC no la evaluó). No es un tratamiento recomendado de rutina para el preescolar que sibila con los virus.</p>" }
+    ],
+    evidencia: ["stokholm2016", "bacharier2015"],
+    pico: [], ateneos: [],
+    conexiones: ["sr-cort-oral", "sr-gravedad", "sr-rinovirus"],
     revision: { estado: "borrador", revisor: null, fecha: null }
   },
   {
